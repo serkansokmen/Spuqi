@@ -1,0 +1,3 @@
+[submodule "qnotes/assets/lib/bootstrap"]
+	path = qnotes/assets/lib/bootstrap
+	url = git://github.com/serkansokmen/bootstrap.git
