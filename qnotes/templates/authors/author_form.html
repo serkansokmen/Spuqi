@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+{% load i18n crispy_forms_tags %}
+
+{% block content %}
+<form class="form-horizontal" method="post">
+    {% csrf_token %}
+    {{ form|crispy }}
+    <div class="form-actions">
+        <button type="submit" class="btn btn-primary">{% trans "Save" %}</button>
+        <a href="{% if author %}{{ author.get_absolute_url }}{% else %}{% url author_list %}{% endif %}" class="btn">{% trans "Cancel" %}</a>
+    </div>
+</form>
+{% endblock content %}

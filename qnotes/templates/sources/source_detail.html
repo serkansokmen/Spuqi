@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+{% load i18n %}
+
+{% block content %}
+<a href="{% url source_add %}"><i class="icon-plus-sign"></i> {% trans "New Source" %}</a>
+{% with current_source as source %}
+<p>{% blocktrans with source as source %}Quotes from <i class="text-info">&ldquo; {{ source }} &rdquo;</i>{% endblocktrans %} :</p>
+<ul>
+{% for quote in source_quotes %}
+    <li><a href="{{ quote.get_absolute_url }}">{{ quote }}</a></li>
+{% empty %}
+    {% trans "No quotes" %}
+{% endfor %}
+</ul>
+{% endwith %}
+{% endblock content %}

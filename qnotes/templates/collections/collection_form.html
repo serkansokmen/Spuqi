@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+{% load i18n crispy_forms_tags %}
+
+{% block content %}
+    <div class="row-fluid">
+        <form class="form-horizontal" method="post">
+            {% csrf_token %}
+            {{ form|crispy }}
+            <div class="form-actions">
+                <button type="submit" class="btn btn-primary">{% trans "Save" %}</button>
+                <a href="{% if collection %}{{ collection.get_absolute_url }}{% else %}{% url collection_list %}{% endif %}" class="btn">{% trans "Cancel" %}</a>
+            </div>
+        </form>
+    </div>
+{% endblock content %}

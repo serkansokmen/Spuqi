@@ -1,0 +1,2 @@
+{% literal %}{{ object.quote }}
+{{ object.user }}{% endliteral %}

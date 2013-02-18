@@ -1,0 +1,7 @@
+{% load i18n %}
+{% if user.is_authenticated %}
+<div class="pull-right">
+    <input type="text" class="search-querys" placeholder="{% trans "Enter keywords" %}" disabled="disabled">
+    <button class="btn" type="button" disabled="disabled">{% trans "Search" %}</button>
+</div>
+{% endif %}

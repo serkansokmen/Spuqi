@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+{% load i18n %}
+{% load endless %}
+
+{% block content %}
+    {{ block.super }}
+    <a href="{% url quote_add %}"><i class="icon-plus-sign"></i> {% trans "New Quote" %}</a>
+    <br>
+    {% paginate 2 quotes %}
+    {% show_pages %}
+    {% for quote in quotes %}
+        {% include "quotes/quote_item.html" %}
+    {% endfor %}
+{% endblock content %}

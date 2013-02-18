@@ -1,0 +1,23 @@
+{% extends 'userena/base_userena.html' %}
+{% load i18n %}
+{% load crispy_forms_tags %}
+
+{% block title %}{% trans "Signin" %}{% endblock %}
+
+{% block content %}
+<form action="" method="post" class="form-horizontal">
+    {% csrf_token %}
+    <fieldset>
+        {{ form|crispy}}
+        <legend>
+            {% trans "Signin" %}
+            <small>or <a href="{% url userena_signup %}">signup</a>.</small>
+        </legend>
+    </fieldset>
+    <div class="form-actions">
+        <input class="btn btn-primary" type="submit" value="{% trans "Signin" %}" />
+    </div>
+    <p class="forgot-password"><a href='{% url userena_password_reset %}' title="{% trans "Forgot your password?" %}">{% trans "Forgot your password?" %}</a></p>
+    {% if next %}<input type="hidden" name="next" value="{{ next }}" />{% endif %}
+</form>
+{% endblock %}

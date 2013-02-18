@@ -1,0 +1,8 @@
+{% extends "base.html" %}
+{% load i18n %}
+
+{% block content %}
+{% with current_quote as quote %}
+{% include "quotes/quote_item.html" %}
+{% endwith %}
+{% endblock content %}

@@ -1,0 +1,90 @@
+{% load i18n %}
+{% load compress %}
+<!DOCTYPE html>
+<html lang="en" xmlns:ng="http://angularjs.org">
+<head>
+    <meta charset="utf-8">
+    <title>{% block page_title %}Quotes &amp; Notes{% endblock page_title %}</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Quotes &mp; Notes - Collaborative space for social reading">
+    <meta name="author" content="">
+
+    <link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.0/css/bootstrap-combined.no-icons.min.css" rel="stylesheet">
+    <link href="//netdna.bootstrapcdn.com/font-awesome/3.0.2/css/font-awesome.css" rel="stylesheet">
+    <!--[if lte IE 8]>
+    <link href="//netdna.bootstrapcdn.com/font-awesome/3.0.2/css/font-awesome-ie7.css" rel="stylesheet">
+    <![endif]-->
+    {% compress css %}
+    <style type="text/css">
+        body                        { padding-top: 60px; }
+        a, a:hover                  { text-decoration: none; }
+        ul.unstyled li.active a     { color: gray; }
+        footer                      { padding-bottom: 80px; }
+
+        #hint_id_sources,
+        #hint_id_topics,
+        #hint_id_members            { display: none; }
+    </style>
+    {% endcompress %}
+</head>
+<body>
+    <div class="container">
+        {% include "branding.html" %}
+        <section class="row-fluid">
+            {# Subnav #}
+            <ul class="nav nav-pills pull-left" style="margin-top:0;">
+                <li{% ifequal active_tab 'collections'  %} class="active"{% endifequal %}><a href="{% url collection_list %}"> {% trans "Collections" %}</a></li>
+                <li{% ifequal active_tab 'sources'  %} class="active"{% endifequal %}><a href="{% url source_list %}"> {% trans "Sources" %}</a></li>
+                <li{% ifequal active_tab 'quotes'  %} class="active"{% endifequal %}><a href="{% url quote_list %}"> {% trans "Quotes" %}</a></li>
+                <li{% ifequal active_tab 'authors'  %} class="active"{% endifequal %}><a href="{% url author_list %}"> {% trans "Authors" %}</a></li>
+                <li{% ifequal active_tab 'topics'  %} class="active"{% endifequal %}><a href="{% url topic_list %}"> {% trans "Topics" %}</a></li>
+            </ul>
+
+            {# {% include "toolbar.html" %} #}
+
+        </section>
+        {% block content_title %}{% endblock content_title %}
+        {% block content %}
+        <section class="row-fluid">
+            <div class="span3">
+                {% block sidebar %}
+                {% endblock sidebar %}
+            </div>
+            <div class="span9">
+                {% block inner_content %}
+                {% endblock inner_content %}
+            </div>
+        </section>
+        {% endblock content %}
+        <hr>
+        <footer class="row-fluid">
+            <small>&copy; Quotes &amp; Notes {% now "Y" %}</small>
+        </footer>
+    </div>
+
+    <!-- Javascript
+    ================================================== -->
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/1.9.0/jquery.min.js" type="text/javascript"></script>
+    {# <script src="http://cdnjs.cloudflare.com/ajax/libs/knockout/2.2.0/knockout-min.js"></script> #}
+    {# <script src="http://cdnjs.cloudflare.com/ajax/libs/knockout.mapping/2.3.3/knockout.mapping.js"></script> #}
+    {% compress js %}
+    {% block js %}
+    {% comment %}
+    <script src="{{ STATIC_URL }}lib/bootstrap/js/bootstrap-alert.js"></script>
+    <script src="{{ STATIC_URL }}lib/bootstrap/js/bootstrap-button.js"></script>
+    <script src="{{ STATIC_URL }}lib/bootstrap/js/bootstrap-collapse.js"></script>
+    <script src="{{ STATIC_URL }}lib/bootstrap/js/bootstrap-collapse.js"></script>
+    <script src="{{ STATIC_URL }}lib/bootstrap/js/bootstrap-dropdown.js"></script>
+    <script src="{{ STATIC_URL }}lib/bootstrap/js/bootstrap-modal.js"></script>
+    <script src="{{ STATIC_URL }}lib/bootstrap/js/bootstrap-popover.js"></script>
+    <script src="{{ STATIC_URL }}lib/bootstrap/js/bootstrap-scrollspy.js"></script>
+    <script src="{{ STATIC_URL }}lib/bootstrap/js/bootstrap-tab.js"></script>
+    <script src="{{ STATIC_URL }}lib/bootstrap/js/bootstrap-tooltip.js"></script>
+    <script src="{{ STATIC_URL }}lib/bootstrap/js/bootstrap-transition.js"></script>
+    <script src="{{ STATIC_URL }}lib/bootstrap/js/bootstrap-typehead.js"></script>
+    <script src="{{ STATIC_URL }}js/app.js"></script>
+    {% endcomment %}
+    {% endblock js %}
+    {% endcompress %}
+</body>
+</html>

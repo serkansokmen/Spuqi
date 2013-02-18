@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+{% load i18n %}
+
+{% block content %}
+    <form method="post">
+        {% csrf_token %}
+        <p>{% blocktrans with topic as topic %}
+        Delete {{ topic }}?
+        {% endblocktrans %}</p>
+        <div class="form-actions">
+            <input type="submit" value="{% trans "Yes" %}" class="btn btn-danger">
+            <a href="{{ topic.get_absolute_url }}" class="btn">{% trans "Cancel" %}</a>
+        </div>
+    </form>
+{% endblock content %}

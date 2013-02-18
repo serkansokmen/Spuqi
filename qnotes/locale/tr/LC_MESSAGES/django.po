@@ -1,0 +1,913 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+# 
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2013-01-30 15:57+0200\n"
+"PO-Revision-Date: 2013-01-30 16:15\n"
+"Last-Translator: Serkan Sokmen <admin@admin.com>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: \n"
+"Plural-Forms: nplurals=1; plural=0\n"
+"X-Translated-Using: django-rosetta 0.6.8\n"
+
+#: apps/accounts/models.py:10
+msgid "user"
+msgstr "kullanıcı"
+
+#: apps/authors/models.py:10
+msgid "Name"
+msgstr "Ad"
+
+#: apps/collections/models.py:11 apps/sources/models.py:11
+#: apps/topics/models.py:10
+msgid "Title"
+msgstr "Başlık"
+
+#: apps/collections/models.py:13 templates/base.html:51
+msgid "Sources"
+msgstr "Kaynaklar"
+
+#: apps/collections/models.py:15
+#: templates/collections/collection_detail.html:11
+msgid "Members"
+msgstr "Üyeler"
+
+#: apps/quotes/models.py:11 templates/quotes/quote_item.html:23
+#: templates/sources/source_list.html:13
+msgid "Source"
+msgstr "Kaynak"
+
+#: apps/quotes/models.py:12
+msgid "Quote"
+msgstr "Alıntı"
+
+#: apps/quotes/models.py:13
+msgid "Note"
+msgstr "Not"
+
+#: apps/quotes/models.py:14 templates/base.html:54
+#: templates/quotes/quote_item.html:26
+msgid "Topics"
+msgstr "Konular"
+
+#: apps/quotes/models.py:15
+msgid "Is private"
+msgstr "Özel"
+
+#: apps/quotes/views.py:61
+msgid "You have already created this quote"
+msgstr "Bu alıntıyı daha önce oluşturdunuz"
+
+#: apps/sources/models.py:13 templates/base.html:53
+#: templates/sources/source_list.html:15
+msgid "Authors"
+msgstr "Yazarlar"
+
+#: apps/sources/models.py:14
+msgid "URL"
+msgstr "URL"
+
+#: apps/sources/models.py:15 templates/sources/source_list.html:14
+msgid "ISBN"
+msgstr "ISBN"
+
+#: libs/utils.py:10
+msgid "Hold down \"Control\", or \"Command\" on a Mac, to select more than one."
+msgstr ""
+"Birden fazla seçim yapmak için \"Kontrol\", veya Mac'te \"Command\", tuşuna "
+"basılı tutun"
+
+#: libs/utils.py:51
+#, python-format
+msgid "%(month)s %(day)s"
+msgstr "%(month)s %(day)s"
+
+#: libs/utils.py:54
+#, python-format
+msgid "%(month)s %(day)s '%(year)s"
+msgstr "%(month)s %(day)s '%(year)s"
+
+#: libs/utils.py:58
+msgid "2 days ago"
+msgstr "2 gün önce"
+
+#: libs/utils.py:60 libs/templatetags/content_tags.py:28
+msgid "yesterday"
+msgstr "dün"
+
+#: libs/utils.py:62
+#, python-format
+msgid "%(hr)d hour ago"
+msgid_plural "%(hr)d hours ago"
+msgstr[0] "%(hr)d hour ago"
+msgstr[1] "%(hr)d saat önce"
+
+#: libs/utils.py:64
+#, python-format
+msgid "%(min)d min ago"
+msgid_plural "%(min)d mins ago"
+msgstr[0] "%(min)d dakika önce"
+msgstr[1] "%(min)d dakika önce"
+
+#: libs/utils.py:66
+msgid "just now"
+msgstr "şimdi"
+
+#: libs/templatetags/content_tags.py:13
+msgid "unknown"
+msgstr "bilinmiyor"
+
+#: libs/templatetags/content_tags.py:24
+msgid "today"
+msgstr "bugün"
+
+#: libs/templatetags/content_tags.py:26
+msgid "tomorrow"
+msgstr "yarın"
+
+#: settings/common.py:73
+msgid "English"
+msgstr "İngilizce"
+
+#: settings/common.py:74
+msgid "Turkish"
+msgstr "Türkçe"
+
+#: templates/base.html:50
+msgid "Collections"
+msgstr "Kolleksiyonlar"
+
+#: templates/base.html:52
+msgid "Quotes"
+msgstr "Alıntılar"
+
+#: templates/branding.html:5
+msgid "Quotes &amp; Notes"
+msgstr "Alıntı &amp; Notlar"
+
+#: templates/branding.html:6
+msgid "Collaborative space for social reading"
+msgstr "Sosyal okuma işbirlikçi alanı"
+
+#: templates/branding.html:13
+msgid "Logout"
+msgstr "Çıkış"
+
+#: templates/branding.html:17
+msgid "Settings"
+msgstr "Ayarlar"
+
+#: templates/branding.html:22
+msgid "Login"
+msgstr "Giriş"
+
+#: templates/toolbar.html:4
+msgid "Enter keywords"
+msgstr "Anahtar kelime girin"
+
+#: templates/toolbar.html:5
+msgid "Search"
+msgstr "Ara"
+
+#: templates/authors/author_confirm_delete.html:7
+#, python-format
+msgid ""
+"\n"
+"        Delete %(author)s?\n"
+"        "
+msgstr ""
+"\n"
+"<p>%(author)s silinsin mi?</p>"
+
+#: templates/authors/author_confirm_delete.html:11
+#: templates/collections/collection_confirm_delete.html:13
+#: templates/quotes/quote_confirm_delete.html:10
+#: templates/sources/source_confirm_delete.html:12
+#: templates/topics/topic_confirm_delete.html:11
+msgid "Yes"
+msgstr "Evet"
+
+#: templates/authors/author_confirm_delete.html:12
+#: templates/authors/author_form.html:10
+#: templates/collections/collection_confirm_delete.html:14
+#: templates/collections/collection_form.html:11
+#: templates/quotes/quote_confirm_delete.html:11
+#: templates/quotes/quote_form.html:12
+#: templates/sources/source_confirm_delete.html:13
+#: templates/sources/source_form.html:10
+#: templates/topics/topic_confirm_delete.html:12
+#: templates/topics/topic_form.html:10
+msgid "Cancel"
+msgstr "İptal"
+
+#: templates/authors/author_form.html:9
+#: templates/collections/collection_form.html:10
+#: templates/quotes/quote_form.html:11 templates/sources/source_form.html:9
+#: templates/topics/topic_form.html:9
+msgid "Save"
+msgstr "Kaydet"
+
+#: templates/authors/author_list.html:5
+msgid "Select an author"
+msgstr "Yazar seçin"
+
+#: templates/authors/base.html:7
+msgid "New Author"
+msgstr "Yeni Yazar"
+
+#: templates/collections/base.html:6
+msgid "New Collection"
+msgstr "Yeni Kolleksiyon"
+
+#: templates/collections/base.html:9
+msgid "Your own Collections"
+msgstr "Kolleksiyonlarınız"
+
+#: templates/collections/base.html:30
+msgid "You are a member of these collections"
+msgstr "Üyesi olduğunuz diğer kolleksiyonlar"
+
+#: templates/collections/collection_confirm_delete.html:8
+#, python-format
+msgid ""
+"\n"
+"        <p>Delete %(collection)s?</p>\n"
+"        "
+msgstr ""
+"\n"
+"<p>%(collection)s silinsin mi?</p>"
+
+#: templates/collections/collection_list.html:5
+msgid "Select a collection"
+msgstr "Kolleksiyon seçin"
+
+#: templates/quotes/base.html:7
+msgid "New Quote"
+msgstr "Alıntı Yap"
+
+#: templates/quotes/quote_confirm_delete.html:7
+msgid "Delete this quote?"
+msgstr "Bu alıntıyı silmek istiyor musunuz?"
+
+#: templates/quotes/quote_item.html:4
+msgid "Private Quotation"
+msgstr "Özel Alıntı"
+
+#: templates/quotes/quote_item.html:6
+msgid "Public Quotation"
+msgstr "Genel Alıntı"
+
+#: templates/sources/base.html:7 templates/sources/source_list.html:9
+msgid "New Source"
+msgstr "Yeni Kaynak"
+
+#: templates/sources/source_confirm_delete.html:7
+#, python-format
+msgid ""
+"\n"
+"        <p>Delete %(source)s?</p>\n"
+"        "
+msgstr ""
+"\n"
+"<p>%(source)s silinsin mi?</p>"
+
+#: templates/sources/source_detail.html:6
+#, python-format
+msgid "Quotes from <i class=\"text-info\">&ldquo; %(source)s &rdquo;</i>"
+msgstr ""
+"<i class=\"text-info\">&ldquo; %(source)s &rdquo;</i> kaynağından alıntılar"
+
+#: templates/sources/source_detail.html:11
+#: templates/topics/topic_detail.html:11
+msgid "No quotes"
+msgstr "Alıntı yok"
+
+#: templates/topics/base.html:7
+msgid "New Topic"
+msgstr "Yeni Konu"
+
+#: templates/topics/topic_confirm_delete.html:7
+#, python-format
+msgid ""
+"\n"
+"        Delete %(topic)s?\n"
+"        "
+msgstr ""
+"\n"
+"%(topic)s silinsin mi?"
+
+#: templates/topics/topic_detail.html:6
+#, python-format
+msgid "Quotes related to <i class=\"text-info\">&ldquo; %(topic)s &rdquo;</i>"
+msgstr ""
+"<i class=\"text-info\">&ldquo; %(topic)s &rdquo;</i> konusu ile ilgili "
+"alıntılar"
+
+#: templates/topics/topic_list.html:5
+msgid "Selec a topic"
+msgstr "Konu seçin"
+
+#~ msgid "Account activation failed."
+#~ msgstr "Hesap aktive edilemedi."
+
+#~ msgid "Your account could not be activated..."
+#~ msgstr "Hesabınız aktif hale getirilemedi..."
+
+#~ msgid ""
+#~ "Your account could not be activated. This could be because your activation "
+#~ "link has aged."
+#~ msgstr ""
+#~ "Hesabınız aktifleştirilemedi. Aktivasyon linkinizin süresi dolmuş olabilir."
+
+#~ msgid ""
+#~ "Please try signing up again or contact us if you think something went wrong."
+#~ msgstr ""
+#~ "Lütfen tekrar giriş yapmayı deneyin ya da bir sorunla karşılaştığınızı "
+#~ "düşünüyorsanız bizimle irtibata geçin."
+
+#~ msgid "Disabled account"
+#~ msgstr "Etkisiz hesap"
+
+#~ msgid "Your account has been disabled"
+#~ msgstr "Hesabınız etkisizleştirildi"
+
+#~ msgid "It seems your account has been disabled."
+#~ msgstr "Görünüşe göre hesabınız etkin değil."
+
+#~ msgid ""
+#~ "If you feel that injustice has been done to you, feel free to contact the "
+#~ "administrators to find out why"
+#~ msgstr ""
+#~ "Bir haksızlığa uğradığınızı düşünüyorsanız lütfen nedenini öğrenmek için "
+#~ "yöneticilerle iletişime geçin"
+
+#~ msgid "Email verification"
+#~ msgstr "E-posta doğrulama"
+
+#~ msgid "Confirm your new email"
+#~ msgstr "E-postanızı doğrulayın"
+
+#~ msgid "You have received an email at %(email)s."
+#~ msgstr "%(email)s adresinde bir e-posta aldınız."
+
+#~ msgid ""
+#~ "To associate this email address with your account (%(username)s) click on "
+#~ "the link provided in this email."
+#~ msgstr ""
+#~ "Bu e-posta adresini %(username)s hesabıyla ilişkilendirmek için e-postadaki "
+#~ "linke tıklayın."
+
+#~ msgid "Email changed!"
+#~ msgstr "E-posta değişti!"
+
+#~ msgid "New email"
+#~ msgstr "Yeni e-posta"
+
+#~ msgid ""
+#~ "Your new email address is saved. You can continue using %(site)s with this "
+#~ "email."
+#~ msgstr ""
+#~ "Yeni e-posta adresiniz kaydedildi. %(site)s adresini bu e-posta ile "
+#~ "kullanmaya devam edebilirsiniz."
+
+#~ msgid "Email verification failed."
+#~ msgstr "E-posta doğrulama başarısız."
+
+#~ msgid "Your email could not be verified..."
+#~ msgstr "E-postanız doğrulanamadı..."
+
+#~ msgid "You could try changing it again in your account settings."
+#~ msgstr "Hesap ayarlarınızda tekrar değiştirmeyi deneyebilirsiniz."
+
+#~ msgid "Account &raquo; %(username)s"
+#~ msgstr "Hesap &raquo; %(username)s"
+
+#~ msgid "View profile"
+#~ msgstr "Profil görüntüle"
+
+#~ msgid "Edit profile"
+#~ msgstr "Profil düzenle"
+
+#~ msgid "Change password"
+#~ msgstr "Şifre değiştir"
+
+#~ msgid "Change email"
+#~ msgstr "E-posta değiştir"
+
+#~ msgid "Change email address"
+#~ msgstr "E-posta değiştir"
+
+#~ msgid "Password changed"
+#~ msgstr "Şifre değiştirildi"
+
+#~ msgid "Your password has been changed"
+#~ msgstr "Şifreniz değiştirildi"
+
+#~ msgid "From now on you can use your new password to signin"
+#~ msgstr "Şu andan itibaren giriş yapmak için yeni şifrenizi kullanabilirsiniz"
+
+#~ msgid "Change Password"
+#~ msgstr "Şifre Değiştir"
+
+#~ msgid "Password reset"
+#~ msgstr "Şifre sıfırlandı"
+
+#~ msgid "Your password has been reset"
+#~ msgstr "Şifreniz sıfırlandı"
+
+#~ msgid "You can now <a href=\"%(signin_url)s\">signin</a> with your new password."
+#~ msgstr "Yeni şifreniz ile <a href=\"%(signin_url)s\">giriş</a> yapabilirsiniz."
+
+#~ msgid "Reset password"
+#~ msgstr "Şifre sıfırla"
+
+#~ msgid "Reset Password"
+#~ msgstr "Şifre Sıfırla"
+
+#~ msgid "Password reset email sent"
+#~ msgstr "Şifre sıfırla e-postası gönderildi"
+
+#~ msgid ""
+#~ "An e-mail has been sent to you which explains how to reset your password."
+#~ msgstr "Şifrenizi sıfırlamayla ilgili açıklamalar e-postanıza gönderildi."
+
+#~ msgid "Send password"
+#~ msgstr "Şifre gönder"
+
+#~ msgid "%(username)s's profile."
+#~ msgstr "%(username)s hesabının profili."
+
+#~ msgid "Edit details"
+#~ msgstr "Detayları düzenle"
+
+#~ msgid "Your mugshot"
+#~ msgstr "Avatarınız"
+
+#~ msgid "Email"
+#~ msgstr "E-posta"
+
+#~ msgid "Age"
+#~ msgstr "Yaş"
+
+#~ msgid "Website"
+#~ msgstr "Web adresi"
+
+#~ msgid "Location"
+#~ msgstr "Konum"
+
+#~ msgid "About me"
+#~ msgstr "Hakkkımda"
+
+#~ msgid "Account setup"
+#~ msgstr "Hesap ayarları"
+
+#~ msgid "Edit Profile"
+#~ msgstr "Profil Düzenle"
+
+#~ msgid "Save changes"
+#~ msgstr "Değişiklikleri kaydet"
+
+#~ msgid "Profiles"
+#~ msgstr "Profiller"
+
+#~ msgid "previous"
+#~ msgstr "önceki"
+
+#~ msgid ""
+#~ "\n"
+#~ "      Page %(page)s of %(num_pages)s\n"
+#~ "      "
+#~ msgstr ""
+#~ "\n"
+#~ "%(num_pages)s sayfadan %(page)s. sayfa"
+
+#~ msgid "next"
+#~ msgstr "sonraki"
+
+#~ msgid "Signin"
+#~ msgstr "Giriş"
+
+#~ msgid "Forgot your password?"
+#~ msgstr "Şifrenizi mi unuttunuz?"
+
+#~ msgid "Signed out"
+#~ msgstr "Çıkış yapıldı"
+
+#~ msgid "You have been signed out"
+#~ msgstr "Çıkış yaptınız"
+
+#~ msgid "You have been signed out. Till we meet again."
+#~ msgstr "Çıkış yaptınız. Bir daha görüşmek üzere."
+
+#~ msgid "Signup almost done!"
+#~ msgstr "Kaydınız neredeyse tamam!"
+
+#~ msgid "Signup"
+#~ msgstr "Kaydol"
+
+#~ msgid "Thank you for signing up with us!"
+#~ msgstr "Kayıt yaptığınız için teşekkürler!"
+
+#~ msgid ""
+#~ "You have been sent an e-mail with an activation link to the supplied email."
+#~ msgstr "Verilen e-postaya ait bir aktivasyon linki e-postanıza gönderildi."
+
+#~ msgid ""
+#~ "We will store your signup information for %(userena_activation_days)s days "
+#~ "on our server. "
+#~ msgstr ""
+#~ "Kayıt bilgilerinizi %(userena_activation_days)s gün boyunca sunucularımızda "
+#~ "saklayacağız."
+
+#~ msgid "You can now use the supplied credentials to signin."
+#~ msgstr "Giriş yapmak için sağlanan kimlik bilgilerini kullanabilirsiniz."
+
+#~ msgid "Dear %(username)s,"
+#~ msgstr "Sayın %(username)s,"
+
+#~ msgid "Thank you for signing up at %(site)s."
+#~ msgstr "%(site)s sitesine kayıt olduğunuz için teşekkürler."
+
+#~ msgid "To activate your account you should click on the link below:"
+#~ msgstr "Hesabınızı aktive etmek için aşağıdaki bağlantıya tıklayın:"
+
+#~ msgid "Thanks for using our site!"
+#~ msgstr "Sitemizi kullandığınız için teşekkürler!"
+
+#~ msgid "Sincerely"
+#~ msgstr "Sevgilerle"
+
+#~ msgid "Your signup at %(site)s."
+#~ msgstr "%(site)s sitesinde kaydınız."
+
+#~ msgid "You requested a change of your email address at %(site)s."
+#~ msgstr ""
+#~ "%(site)s sitesinde bir e-posta adresi değişikliği talebinde bulundunuz."
+
+#~ msgid "Please confirm this email address by clicking on the link below:"
+#~ msgstr "Lütfen aşağıdaki bağlantıya tıklayarak bu e-postayı doğrulayın:"
+
+#~ msgid "There was a request to change your email address at %(site)s."
+#~ msgstr ""
+#~ "%(site)s sitesinde e-posta adresinizi değiştirmek üzere bir istek "
+#~ "gerçekleşti."
+
+#~ msgid ""
+#~ "An email has been send to %(new_email)s which contains a verification link. "
+#~ "Click on the link in this email to activate it."
+#~ msgstr ""
+#~ "%(new_email)s adresine doğrulama bağlantısı içeren bir e-posta gönderildi. "
+#~ "Bu bağlantıya tıklayarak aktive edin."
+
+#~ msgid "Email verification for %(site)s."
+#~ msgstr "%(site)s sitesi için e-posta doğrulaması"
+
+#~ msgid "A request to change your email address is made at %(site)s."
+#~ msgstr "%(site)s sitesinde e-posta adresinizde değişiklik talep edildi."
+
+#~ msgid ""
+#~ "You're receiving this e-mail because you requested a password reset\n"
+#~ "for your user account at %(site_name)s"
+#~ msgstr ""
+#~ "Bu e-postayı %(site_name)s sitesinde bir şifre değişikliği talebinde "
+#~ "bulunulduğu için aldınız"
+
+#~ msgid "Please go to the following page and choose a new password:"
+#~ msgstr "Lütfen şu sayfaya giderek şifrenizi yenileyin:"
+
+#~ msgid ""
+#~ "\n"
+#~ "Your username, in case you've forgotten: %(username)s\n"
+#~ msgstr ""
+#~ "\n"
+#~ "Kullanıcı adınız, eğer unuttuysanız: %(username)s\n"
+
+#~ msgid "settings"
+#~ msgstr "ayarlar"
+
+#~ msgid "E-mail Addresses"
+#~ msgstr "E-posta Adresleri"
+
+#~ msgid "Connected Accounts"
+#~ msgstr "Bağlı Hesaplar"
+
+#~ msgid "The following e-mail addresses are associated to your account:"
+#~ msgstr "Şu e-posta adresleri hesabınız ile ilişkili:"
+
+#~ msgid "Status"
+#~ msgstr "Durum"
+
+#~ msgid "Verified"
+#~ msgstr "Doğrulanmış"
+
+#~ msgid "Unverified"
+#~ msgstr "Doğrulanmamış"
+
+#~ msgid "Primary"
+#~ msgstr "Öncelikli"
+
+#~ msgid "Make Primary"
+#~ msgstr "Öncelikli Olarak Kullan"
+
+#~ msgid "Remove"
+#~ msgstr "Kaldır"
+
+#~ msgid "Warning:"
+#~ msgstr "Uyar:"
+
+#~ msgid ""
+#~ "You currently do not have any e-mail address set up. You should really add "
+#~ "an e-mail address so you can receive notifications, reset your password, "
+#~ "etc."
+#~ msgstr ""
+#~ "Şu anda hesabınızla ilişkili herhangi bir e-posta hesabı bulunmamakta. Şifre"
+#~ " sıfırlama, bildirim alabilme gibi özellikleri kullanabilmek için bir "
+#~ "e-posta hesabı eklemeye ihtiyacızın olacak."
+
+#~ msgid "Add E-mail Address"
+#~ msgstr "E-posta Hesabı Ekle"
+
+#~ msgid "Add E-mail"
+#~ msgstr "E-posta Ekle"
+
+#~ msgid "Do you really want to remove the selected e-mail address?"
+#~ msgstr "Seçili e-posta adresini kaldırmak istediğinize emin misiniz?"
+
+#~ msgid ""
+#~ "Please confirm that <a href=\"mailto:%(email)s\">%(email)s</a> is an e-mail "
+#~ "address for user %(user_display)s."
+#~ msgstr ""
+#~ "<a href=\"mailto:%(email)s\">%(email)s</a> adresinin %(user_display)s "
+#~ "kullanıcına ait olduğunu doğrulayın."
+
+#~ msgid "Confirm"
+#~ msgstr "Onayla"
+
+#~ msgid ""
+#~ "This e-mail confirmation link expired or is invalid. Please issue a new "
+#~ "e-mail confirmation request."
+#~ msgstr ""
+#~ "Bu e-posta onaylama bağlantısının süresi dolmuş. Lütfen yeni bir e-posta "
+#~ "onayı isteği gönderin."
+
+#~ msgid ""
+#~ "You have confirmed that <a href=\"mailto:%(email)s\">%(email)s</a> is an "
+#~ "e-mail address for user %(user_display)s."
+#~ msgstr ""
+#~ "<a href=\"mailto:%(email)s\">%(email)s</a> adresinin %(user_display)s "
+#~ "kullanıcısına ait olduğunu doğruladınız."
+
+#~ msgid "Language"
+#~ msgstr "Dil"
+
+#~ msgid "Sign In"
+#~ msgstr "Giriş"
+
+#~ msgid ""
+#~ "Please sign in with one\n"
+#~ "            of your existing third party accounts. Or, <a\n"
+#~ "            href=\"%(signup_url)s\">sign up</a> for a %(site_name)s account and sign in\n"
+#~ "            below"
+#~ msgstr ""
+#~ "Lütfen üçüncü parti bir hesabınızla giriş yapın. Ya da bir %(site_name)s hesabı için <a\n"
+#~ "href=\"%(signup_url)s\">kaydolun</a> ve giriş yapın."
+
+#~ msgid ""
+#~ "Please sign in with your account or <a\n"
+#~ "            href=\"%(signup_url)s\">sign up</a> for a %(site_name)s account"
+#~ msgstr ""
+#~ "Lütfen yeni bir %(site_name)s hesabı için <a href=\"%(signup_url)s\">kayıt "
+#~ "olun</a> ya da bir hesabınız varsa giriş yapın"
+
+#~ msgid "Delete Password"
+#~ msgstr "Şifre Sil"
+
+#~ msgid ""
+#~ "You may delete your password since you are currently logged in using OpenID."
+#~ msgstr "OpenID hesabınız ile giriş yaptığınız için şifrenizi silebilirsiniz."
+
+#~ msgid "delete my password"
+#~ msgstr "şifremi sil"
+
+#~ msgid ""
+#~ "Forgotten your password? Enter your e-mail address below, and we'll send you"
+#~ " an e-mail allowing you to reset it."
+#~ msgstr ""
+#~ "Şifrenizi mi unuttunuz? E-posta adresinizi girin, size şifrenizi nasıl "
+#~ "sıfırlayacağınız ile ilgili bilgileri gönderelim."
+
+#~ msgid "Please contact us if you have any trouble resetting your password."
+#~ msgstr ""
+#~ "Şifre sıfırlama ile ilgili sıkıntı yaşıyorsanız lütfen bizimle iletişime "
+#~ "geçin."
+
+#~ msgid ""
+#~ "We have sent you an e-mail. Please contact us if you do not receive it "
+#~ "within a few minutes."
+#~ msgstr ""
+#~ "Size yeni bir e-posta gönderdik. Birkaç dakika içinde bu e-postayı "
+#~ "almazsanız lütfen bizimle iletişim kurun: <a "
+#~ "href=\"mailto:%(CONTACT_EMAIL)s\">%(CONTACT_EMAIL)s</a>"
+
+#~ msgid "Bad Token"
+#~ msgstr "Kötü Simge"
+
+#~ msgid ""
+#~ "The password reset link was invalid, possibly because it has already been "
+#~ "used.  Please request a <a href=\"%(passwd_reset_url)s\">new password "
+#~ "reset</a>."
+#~ msgstr ""
+#~ "Şifre sıfırlama bağlantısı geçerli değil, büyük ihtimal daha önce "
+#~ "kullanıldı. Lütfen yeni bir şifre sıfırlama bağlantısı isteği <a "
+#~ "href=\"%(passwd_reset_url)s\">gönderin</a>."
+
+#~ msgid ""
+#~ "You're receiving this e-mail because you or someone else has requested a password for your user account at %(site_domain)s.\n"
+#~ "It can be safely ignored if you did not request a password reset. Click the link below to reset your password.\n"
+#~ "\n"
+#~ "%(password_reset_url)s\n"
+#~ "\n"
+#~ "In case you forgot, your username is %(username)s.\n"
+#~ "\n"
+#~ "Thanks for using our site!\n"
+#~ msgstr ""
+#~ "Bu e-postayı aldınız çünkü siz ya da başka biri %(site_domain)s adresindeki kullanıcı hesabınız için yeni şifre isteği gönderdi.\n"
+#~ "Eğer bu isteği gönderen siz değilseniz bu mesajı görmezden gelebilirsiniz.\n"
+#~ "\n"
+#~ "Şifrenizi sıfırlamak için <a href=\"%(password_reset_url)s\">tıklayın</a>.\n"
+#~ "\n"
+#~ "Şifre sıfırlama linkini göremiyorsanız lütfen aşağıdaki adresi kopyalayarak tarayıcınızın adres şubuğuna yapıştırın:\n"
+#~ "<pre>%(password_reset_url)s</pre>\n"
+#~ "\n"
+#~ "Anımsamanız için, kullanıcı adınız %(username)s.\n"
+#~ "\n"
+#~ "Quotes&Notes uygulamasını kullandığınız için teşekkürler!\n"
+
+#~ msgid "Sign Up"
+#~ msgstr "Kayıt Ol"
+
+#~ msgid ""
+#~ "Already have an account? Then please <a href=\"%(login_url)s\">sign in</a>."
+#~ msgstr ""
+#~ "Zaten bir hesabınız var mı? O zaman lütfen <a href=\"%(login_url)s\">giriş "
+#~ "yapın</a>."
+
+#~ msgid "Verify Your E-mail Address"
+#~ msgstr "E-posta Adresini Doğrula"
+
+#~ msgid ""
+#~ "We have sent an e-mail to <a href=\"mailto:%(email)s\">%(email)s</a> for "
+#~ "verification. Follow the link provided to finalize the signup process. "
+#~ "Please contact us if you do not receive it within a few minutes."
+#~ msgstr ""
+#~ "<b>%(email)s</b> adresine yeni bir doğrulama e-postayı gönderildi. Kayıt "
+#~ "işleminizi tamamlamak için lütfen e-postadaki bağlantıya gidin. Birkaç "
+#~ "dakika içinde bu e-postayı alamazsanız bizimle iletişime geçin: <a "
+#~ "href=\"mailto:%(CONTACT_EMAIL)s\">%(CONTACT_EMAIL)s</a>"
+
+#~ msgid ""
+#~ "This part of the site requires us to verify that\n"
+#~ "you are who you claim to be. For this purpose, we require that you\n"
+#~ "verify ownership of your e-mail address. "
+#~ msgstr ""
+#~ "Bu sayfa kimlik onayı gerektirmektedir. Bu sebeple e-posta adresinizi "
+#~ "doğrulayınız."
+
+#~ msgid ""
+#~ "We have sent an e-mail to you for\n"
+#~ "verification. Please click on the link inside this e-mail. Please\n"
+#~ "contact us if you do not receive it within a few minutes."
+#~ msgstr ""
+#~ "Doğrulama için size bir e-posta yolladık. Lütfen bu e-postada bulunan "
+#~ "bağlantıya tıklayın. Birkaç dakika içinde bu e-postayı almazsanız lütfen "
+#~ "bizimle iletişime geçin."
+
+#~ msgid ""
+#~ "<strong>Note:</strong> you can still <a href=\"%(email_url)s\">change your "
+#~ "e-mail address</a>."
+#~ msgstr ""
+#~ "<strong>Not:</strong> hala <a href=\"%(email_url)s\">e-posta adresinizi "
+#~ "değiştirebilirsiniz</a>."
+
+#~ msgid ""
+#~ "User %(user_display)s at %(site_name)s has given this as an email address.\n"
+#~ "\n"
+#~ "To confirm this is correct, go to %(activate_url)s\n"
+#~ msgstr ""
+#~ "%(site_name)s sitesindeki %(user_display)s kullanıcısı kimlik doğrulaması için bu e-posta adresini verdi.\n"
+#~ "Doğrulamak için lütfen %(activate_url)s adresine gidin\n"
+
+#~ msgid ""
+#~ "You can sign in to your account using any of the following third party "
+#~ "accounts:"
+#~ msgstr "Şu üçüncü parti hesaplar ile de giriş yapabilirsiniz:"
+
+#~ msgid "Provider"
+#~ msgstr "Sağlayıcı"
+
+#~ msgid ""
+#~ "You currently have no social network accounts connected to this account."
+#~ msgstr "Hesabınıza bağlı sosyal ağ hesabınız bulunmamakta."
+
+#~ msgid "Add a 3rd Party Account"
+#~ msgstr "3. Parti Hesap Ekleyin"
+
+#~ msgid ""
+#~ "You are about to use your %(provider_name)s account to login to \n"
+#~ "            %(site_name)s. As a final step, please complete the following form:"
+#~ msgstr ""
+#~ "%(provider_name)s hesabınızı kullanarak %(site_name)s adresine giriş yapmak "
+#~ "üzeresiniz. Son aşama olarak lütfen formu doldurun:"
+
+#~ msgid "Welcome"
+#~ msgstr "Hoşgeldiniz"
+
+#~ msgid "Forgot pasword? <a href=\"%(reset_password_url)s\">Reset your password</a>"
+#~ msgstr "Şifrenizi mi unuttunuz? <a href=\"%(reset_password_url)s\">Sıfırlayın</a>"
+
+#~ msgid "login"
+#~ msgstr "giriş"
+
+#~ msgid "send"
+#~ msgstr "gönder"
+
+#~ msgid "save"
+#~ msgstr "kaydet"
+
+#~ msgid "Already have an account?"
+#~ msgstr "Zaten bir hesabınız var mı?"
+
+#~ msgid "Timezone"
+#~ msgstr "Zaman Dilimi"
+
+#~ msgid ""
+#~ "Pinax can localize all times into your preferred timezone. Change your "
+#~ "timezone below."
+#~ msgstr ""
+#~ "Pinax isteğinize bağlı zaman dilimindeki bütün zamanları lokalleştirebilir. "
+#~ "Aşağıdan zaman diliminizi seçin."
+
+#~ msgid "Info"
+#~ msgstr "Bilgi"
+
+#~ msgid "you are already logged in as %(user_display)s."
+#~ msgstr "zaten %(user_display)s olarak giriş yaptınız."
+
+#~ msgid "Input or paste your quote here (maximum 500 characters)"
+#~ msgstr "Alıntınızı buraya girin / yapıştırın (en fazla 500 karakter)"
+
+#~ msgid "edit"
+#~ msgstr "düzenle"
+
+#~ msgid "re-quote"
+#~ msgstr "alıntıyı tekrarla"
+
+#~ msgid "share"
+#~ msgstr "paylaş"
+
+#~ msgid ""
+#~ "\n"
+#~ "                Welcome, %(first_name)s %(last_name)s\n"
+#~ "                "
+#~ msgstr ""
+#~ "\n"
+#~ "Hoşgeldin, %(first_name)s %(last_name)s"
+
+#~ msgid "Connect with Twitter"
+#~ msgstr "Twitter ile Bağlan"
+
+#~ msgid "Connect with Facebook"
+#~ msgstr "Facebook ile Bağlan"
+
+#~ msgid "Welcome, %(user_display)s"
+#~ msgstr "Hoşgeldin, %(user_display)s"
+
+#~ msgid "This account is inactive."
+#~ msgstr "Bu hesap aktif değil."
+
+#~ msgid "Social Network Login Failure"
+#~ msgstr "Sosyal Ağ Giriş Hatası"
+
+#~ msgid ""
+#~ "An error occured while attempting to login via your social network account."
+#~ msgstr "Sosyal ağ hesabınız ile giriş yaparken bir sorun ile karşılaşıldı."
+
+#~ msgid "Login Cancelled"
+#~ msgstr "Giriş İptal Edildi"
+
+#~ msgid ""
+#~ "You decided to cancel logging in to our site using one of your exisiting "
+#~ "accounts. If this was a mistake, please proceed to <a "
+#~ "href=\"%(login_url)s\">sign in</a>."
+#~ msgstr ""
+#~ "Önceki bir hesabınızı kullanarak sayfamıza girişinizi iptal ettiniz. Eğer bu"
+#~ " yanlışlıkla olduysa lütfen <a href=\"%(login_url)s\">buraya tıklayın</a>."

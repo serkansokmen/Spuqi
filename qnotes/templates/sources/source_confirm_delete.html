@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+{% load i18n %}
+
+{% block content %}
+    <form method="post">
+        {% csrf_token %}
+        {% blocktrans with source as source %}
+        <p>Delete {{ source }}?</p>
+        {% endblocktrans %}
+
+        <div class="form-actions">
+            <input type="submit" value="{% trans "Yes" %}" class="btn btn-danger">
+            <a href="{% url source_list %}" class="btn">{% trans "Cancel" %}</a>
+        </div>
+    </form>
+{% endblock content %}

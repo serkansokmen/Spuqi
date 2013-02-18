@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+{% load i18n %}
+{% load endless %}
+
+{% block content %}
+<a href="{% url author_add %}"><i class="icon-plus-sign"></i> {% trans "New Author" %}</a>
+<ul class="unstyled">
+{% paginate authors %}
+{% for author in authors %}
+    <li{% ifequal author current_author %} class="active"{% endifequal %}>
+        <a href="{{ author.get_absolute_url }}">{{ author|truncatechars:35 }}</a>
+        {% ifequal author.user request.user %}
+        <div class="pull-right">
+            <a href="{% url author_edit slug=author.slug %}">
+                <i class="icon-pencil"></i>
+            </a>
+            <a href="{% url author_delete slug=author.slug %}">
+                <i class="icon-trash"></i>
+            </a>
+        </div>
+        {% endifequal %}
+    </li>
+    {# {% if not forloop.last %}<hr>{% endif %} #}
+{% endfor %}
+</ul>
+<br>
+{% show_pages %}
+{% endblock content %}

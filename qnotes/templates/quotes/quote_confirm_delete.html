@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+{% load i18n %}
+
+{% block content %}
+    <form method="post">
+        {% csrf_token %}
+        <p>{% trans "Delete this quote?" %}</p>
+        {% include "quotes/quotation.html" %}
+        <div class="form-actions">
+            <input type="submit" value="{% trans "Yes" %}" class="btn btn-danger">
+            <a href="{{ quote.get_absolute_url }}" class="btn">{% trans "Cancel" %}</a>
+        </div>
+    </form>
+{% endblock content %}

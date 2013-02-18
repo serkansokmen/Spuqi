@@ -1,0 +1,25 @@
+{% load i18n %}
+
+<header class="row-fluid">
+    <h1>
+        <a href="{% url quote_list %}">{% trans "Quotes &amp; Notes" %}</a>
+        &nbsp;<small>{% trans "Collaborative space for social reading" %}</small>
+    </h1>
+</header>
+<ul class="nav nav-pills pull-right" style="margin-top:0;">
+    {% if user.is_authenticated %}
+    <li><a href="{% url userena_signout %}">
+        <i class="icon-signout"></i>
+        {% trans "Logout" %}</a>
+    </li>
+    <li><a href="{% url userena_profile_edit username=user.username %}">
+        <i class="icon-cogs"></i>
+        {% trans "Settings" %}</a>
+    </li>
+    {% else %}
+    <li><a href="{% url userena_signin %}">
+        <i class="icon-signin"></i>
+        {% trans "Login" %}</a>
+    </li>
+    {% endif %}
+</ul>

@@ -1,0 +1,42 @@
+{% extends "base.html" %}
+{% load i18n %}
+{% load endless %}
+
+{% block content %}
+{% with current_collection as collection %}
+<h4>{{ collection }}</h4>
+{% with collection_sources as sources %}
+<table>
+    <thead>
+        <tr>
+            <th>{% trans "Source" %}</th>
+            <th>{% trans "ISBN" %}</th>
+            <td>{% trans "Authors" %}</td>
+        </tr>
+    </thead>
+    <tbody>
+        {% paginate sources %}
+        {% for source in sources %}
+        <tr>
+            <td>
+                {% ifequal source current_source %}
+                {{ source }}
+                {% else %}
+                <a href="{{ source.get_absolute_url }}" title="{{ source }}">{{ source }}</a>
+                {% endifequal %}
+            </td>
+            <td>{{ source.isbn|default:"-" }}</td>
+            <td>{% for author in source.authors.all %}{{ author }}{% if not forloop.last %}, {% endif %}{% endfor %}</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% show_pages %}
+{% endwith %}
+<hr>
+<strong>{% trans "Members" %}:</strong>
+{% for member in collection.members.all %}
+    {{ member }}{% if not forloop.last %}, {% endif %}
+{% endfor %}
+{% endwith %}
+{% endblock content %}

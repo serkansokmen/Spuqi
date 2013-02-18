@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+{% load i18n %}
+{% load endless %}
+
+{% block content %}
+<a href="{% url topic_add %}"><i class="icon-plus-sign"></i> {% trans "New Topic" %}</a>
+<ul class="unstyled">
+{% paginate topics %}
+{% for topic in topics %}
+    <li{% ifequal topic current_topic %} class="active"{% endifequal %}>
+        <a href="{{ topic.get_absolute_url }}">{{ topic }}</a>
+        {% ifequal topic.user request.user %}
+        <a href="{% url topic_edit slug=topic.slug %}">
+            <i class="icon-pencil"></i>
+        </a>
+        <a href="{% url topic_delete slug=topic.slug %}">
+            <i class="icon-trash"></i>
+        </a>
+        {% endifequal %}
+    </li>
+{% endfor %}
+</ul>
+{% show_pages %}
+{% endblock content %}
