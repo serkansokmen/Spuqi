@@ -3,7 +3,7 @@
 
 {% block content_title %}<h2>{% trans 'Profiles' %}</h2>{% endblock %}
 
-{% block content %}
+{% block inner_content %}
 <ul id="profile_list">
   {% for profile in profile_list %}
   <li>
@@ -33,4 +33,4 @@
   </span>
 </div>
 {% endif %}
-{% endblock %}
+{% endblock inner_content %}

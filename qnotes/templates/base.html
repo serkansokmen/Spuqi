@@ -39,9 +39,7 @@
                 <li{% ifequal active_tab 'authors'  %} class="active"{% endifequal %}><a href="{% url author_list %}"> {% trans "Authors" %}</a></li>
                 <li{% ifequal active_tab 'topics'  %} class="active"{% endifequal %}><a href="{% url topic_list %}"> {% trans "Topics" %}</a></li>
             </ul>
-
             {# {% include "toolbar.html" %} #}
-
         </section>
         {% block content_title %}{% endblock content_title %}
         {% block content %}

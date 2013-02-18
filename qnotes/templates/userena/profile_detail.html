@@ -2,44 +2,40 @@
 {% load i18n %}
 
 {% block title %}{% blocktrans with profile.user.username as username %}{{ username }}'s profile.{% endblocktrans %}{% endblock %}
-{% block content_title %}<h2>{{ profile.user.username }} {% if profile.user.get_full_name %}({{ profile.user.get_full_name }}){% endif %}</h2>{% endblock %}
+{% block content_title %}
+<h2>{{ profile.user.email }} {% if profile.user.get_full_name %}({{ profile.user.get_full_name }}){% endif %}</h2>
+{% endblock %}
 
 {% block content %}
-  <div class="row-fluid">
-    {% block profile_details %}
-      <div class="span1">
-        <img class="mugshot" src="{{ profile.get_mugshot_url }}" alt="{% trans "Your mugshot" %}" />
-      </div>
-      <div class="span10">
-        <dl>
-          {% block profile_definition_list %}
-            {% if profile.user.get_full_name %}
-              <dt>{% trans "Name" %}</dt>
-              <dd>{{ profile.user.get_full_name }}</dd>
-            {% endif %}
-            {% if profile.user.email and not hide_email %}
-              <dt>{% trans "Email" %}</dt>
-              <dd>{{ profile.user.email }}</dd>
-            {% endif %}
-            {% if profile.age %}
-              <dt>{% trans "Age" %}</dt>
-              <dd>{{ profile.age }}</dd>
-            {% endif %}
-            {% if profile.website %}
-              <dt>{% trans "Website" %}</dt>
-              <dd>{{ profile.website|urlize }}</dd>
-            {% endif %}
-            {% if profile.location %}
-              <dt>{% trans "Location" %}</dt>
-              <dd>{{ profile.location }}</dd>
-            {% endif %}
-            {% if profile.about_me %}
-              <dt>{% trans "About me" %}</dt>
-              <dd>{{ profile.about_me }}</dd>
-            {% endif %}
-          {% endblock %}
-        </dl>
-      </div>
-    {% endblock %}
-  </div>
-{% endblock %}
+    <div class="row-fluid">
+        {% block profile_details %}
+            <div class="span1">
+                <img class="mugshot" src="{{ profile.get_mugshot_url }}" alt="{% trans "Your mugshot" %}" />
+            </div>
+            <div class="span11">
+                <table class="table table-bordereds table-condensed table-striped">
+                    <thead>
+                        <tr>
+                            {% if profile.user.get_full_name %}<th>{% trans "Name" %}</th>{% endif %}
+                            {% if profile.user.email %}<th>{% trans "Email" %}</th>{% endif %}
+                            {% if profile.duty_tr %}<th>{% trans "Duty (Turkish)" %}</th>{% endif %}
+                            {% if profile.duty_en %}<th>{% trans "Duty (English)" %}</th>{% endif %}
+                            {% if profile.phone %}<th>{% trans "Phone" %}</th>{% endif %}
+                            {% if profile.mobile %}<th>{% trans "Mobile" %}</th>{% endif %}
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            {% if profile.user.get_full_name %}<td>{{ profile.user.get_full_name }}</td>{% endif %}
+                            {% if profile.user.email %}<td>{{ profile.user.email }}</td>{% endif %}
+                            {% if profile.duty_tr %}<td>{{ profile.duty_tr }}</td>{% endif %}
+                            {% if profile.duty_en %}<td>{{ profile.duty_en }}</td>{% endif %}
+                            {% if profile.phone %}<td>{{ profile.phone }}</td>{% endif %}
+                            {% if profile.mobile %}<td>{{ profile.mobile }}</td>{% endif %}
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        {% endblock %}
+    </div>
+{% endblock content %}

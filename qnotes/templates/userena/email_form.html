@@ -4,7 +4,7 @@
 
 {% block content_title %}<h2>{% blocktrans with user.username as username %}Account &raquo; {{ username }}{% endblocktrans %}</h2>{% endblock %}
 
-{% block content %}
+{% block inner_content %}
 <form action="" method="post" class="form-horizontal">
   {% csrf_token %}
   <fieldset>
@@ -15,4 +15,4 @@
     <input class="btn btn-primary" type="submit" value="{% trans "Change email" %}" />
   </div>
 </form>
-{% endblock %}
+{% endblock inner_content %}

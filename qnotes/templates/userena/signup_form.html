@@ -4,7 +4,7 @@
 
 {% block title %}{% trans "Signup" %}{% endblock %}
 
-{% block content %}
+{% block inner_content %}
 <form action="" method="post" class="form-horizontal">
     {% csrf_token %}
     {{ form|crispy }}
@@ -12,4 +12,4 @@
         <input class="btn btn-primary" type="submit" value="{% trans "Signup"%}" />
     </div>
 </form>
-{% endblock %}
+{% endblock inner_content %}
