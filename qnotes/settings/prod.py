@@ -111,12 +111,8 @@ AWS_HEADERS = {
 
 ########## COMPRESSION CONFIGURATION
 # See: http://django_compressor.readthedocs.org/en/latest/settings/#django.conf.settings.COMPRESS_OFFLINE
-# COMPRESS_URL = 'https://s3.amazonaws.com/%s/' % AWS_STORAGE_BUCKET_NAME
-COMPRESS_URL = 'https://%s.s3.amazonaws.com/' % AWS_STORAGE_BUCKET_NAME
-STATIC_URL = COMPRESS_URL
-COMPRESS_ROOT = STATIC_ROOT
+COMPRESS_URL = 'https://s3.amazonaws.com/%s/' % AWS_STORAGE_BUCKET_NAME
 COMPRESS_OFFLINE = bool(environ.get('COMPRESS_OFFLINE', False))
-# COMPRESS_OFFLINE_MANIFEST = 'manifest.json'  # Is created in CACHE directory
 
 # Set to empty string for local relative paths to work
 # see https://github.com/jezdez/django_compressor/issues/226
