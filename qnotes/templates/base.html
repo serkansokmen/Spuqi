@@ -67,8 +67,8 @@
     <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
     {# <script src="http://cdnjs.cloudflare.com/ajax/libs/knockout/2.2.0/knockout-min.js"></script> #}
     {# <script src="http://cdnjs.cloudflare.com/ajax/libs/knockout.mapping/2.3.3/knockout.mapping.js"></script> #}
-    {% compress js %}
     {% block js %}
+    {% compress js %}
     {% comment %}
     <script src="{{ STATIC_URL }}lib/bootstrap/js/bootstrap-alert.js"></script>
     <script src="{{ STATIC_URL }}lib/bootstrap/js/bootstrap-button.js"></script>
@@ -84,7 +84,7 @@
     <script src="{{ STATIC_URL }}lib/bootstrap/js/bootstrap-typehead.js"></script>
     <script src="{{ STATIC_URL }}js/app.js"></script>
     {% endcomment %}
-    {% endblock js %}
     {% endcompress %}
+    {% endblock js %}
 </body>
 </html>
