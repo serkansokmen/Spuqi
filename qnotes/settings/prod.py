@@ -93,10 +93,13 @@ INSTALLED_APPS += (
 # See: http://django-storages.readthedocs.org/en/latest/backends/amazon-S3.html#settings
 STATICFILES_STORAGE = DEFAULT_FILE_STORAGE = 'storages.backends.s3boto.S3BotoStorage'
 
+# See: http://django-storages.readthedocs.org/en/latest/backends/amazon-S3.html#settings
 AWS_CALLING_FORMAT = CallingFormat.SUBDOMAIN
+
+# See: http://django-storages.readthedocs.org/en/latest/backends/amazon-S3.html#settings
 AWS_ACCESS_KEY_ID = environ.get('AWS_ACCESS_KEY_ID', '')
 AWS_SECRET_ACCESS_KEY = environ.get('AWS_SECRET_ACCESS_KEY', '')
-AWS_STORAGE_BUCKET_NAME = 'qnotesbucket'
+AWS_STORAGE_BUCKET_NAME = environ.get('AWS_STORAGE_BUCKET_NAME', '')
 AWS_AUTO_CREATE_BUCKET = True
 AWS_QUERYSTRING_AUTH = False
 
@@ -106,17 +109,21 @@ AWS_HEADERS = {
     'Cache-Control': 'max-age=%d, s-maxage=%d, must-revalidate' % (AWS_EXPIREY,
         AWS_EXPIREY)
 }
+
+# See: https://docs.djangoproject.com/en/dev/ref/settings/#static-url
+STATIC_URL = 'https://s3.amazonaws.com/%s/' % AWS_STORAGE_BUCKET_NAME
 ########## END STORAGE CONFIGURATION
 
 
 ########## COMPRESSION CONFIGURATION
 # See: http://django_compressor.readthedocs.org/en/latest/settings/#django.conf.settings.COMPRESS_OFFLINE
-COMPRESS_URL = 'https://s3.amazonaws.com/%s/' % AWS_STORAGE_BUCKET_NAME
 COMPRESS_OFFLINE = bool(environ.get('COMPRESS_OFFLINE', False))
 
 # Set to empty string for local relative paths to work
 # see https://github.com/jezdez/django_compressor/issues/226
 COMPRESS_OUTPUT_DIR = ''
+
+COMPRESS_STORAGE = DEFAULT_FILE_STORAGE
 
 # See: http://django_compressor.readthedocs.org/en/latest/settings/#django.conf.settings.COMPRESS_CSS_FILTERS
 COMPRESS_CSS_FILTERS = [
@@ -130,3 +137,9 @@ COMPRESS_JS_FILTERS = [
     'compressor.filters.jsmin.SlimItFilter',
 ]
 ########## END COMPRESSION CONFIGURATION
+
+
+########## SECRET CONFIGURATION
+# See: https://docs.djangoproject.com/en/dev/ref/settings/#secret-key
+SECRET_KEY = environ.get('SECRET_KEY', SECRET_KEY)
+########## END SECRET CONFIGURATION
