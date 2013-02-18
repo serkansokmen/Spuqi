@@ -93,7 +93,6 @@ INSTALLED_APPS += (
 # See: http://django-storages.readthedocs.org/en/latest/backends/amazon-S3.html#settings
 STATICFILES_STORAGE = DEFAULT_FILE_STORAGE = 'storages.backends.s3boto.S3BotoStorage'
 
-# See: http://django-storages.readthedocs.org/en/latest/backends/amazon-S3.html#settings
 AWS_CALLING_FORMAT = CallingFormat.SUBDOMAIN
 AWS_ACCESS_KEY_ID = environ.get('AWS_ACCESS_KEY_ID', '')
 AWS_SECRET_ACCESS_KEY = environ.get('AWS_SECRET_ACCESS_KEY', '')
@@ -107,24 +106,21 @@ AWS_HEADERS = {
     'Cache-Control': 'max-age=%d, s-maxage=%d, must-revalidate' % (AWS_EXPIREY,
         AWS_EXPIREY)
 }
-
-# See: https://docs.djangoproject.com/en/dev/ref/settings/#static-url
-COMPRESS_URL = 'https://s3.amazonaws.com/%s/' % AWS_STORAGE_BUCKET_NAME
-# COMPRESS_URL = 'https://%s.s3.amazonaws.com/' % AWS_STORAGE_BUCKET_NAME
-STATIC_URL = COMPRESS_URL
 ########## END STORAGE CONFIGURATION
 
 
 ########## COMPRESSION CONFIGURATION
 # See: http://django_compressor.readthedocs.org/en/latest/settings/#django.conf.settings.COMPRESS_OFFLINE
-# COMPRESS_ENABLED = not DEBUG
+# COMPRESS_URL = 'https://s3.amazonaws.com/%s/' % AWS_STORAGE_BUCKET_NAME
+COMPRESS_URL = 'https://%s.s3.amazonaws.com/' % AWS_STORAGE_BUCKET_NAME
+STATIC_URL = COMPRESS_URL
 COMPRESS_ROOT = STATIC_ROOT
 COMPRESS_OFFLINE = bool(environ.get('COMPRESS_OFFLINE', False))
 # COMPRESS_OFFLINE_MANIFEST = 'manifest.json'  # Is created in CACHE directory
 
 # Set to empty string for local relative paths to work
 # see https://github.com/jezdez/django_compressor/issues/226
-COMPRESS_OUTPUT_DIR = 'cache'
+COMPRESS_OUTPUT_DIR = ''
 
 # See: http://django_compressor.readthedocs.org/en/latest/settings/#django.conf.settings.COMPRESS_CSS_FILTERS
 COMPRESS_CSS_FILTERS = [
