@@ -113,6 +113,12 @@ def bootstrap():
 
 
 @task
+def deploy():
+    """ Deploy to Heroku """
+    # TODO: write deploy sequence
+
+
+@task
 def destroy():
     """Destroy this Heroku application. Wipe it from existance.
 
