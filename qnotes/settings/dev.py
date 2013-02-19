@@ -8,7 +8,7 @@ from common import *
 
 ########## DEBUG CONFIGURATION
 # See: https://docs.djangoproject.com/en/dev/ref/settings/#debug
-DEBUG = False
+DEBUG = True
 
 # See: https://docs.djangoproject.com/en/dev/ref/settings/#template-debug
 TEMPLATE_DEBUG = DEBUG
@@ -57,6 +57,7 @@ CELERY_ALWAYS_EAGER = True
 INSTALLED_APPS += (
     'debug_toolbar',
     'autofixture',
+    'django_extensions',
 )
 
 # See: https://github.com/django-debug-toolbar/django-debug-toolbar#installation
