@@ -14,6 +14,8 @@
     <![endif]-->
     {% compress css %}
     <link href="{{ STATIC_URL }}css/bootstrap.css" rel="stylesheet" type="text/css"/>
+    {% endcompress %}
+    {% compress css %}
     <style type="text/css">
         body                        { padding-top: 60px; }
         a, a:hover                  { text-decoration: none; }
@@ -66,21 +68,7 @@
     {# <script src="http://cdnjs.cloudflare.com/ajax/libs/knockout.mapping/2.3.3/knockout.mapping.js"></script> #}
     {% block js %}
     {% compress js %}
-    {% comment %}
-    <script src="{{ STATIC_URL }}lib/bootstrap/js/bootstrap-alert.js"></script>
-    <script src="{{ STATIC_URL }}lib/bootstrap/js/bootstrap-button.js"></script>
-    <script src="{{ STATIC_URL }}lib/bootstrap/js/bootstrap-collapse.js"></script>
-    <script src="{{ STATIC_URL }}lib/bootstrap/js/bootstrap-collapse.js"></script>
-    <script src="{{ STATIC_URL }}lib/bootstrap/js/bootstrap-dropdown.js"></script>
-    <script src="{{ STATIC_URL }}lib/bootstrap/js/bootstrap-modal.js"></script>
-    <script src="{{ STATIC_URL }}lib/bootstrap/js/bootstrap-popover.js"></script>
-    <script src="{{ STATIC_URL }}lib/bootstrap/js/bootstrap-scrollspy.js"></script>
-    <script src="{{ STATIC_URL }}lib/bootstrap/js/bootstrap-tab.js"></script>
-    <script src="{{ STATIC_URL }}lib/bootstrap/js/bootstrap-tooltip.js"></script>
-    <script src="{{ STATIC_URL }}lib/bootstrap/js/bootstrap-transition.js"></script>
-    <script src="{{ STATIC_URL }}lib/bootstrap/js/bootstrap-typehead.js"></script>
     <script src="{{ STATIC_URL }}js/app.js"></script>
-    {% endcomment %}
     {% endcompress %}
     {% endblock js %}
 </body>

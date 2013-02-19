@@ -121,7 +121,7 @@ COMPRESS_OFFLINE = bool(environ.get('COMPRESS_OFFLINE', False))
 
 # Set to empty string for local relative paths to work
 # see https://github.com/jezdez/django_compressor/issues/226
-COMPRESS_OUTPUT_DIR = ''
+COMPRESS_OUTPUT_DIR = 'cache'
 
 COMPRESS_STORAGE = DEFAULT_FILE_STORAGE
 
