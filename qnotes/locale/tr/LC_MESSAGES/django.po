@@ -8,9 +8,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-01-30 15:57+0200\n"
-"PO-Revision-Date: 2013-01-30 16:15\n"
-"Last-Translator: Serkan Sokmen <admin@admin.com>\n"
+"POT-Creation-Date: 2013-02-20 02:16+0200\n"
+"PO-Revision-Date: 2013-02-20 02:17\n"
+"Last-Translator: Serkan Sokmen <admin@local.host>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -19,11 +19,11 @@ msgstr ""
 "Plural-Forms: nplurals=1; plural=0\n"
 "X-Translated-Using: django-rosetta 0.6.8\n"
 
-#: apps/accounts/models.py:10
-msgid "user"
-msgstr "kullanıcı"
+#: apps/accounts/models.py:16
+msgid "User"
+msgstr "Kullanıcı"
 
-#: apps/authors/models.py:10
+#: apps/authors/models.py:10 templates/userena/profile_detail.html:19
 msgid "Name"
 msgstr "Ad"
 
@@ -32,17 +32,17 @@ msgstr "Ad"
 msgid "Title"
 msgstr "Başlık"
 
-#: apps/collections/models.py:13 templates/base.html:51
+#: apps/collections/models.py:13 templates/base.html:38
 msgid "Sources"
 msgstr "Kaynaklar"
 
-#: apps/collections/models.py:15
-#: templates/collections/collection_detail.html:11
+#: apps/collections/models.py:16
+#: templates/collections/collection_detail.html:37
 msgid "Members"
 msgstr "Üyeler"
 
-#: apps/quotes/models.py:11 templates/quotes/quote_item.html:23
-#: templates/sources/source_list.html:13
+#: apps/quotes/models.py:11 templates/collections/collection_detail.html:12
+#: templates/quotes/quote_item.html:17 templates/sources/source_list.html:10
 msgid "Source"
 msgstr "Kaynak"
 
@@ -54,8 +54,8 @@ msgstr "Alıntı"
 msgid "Note"
 msgstr "Not"
 
-#: apps/quotes/models.py:14 templates/base.html:54
-#: templates/quotes/quote_item.html:26
+#: apps/quotes/models.py:14 templates/base.html:41
+#: templates/quotes/quote_item.html:20
 msgid "Topics"
 msgstr "Konular"
 
@@ -67,8 +67,9 @@ msgstr "Özel"
 msgid "You have already created this quote"
 msgstr "Bu alıntıyı daha önce oluşturdunuz"
 
-#: apps/sources/models.py:13 templates/base.html:53
-#: templates/sources/source_list.html:15
+#: apps/sources/models.py:13 templates/base.html:40
+#: templates/collections/collection_detail.html:14
+#: templates/sources/source_list.html:12
 msgid "Authors"
 msgstr "Yazarlar"
 
@@ -76,7 +77,8 @@ msgstr "Yazarlar"
 msgid "URL"
 msgstr "URL"
 
-#: apps/sources/models.py:15 templates/sources/source_list.html:14
+#: apps/sources/models.py:15 templates/collections/collection_detail.html:13
+#: templates/sources/source_list.html:11
 msgid "ISBN"
 msgstr "ISBN"
 
@@ -142,11 +144,11 @@ msgstr "İngilizce"
 msgid "Turkish"
 msgstr "Türkçe"
 
-#: templates/base.html:50
+#: templates/base.html:37
 msgid "Collections"
 msgstr "Kolleksiyonlar"
 
-#: templates/base.html:52
+#: templates/base.html:39
 msgid "Quotes"
 msgstr "Alıntılar"
 
@@ -179,11 +181,11 @@ msgid "Search"
 msgstr "Ara"
 
 #: templates/authors/author_confirm_delete.html:7
-#, python-format
+#, fuzzy, python-format
 msgid ""
 "\n"
-"        Delete %(author)s?\n"
-"        "
+"    Delete %(author)s?\n"
+"    "
 msgstr ""
 "\n"
 "<p>%(author)s silinsin mi?</p>"
@@ -216,25 +218,9 @@ msgstr "İptal"
 msgid "Save"
 msgstr "Kaydet"
 
-#: templates/authors/author_list.html:5
-msgid "Select an author"
-msgstr "Yazar seçin"
-
-#: templates/authors/base.html:7
+#: templates/authors/author_list.html:6
 msgid "New Author"
 msgstr "Yeni Yazar"
-
-#: templates/collections/base.html:6
-msgid "New Collection"
-msgstr "Yeni Kolleksiyon"
-
-#: templates/collections/base.html:9
-msgid "Your own Collections"
-msgstr "Kolleksiyonlarınız"
-
-#: templates/collections/base.html:30
-msgid "You are a member of these collections"
-msgstr "Üyesi olduğunuz diğer kolleksiyonlar"
 
 #: templates/collections/collection_confirm_delete.html:8
 #, python-format
@@ -247,28 +233,32 @@ msgstr ""
 "<p>%(collection)s silinsin mi?</p>"
 
 #: templates/collections/collection_list.html:5
-msgid "Select a collection"
-msgstr "Kolleksiyon seçin"
+msgid "New Collection"
+msgstr "Yeni Kolleksiyon"
 
-#: templates/quotes/base.html:7
-msgid "New Quote"
-msgstr "Alıntı Yap"
+#: templates/collections/collection_list.html:8
+msgid "Your own Collections"
+msgstr "Kolleksiyonlarınız"
+
+#: templates/collections/collection_list.html:29
+msgid "You are a member of these collections"
+msgstr "Üyesi olduğunuz diğer kolleksiyonlar"
 
 #: templates/quotes/quote_confirm_delete.html:7
 msgid "Delete this quote?"
 msgstr "Bu alıntıyı silmek istiyor musunuz?"
 
-#: templates/quotes/quote_item.html:4
+#: templates/quotes/quote_item.html:14
 msgid "Private Quotation"
 msgstr "Özel Alıntı"
 
-#: templates/quotes/quote_item.html:6
+#: templates/quotes/quote_item.html:14
 msgid "Public Quotation"
 msgstr "Genel Alıntı"
 
-#: templates/sources/base.html:7 templates/sources/source_list.html:9
-msgid "New Source"
-msgstr "Yeni Kaynak"
+#: templates/quotes/quote_list.html:7
+msgid "New Quote"
+msgstr "Alıntı Yap"
 
 #: templates/sources/source_confirm_delete.html:7
 #, python-format
@@ -280,20 +270,20 @@ msgstr ""
 "\n"
 "<p>%(source)s silinsin mi?</p>"
 
-#: templates/sources/source_detail.html:6
+#: templates/sources/source_detail.html:5 templates/sources/source_list.html:6
+msgid "New Source"
+msgstr "Yeni Kaynak"
+
+#: templates/sources/source_detail.html:7
 #, python-format
 msgid "Quotes from <i class=\"text-info\">&ldquo; %(source)s &rdquo;</i>"
 msgstr ""
 "<i class=\"text-info\">&ldquo; %(source)s &rdquo;</i> kaynağından alıntılar"
 
-#: templates/sources/source_detail.html:11
+#: templates/sources/source_detail.html:12
 #: templates/topics/topic_detail.html:11
 msgid "No quotes"
 msgstr "Alıntı yok"
-
-#: templates/topics/base.html:7
-msgid "New Topic"
-msgstr "Yeni Konu"
 
 #: templates/topics/topic_confirm_delete.html:7
 #, python-format
@@ -312,148 +302,411 @@ msgstr ""
 "<i class=\"text-info\">&ldquo; %(topic)s &rdquo;</i> konusu ile ilgili "
 "alıntılar"
 
-#: templates/topics/topic_list.html:5
-msgid "Selec a topic"
-msgstr "Konu seçin"
+#: templates/topics/topic_list.html:6
+msgid "New Topic"
+msgstr "Yeni Konu"
 
-#~ msgid "Account activation failed."
-#~ msgstr "Hesap aktive edilemedi."
+#: templates/userena/activate_fail.html:4
+msgid "Account activation failed."
+msgstr "Hesap aktive edilemedi."
 
-#~ msgid "Your account could not be activated..."
-#~ msgstr "Hesabınız aktif hale getirilemedi..."
+#: templates/userena/activate_fail.html:5
+msgid "Your account could not be activated..."
+msgstr "Hesabınız aktif hale getirilemedi..."
 
-#~ msgid ""
-#~ "Your account could not be activated. This could be because your activation "
-#~ "link has aged."
-#~ msgstr ""
-#~ "Hesabınız aktifleştirilemedi. Aktivasyon linkinizin süresi dolmuş olabilir."
+#: templates/userena/activate_fail.html:8
+msgid ""
+"Your account could not be activated. This could be because your activation "
+"link has aged."
+msgstr ""
+"Hesabınız aktifleştirilemedi. Aktivasyon linkinizin süresi dolmuş olabilir."
 
-#~ msgid ""
-#~ "Please try signing up again or contact us if you think something went wrong."
-#~ msgstr ""
-#~ "Lütfen tekrar giriş yapmayı deneyin ya da bir sorunla karşılaştığınızı "
-#~ "düşünüyorsanız bizimle irtibata geçin."
+#: templates/userena/activate_fail.html:9
+msgid ""
+"Please try signing up again or contact us if you think something went wrong."
+msgstr ""
+"Lütfen tekrar giriş yapmayı deneyin ya da bir sorunla karşılaştığınızı "
+"düşünüyorsanız bizimle irtibata geçin."
 
-#~ msgid "Disabled account"
-#~ msgstr "Etkisiz hesap"
+#: templates/userena/disabled.html:4
+msgid "Disabled account"
+msgstr "Etkisiz hesap"
 
-#~ msgid "Your account has been disabled"
-#~ msgstr "Hesabınız etkisizleştirildi"
+#: templates/userena/disabled.html:5
+msgid "Your account has been disabled"
+msgstr "Hesabınız etkisizleştirildi"
 
-#~ msgid "It seems your account has been disabled."
-#~ msgstr "Görünüşe göre hesabınız etkin değil."
+#: templates/userena/disabled.html:7
+msgid "It seems your account has been disabled."
+msgstr "Görünüşe göre hesabınız etkin değil."
 
-#~ msgid ""
-#~ "If you feel that injustice has been done to you, feel free to contact the "
-#~ "administrators to find out why"
-#~ msgstr ""
-#~ "Bir haksızlığa uğradığınızı düşünüyorsanız lütfen nedenini öğrenmek için "
-#~ "yöneticilerle iletişime geçin"
+#: templates/userena/disabled.html:8
+msgid ""
+"If you feel that injustice has been done to you, feel free to contact the "
+"administrators to find out why"
+msgstr ""
+"Bir haksızlığa uğradığınızı düşünüyorsanız lütfen nedenini öğrenmek için "
+"yöneticilerle iletişime geçin"
 
-#~ msgid "Email verification"
-#~ msgstr "E-posta doğrulama"
+#: templates/userena/email_change_complete.html:4
+msgid "Email verification"
+msgstr "E-posta doğrulama"
 
-#~ msgid "Confirm your new email"
-#~ msgstr "E-postanızı doğrulayın"
+#: templates/userena/email_change_complete.html:5
+msgid "Confirm your new email"
+msgstr "E-postanızı doğrulayın"
 
-#~ msgid "You have received an email at %(email)s."
-#~ msgstr "%(email)s adresinde bir e-posta aldınız."
+#: templates/userena/email_change_complete.html:8
+#, python-format
+msgid "You have received an email at %(email)s."
+msgstr "%(email)s adresinde bir e-posta aldınız."
 
-#~ msgid ""
-#~ "To associate this email address with your account (%(username)s) click on "
-#~ "the link provided in this email."
-#~ msgstr ""
-#~ "Bu e-posta adresini %(username)s hesabıyla ilişkilendirmek için e-postadaki "
-#~ "linke tıklayın."
+#: templates/userena/email_change_complete.html:9
+#, python-format
+msgid ""
+"To associate this email address with your account (%(username)s) click on "
+"the link provided in this email."
+msgstr ""
+"Bu e-posta adresini %(username)s hesabıyla ilişkilendirmek için e-postadaki "
+"linke tıklayın."
 
-#~ msgid "Email changed!"
-#~ msgstr "E-posta değişti!"
+#: templates/userena/email_confirm_complete.html:4
+msgid "Email changed!"
+msgstr "E-posta değişti!"
 
-#~ msgid "New email"
-#~ msgstr "Yeni e-posta"
+#: templates/userena/email_confirm_complete.html:6
+msgid "New email"
+msgstr "Yeni e-posta"
 
-#~ msgid ""
-#~ "Your new email address is saved. You can continue using %(site)s with this "
-#~ "email."
-#~ msgstr ""
-#~ "Yeni e-posta adresiniz kaydedildi. %(site)s adresini bu e-posta ile "
-#~ "kullanmaya devam edebilirsiniz."
+#: templates/userena/email_confirm_complete.html:8
+#, python-format
+msgid ""
+"Your new email address is saved. You can continue using %(site)s with this "
+"email."
+msgstr ""
+"Yeni e-posta adresiniz kaydedildi. %(site)s adresini bu e-posta ile "
+"kullanmaya devam edebilirsiniz."
 
-#~ msgid "Email verification failed."
-#~ msgstr "E-posta doğrulama başarısız."
+#: templates/userena/email_confirm_fail.html:4
+msgid "Email verification failed."
+msgstr "E-posta doğrulama başarısız."
 
-#~ msgid "Your email could not be verified..."
-#~ msgstr "E-postanız doğrulanamadı..."
+#: templates/userena/email_confirm_fail.html:5
+#: templates/userena/email_confirm_fail.html:8
+msgid "Your email could not be verified..."
+msgstr "E-postanız doğrulanamadı..."
 
-#~ msgid "You could try changing it again in your account settings."
-#~ msgstr "Hesap ayarlarınızda tekrar değiştirmeyi deneyebilirsiniz."
+#: templates/userena/email_confirm_fail.html:9
+msgid "You could try changing it again in your account settings."
+msgstr "Hesap ayarlarınızda tekrar değiştirmeyi deneyebilirsiniz."
 
-#~ msgid "Account &raquo; %(username)s"
-#~ msgstr "Hesap &raquo; %(username)s"
+#: templates/userena/email_form.html:5 templates/userena/password_form.html:7
+#, python-format
+msgid "Account &raquo; %(username)s"
+msgstr "Hesap &raquo; %(username)s"
+
+#: templates/userena/email_form.html:11
+msgid "Change email address"
+msgstr "E-posta değiştir"
+
+#: templates/userena/email_form.html:15
+msgid "Change email"
+msgstr "E-posta değiştir"
+
+#: templates/userena/password_complete.html:4
+msgid "Password changed"
+msgstr "Şifre değiştirildi"
+
+#: templates/userena/password_complete.html:5
+msgid "Your password has been changed"
+msgstr "Şifreniz değiştirildi"
+
+#: templates/userena/password_complete.html:8
+msgid "From now on you can use your new password to signin"
+msgstr "Şu andan itibaren giriş yapmak için yeni şifrenizi kullanabilirsiniz"
+
+#: templates/userena/password_form.html:5
+#: templates/userena/password_form.html:17
+msgid "Change password"
+msgstr "Şifre değiştir"
+
+#: templates/userena/password_form.html:12
+msgid "Change Password"
+msgstr "Şifre Değiştir"
+
+#: templates/userena/password_reset_complete.html:4
+msgid "Password reset"
+msgstr "Şifre sıfırlandı"
+
+#: templates/userena/password_reset_complete.html:5
+msgid "Your password has been reset"
+msgstr "Şifreniz sıfırlandı"
+
+#: templates/userena/password_reset_complete.html:8
+#, python-format
+msgid "You can now <a href=\"%(signin_url)s\">signin</a> with your new password."
+msgstr "Yeni şifreniz ile <a href=\"%(signin_url)s\">giriş</a> yapabilirsiniz."
+
+#: templates/userena/password_reset_confirm_form.html:5
+#: templates/userena/password_reset_confirm_form.html:15
+#: templates/userena/password_reset_form.html:5
+msgid "Reset password"
+msgstr "Şifre sıfırla"
+
+#: templates/userena/password_reset_confirm_form.html:10
+#: templates/userena/password_reset_form.html:10
+msgid "Reset Password"
+msgstr "Şifre Sıfırla"
+
+#: templates/userena/password_reset_done.html:4
+#: templates/userena/password_reset_done.html:5
+msgid "Password reset email sent"
+msgstr "Şifre sıfırla e-postası gönderildi"
+
+#: templates/userena/password_reset_done.html:8
+msgid ""
+"An e-mail has been sent to you which explains how to reset your password."
+msgstr "Şifrenizi sıfırlamayla ilgili açıklamalar e-postanıza gönderildi."
+
+#: templates/userena/password_reset_form.html:15
+msgid "Send password"
+msgstr "Şifre gönder"
+
+#: templates/userena/profile_detail.html:4
+#, python-format
+msgid "%(username)s's profile."
+msgstr "%(username)s hesabının profili."
+
+#: templates/userena/profile_detail.html:13
+msgid "Your mugshot"
+msgstr "Avatarınız"
+
+#: templates/userena/profile_detail.html:20
+msgid "Email"
+msgstr "E-posta"
+
+#: templates/userena/profile_detail.html:21
+#, fuzzy
+msgid "Duty (Turkish)"
+msgstr "Türkçe"
+
+#: templates/userena/profile_detail.html:22
+#, fuzzy
+msgid "Duty (English)"
+msgstr "İngilizce"
+
+#: templates/userena/profile_detail.html:23
+msgid "Phone"
+msgstr ""
+
+#: templates/userena/profile_detail.html:24
+msgid "Mobile"
+msgstr ""
+
+#: templates/userena/profile_form.html:5
+msgid "Account setup"
+msgstr "Hesap ayarları"
+
+#: templates/userena/profile_form.html:7
+msgid "Edit profile"
+msgstr "Profil düzenle"
+
+#: templates/userena/profile_form.html:16
+msgid "Save changes"
+msgstr "Değişiklikleri kaydet"
+
+#: templates/userena/profile_list.html:4
+msgid "Profiles"
+msgstr "Profiller"
+
+#: templates/userena/profile_list.html:21
+msgid "previous"
+msgstr "önceki"
+
+#: templates/userena/profile_list.html:25
+#, python-format
+msgid ""
+"\n"
+"      Page %(page)s of %(num_pages)s\n"
+"      "
+msgstr ""
+"\n"
+"%(num_pages)s sayfadan %(page)s. sayfa"
+
+#: templates/userena/profile_list.html:31
+msgid "next"
+msgstr "sonraki"
+
+#: templates/userena/signin_form.html:5 templates/userena/signin_form.html:9
+#: templates/userena/signin_form.html:23
+msgid "Signin"
+msgstr "Giriş"
+
+#: templates/userena/signin_form.html:12
+#, python-format
+msgid ""
+"\n"
+"            or signup for a new account <a href=\"%(signup_url)s\">here</a>\n"
+"        "
+msgstr ""
+
+#: templates/userena/signin_form.html:25
+msgid "Forgot your password?"
+msgstr "Şifrenizi mi unuttunuz?"
+
+#: templates/userena/signout.html:4
+msgid "Signed out"
+msgstr "Çıkış yapıldı"
+
+#: templates/userena/signout.html:5
+msgid "You have been signed out"
+msgstr "Çıkış yaptınız"
+
+#: templates/userena/signout.html:8
+msgid "You have been signed out. Till we meet again."
+msgstr "Çıkış yaptınız. Bir daha görüşmek üzere."
+
+#: templates/userena/signup_complete.html:4
+msgid "Signup almost done!"
+msgstr "Kaydınız neredeyse tamam!"
+
+#: templates/userena/signup_complete.html:6
+#: templates/userena/signup_form.html:5 templates/userena/signup_form.html:12
+msgid "Signup"
+msgstr "Kaydol"
+
+#: templates/userena/signup_complete.html:9
+msgid "Thank you for signing up with us!"
+msgstr "Kayıt yaptığınız için teşekkürler!"
+
+#: templates/userena/signup_complete.html:12
+msgid ""
+"You have been sent an e-mail with an activation link to the supplied email."
+msgstr "Verilen e-postaya ait bir aktivasyon linki e-postanıza gönderildi."
+
+#: templates/userena/signup_complete.html:13
+#, python-format
+msgid ""
+"We will store your signup information for %(userena_activation_days)s days "
+"on our server. "
+msgstr ""
+"Kayıt bilgilerinizi %(userena_activation_days)s gün boyunca sunucularımızda "
+"saklayacağız."
+
+#: templates/userena/signup_complete.html:15
+msgid "You can now use the supplied credentials to signin."
+msgstr "Giriş yapmak için sağlanan kimlik bilgilerini kullanabilirsiniz."
+
+#: templates/userena/emails/activation_email_message.txt:2
+#: templates/userena/emails/confirmation_email_message_new.txt:2
+#: templates/userena/emails/confirmation_email_message_old.txt:2
+#, python-format
+msgid "Dear %(username)s,"
+msgstr "Sayın %(username)s,"
+
+#: templates/userena/emails/activation_email_message.txt:4
+#, python-format
+msgid "Thank you for signing up at %(site)s."
+msgstr "%(site)s sitesine kayıt olduğunuz için teşekkürler."
+
+#: templates/userena/emails/activation_email_message.txt:6
+msgid "To activate your account you should click on the link below:"
+msgstr "Hesabınızı aktive etmek için aşağıdaki bağlantıya tıklayın:"
+
+#: templates/userena/emails/activation_email_message.txt:10
+#: templates/userena/emails/confirmation_email_message_new.txt:12
+#: templates/userena/emails/confirmation_email_message_old.txt:8
+#: templates/userena/emails/password_reset_message.txt:14
+msgid "Thanks for using our site!"
+msgstr "Sitemizi kullandığınız için teşekkürler!"
+
+#: templates/userena/emails/activation_email_message.txt:12
+#: templates/userena/emails/confirmation_email_message_new.txt:14
+#: templates/userena/emails/confirmation_email_message_old.txt:10
+#: templates/userena/emails/password_reset_message.txt:16
+msgid "Sincerely"
+msgstr "Sevgilerle"
+
+#: templates/userena/emails/activation_email_subject.txt:2
+#, python-format
+msgid "Your signup at %(site)s."
+msgstr "%(site)s sitesinde kaydınız."
+
+#: templates/userena/emails/confirmation_email_message_new.txt:4
+#, python-format
+msgid "You requested a change of your email address at %(site)s."
+msgstr ""
+"%(site)s sitesinde bir e-posta adresi değişikliği talebinde bulundunuz."
+
+#: templates/userena/emails/confirmation_email_message_new.txt:7
+msgid "Please confirm this email address by clicking on the link below:"
+msgstr "Lütfen aşağıdaki bağlantıya tıklayarak bu e-postayı doğrulayın:"
+
+#: templates/userena/emails/confirmation_email_message_old.txt:4
+#, python-format
+msgid "There was a request to change your email address at %(site)s."
+msgstr ""
+"%(site)s sitesinde e-posta adresinizi değiştirmek üzere bir istek "
+"gerçekleşti."
+
+#: templates/userena/emails/confirmation_email_message_old.txt:6
+#, python-format
+msgid ""
+"An email has been send to %(new_email)s which contains a verification link. "
+"Click on the link in this email to activate it."
+msgstr ""
+"%(new_email)s adresine doğrulama bağlantısı içeren bir e-posta gönderildi. "
+"Bu bağlantıya tıklayarak aktive edin."
+
+#: templates/userena/emails/confirmation_email_subject_new.txt:2
+#, python-format
+msgid "Email verification for %(site)s."
+msgstr "%(site)s sitesi için e-posta doğrulaması"
+
+#: templates/userena/emails/confirmation_email_subject_old.txt:2
+#, python-format
+msgid "A request to change your email address is made at %(site)s."
+msgstr "%(site)s sitesinde e-posta adresinizde değişiklik talep edildi."
+
+#: templates/userena/emails/password_reset_message.txt:2
+#, python-format
+msgid ""
+"You're receiving this e-mail because you requested a password reset\n"
+"for your user account at %(site_name)s"
+msgstr ""
+"Bu e-postayı %(site_name)s sitesinde bir şifre değişikliği talebinde "
+"bulunulduğu için aldınız"
+
+#: templates/userena/emails/password_reset_message.txt:5
+msgid "Please go to the following page and choose a new password:"
+msgstr "Lütfen şu sayfaya giderek şifrenizi yenileyin:"
+
+#: templates/userena/emails/password_reset_message.txt:10
+#, python-format
+msgid ""
+"\n"
+"Your username, in case you've forgotten: %(username)s\n"
+msgstr ""
+"\n"
+"Kullanıcı adınız, eğer unuttuysanız: %(username)s\n"
+
+#~ msgid "user"
+#~ msgstr "kullanıcı"
+
+#~ msgid "Select an author"
+#~ msgstr "Yazar seçin"
+
+#~ msgid "Select a collection"
+#~ msgstr "Kolleksiyon seçin"
+
+#~ msgid "Selec a topic"
+#~ msgstr "Konu seçin"
 
 #~ msgid "View profile"
 #~ msgstr "Profil görüntüle"
 
-#~ msgid "Edit profile"
-#~ msgstr "Profil düzenle"
-
-#~ msgid "Change password"
-#~ msgstr "Şifre değiştir"
-
-#~ msgid "Change email"
-#~ msgstr "E-posta değiştir"
-
-#~ msgid "Change email address"
-#~ msgstr "E-posta değiştir"
-
-#~ msgid "Password changed"
-#~ msgstr "Şifre değiştirildi"
-
-#~ msgid "Your password has been changed"
-#~ msgstr "Şifreniz değiştirildi"
-
-#~ msgid "From now on you can use your new password to signin"
-#~ msgstr "Şu andan itibaren giriş yapmak için yeni şifrenizi kullanabilirsiniz"
-
-#~ msgid "Change Password"
-#~ msgstr "Şifre Değiştir"
-
-#~ msgid "Password reset"
-#~ msgstr "Şifre sıfırlandı"
-
-#~ msgid "Your password has been reset"
-#~ msgstr "Şifreniz sıfırlandı"
-
-#~ msgid "You can now <a href=\"%(signin_url)s\">signin</a> with your new password."
-#~ msgstr "Yeni şifreniz ile <a href=\"%(signin_url)s\">giriş</a> yapabilirsiniz."
-
-#~ msgid "Reset password"
-#~ msgstr "Şifre sıfırla"
-
-#~ msgid "Reset Password"
-#~ msgstr "Şifre Sıfırla"
-
-#~ msgid "Password reset email sent"
-#~ msgstr "Şifre sıfırla e-postası gönderildi"
-
-#~ msgid ""
-#~ "An e-mail has been sent to you which explains how to reset your password."
-#~ msgstr "Şifrenizi sıfırlamayla ilgili açıklamalar e-postanıza gönderildi."
-
-#~ msgid "Send password"
-#~ msgstr "Şifre gönder"
-
-#~ msgid "%(username)s's profile."
-#~ msgstr "%(username)s hesabının profili."
-
 #~ msgid "Edit details"
 #~ msgstr "Detayları düzenle"
-
-#~ msgid "Your mugshot"
-#~ msgstr "Avatarınız"
-
-#~ msgid "Email"
-#~ msgstr "E-posta"
 
 #~ msgid "Age"
 #~ msgstr "Yaş"
@@ -467,129 +720,8 @@ msgstr "Konu seçin"
 #~ msgid "About me"
 #~ msgstr "Hakkkımda"
 
-#~ msgid "Account setup"
-#~ msgstr "Hesap ayarları"
-
 #~ msgid "Edit Profile"
 #~ msgstr "Profil Düzenle"
-
-#~ msgid "Save changes"
-#~ msgstr "Değişiklikleri kaydet"
-
-#~ msgid "Profiles"
-#~ msgstr "Profiller"
-
-#~ msgid "previous"
-#~ msgstr "önceki"
-
-#~ msgid ""
-#~ "\n"
-#~ "      Page %(page)s of %(num_pages)s\n"
-#~ "      "
-#~ msgstr ""
-#~ "\n"
-#~ "%(num_pages)s sayfadan %(page)s. sayfa"
-
-#~ msgid "next"
-#~ msgstr "sonraki"
-
-#~ msgid "Signin"
-#~ msgstr "Giriş"
-
-#~ msgid "Forgot your password?"
-#~ msgstr "Şifrenizi mi unuttunuz?"
-
-#~ msgid "Signed out"
-#~ msgstr "Çıkış yapıldı"
-
-#~ msgid "You have been signed out"
-#~ msgstr "Çıkış yaptınız"
-
-#~ msgid "You have been signed out. Till we meet again."
-#~ msgstr "Çıkış yaptınız. Bir daha görüşmek üzere."
-
-#~ msgid "Signup almost done!"
-#~ msgstr "Kaydınız neredeyse tamam!"
-
-#~ msgid "Signup"
-#~ msgstr "Kaydol"
-
-#~ msgid "Thank you for signing up with us!"
-#~ msgstr "Kayıt yaptığınız için teşekkürler!"
-
-#~ msgid ""
-#~ "You have been sent an e-mail with an activation link to the supplied email."
-#~ msgstr "Verilen e-postaya ait bir aktivasyon linki e-postanıza gönderildi."
-
-#~ msgid ""
-#~ "We will store your signup information for %(userena_activation_days)s days "
-#~ "on our server. "
-#~ msgstr ""
-#~ "Kayıt bilgilerinizi %(userena_activation_days)s gün boyunca sunucularımızda "
-#~ "saklayacağız."
-
-#~ msgid "You can now use the supplied credentials to signin."
-#~ msgstr "Giriş yapmak için sağlanan kimlik bilgilerini kullanabilirsiniz."
-
-#~ msgid "Dear %(username)s,"
-#~ msgstr "Sayın %(username)s,"
-
-#~ msgid "Thank you for signing up at %(site)s."
-#~ msgstr "%(site)s sitesine kayıt olduğunuz için teşekkürler."
-
-#~ msgid "To activate your account you should click on the link below:"
-#~ msgstr "Hesabınızı aktive etmek için aşağıdaki bağlantıya tıklayın:"
-
-#~ msgid "Thanks for using our site!"
-#~ msgstr "Sitemizi kullandığınız için teşekkürler!"
-
-#~ msgid "Sincerely"
-#~ msgstr "Sevgilerle"
-
-#~ msgid "Your signup at %(site)s."
-#~ msgstr "%(site)s sitesinde kaydınız."
-
-#~ msgid "You requested a change of your email address at %(site)s."
-#~ msgstr ""
-#~ "%(site)s sitesinde bir e-posta adresi değişikliği talebinde bulundunuz."
-
-#~ msgid "Please confirm this email address by clicking on the link below:"
-#~ msgstr "Lütfen aşağıdaki bağlantıya tıklayarak bu e-postayı doğrulayın:"
-
-#~ msgid "There was a request to change your email address at %(site)s."
-#~ msgstr ""
-#~ "%(site)s sitesinde e-posta adresinizi değiştirmek üzere bir istek "
-#~ "gerçekleşti."
-
-#~ msgid ""
-#~ "An email has been send to %(new_email)s which contains a verification link. "
-#~ "Click on the link in this email to activate it."
-#~ msgstr ""
-#~ "%(new_email)s adresine doğrulama bağlantısı içeren bir e-posta gönderildi. "
-#~ "Bu bağlantıya tıklayarak aktive edin."
-
-#~ msgid "Email verification for %(site)s."
-#~ msgstr "%(site)s sitesi için e-posta doğrulaması"
-
-#~ msgid "A request to change your email address is made at %(site)s."
-#~ msgstr "%(site)s sitesinde e-posta adresinizde değişiklik talep edildi."
-
-#~ msgid ""
-#~ "You're receiving this e-mail because you requested a password reset\n"
-#~ "for your user account at %(site_name)s"
-#~ msgstr ""
-#~ "Bu e-postayı %(site_name)s sitesinde bir şifre değişikliği talebinde "
-#~ "bulunulduğu için aldınız"
-
-#~ msgid "Please go to the following page and choose a new password:"
-#~ msgstr "Lütfen şu sayfaya giderek şifrenizi yenileyin:"
-
-#~ msgid ""
-#~ "\n"
-#~ "Your username, in case you've forgotten: %(username)s\n"
-#~ msgstr ""
-#~ "\n"
-#~ "Kullanıcı adınız, eğer unuttuysanız: %(username)s\n"
 
 #~ msgid "settings"
 #~ msgstr "ayarlar"

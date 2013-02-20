@@ -7,7 +7,7 @@
 <ul class="unstyled">
 {% paginate authors %}
 {% for author in authors %}
-    <li{% ifequal author current_author %} class="active"{% endifequal %}>
+    <li class="{% ifequal author current_author %} active{% endifequal %}">
         <a href="{{ author.get_absolute_url }}">{{ author|truncatechars:35 }}</a>
         {% ifequal author.user request.user %}
         <div class="pull-right">

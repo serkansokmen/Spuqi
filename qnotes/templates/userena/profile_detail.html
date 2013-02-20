@@ -18,20 +18,12 @@
                         <tr>
                             {% if profile.user.get_full_name %}<th>{% trans "Name" %}</th>{% endif %}
                             {% if profile.user.email %}<th>{% trans "Email" %}</th>{% endif %}
-                            {% if profile.duty_tr %}<th>{% trans "Duty (Turkish)" %}</th>{% endif %}
-                            {% if profile.duty_en %}<th>{% trans "Duty (English)" %}</th>{% endif %}
-                            {% if profile.phone %}<th>{% trans "Phone" %}</th>{% endif %}
-                            {% if profile.mobile %}<th>{% trans "Mobile" %}</th>{% endif %}
                         </tr>
                     </thead>
                     <tbody>
                         <tr>
                             {% if profile.user.get_full_name %}<td>{{ profile.user.get_full_name }}</td>{% endif %}
                             {% if profile.user.email %}<td>{{ profile.user.email }}</td>{% endif %}
-                            {% if profile.duty_tr %}<td>{{ profile.duty_tr }}</td>{% endif %}
-                            {% if profile.duty_en %}<td>{{ profile.duty_en }}</td>{% endif %}
-                            {% if profile.phone %}<td>{{ profile.phone }}</td>{% endif %}
-                            {% if profile.mobile %}<td>{{ profile.mobile }}</td>{% endif %}
                         </tr>
                     </tbody>
                 </table>
