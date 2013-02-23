@@ -3,6 +3,7 @@
 
 {% block content %}
 <a href="{% url source_add %}"><i class="icon-plus-sign"></i> {% trans "New Source" %}</a>
+<hr>
 {% with current_source as source %}
 <p>{% blocktrans with source as source %}Quotes from <i class="text-info">&ldquo; {{ source }} &rdquo;</i>{% endblocktrans %} :</p>
 <ul>

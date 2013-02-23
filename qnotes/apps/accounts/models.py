@@ -2,11 +2,11 @@ from django.db import models
 from django.db.utils import DatabaseError
 from django.utils.translation import ugettext as _
 from django.contrib.auth.models import User
-from userena.models import UserenaLanguageBaseProfile
-# from django_facebook.models import FacebookProfileModel
+from django.core.management import call_command
 from django.db.models.signals import post_save
 from django.dispatch import receiver
 from guardian.shortcuts import assign
+from userena.models import UserenaLanguageBaseProfile
 
 
 # class AccountProfile(FacebookProfileModel, UserenaLanguageBaseProfile):
@@ -26,10 +26,11 @@ class UserProfile(UserenaLanguageBaseProfile):
 @receiver(post_save, sender=User, dispatch_uid='user.created')
 def create_profile(sender, instance, created, **kwargs):
     """Create a matching profile whenever a user object is created."""
-    """ Adds 'change_profile' permission to created user objects """
+    """ Adds 'change_profile' permission to created user object """
     try:
         if created:
             profile, new = UserProfile.objects.get_or_create(user=instance)
             assign('change_profile', instance, instance.get_profile())
+            call_command('check_permissions')
     except DatabaseError:
         pass

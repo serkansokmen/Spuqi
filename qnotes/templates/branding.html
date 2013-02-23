@@ -1,25 +1,51 @@
 {% load i18n %}
 
-<header class="row-fluid">
+<header style="margin-bottom:24px;">
     <h1>
-        <a href="{% url quote_list %}">{% trans "Quotes &amp; Notes" %}</a>
+        <a href="{% url quote_list %}">{% trans "Qnotes" %}</a>
         &nbsp;<small>{% trans "Collaborative space for social reading" %}</small>
     </h1>
 </header>
-<ul class="nav nav-pills pull-right" style="margin-top:0;">
-    {% if user.is_authenticated %}
-    <li><a href="{% url userena_signout %}">
-        <i class="icon-signout"></i>
-        {% trans "Logout" %}</a>
-    </li>
-    <li><a href="{% url userena_profile_edit username=user.username %}">
-        <i class="icon-cogs"></i>
-        {% trans "Settings" %}</a>
-    </li>
-    {% else %}
-    <li><a href="{% url userena_signin %}">
-        <i class="icon-signin"></i>
-        {% trans "Login" %}</a>
-    </li>
-    {% endif %}
-</ul>
+
+<div class="navbar">
+    <div class="navbar-inner">
+        <div class="container" style="width: auto;">
+            <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </a>
+
+            <div class="nav-collapse">
+                <ul class="nav">
+                    {# Subnav #}
+                    <li{% ifequal active_tab 'collections'  %} class="active"{% endifequal %}><a href="{% url collection_list %}"> {% trans "Collections" %}</a></li>
+                    <li{% ifequal active_tab 'sources'  %} class="active"{% endifequal %}><a href="{% url source_list %}"> {% trans "Sources" %}</a></li>
+                    <li{% ifequal active_tab 'quotes'  %} class="active"{% endifequal %}><a href="{% url quote_list %}"> {% trans "Quotes" %}</a></li>
+                    <li{% ifequal active_tab 'authors'  %} class="active"{% endifequal %}><a href="{% url author_list %}"> {% trans "Authors" %}</a></li>
+                    <li{% ifequal active_tab 'topics'  %} class="active"{% endifequal %}><a href="{% url topic_list %}"> {% trans "Topics" %}</a></li>
+                    {# {% include "toolbar.html" %} #}
+                </ul>
+                <ul class="nav pull-right">
+                    {% if user.is_authenticated %}
+                    <li><a href="{% url userena_signout %}">
+                        <i class="icon-signout"></i>
+                        {% trans "Logout" %}</a>
+                    </li>
+                    <li><a href="{% url userena_profile_edit username=user.username %}">
+                        <i class="icon-cogs"></i>
+                        {% trans "Settings" %}</a>
+                    </li>
+                    {% else %}
+                    <li><a href="{% url userena_signin %}">
+                        <i class="icon-signin"></i>
+                        {% trans "Login" %}</a>
+                    </li>
+                    {% endif %}
+                </ul>
+            </div><!-- /.nav-collapse -->
+        </div>
+    </div><!-- /navbar-inner -->
+</div>
+
+

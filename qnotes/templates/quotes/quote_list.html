@@ -5,7 +5,7 @@
 {% block content %}
     {{ block.super }}
     <a href="{% url quote_add %}"><i class="icon-plus-sign"></i> {% trans "New Quote" %}</a>
-    <br>
+    <hr>
     {% paginate 2 quotes %}
     {% show_pages %}
     {% for quote in quotes %}

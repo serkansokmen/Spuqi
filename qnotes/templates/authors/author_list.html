@@ -4,6 +4,7 @@
 
 {% block content %}
 <a href="{% url author_add %}"><i class="icon-plus-sign"></i> {% trans "New Author" %}</a>
+<hr>
 <ul class="unstyled">
 {% paginate authors %}
 {% for author in authors %}
