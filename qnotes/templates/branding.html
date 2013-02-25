@@ -1,6 +1,7 @@
 {% load i18n %}
+{% load thumbnail %}
 
-<header style="margin-bottom:24px;">
+<header class="main-header">
     <h1>
         <a href="{% url quote_list %}">{% trans "Qnotes" %}</a>
         &nbsp;<small>{% trans "Collaborative space for social reading" %}</small>
@@ -15,7 +16,6 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </a>
-
             <div class="nav-collapse">
                 <ul class="nav">
                     {# Subnav #}
@@ -26,22 +26,38 @@
                     <li{% ifequal active_tab 'topics'  %} class="active"{% endifequal %}><a href="{% url topic_list %}"> {% trans "Topics" %}</a></li>
                     {# {% include "toolbar.html" %} #}
                 </ul>
+            </div><!-- /.nav-collapse -->
+            <div class="nav-collapse">
                 <ul class="nav pull-right">
+                    <li class="dropdown">
                     {% if user.is_authenticated %}
-                    <li><a href="{% url userena_signout %}">
-                        <i class="icon-signout"></i>
-                        {% trans "Logout" %}</a>
-                    </li>
-                    <li><a href="{% url userena_profile_edit username=user.username %}">
-                        <i class="icon-cogs"></i>
-                        {% trans "Settings" %}</a>
-                    </li>
+                        {% with user.get_profile as profile %}
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                            {% if profile.mugshot.url|length > 0 %}
+                            <img class="mugshot" src="{% thumbnail profile.mugshot 24x24 crop="smart" %}" alt="{% trans "Your mugshot" %}" />
+                            {% else %}
+                            <img class="mugshot" src="{{ profile.get_mugshot_url }}" style="width:24px;height:24px;" alt="{% trans "Your mugshot" %}" />
+                            {% endif %} <b class="caret"></b>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a href="{% url userena_profile_detail user.username %}"><i class="icon-user"></i> {% trans "View profile" %}</a></li>
+                            <li><a href="{% url userena_profile_edit user.username %}"><i class="icon-pencil"></i> {% trans "Edit profile" %}</a></li>
+                            <li><a href="{% url userena_password_change user.username %}"><i class="icon-key"></i> {% trans "Change password" %}</a></li>
+                            <li><a href="{% url userena_email_change user.username %}"><i class="icon-envelope"></i> {% trans "Change email" %}</a></li>
+                            <li class="divider"></li>
+                            <li><a href="{% url userena_signout %}"><i class="icon-signout"></i> {% trans "Signout" %}</a></li>
+                        </ul>
+                        {% endwith %}
                     {% else %}
-                    <li><a href="{% url userena_signin %}">
-                        <i class="icon-signin"></i>
-                        {% trans "Login" %}</a>
-                    </li>
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                            <i class="icon-user"></i> <b class="caret"></b>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a href="{% url userena_signin %}"><i class="icon-signin"></i> {% trans "Login" %}</a></li>
+                            <li><a href="{% url userena_signup %}"><i class="icon-user"></i> {% trans "Signup" %}</a></li>
+                        </ul>
                     {% endif %}
+                    </li>
                 </ul>
             </div><!-- /.nav-collapse -->
         </div>
