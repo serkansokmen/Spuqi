@@ -1,0 +1,18 @@
+body                        { padding-top: 0; }
+a, a:hover                  { text-decoration: none; }
+ul.unstyled li.active a     { color: gray; }
+footer                      { padding-bottom: 80px; }
+
+.main-header {
+    padding:@paddingLarge;
+    padding-top:48px;
+    #gradient > .directional(@grayLighter, @grayLight, 45deg);
+    font-weight: 400;
+}
+.main-header small {
+    color: @grayDark;
+    font-weight: 300;
+}
+#hint_id_sources,
+#hint_id_topics,
+#hint_id_members            { display: none; }

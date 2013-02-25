@@ -1,4 +1,9 @@
 //
+// Imports
+// --------------------------------------------------
+@import url('http://fonts.googleapis.com/css?family=Open+Sans:300,400&subset=latin,latin-ext');
+
+//
 // Variables
 // --------------------------------------------------
 
@@ -10,30 +15,30 @@
 // Grays
 // -------------------------
 @black:                 #000;
-@grayDarker:            #222;
-@grayDark:              #333;
-@gray:                  #555;
-@grayLight:             #999;
+@grayDarker:            #080808;
+@grayDark:              #999;
+@gray:                  #bbb;
+@grayLight:             #dfdfdf;
 @grayLighter:           #eee;
 @white:                 #fff;
 
 
 // Accent colors
 // -------------------------
-@blue:                  #049cdb;
-@blueDark:              #0064cd;
-@green:                 #46a546;
-@red:                   #9d261d;
-@yellow:                #ffc40d;
-@orange:                #f89406;
-@pink:                  #c3325f;
-@purple:                #7a43b6;
+@blue:                  #007FFF;
+@blueDark:              #1F26B6;
+@green:                 #3FB618;
+@red:                   #FF0039;
+@yellow:                #FFA500;
+@orange:                #FF7518;
+@pink:                  #E671B8;
+@purple:                #9954BB;
 
 
 // Scaffolding
 // -------------------------
 @bodyBackground:        @white;
-@textColor:             @grayDark;
+@textColor:             @grayDarker;
 
 
 // Links
@@ -48,13 +53,13 @@
 @serifFontFamily:       Georgia, "Times New Roman", Times, serif;
 @monoFontFamily:        Monaco, Menlo, Consolas, "Courier New", monospace;
 
-@baseFontSize:          14px;
-@baseFontFamily:        @sansFontFamily;
-@baseLineHeight:        20px;
+@baseFontSize:          13px;
+@baseFontFamily:        "Open Sans", Calibri, Candara, Arial, sans-serif; // @sansFontFamily;
+@baseLineHeight:        21px;
 @altFontFamily:         @serifFontFamily;
 
 @headingsFontFamily:    inherit; // empty to use BS default, @baseFontFamily
-@headingsFontWeight:    bold;    // instead of browser default, bold
+@headingsFontWeight:    300;    // instead of browser default, bold
 @headingsColor:         inherit; // empty to use BS default, @textColor
 
 
@@ -66,11 +71,11 @@
 @fontSizeSmall:         @baseFontSize * 0.85; // ~12px
 @fontSizeMini:          @baseFontSize * 0.75; // ~11px
 
-@paddingLarge:          11px 19px; // 44px
+@paddingLarge:          22px 30px; // 66px
 @paddingSmall:          2px 10px;  // 26px
-@paddingMini:           0 6px;   // 22px
+@paddingMini:           2px 6px;   // 24px
 
-@baseBorderRadius:      4px;
+@baseBorderRadius:      1px;
 @borderRadiusLarge:     6px;
 @borderRadiusSmall:     3px;
 

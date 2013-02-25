@@ -9,24 +9,22 @@
     <meta name="description" content="Quotes &mp; Notes - Collaborative space for social reading">
     <meta name="author" content="">
 
-    <!--[if lte IE 8]>
+    {# <link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.2.2/css/bootstrap.no-icons.min.css" rel="stylesheet"> #}
+    {# <link href="//netdna.bootstrapcdn.com/bootswatch/2.1.1/cosmo/bootstrap.min.css" rel="stylesheet" type="text/css"/> #}
+    <link href="//netdna.bootstrapcdn.com/font-awesome/3.0.2/css/font-awesome.css" rel="stylesheet">
+    <!--[if eq IE 7]>
     <link href="//netdna.bootstrapcdn.com/font-awesome/3.0.2/css/font-awesome-ie7.css" rel="stylesheet">
     <![endif]-->
     {% compress css %}
+    {% block css %}
     <link href="{{ STATIC_URL }}css/bootstrap.css" rel="stylesheet" type="text/css"/>
-    {% endcompress %}
-    {% compress css %}
+    {% endblock css %}
+    <!--[if gte IE 9]>
     <style type="text/css">
-        body                        { padding-top: 48px; }
-        a, a:hover                  { text-decoration: none; }
-        ul.unstyled li.active a     { color: gray; }
-        footer                      { padding-bottom: 80px; }
-
-        #hint_id_sources,
-        #hint_id_topics,
-        #hint_id_members            { display: none; }
+        .gradient { filter: none; }
     </style>
-    {% endcompress %}
+    <![endif]-->
+    {% endcompress css %}
 </head>
 <body>
     <div class="container">
@@ -53,6 +51,7 @@
     <!-- Javascript
     ================================================== -->
     <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+    <script src="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.0/js/bootstrap.min.js"></script>
     {# <script src="http://cdnjs.cloudflare.com/ajax/libs/knockout/2.2.0/knockout-min.js"></script> #}
     {# <script src="http://cdnjs.cloudflare.com/ajax/libs/knockout.mapping/2.3.3/knockout.mapping.js"></script> #}
     {% block js %}
