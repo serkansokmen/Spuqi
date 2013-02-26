@@ -30,7 +30,8 @@ def create_profile(sender, instance, created, **kwargs):
     try:
         if created:
             profile, new = UserProfile.objects.get_or_create(user=instance)
-            assign('change_profile', instance, instance.get_profile())
-            call_command('check_permissions')
+            if new:
+                call_command('check_permissions')
+                assign('change_profile', instance, instance.get_profile())
     except DatabaseError:
         pass
