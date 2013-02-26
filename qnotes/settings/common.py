@@ -285,36 +285,19 @@ LOGIN_URL = '/accounts/signin/'
 LOGOUT_URL = '/accounts/signout/'
 
 AUTH_PROFILE_MODULE = 'accounts.UserProfile'
+ANONYMOUS_USER_ID = -1
+ACCOUNT_ACTIVATION_DAYS = 10
 
 AUTHENTICATION_BACKENDS = (
     'userena.backends.UserenaAuthenticationBackend',
     'guardian.backends.ObjectPermissionBackend',
     'django.contrib.auth.backends.ModelBackend',
 )
-########## END AUTHENTICATION CONFIGURATION
-
-
-########## ACCOUNT, USERENA & FACEBOOK CONFIGURATION
-LOGIN_REDIRECT_URL = '/snapshots/'
-LOGIN_URL = '/accounts/signin/'
-LOGOUT_URL = '/accounts/signout/'
-
-ANONYMOUS_USER_ID = -1
 
 USERENA_HIDE_EMAIL = True
 USERENA_ACTIVATION_REQUIRED = True
 USERENA_MUGSHOT_DEFAULT = 'mm'
 USERENA_MUGSHOT_PATH = 'mugshots/'
-
-AUTHENTICATION_BACKENDS = (
-    # 'django_facebook.auth_backends.FacebookBackend',
-    'userena.backends.UserenaAuthenticationBackend',
-    'django.contrib.auth.backends.ModelBackend',
-)
-
-AUTH_PROFILE_MODULE = 'accounts.UserProfile'
-
-ACCOUNT_ACTIVATION_DAYS = 10
 
 '''
 FACEBOOK_APP_ID = '5252983309'

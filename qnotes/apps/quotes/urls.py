@@ -1,10 +1,10 @@
 from django.conf.urls.defaults import *
 from django.contrib.auth.decorators import login_required
-from qnotes.apps.quotes.views import QuoteList, QuoteDetail, QuoteCreate, QuoteUpdate, QuoteDelete
+from qnotes.apps.quotes.views import (
+    QuoteList, QuoteDetail, QuoteCreate, QuoteUpdate, QuoteDelete
+)
 
 urlpatterns = patterns('',
-
-    url(r'^accounts/profile/', 'profile', name='profile'),
     url(r'^$', login_required(QuoteList.as_view()), name='quote_list'),
     url(r'^new/$', login_required(QuoteCreate.as_view()), name='quote_add'),
     url(r'^(?P<pk>\d+)/$', login_required(QuoteDetail.as_view()), name='quote_detail'),
