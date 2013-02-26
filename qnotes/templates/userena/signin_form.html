@@ -4,25 +4,27 @@
 
 {% block title %}{% trans "Signin" %}{% endblock %}
 
+{% block inner_title %}
+<h2>{% trans "Signin" %}</h2>
+<div>
+{% url userena_signup as signup_url %}
+{% blocktrans with signup_url as signup_url %}
+    or signup for a new <a href="{{ signup_url }}"><i>Qnotes account</i></a>.
+{% endblocktrans %}
+</div>
+<hr>
+{% endblock inner_title %}
+
 {% block inner_content %}
-<legend>
-    {% trans "Signin" %}
-    <small>
-        {% url userena_signup as signup_url %}
-        {% blocktrans with signup_url as signup_url %}
-            or signup for a new account <a href="{{ signup_url }}">here</a>
-        {% endblocktrans %}
-    </small>
-</legend>
 <form action="" method="post" class="form-horizontal">
     {% csrf_token %}
     <fieldset>
-        {{ form|crispy}}
+        {{ form|crispy }}
     </fieldset>
     <div class="form-actions">
         <input class="btn btn-primary" type="submit" value="{% trans "Signin" %}" />
+        <a class="btn btn-link" href='{% url userena_password_reset %}' title="{% trans "Forgot your password?" %}">{% trans "Forgot your password?" %}</a>
     </div>
-    <p class="forgot-password"><a href='{% url userena_password_reset %}' title="{% trans "Forgot your password?" %}">{% trans "Forgot your password?" %}</a></p>
     {% if next %}<input type="hidden" name="next" value="{{ next }}" />{% endif %}
 </form>
 {% endblock inner_content %}

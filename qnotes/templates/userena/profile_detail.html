@@ -2,31 +2,27 @@
 {% load i18n %}
 
 {% block title %}{% blocktrans with profile.user.username as username %}{{ username }}'s profile.{% endblocktrans %}{% endblock %}
-{% block content_title %}
+{% block inner_title %}
 <h2>{{ profile.user.email }} {% if profile.user.get_full_name %}({{ profile.user.get_full_name }}){% endif %}</h2>
 {% endblock %}
 
 {% block content %}
     <div class="row-fluid">
         {% block profile_details %}
-            <div class="span1">
-                <img class="mugshot" src="{{ profile.get_mugshot_url }}" alt="{% trans "Your mugshot" %}" />
-            </div>
-            <div class="span11">
-                <table class="table table-bordereds table-condensed table-striped">
-                    <thead>
-                        <tr>
-                            {% if profile.user.get_full_name %}<th>{% trans "Name" %}</th>{% endif %}
-                            {% if profile.user.email %}<th>{% trans "Email" %}</th>{% endif %}
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            {% if profile.user.get_full_name %}<td>{{ profile.user.get_full_name }}</td>{% endif %}
-                            {% if profile.user.email %}<td>{{ profile.user.email }}</td>{% endif %}
-                        </tr>
-                    </tbody>
-                </table>
+            <div class="span3 well">
+                <div class="row-fluid">
+                    <div class="span3">
+                        <img class="mugshot" src="{{ profile.get_mugshot_url }}" alt="{% trans "Your mugshot" %}" />
+                    </div>
+                    <div class="span9">
+                        {% if profile.user.get_full_name %}
+                            <strong>{{ profile.user.get_full_name }}</strong>
+                        {% endif %}
+                        {% if profile.user.email %}
+                            <p>{{ profile.user.email }}</p>
+                        {% endif %}
+                    </div>
+                </div>
             </div>
         {% endblock %}
     </div>

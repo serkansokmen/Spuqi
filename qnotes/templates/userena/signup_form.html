@@ -4,6 +4,11 @@
 
 {% block title %}{% trans "Signup" %}{% endblock %}
 
+{% block inner_title %}
+<h2>{% trans "Signup" %}</h2>
+<hr>
+{% endblock inner_title %}
+
 {% block inner_content %}
 <form action="" method="post" class="form-horizontal">
     {% csrf_token %}

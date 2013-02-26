@@ -2,13 +2,16 @@
 {% load i18n %}
 {% load crispy_forms_tags %}
 
-{% block content_title %}<h2>{% blocktrans with user.username as username %}Account &raquo; {{ username }}{% endblocktrans %}</h2>{% endblock %}
+{% block inner_title %}
+<h2>{% trans "Change email address" %}</h2>
+{% blocktrans with user.username as username %}Account &raquo; {{ username }}{% endblocktrans %}
+<hr>
+{% endblock %}
 
 {% block inner_content %}
 <form action="" method="post" class="form-horizontal">
   {% csrf_token %}
   <fieldset>
-    <legend>{% trans "Change email address" %}</legend>
     {{ form|crispy }}
   </fieldset>
   <div class="form-actions">
