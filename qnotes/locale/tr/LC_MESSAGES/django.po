@@ -2,14 +2,14 @@
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
-#
+# 
 #, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-02-20 02:16+0200\n"
-"PO-Revision-Date: 2013-02-20 02:17\n"
+"POT-Creation-Date: 2013-02-27 02:41+0200\n"
+"PO-Revision-Date: 2013-02-27 11:04\n"
 "Last-Translator: Serkan Sokmen <admin@local.host>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
@@ -23,7 +23,7 @@ msgstr ""
 msgid "User"
 msgstr "Kullanıcı"
 
-#: apps/authors/models.py:10 templates/userena/profile_detail.html:19
+#: apps/authors/models.py:10
 msgid "Name"
 msgstr "Ad"
 
@@ -32,7 +32,7 @@ msgstr "Ad"
 msgid "Title"
 msgstr "Başlık"
 
-#: apps/collections/models.py:13 templates/base.html:38
+#: apps/collections/models.py:13 templates/branding.html:23
 msgid "Sources"
 msgstr "Kaynaklar"
 
@@ -42,7 +42,7 @@ msgid "Members"
 msgstr "Üyeler"
 
 #: apps/quotes/models.py:11 templates/collections/collection_detail.html:12
-#: templates/quotes/quote_item.html:17 templates/sources/source_list.html:10
+#: templates/quotes/quote_item.html:17 templates/sources/source_list.html:11
 msgid "Source"
 msgstr "Kaynak"
 
@@ -54,7 +54,7 @@ msgstr "Alıntı"
 msgid "Note"
 msgstr "Not"
 
-#: apps/quotes/models.py:14 templates/base.html:41
+#: apps/quotes/models.py:14 templates/branding.html:26
 #: templates/quotes/quote_item.html:20
 msgid "Topics"
 msgstr "Konular"
@@ -63,13 +63,13 @@ msgstr "Konular"
 msgid "Is private"
 msgstr "Özel"
 
-#: apps/quotes/views.py:61
+#: apps/quotes/views.py:54
 msgid "You have already created this quote"
 msgstr "Bu alıntıyı daha önce oluşturdunuz"
 
-#: apps/sources/models.py:13 templates/base.html:40
+#: apps/sources/models.py:13 templates/branding.html:25
 #: templates/collections/collection_detail.html:14
-#: templates/sources/source_list.html:12
+#: templates/sources/source_list.html:13
 msgid "Authors"
 msgstr "Yazarlar"
 
@@ -78,7 +78,7 @@ msgid "URL"
 msgstr "URL"
 
 #: apps/sources/models.py:15 templates/collections/collection_detail.html:13
-#: templates/sources/source_list.html:11
+#: templates/sources/source_list.html:12
 msgid "ISBN"
 msgstr "ISBN"
 
@@ -144,33 +144,56 @@ msgstr "İngilizce"
 msgid "Turkish"
 msgstr "Türkçe"
 
-#: templates/base.html:37
+#: templates/branding.html:6
+msgid "Qnotes"
+msgstr "Qnotes"
+
+#: templates/branding.html:7
+msgid "Collaborative space for social reading"
+msgstr "Sosyal okumalar için işbirlikçi alan"
+
+#: templates/branding.html:22 templates/userena/profile_detail.html:26
 msgid "Collections"
 msgstr "Kolleksiyonlar"
 
-#: templates/base.html:39
+#: templates/branding.html:24 templates/userena/profile_detail.html:52
 msgid "Quotes"
 msgstr "Alıntılar"
 
-#: templates/branding.html:5
-msgid "Qnotes"
-msgstr "Alıntı &amp; Notlar"
+#: templates/branding.html:36 templates/userena/profile_detail.html:15
+msgid "Your mugshot"
+msgstr "Avatarınız"
 
-#: templates/branding.html:6
-msgid "Collaborative space for social reading"
-msgstr "Sosyal okuma işbirlikçi alanı"
+#: templates/branding.html:40
+msgid "View profile"
+msgstr "Profil görüntüle"
 
-#: templates/branding.html:13
-msgid "Logout"
+#: templates/branding.html:41 templates/userena/profile_form.html:7
+msgid "Edit profile"
+msgstr "Profil düzenle"
+
+#: templates/branding.html:42 templates/userena/password_form.html:5
+#: templates/userena/password_form.html:20
+msgid "Change password"
+msgstr "Şifre değiştir"
+
+#: templates/branding.html:43 templates/userena/email_form.html:18
+msgid "Change email"
+msgstr "E-posta değiştir"
+
+#: templates/branding.html:45
+msgid "Signout"
 msgstr "Çıkış"
 
-#: templates/branding.html:17
-msgid "Settings"
-msgstr "Ayarlar"
-
-#: templates/branding.html:22
+#: templates/branding.html:53
 msgid "Login"
 msgstr "Giriş"
+
+#: templates/branding.html:54 templates/userena/signup_complete.html:6
+#: templates/userena/signup_form.html:5 templates/userena/signup_form.html:8
+#: templates/userena/signup_form.html:17
+msgid "Signup"
+msgstr "Kaydol"
 
 #: templates/toolbar.html:4
 msgid "Enter keywords"
@@ -181,14 +204,14 @@ msgid "Search"
 msgstr "Ara"
 
 #: templates/authors/author_confirm_delete.html:7
-#, fuzzy, python-format
+#, python-format
 msgid ""
 "\n"
 "    Delete %(author)s?\n"
 "    "
 msgstr ""
 "\n"
-"<p>%(author)s silinsin mi?</p>"
+"%(author)s silinsin mi?"
 
 #: templates/authors/author_confirm_delete.html:11
 #: templates/collections/collection_confirm_delete.html:13
@@ -274,14 +297,15 @@ msgstr ""
 msgid "New Source"
 msgstr "Yeni Kaynak"
 
-#: templates/sources/source_detail.html:7
+#: templates/sources/source_detail.html:8
 #, python-format
 msgid "Quotes from <i class=\"text-info\">&ldquo; %(source)s &rdquo;</i>"
 msgstr ""
 "<i class=\"text-info\">&ldquo; %(source)s &rdquo;</i> kaynağından alıntılar"
 
-#: templates/sources/source_detail.html:12
+#: templates/sources/source_detail.html:13
 #: templates/topics/topic_detail.html:11
+#: templates/userena/profile_detail.html:56
 msgid "No quotes"
 msgstr "Alıntı yok"
 
@@ -375,8 +399,8 @@ msgid "Email changed!"
 msgstr "E-posta değişti!"
 
 #: templates/userena/email_confirm_complete.html:6
-msgid "New email"
-msgstr "Yeni e-posta"
+msgid "Email changed"
+msgstr "E-posta değiştirldi"
 
 #: templates/userena/email_confirm_complete.html:8
 #, python-format
@@ -400,18 +424,14 @@ msgstr "E-postanız doğrulanamadı..."
 msgid "You could try changing it again in your account settings."
 msgstr "Hesap ayarlarınızda tekrar değiştirmeyi deneyebilirsiniz."
 
-#: templates/userena/email_form.html:5 templates/userena/password_form.html:7
-#, python-format
-msgid "Account &raquo; %(username)s"
-msgstr "Hesap &raquo; %(username)s"
-
-#: templates/userena/email_form.html:11
+#: templates/userena/email_form.html:6
 msgid "Change email address"
 msgstr "E-posta değiştir"
 
-#: templates/userena/email_form.html:15
-msgid "Change email"
-msgstr "E-posta değiştir"
+#: templates/userena/email_form.html:7 templates/userena/password_form.html:9
+#, python-format
+msgid "Account &raquo; %(username)s"
+msgstr "Hesap &raquo; %(username)s"
 
 #: templates/userena/password_complete.html:4
 msgid "Password changed"
@@ -425,12 +445,7 @@ msgstr "Şifreniz değiştirildi"
 msgid "From now on you can use your new password to signin"
 msgstr "Şu andan itibaren giriş yapmak için yeni şifrenizi kullanabilirsiniz"
 
-#: templates/userena/password_form.html:5
-#: templates/userena/password_form.html:17
-msgid "Change password"
-msgstr "Şifre değiştir"
-
-#: templates/userena/password_form.html:12
+#: templates/userena/password_form.html:8
 msgid "Change Password"
 msgstr "Şifre Değiştir"
 
@@ -448,15 +463,12 @@ msgid "You can now <a href=\"%(signin_url)s\">signin</a> with your new password.
 msgstr "Yeni şifreniz ile <a href=\"%(signin_url)s\">giriş</a> yapabilirsiniz."
 
 #: templates/userena/password_reset_confirm_form.html:5
+#: templates/userena/password_reset_confirm_form.html:6
 #: templates/userena/password_reset_confirm_form.html:15
 #: templates/userena/password_reset_form.html:5
+#: templates/userena/password_reset_form.html:6
 msgid "Reset password"
 msgstr "Şifre sıfırla"
-
-#: templates/userena/password_reset_confirm_form.html:10
-#: templates/userena/password_reset_form.html:10
-msgid "Reset Password"
-msgstr "Şifre Sıfırla"
 
 #: templates/userena/password_reset_done.html:4
 #: templates/userena/password_reset_done.html:5
@@ -469,47 +481,29 @@ msgid ""
 msgstr "Şifrenizi sıfırlamayla ilgili açıklamalar e-postanıza gönderildi."
 
 #: templates/userena/password_reset_form.html:15
-msgid "Send password"
-msgstr "Şifre gönder"
+msgid "Send instructions"
+msgstr "Talimatları yolla"
 
 #: templates/userena/profile_detail.html:4
 #, python-format
 msgid "%(username)s's profile."
 msgstr "%(username)s hesabının profili."
 
-#: templates/userena/profile_detail.html:13
-msgid "Your mugshot"
-msgstr "Avatarınız"
+#: templates/userena/profile_detail.html:40
+msgid "No collections"
+msgstr "Kolleksiyon bulunamadı"
 
-#: templates/userena/profile_detail.html:20
-msgid "Email"
-msgstr "E-posta"
+#: templates/userena/profile_detail.html:42
+msgid "Other collections"
+msgstr "Diğer kolleksiyonlar"
 
-#: templates/userena/profile_detail.html:21
-#, fuzzy
-msgid "Duty (Turkish)"
-msgstr "Türkçe"
-
-#: templates/userena/profile_detail.html:22
-#, fuzzy
-msgid "Duty (English)"
-msgstr "İngilizce"
-
-#: templates/userena/profile_detail.html:23
-msgid "Phone"
-msgstr ""
-
-#: templates/userena/profile_detail.html:24
-msgid "Mobile"
-msgstr ""
+#: templates/userena/profile_detail.html:48
+msgid "Not a member of other collections"
+msgstr "Başka bir kolleksiyoa üye değil"
 
 #: templates/userena/profile_form.html:5
 msgid "Account setup"
 msgstr "Hesap ayarları"
-
-#: templates/userena/profile_form.html:7
-msgid "Edit profile"
-msgstr "Profil düzenle"
 
 #: templates/userena/profile_form.html:16
 msgid "Save changes"
@@ -519,11 +513,11 @@ msgstr "Değişiklikleri kaydet"
 msgid "Profiles"
 msgstr "Profiller"
 
-#: templates/userena/profile_list.html:21
+#: templates/userena/profile_list.html:20
 msgid "previous"
 msgstr "önceki"
 
-#: templates/userena/profile_list.html:25
+#: templates/userena/profile_list.html:24
 #, python-format
 msgid ""
 "\n"
@@ -533,24 +527,25 @@ msgstr ""
 "\n"
 "%(num_pages)s sayfadan %(page)s. sayfa"
 
-#: templates/userena/profile_list.html:31
+#: templates/userena/profile_list.html:30
 msgid "next"
 msgstr "sonraki"
 
-#: templates/userena/signin_form.html:5 templates/userena/signin_form.html:9
-#: templates/userena/signin_form.html:23
+#: templates/userena/signin_form.html:5 templates/userena/signin_form.html:8
+#: templates/userena/signin_form.html:25
 msgid "Signin"
 msgstr "Giriş"
 
-#: templates/userena/signin_form.html:12
+#: templates/userena/signin_form.html:11
 #, python-format
 msgid ""
 "\n"
-"            or signup for a new account <a href=\"%(signup_url)s\">here</a>\n"
-"        "
+"    or signup for a new <a href=\"%(signup_url)s\"><i>Qnotes account</i></a>.\n"
 msgstr ""
+"\n"
+"veya yeni bir <a href=\"%(signup_url)s\"><i>Qnotes hesabı</i></a> açın.\n"
 
-#: templates/userena/signin_form.html:25
+#: templates/userena/signin_form.html:26
 msgid "Forgot your password?"
 msgstr "Şifrenizi mi unuttunuz?"
 
@@ -563,17 +558,12 @@ msgid "You have been signed out"
 msgstr "Çıkış yaptınız"
 
 #: templates/userena/signout.html:8
-msgid "You have been signed out. Till we meet again."
-msgstr "Çıkış yaptınız. Bir daha görüşmek üzere."
+msgid "Till we meet again"
+msgstr "Tekrar görüşmek dileğiyle"
 
 #: templates/userena/signup_complete.html:4
 msgid "Signup almost done!"
 msgstr "Kaydınız neredeyse tamam!"
-
-#: templates/userena/signup_complete.html:6
-#: templates/userena/signup_form.html:5 templates/userena/signup_form.html:12
-msgid "Signup"
-msgstr "Kaydol"
 
 #: templates/userena/signup_complete.html:9
 msgid "Thank you for signing up with us!"
@@ -690,6 +680,33 @@ msgstr ""
 "\n"
 "Kullanıcı adınız, eğer unuttuysanız: %(username)s\n"
 
+#~ msgid "Logout"
+#~ msgstr "Çıkış"
+
+#~ msgid "Settings"
+#~ msgstr "Ayarlar"
+
+#~ msgid "New email"
+#~ msgstr "Yeni e-posta"
+
+#~ msgid "Reset Password"
+#~ msgstr "Şifre Sıfırla"
+
+#~ msgid "Send password"
+#~ msgstr "Şifre gönder"
+
+#~ msgid "Email"
+#~ msgstr "E-posta"
+
+#~ msgid "Duty (Turkish)"
+#~ msgstr "Türkçe"
+
+#~ msgid "Duty (English)"
+#~ msgstr "İngilizce"
+
+#~ msgid "You have been signed out. Till we meet again."
+#~ msgstr "Çıkış yaptınız. Bir daha görüşmek üzere."
+
 #~ msgid "user"
 #~ msgstr "kullanıcı"
 
@@ -701,9 +718,6 @@ msgstr ""
 
 #~ msgid "Selec a topic"
 #~ msgstr "Konu seçin"
-
-#~ msgid "View profile"
-#~ msgstr "Profil görüntüle"
 
 #~ msgid "Edit details"
 #~ msgstr "Detayları düzenle"
