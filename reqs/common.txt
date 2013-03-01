@@ -13,6 +13,7 @@ django-guardian
 django-autofixture
 django-userena
 django-fluent-comments
+git+git://github.com/HonzaKral/django-threadedcomments.git
 django-haystack
 django-smuggler
 django-rosetta

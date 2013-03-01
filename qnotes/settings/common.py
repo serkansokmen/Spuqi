@@ -332,6 +332,9 @@ FACEBOOK_REGISTRATION_BACKEND = 'django_facebook.registration_backends.UserenaBa
 ########## DJANGO CRISPY FORMS CONFIGURATION
 # 'name', 'email', 'url'
 # FLUENT_COMMENTS_EXCLUDE_FIELDS = ('url')
+INSTALLED_APPS += (
+    'threadedcomments',
+)
 COMMENTS_APP = 'fluent_comments'
 CRISPY_TEMPLATE_PACK = 'bootstrap'
 ########## END DJANGO CRISPY FORMS CONFIGURATION
