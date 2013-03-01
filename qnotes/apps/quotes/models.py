@@ -21,11 +21,17 @@ class Quote(models.Model):
     tags = TaggableManager(blank=True)
     is_private = models.BooleanField(_('Is private'), default=False)
 
+    created_at = models.DateField(auto_now_add=True)
+    updated_at = models.DateField(auto_now=True)
+
     def __unicode__(self):
         return self.quote
 
     def get_absolute_url(self):
         return reverse('quote_detail', kwargs={'pk': self.pk})
+
+    class Meta:
+        ordering = ['-created_at']
 
 
 moderate_model(Quote,
