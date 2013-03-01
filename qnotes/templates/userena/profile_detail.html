@@ -57,8 +57,6 @@
         </div>
         <div class="span9">
             {% if user == profile.user %}
-
-                Show user's own quotes
                 {% with user.quote_set.all as quotes %}
                     {% paginate 5 quotes %}
                     {% show_pages %}
