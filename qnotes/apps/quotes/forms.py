@@ -23,7 +23,7 @@ class QuoteForm(forms.ModelForm):
 
     class Meta:
         model = Quote
-        exclude = ('user',)
+        exclude = ('user', 'note_type',)
         widgets = {
             'quote': Textarea(attrs={'rows': 6, 'class': 'input-xxlarge'}),
             'note': Textarea(attrs={'rows': 4, 'class': 'input-xlarge'}),

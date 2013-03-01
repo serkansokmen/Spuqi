@@ -9,11 +9,12 @@ from taggit.managers import TaggableManager
 
 class Quote(models.Model):
 
-    # NOTE_TYPES = ((1, _('Text'), (2, _('Voice'),))
+    NOTE_TYPES = ((1, _('Text')), (2, _('Voice')), (3, _('Video')))
 
     user = models.ForeignKey(User)
     source = models.ForeignKey(Source, default=0, verbose_name=_('Source'))
     quote = models.TextField(_('Quote'), max_length=1200)
+    note_type = models.PositiveIntegerField(_('Note type'), choices=NOTE_TYPES, blank=True, null=True)
     note = models.TextField(_('Note'), blank=True, max_length=500)
     topics = models.ManyToManyField(Topic, blank=True, verbose_name=_('Topics'))
     tags = TaggableManager(blank=True)
