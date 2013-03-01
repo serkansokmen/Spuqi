@@ -1,22 +1,37 @@
 {% load i18n %}
-<div class="clearfix">
-    {% include "quotes/quotation.html" %}
-    <div id="quote-{{ quote.id }}" class"collapse">
+{% load comments %}
+
+<div class="btn-group pull-right">
+    {# <button class="btn btn-mini btn-inverse" data-toggle="collapse" data-parent="#quote-list" href="#quote-{{ quote.id }}"><i class="icon-chevron-down"></i></button> #}
+    <button class="btn btn-mini btn-success" data-toggle="collapse" data-parent="#quote-list" href="#comments-{{ quote.id }}"><i class="icon-comments"></i></button>
+    <a class="btn btn-mini btn-info" href="{% url quote_edit pk=quote.pk %}">
+        <i class="icon-pencil"></i>
+    </a>
+    <a class="btn btn-mini btn-danger" href="{% url quote_delete pk=quote.pk %}">
+        <i class="icon-trash"></i>
+    </a>
+</div>
+<blockquote>
+    <i class="icon-quote-left"></i>
+    <i>{{ quote }}</i>
+    <i class="icon-quote-right"></i>
+</blockquote>
+
+<div class="row-fluid">
+    <div id="quote-{{ quote.id }}" class"span3">
+        {% if quote.note %}
         <div class="row-fluid text-warning">
-            {% if quote.note %}
             <small><i class="icon-comment"></i> {{ quote.note }}</small>
-            {% endif %}
         </div>
         <br>
+        {% endif %}
         <strong>
             <i class="icon-eye-{% if quote.is_private %}close{% else %}open{% endif %}"></i>
             {{ quote.user }}
         </strong>
         <small>({% if quote.is_private %}{% trans "Private Quotation" %}{% else %}{% trans "Public Quotation" %}{% endif %})</small>
-
-        <div class="row-fluid">
-            <strong>{% trans "Source" %}:</strong> <a href="{{ quote.source.get_absolute_url }}">{{ quote.source }}</a>
-        </div>
+        <br>
+        <strong>{% trans "Source" %}:</strong> <a href="{{ quote.source.get_absolute_url }}">{{ quote.source }}</a>
         <div class="row-fluid">
             <strong>{% trans "Topics" %}:</strong>
             {% for topic in quote.topics.all %}
@@ -25,14 +40,11 @@
         </div>
         {% ifequal quote.user request.user %}
         <br>
-        <div class="btn-group">
-            <a class="btn btn-small" href="{% url quote_edit pk=quote.pk %}">
-                <i class="icon-pencil"></i>
-            </a>
-            <a class="btn btn-small" href="{% url quote_delete pk=quote.pk %}">
-                <i class="icon-trash"></i>
-            </a>
-        </div>
-        {% endifequal %}</div>
-    {% if forloop and not forloop.last %}<hr>{% endif %}
+        {% endifequal %}
+    </div>
+    <div id="comments-{{ quote.id }}" class="span9 collapse">
+        {% render_comment_list for quote %}
+        {% render_comment_form for quote %}
+    </div>
 </div>
+{% if forloop and not forloop.last %}<hr>{% endif %}

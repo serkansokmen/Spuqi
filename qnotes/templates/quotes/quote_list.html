@@ -1,16 +1,30 @@
 {% extends "base.html" %}
 {% load i18n %}
 {% load endless %}
+{% load crispy_forms_tags %}
+
+{% block css %}
+{{ block.super }}
+<link rel="stylesheet" type="text/css" href="{{ STATIC_URL }}fluent_comments/css/ajaxcomments.css" />
+{% endblock css %}
 
 {% block content %}
-    {{ block.super }}
-    <a href="{% url quote_add %}"><i class="icon-plus-sign"></i> {% trans "New Quote" %}</a>
-    <hr>
-    {% paginate 5 quotes %}
-    {% show_pages %}
-    <div id="quote-list">
-        {% for quote in quotes %}
-            {% include "quotes/quote_item.html" %}
-        {% endfor %}
+<section class="row-fluid">
+    <div class="span12">
+        <a href="{% url quote_add %}"><i class="icon-plus-sign"></i> {% trans "New Quote" %}</a>
+        <hr>
+        {% paginate 5 quotes %}
+        {% show_pages %}
+        <div id="quote-list">
+            {% for quote in quotes %}
+                {% include "quotes/quote_item.html" %}
+            {% endfor %}
+        </div>
     </div>
+</section>
 {% endblock content %}
+
+{% block js %}
+{{ block.super }}
+<script type="text/javascript" src="{{ STATIC_URL }}fluent_comments/js/ajaxcomments.js"></script>
+{% endblock js %}

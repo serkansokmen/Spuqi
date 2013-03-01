@@ -12,6 +12,7 @@ Sphinx==1.1.3
 django-guardian
 django-autofixture
 django-userena
+django-fluent-comments
 django-haystack
 django-smuggler
 django-rosetta

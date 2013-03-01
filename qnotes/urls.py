@@ -25,6 +25,8 @@ urlpatterns = patterns('',
 
     # django-select2 URLs
     url(r'^ext/', include('django_select2.urls')),
+
+    url(r'^comments/', include('fluent_comments.urls')),
 )
 
 if settings.DEBUG:

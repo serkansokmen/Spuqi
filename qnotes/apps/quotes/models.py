@@ -5,6 +5,7 @@ from qnotes.apps.sources.models import Source
 from qnotes.apps.topics.models import Topic
 from django.utils.translation import ugettext as _
 from taggit.managers import TaggableManager
+from fluent_comments.moderation import moderate_model
 
 
 class Quote(models.Model):
@@ -25,3 +26,9 @@ class Quote(models.Model):
 
     def get_absolute_url(self):
         return reverse('quote_detail', kwargs={'pk': self.pk})
+
+
+moderate_model(Quote,
+    publication_date_field='publication_date',
+    enable_comments_field='enable_comments',
+)

@@ -187,6 +187,7 @@ DJANGO_APPS = (
     'django.contrib.sessions',
     'django.contrib.sites',
     'django.contrib.messages',
+    'django.contrib.comments',
     'django.contrib.staticfiles',
 
     # Useful template tags:
@@ -226,6 +227,9 @@ THIRD_PARTY_APPS = (
 
     # django-crispy-forms
     'crispy_forms',
+
+    # django-fluent-comments (depends on crispy_forms)
+    'fluent_comments',
 
     # django-extra-views
     'extra_views',
@@ -323,6 +327,27 @@ FACEBOOK_CELERY_TOKEN_EXTEND = True
 FACEBOOK_REGISTRATION_BACKEND = 'django_facebook.registration_backends.UserenaBackend'
 '''
 ########## END ACCOUNT, PROFILE & FACEBOOK CONFIGURATION
+
+
+########## DJANGO CRISPY FORMS CONFIGURATION
+# 'name', 'email', 'url'
+# FLUENT_COMMENTS_EXCLUDE_FIELDS = ('url')
+COMMENTS_APP = 'fluent_comments'
+CRISPY_TEMPLATE_PACK = 'bootstrap'
+########## END DJANGO CRISPY FORMS CONFIGURATION
+
+
+########## AKISMET CONFIGURATION
+AKISMET_API_KEY = '7ef7a1b2084b'
+AKISMET_BLOG_URL = 'http://qnotes.herokuapp.com'        # Optional, to override auto detection
+AKISMET_IS_TEST = False                        # Enable to make test runs
+
+FLUENT_CONTENTS_USE_AKISMET = True             # Enabled by default when AKISMET_API_KEY is set.
+FLUENT_COMMENTS_CLOSE_AFTER_DAYS = None        # Auto-close comments after N days
+FLUENT_COMMENTS_MODERATE_AFTER_DAYS = None     # Auto-moderate comments after N days.
+FLUENT_COMMENTS_AKISMET_ACTION = 'moderate'    # Set to 'moderate' or 'delete'
+FLUENT_COMMENTS_USE_EMAIL_NOTIFICATION = True
+########## END AKISMET CONFIGURATION
 
 
 ########## HAYSTACK CONFIGURATION
