@@ -25,9 +25,11 @@
     </style>
     <![endif]-->
     {% endcompress css %}
-    {% if form %}
-    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
-    {% endif %}
+    {% comment %}
+        {% if form %}
+        <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+        {% endif %}
+    {% endcomment %}
 </head>
 <body>
     <div class="container">
@@ -53,14 +55,12 @@
 
     <!-- Javascript
     ================================================== -->
-    {% if not form %}
-    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
-    {% endif %}
-    <script src="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.0/js/bootstrap.min.js"></script>
     {# <script src="http://cdnjs.cloudflare.com/ajax/libs/knockout/2.2.0/knockout-min.js"></script> #}
     {# <script src="http://cdnjs.cloudflare.com/ajax/libs/knockout.mapping/2.3.3/knockout.mapping.js"></script> #}
     {% block js %}
     {% compress js %}
+    <script src="{{ STATIC_URL }}js/vendor/jquery-1.9.1.js"></script>
+    <script src="{{ STATIC_URL }}js/vendor/bootstrap.js"></script>
     <script src="{{ STATIC_URL }}js/app.js"></script>
     {% endcompress %}
     {% endblock js %}
