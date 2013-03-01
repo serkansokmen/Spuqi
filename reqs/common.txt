@@ -16,5 +16,8 @@ django-haystack
 django-smuggler
 django-rosetta
 django-tastypie
+django-taggit
+django-select2
+django-extra-views
 django-crispy-forms
 django-endless-pagination

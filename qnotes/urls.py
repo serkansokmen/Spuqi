@@ -22,6 +22,9 @@ urlpatterns = patterns('',
     (r'^quote/', include('apps.quotes.urls')),
     (r'^source/', include('apps.sources.urls')),
     (r'^topic/', include('apps.topics.urls')),
+
+    # django-select2 URLs
+    url(r'^ext/', include('django_select2.urls')),
 )
 
 if settings.DEBUG:

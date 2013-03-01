@@ -1,6 +1,6 @@
 from django.conf.urls.defaults import *
 from django.contrib.auth.decorators import login_required
-from qnotes.apps.authors.views import AuthorList, AuthorDetail, AuthorCreate, AuthorUpdate, AuthorDelete
+from .views import AuthorList, AuthorDetail, AuthorCreate, AuthorUpdate, AuthorDelete
 
 urlpatterns = patterns('',
 

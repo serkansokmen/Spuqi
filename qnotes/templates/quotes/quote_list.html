@@ -8,7 +8,9 @@
     <hr>
     {% paginate 5 quotes %}
     {% show_pages %}
-    {% for quote in quotes %}
-        {% include "quotes/quote_item.html" %}
-    {% endfor %}
+    <div id="quote-list">
+        {% for quote in quotes %}
+            {% include "quotes/quote_item.html" %}
+        {% endfor %}
+    </div>
 {% endblock content %}

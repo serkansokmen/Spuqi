@@ -1,5 +1,5 @@
 from django import forms
-from qnotes.apps.authors.models import Author
+from .models import Author
 
 
 class AuthorForm(forms.ModelForm):

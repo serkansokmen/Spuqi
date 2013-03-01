@@ -29,6 +29,9 @@
             </div><!-- /.nav-collapse -->
             <div class="">
                 <ul class="nav pull-right">
+                    {% if user.is_superuser %}
+                    <li><a href="{% url admin:index %}" title="{% trans "Admin Panel" %}" rel="tooltip"><i class="icon-cogs"></i> {# {% trans "Admin Panel" %} #}</a></li>
+                    {% endif %}
                     <li class="dropdown">
                     {% if user.is_authenticated %}
                         {% with user.get_profile as profile %}

@@ -1,37 +1,38 @@
 {% load i18n %}
 <div class="clearfix">
     {% include "quotes/quotation.html" %}
-    <div class="row-fluid text-warning">
-        {% if quote.note %}
-        <small><i class="icon-comment"></i> {{ quote.note }}</small>
-        {% endif %}
-    </div>
-    <br>
-    <strong>
-        <i class="icon-eye-{% if quote.is_private %}close{% else %}open{% endif %}"></i>
-        {{ quote.user }}
-    </strong>
-    <small>({% if quote.is_private %}{% trans "Private Quotation" %}{% else %}{% trans "Public Quotation" %}{% endif %})</small>
+    <div id="quote-{{ quote.id }}" class"collapse">
+        <div class="row-fluid text-warning">
+            {% if quote.note %}
+            <small><i class="icon-comment"></i> {{ quote.note }}</small>
+            {% endif %}
+        </div>
+        <br>
+        <strong>
+            <i class="icon-eye-{% if quote.is_private %}close{% else %}open{% endif %}"></i>
+            {{ quote.user }}
+        </strong>
+        <small>({% if quote.is_private %}{% trans "Private Quotation" %}{% else %}{% trans "Public Quotation" %}{% endif %})</small>
 
-    <div class="row-fluid">
-        <strong>{% trans "Source" %}:</strong> <a href="{{ quote.source.get_absolute_url }}">{{ quote.source }}</a>
-    </div>
-    <div class="row-fluid">
-        <strong>{% trans "Topics" %}:</strong>
-        {% for topic in quote.topics.all %}
-        <a href="{{ topic.get_absolute_url }}">{{ topic }}</a>{% if not forloop.last %}, {% endif %}
-        {% endfor %}
-    </div>
-    {% ifequal quote.user request.user %}
-    <br>
-    <div class="btn-group">
-        <a class="btn btn-small" href="{% url quote_edit pk=quote.pk %}">
-            <i class="icon-pencil"></i>
-        </a>
-        <a class="btn btn-small" href="{% url quote_delete pk=quote.pk %}">
-            <i class="icon-trash"></i>
-        </a>
-    </div>
-    {% endifequal %}
+        <div class="row-fluid">
+            <strong>{% trans "Source" %}:</strong> <a href="{{ quote.source.get_absolute_url }}">{{ quote.source }}</a>
+        </div>
+        <div class="row-fluid">
+            <strong>{% trans "Topics" %}:</strong>
+            {% for topic in quote.topics.all %}
+            <a href="{{ topic.get_absolute_url }}">{{ topic }}</a>{% if not forloop.last %}, {% endif %}
+            {% endfor %}
+        </div>
+        {% ifequal quote.user request.user %}
+        <br>
+        <div class="btn-group">
+            <a class="btn btn-small" href="{% url quote_edit pk=quote.pk %}">
+                <i class="icon-pencil"></i>
+            </a>
+            <a class="btn btn-small" href="{% url quote_delete pk=quote.pk %}">
+                <i class="icon-trash"></i>
+            </a>
+        </div>
+        {% endifequal %}</div>
     {% if forloop and not forloop.last %}<hr>{% endif %}
 </div>

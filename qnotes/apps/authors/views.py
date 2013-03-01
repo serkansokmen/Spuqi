@@ -1,9 +1,9 @@
 from django.core.urlresolvers import reverse_lazy
 from django.shortcuts import get_object_or_404
 from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView
-from qnotes.apps.authors.models import Author
 from qnotes.apps.sources.models import Source
-from qnotes.apps.authors.forms import AuthorForm
+from .models import Author
+from .forms import AuthorForm
 
 
 class AuthorSidebarMixin(object):

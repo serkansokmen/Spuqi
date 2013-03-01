@@ -1,8 +1,8 @@
 from django.db import models
 from django.contrib.auth.models import User
 from django.core.urlresolvers import reverse
-from libs.utils import slugify
 from django.utils.translation import ugettext as _
+from libs.utils import slugify
 
 
 class Author(models.Model):

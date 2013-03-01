@@ -4,14 +4,16 @@ from django.core.urlresolvers import reverse
 from qnotes.apps.sources.models import Source
 from qnotes.apps.topics.models import Topic
 from django.utils.translation import ugettext as _
+from taggit.managers import TaggableManager
 
 
 class Quote(models.Model):
     user = models.ForeignKey(User)
     source = models.ForeignKey(Source, default=0, verbose_name=_('Source'))
-    quote = models.TextField(_('Quote'), blank=True, null=True, max_length=1200)
-    note = models.TextField(_('Note'), blank=True, null=True, max_length=500)
+    quote = models.TextField(_('Quote'), max_length=1200)
+    note = models.TextField(_('Note'), blank=True, max_length=500)
     topics = models.ManyToManyField(Topic, blank=True, verbose_name=_('Topics'))
+    tags = TaggableManager(blank=True)
     is_private = models.BooleanField(_('Is private'), default=False)
 
     def __unicode__(self):

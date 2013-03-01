@@ -227,6 +227,15 @@ THIRD_PARTY_APPS = (
     # django-crispy-forms
     'crispy_forms',
 
+    # django-extra-views
+    'extra_views',
+
+    # django-taggit
+    'taggit',
+
+    # django-select2
+    'django_select2',
+
     # django-endless-pagination
     'endless_pagination',
 
