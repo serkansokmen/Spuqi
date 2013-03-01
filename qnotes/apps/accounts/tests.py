@@ -14,3 +14,6 @@ class ProfileDetailViewTest(TestCase):
         user = self.client.login(username='ssokmen', password='12345')
         response = self.client.post('/accounts/ssokmen')
         print response
+
+    def test_user_sees_(self):
+        pass
