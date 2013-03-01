@@ -12,22 +12,22 @@
     <div class="row-fluid">
         <div class="span3">
             <div class="row-fluid" style="margin-top:20px;">
-                <div class="span3 thumbnail">
+                <div class="span3">
                     <img src="{{ profile.get_mugshot_url }}" alt="{% trans "Your mugshot" %}" />
                 </div>
                 <div class="span9">
-                    {% if user.get_full_name %}
-                        <strong>{{ user.get_full_name }}</strong>
+                    {% if profile.user.get_full_name %}
+                        <strong>{{ profile.user.get_full_name }}</strong>
                     {% endif %}
-                    {% if user.email %}
-                        <p>{{ user.email }}</p>
+                    {% if profile.user.email %}
+                        <p>{{ profile.user.email }}</p>
                     {% endif %}
                 </div>
             </div>
             <h3>{% trans "Collections" %}</h3>
             <ul class="unstyled">
-            {% for collection in user.owned_collections.all %}
-                {% ifequal user collection.user %}
+            {% for collection in profile.user.owned_collections.all %}
+                {% ifequal profile.user collection.user %}
                 <li>
                     <a href="{{ collection.get_absolute_url }}">{{ collection }}</a>
                     <div class="pull-right">
@@ -46,8 +46,8 @@
             </ul>
             <h3>{% trans "Other collections" %}</h3>
             <ul class="unstyled">
-                {% for collection in user.followed_collections.all %}
-                    {% ifnotequal user collection.user %}
+                {% for collection in profile.user.followed_collections.all %}
+                    {% ifnotequal profile.user collection.user %}
                         <li>
                             <a href="{{ collection.get_absolute_url }}">{{ collection }}</a>
                         </li>
@@ -56,16 +56,19 @@
             </ul>
         </div>
         <div class="span9">
-            {# <h3>{% trans "Quotes" %}</h3> #}
-            {% with user.quote_set.all as quotes     %}
-                {% paginate 5 quotes %}
-                {% show_pages %}
-                {% for quote in quotes %}
-                    {% include "quotes/quote_item.html" %}
-                {% empty %}
-                    {% trans "No quotes" %}
-                {% endfor %}
-            {% endwith %}
+            {% if user == profile.user %}
+
+                Show user's own quotes
+                {% with user.quote_set.all as quotes %}
+                    {% paginate 5 quotes %}
+                    {% show_pages %}
+                    {% for quote in quotes %}
+                        {% include "quotes/quote_item.html" %}
+                    {% empty %}
+                        {% trans "No quotes" %}
+                    {% endfor %}
+                {% endwith %}
+            {% endif %}
         </div>
     </div>
 {% endblock %}

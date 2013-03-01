@@ -11,6 +11,7 @@
             <th>{% trans "Source" %}</th>
             <th>{% trans "ISBN" %}</th>
             <td>{% trans "Authors" %}</td>
+            <td>&nbsp;</td>
         </tr>
     </thead>
     <tbody>
@@ -26,6 +27,18 @@
             </td>
             <td>{{ source.isbn|default:"-" }}</td>
             <td>{% for author in source.authors.all %}{{ author }}{% if not forloop.last %}, {% endif %}{% endfor %}</td>
+            <td>
+                <div class="btn-group pull-right">
+                    {% ifequal source.user request.user %}
+                    <a class="btn" href="{% url source_edit slug=source.slug %}">
+                        <i class="icon-pencil"></i>
+                    </a>
+                    <a class="btn btn-danger" href="{% url source_delete slug=source.slug %}">
+                        <i class="icon-trash"></i>
+                    </a>
+                    {% endifequal %}
+                </div>
+            </td>
         </tr>
         {% endfor %}
     </tbody>

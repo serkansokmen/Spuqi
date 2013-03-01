@@ -70,8 +70,8 @@ LANGUAGE_CODE = 'en/us'
 gettext = lambda s: s
 
 LANGUAGES = (
-    ('en', gettext('English')),
     ('tr', gettext('Turkish')),
+    ('en', gettext('English')),
 )
 
 # See: https://docs.djangoproject.com/en/dev/ref/settings/#site-id
@@ -311,6 +311,7 @@ USERENA_HIDE_EMAIL = True
 USERENA_ACTIVATION_REQUIRED = True
 USERENA_MUGSHOT_DEFAULT = 'mm'
 USERENA_MUGSHOT_PATH = 'mugshots/'
+USERENA_MUGSHOT_SIZE = 31
 
 '''
 FACEBOOK_APP_ID = '5252983309'

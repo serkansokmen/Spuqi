@@ -40,7 +40,9 @@ DATABASES = {
 # See: https://docs.djangoproject.com/en/dev/ref/settings/#caches
 CACHES = {
     'default': {
-        'BACKEND': 'django.core.cache.backends.locmem.LocMemCache',
+        # 'BACKEND': 'django.core.cache.backends.locmem.LocMemCache',
+        # 'LOCATION': 'unique-snowflake'
+        'BACKEND': 'django.core.cache.backends.dummy.DummyCache',
     }
 }
 ########## END CACHE CONFIGURATION
