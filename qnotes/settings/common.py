@@ -244,6 +244,9 @@ THIRD_PARTY_APPS = (
 
     # easy_thumbnails
     'easy_thumbnails',
+
+    # django-disqus
+    'disqus',
 )
 
 LOCAL_APPS = (
@@ -305,28 +308,16 @@ AUTHENTICATION_BACKENDS = (
     'guardian.backends.ObjectPermissionBackend',
     'django.contrib.auth.backends.ModelBackend',
 )
+########## END AUTHENTICATION CONFIGURATION
 
+
+########## USERENA CONFIGURATION
 USERENA_HIDE_EMAIL = True
 USERENA_ACTIVATION_REQUIRED = True
 USERENA_MUGSHOT_DEFAULT = 'mm'
 USERENA_MUGSHOT_PATH = 'mugshots/'
 USERENA_MUGSHOT_SIZE = 31
-
-'''
-FACEBOOK_APP_ID = '5252983309'
-FACEBOOK_APP_SECRET = '48f3cf9a62356fedb65d1baaf8d578f9'
-FACEBOOK_STORE_LIKES = True
-FACEBOOK_STORE_FRIENDS = True
-FACEBOOK_LOGIN_DEFAULT_REDIRECT = LOGIN_REDIRECT_URL
-
-# Use celery for storing friends or likes
-FACEBOOK_CELERY_STORE = True
-# Use celery for extending access tokens in the background
-FACEBOOK_CELERY_TOKEN_EXTEND = True
-
-FACEBOOK_REGISTRATION_BACKEND = 'django_facebook.registration_backends.UserenaBackend'
-'''
-########## END ACCOUNT, PROFILE & FACEBOOK CONFIGURATION
+########## END USERENA CONFIGURATION
 
 
 ########## SELECT2 CONFIGURATION
@@ -343,19 +334,6 @@ AUTOCOMPLETE_LIMIT = 10
 ########## DJANGO CRISPY FORMS CONFIGURATION
 CRISPY_TEMPLATE_PACK = 'bootstrap'
 ########## END DJANGO CRISPY FORMS CONFIGURATION
-
-
-########## AKISMET CONFIGURATION
-AKISMET_API_KEY = '7ef7a1b2084b'
-AKISMET_BLOG_URL = 'http://qnotes.herokuapp.com'        # Optional, to override auto detection
-AKISMET_IS_TEST = False                        # Enable to make test runs
-
-FLUENT_CONTENTS_USE_AKISMET = True             # Enabled by default when AKISMET_API_KEY is set.
-FLUENT_COMMENTS_CLOSE_AFTER_DAYS = None        # Auto-close comments after N days
-FLUENT_COMMENTS_MODERATE_AFTER_DAYS = None     # Auto-moderate comments after N days.
-FLUENT_COMMENTS_AKISMET_ACTION = 'moderate'    # Set to 'moderate' or 'delete'
-FLUENT_COMMENTS_USE_EMAIL_NOTIFICATION = True
-########## END AKISMET CONFIGURATION
 
 
 ########## HAYSTACK CONFIGURATION
@@ -404,12 +382,6 @@ COMPRESS_JS_FILTERS = [
     'compressor.filters.template.TemplateFilter',
 ]
 ########## END COMPRESSION CONFIGURATION
-
-
-########## DJANGO DISQUS CONFIGURATION
-DISQUS_API_KEY = 'd07Bo1xYutaqglgWA5VYwuz4c17mMtqCMhIVnm6KdOihPwjA00O4bSiMNaqolafJ'
-DISQUS_WEBSITE_SHORTNAME = 'qnotes'
-########## END DJANGO DISQUS CONFIGURATION
 
 
 ########## DJANGO ENDLESS PAGINATION CONFIGURATION
