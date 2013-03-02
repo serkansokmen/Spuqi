@@ -5,22 +5,22 @@ from qnotes.apps.collections.models import Collection
 from qnotes.apps.collections.forms import CollectionForm
 
 
-class CollectionSidebarMixin(object):
+class CollectionMixin(object):
     # Add collections to the context
     def get_context_data(self, **kwargs):
-        context = super(CollectionSidebarMixin, self).get_context_data(**kwargs)
+        context = super(CollectionMixin, self).get_context_data(**kwargs)
         context['owned_collections'] = Collection.objects.filter(user=self.request.user)
         context['followed_collections'] = Collection.objects.filter(members=self.request.user).exclude(user=self.request.user)
         context['active_tab'] = 'collections'
         return context
 
 
-class CollectionList(CollectionSidebarMixin, ListView):
+class CollectionList(CollectionMixin, ListView):
     model = Collection
     context_object_name = 'collections'
 
 
-class CollectionDetail(CollectionSidebarMixin, DetailView):
+class CollectionDetail(CollectionMixin, DetailView):
     model = Collection
     context_object_name = 'current_collection'
 
@@ -31,7 +31,7 @@ class CollectionDetail(CollectionSidebarMixin, DetailView):
         return context
 
 
-class CollectionCreate(CollectionSidebarMixin, CreateView):
+class CollectionCreate(CollectionMixin, CreateView):
     model = Collection
     form_class = CollectionForm
 
@@ -40,13 +40,13 @@ class CollectionCreate(CollectionSidebarMixin, CreateView):
         return super(CollectionCreate, self).form_valid(form)
 
 
-class CollectionUpdate(CollectionSidebarMixin, UpdateView):
+class CollectionUpdate(CollectionMixin, UpdateView):
     model = Collection
     form_class = CollectionForm
     slug_field = 'slug'
 
 
-class CollectionDelete(CollectionSidebarMixin, DeleteView):
+class CollectionDelete(CollectionMixin, DeleteView):
     success_url = reverse_lazy('collection_list')
 
     def get_object(self):

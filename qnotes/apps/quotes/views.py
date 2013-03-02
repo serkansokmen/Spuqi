@@ -12,6 +12,7 @@ class QuotesMixin(object):
     def get_context_data(self, **kwargs):
         context = super(QuotesMixin, self).get_context_data(**kwargs)
         context['private_quotes'] = Quote.objects.filter(user=self.request.user, is_private=True)
+        context['active_tab'] = 'quotes'
         return context
 
 
@@ -21,20 +22,15 @@ class ReturnToQuoteDetailMixin(object):
         return reverse('userena_profile_detail', kwargs={'username': self.request.user.username})
 
 
-class QuoteList(ListView):
+class QuoteList(QuotesMixin, ListView):
     context_object_name = 'quotes'
-
-    def get_context_data(self, **kwargs):
-        context = super(QuoteList, self).get_context_data(**kwargs)
-        context['private_quotes'] = Quote.objects.filter(user=self.request.user, is_private=True)
-        return context
 
     def get_queryset(self):
         # return Quote.objects.filter(user=self.request.user)
         return Quote.objects.filter(is_private=False)
 
 
-class QuoteDetail(DetailView):
+class QuoteDetail(QuotesMixin, DetailView):
     context_object_name = 'quote'
 
     def get_object(self):

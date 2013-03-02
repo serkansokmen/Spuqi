@@ -1,15 +1,27 @@
 {% extends "base.html" %}
 {% load i18n %}
 
+{% block content_title %}
+<div class="row-fluid">
+    <a class="btn btn-success btn-large pull-right" href="{% url collection_add %}"><i class="icon-plus-sign icon-large"></i> {% trans "New Collection" %}</a>
+</div>
+{% endblock content_title %}
+
 {% block content %}
-<a href="{% url collection_add %}"><i class="icon-plus-sign"></i> {% trans "New Collection" %}</a>
 {% if owned_collections %}
     <hr>
     <strong>{% trans "Your own Collections" %}:</strong>
     <ul class="unstyled">
     {% for collection in owned_collections %}
         <li{% ifequal collection current_collection %} class="active"{% endifequal %}>
-            <a href="{{ collection.get_absolute_url }}">{{ collection }}</a>
+            <a href="{{ collection.get_absolute_url }}">
+                {% if collection.sources.0 %}
+                <i class="icon-folder-close-alt"></i>
+                {% else %}
+                <i class="icon-folder-close"></i>
+                {% endif %}
+                {{ collection }}
+            </a>
             {% ifequal collection.user request.user %}
             <div class="pull-right">
                 <a href="{% url collection_edit slug=collection.slug %}">
