@@ -28,7 +28,7 @@ urlpatterns = patterns('',
     # django-grappelli
     (r'^grappelli/', include('grappelli.urls')),
 
-    url(r'^comments/', include('django.contrib.comments.urls')),
+    url(r'^comments/', include('fluent_comments.urls')),
 )
 
 if settings.DEBUG:

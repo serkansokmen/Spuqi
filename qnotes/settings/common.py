@@ -180,6 +180,7 @@ ROOT_URLCONF = '%s.urls' % SITE_NAME
 
 
 ########## APP CONFIGURATION
+# See: https://docs.djangoproject.com/en/dev/ref/settings/#installed-apps
 DJANGO_APPS = (
     # Default Django apps:
     'django.contrib.auth',
@@ -187,12 +188,9 @@ DJANGO_APPS = (
     'django.contrib.sessions',
     'django.contrib.sites',
     'django.contrib.messages',
-    'django.contrib.comments',
     'django.contrib.staticfiles',
-
     # Useful template tags:
     'django.contrib.humanize',
-
     # django-grappelli
     'grappelli',
     # Admin panel and documentation:
@@ -203,48 +201,30 @@ DJANGO_APPS = (
 THIRD_PARTY_APPS = (
     # Database migration helpers:
     'south',
-
     # Compressor:
     'compressor',
-
     # Asynchronous task queue:
     'djcelery',
-
     # Rosetta
     'rosetta',
-
     # django-haystack
     'haystack',
-
     # Smuggler Data Tool
     'smuggler',
-
     # django-userena
     'userena',
     # django-userena umessages
     # 'userena.contrib.umessages',
-
-    # django-threadedcomments
-    'threadedcomments',
-
     # django-guardian (required by userena)
     'guardian',
-
-    # django-crispy-forms
-    'crispy_forms',
-
     # django-extra-views
     'extra_views',
-
     # django-taggit
     'taggit',
-
     # django-select2
     'django_select2',
-
     # django-endless-pagination
     'endless_pagination',
-
     # easy_thumbnails
     'easy_thumbnails',
 )
@@ -260,11 +240,32 @@ LOCAL_APPS = (
     'qnotes.apps.quotes',
 )
 
-# See: https://docs.djangoproject.com/en/dev/ref/settings/#installed-apps
 INSTALLED_APPS = DJANGO_APPS + THIRD_PARTY_APPS + LOCAL_APPS
 ########## END APP CONFIGURATION
 
-COMMENTS_APP = 'threadedcomments'
+
+########## COMMENTING CONFIGURATION
+INSTALLED_APPS += (
+    'fluent_comments',
+    'crispy_forms',
+    'django.contrib.comments',
+)
+
+AKISMET_API_KEY = '7ef7a1b2084b'
+AKISMET_BLOG_URL = 'http://qnotes.herokuapp.com'  # Optional, to override auto detection
+AKISMET_IS_TEST = False                        # Enable to make test runs
+
+FLUENT_CONTENTS_USE_AKISMET = True             # Enabled by default when AKISMET_API_KEY is set.
+FLUENT_COMMENTS_CLOSE_AFTER_DAYS = None        # Auto-close comments after N days
+FLUENT_COMMENTS_MODERATE_AFTER_DAYS = None     # Auto-moderate comments after N days.
+FLUENT_COMMENTS_AKISMET_ACTION = 'moderate'    # Set to 'moderate' or 'delete'
+FLUENT_COMMENTS_USE_EMAIL_NOTIFICATION = True
+FLUENT_COMMENTS_EXCLUDE_FIELDS = ('name', 'email', 'url')
+
+COMMENTS_APP = 'fluent_comments'
+CRISPY_TEMPLATE_PACK = 'bootstrap'
+########## END COMMENTING CONFIGURATION
+
 
 ########## LOGGING CONFIGURATION
 # See: https://docs.djangoproject.com/en/dev/ref/settings/#logging
