@@ -27,6 +27,8 @@ urlpatterns = patterns('',
     (r'^ext/', include('django_select2.urls')),
     # django-grappelli
     (r'^grappelli/', include('grappelli.urls')),
+
+    url(r'^comments/', include('django.contrib.comments.urls')),
 )
 
 if settings.DEBUG:

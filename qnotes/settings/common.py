@@ -224,6 +224,9 @@ THIRD_PARTY_APPS = (
     # django-userena umessages
     # 'userena.contrib.umessages',
 
+    # django-threadedcomments
+    'threadedcomments',
+
     # django-guardian (required by userena)
     'guardian',
 
@@ -244,9 +247,6 @@ THIRD_PARTY_APPS = (
 
     # easy_thumbnails
     'easy_thumbnails',
-
-    # django-disqus
-    'disqus',
 )
 
 LOCAL_APPS = (
@@ -264,6 +264,7 @@ LOCAL_APPS = (
 INSTALLED_APPS = DJANGO_APPS + THIRD_PARTY_APPS + LOCAL_APPS
 ########## END APP CONFIGURATION
 
+COMMENTS_APP = 'threadedcomments'
 
 ########## LOGGING CONFIGURATION
 # See: https://docs.djangoproject.com/en/dev/ref/settings/#logging
