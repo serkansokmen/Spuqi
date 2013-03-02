@@ -10595,7 +10595,9 @@ footer {
   display: none;
 }
 
-#div_id_honeypot,
-#id_honeypot {
-  display: none;
+/*
+// Hide spam-protection field in comment form
+#div_id_honeypot, #id_honeypot {
+    display: none;
 }
+*/

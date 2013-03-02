@@ -227,6 +227,8 @@ THIRD_PARTY_APPS = (
     'endless_pagination',
     # easy_thumbnails
     'easy_thumbnails',
+    # django-crispy-forms
+    'crispy_forms',
 )
 
 LOCAL_APPS = (
@@ -242,29 +244,6 @@ LOCAL_APPS = (
 
 INSTALLED_APPS = DJANGO_APPS + THIRD_PARTY_APPS + LOCAL_APPS
 ########## END APP CONFIGURATION
-
-
-########## COMMENTING CONFIGURATION
-INSTALLED_APPS += (
-    'fluent_comments',
-    'crispy_forms',
-    'django.contrib.comments',
-)
-
-AKISMET_API_KEY = '7ef7a1b2084b'
-AKISMET_BLOG_URL = 'http://qnotes.herokuapp.com'  # Optional, to override auto detection
-AKISMET_IS_TEST = False                        # Enable to make test runs
-
-FLUENT_CONTENTS_USE_AKISMET = True             # Enabled by default when AKISMET_API_KEY is set.
-FLUENT_COMMENTS_CLOSE_AFTER_DAYS = 60          # Auto-close comments after N days
-FLUENT_COMMENTS_MODERATE_AFTER_DAYS = 14       # Auto-moderate comments after N days.
-FLUENT_COMMENTS_AKISMET_ACTION = 'moderate'    # Set to 'moderate' or 'delete'
-FLUENT_COMMENTS_USE_EMAIL_NOTIFICATION = True
-# FLUENT_COMMENTS_EXCLUDE_FIELDS = ('name', 'email', 'url')
-
-COMMENTS_APP = 'fluent_comments'
-CRISPY_TEMPLATE_PACK = 'bootstrap'
-########## END COMMENTING CONFIGURATION
 
 
 ########## LOGGING CONFIGURATION

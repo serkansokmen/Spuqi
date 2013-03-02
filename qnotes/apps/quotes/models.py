@@ -5,9 +5,6 @@ from qnotes.apps.sources.models import Source
 from qnotes.apps.topics.models import Topic
 from django.utils.translation import ugettext as _
 from taggit.managers import TaggableManager
-from fluent_comments.moderation import moderate_model
-# , comments_are_open, comments_are_moderated
-# from fluent_comments.models import get_comments_for_model, CommentsRelation
 
 
 class Quote(models.Model):
@@ -25,10 +22,6 @@ class Quote(models.Model):
 
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
-    enable_comments = models.BooleanField(_('Enable comments'), default=True)
-
-    # Optional reverse relation, allow ORM querying:
-    # comments_set = CommentsRelation()
 
     def __unicode__(self):
         return self.quote
@@ -41,15 +34,3 @@ class Quote(models.Model):
 
     class Meta:
         ordering = ['-created_at']
-
-    # Optional, give direct access to moderation info via the model:
-    # comments = property(get_comments_for_model)
-    # comments_are_open = property(comments_are_open)
-    # comments_are_moderated = property(comments_are_moderated)
-
-
-moderate_model(
-    Quote,
-    publication_date_field='created_at',
-    enable_comments_field='enable_comments',
-)

@@ -13,8 +13,7 @@ django-grappelli
 django-guardian
 django-autofixture
 django-userena
-django-threadedcomments
-django-fluent-comments
+django-disqus
 django-haystack
 django-smuggler
 django-rosetta
