@@ -29,8 +29,8 @@
                 <ul class="nav pull-right">
                     {% if user.is_authenticated %}
                     <li>
-                        <a href="{% url userena_profile_detail user.username %}" style="width:25px;height:25px;">
-                            <img class="mugshot" src="{{ user.get_profile.get_mugshot_url }}" alt="{{ user }}"/>
+                        <a href="{% url userena_profile_detail user.username %}">
+                            <img class="mugshot" src="{{ user.get_profile.get_mugshot_url }}" alt="{{ user }}" style="width:21px;height:21px;"/>
                         </a>
                     </li>
                     {% if user.is_superuser %}
@@ -41,7 +41,7 @@
                     {% if user.is_authenticated %}
                         {% with user.get_profile as profile %}
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                            <b class="caret"></b>
+                            <b class="icon-user"></b>
                         </a>
                         <ul class="dropdown-menu">
                             <li><a href="{% url userena_profile_edit user.username %}"><i class="icon-pencil"></i> {% trans "Edit profile" %}</a></li>
