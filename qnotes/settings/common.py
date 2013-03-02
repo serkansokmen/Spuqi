@@ -229,6 +229,8 @@ THIRD_PARTY_APPS = (
     'easy_thumbnails',
     # django-crispy-forms
     'crispy_forms',
+    # django-disqus
+    'disqus',
 )
 
 LOCAL_APPS = (
@@ -273,6 +275,12 @@ SMUGGLER_FIXTURE_DIR = 'fixtures/'
 SMUGGLER_FORMAT = 'json'
 SMUGGLER_INDENT = 2
 ########## END SMUGGLER CONFIGURATION
+
+
+########## DISQUS CONFIGURATION
+DISQUS_API_KEY = 'd07Bo1xYutaqglgWA5VYwuz4c17mMtqCMhIVnm6KdOihPwjA00O4bSiMNaqolafJ'
+DISQUS_WEBSITE_SHORTNAME = 'qnotes'
+########## END DISQUS CONFIGURATION
 
 
 ########## AUTHENTICATION CONFIGURATION

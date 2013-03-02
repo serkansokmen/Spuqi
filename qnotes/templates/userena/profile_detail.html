@@ -1,6 +1,7 @@
 {% extends 'userena/base_userena.html' %}
 {% load i18n %}
 {% load endless %}
+{% load disqus_tags %}
 
 {% block title %}{% blocktrans with user.username as username %}{{ username }}'s profile.{% endblocktrans %}{% endblock %}
 {% block inner_title %}
@@ -11,18 +12,21 @@
     {% block profile_details %}
     <div class="row-fluid">
         <div class="span3">
-            <div class="row-fluid" style="margin-top:20px;">
-                <div class="span3">
-                    <img src="{{ profile.get_mugshot_url }}" alt="{% trans "Your mugshot" %}" />
+            <div class="well">
+                <div class="row-fluid" style="margin-top:20px;">
+                    <div class="span2">
+                        <img src="{{ profile.get_mugshot_url }}" alt="{% trans "Your mugshot" %}" />
+                    </div>
+                    <div class="span10">
+                        <h4>{{ profile.user.username }}</h4>
+                    </div>
                 </div>
-                <div class="span9">
-                    {% if profile.user.get_full_name %}
-                        <strong>{{ profile.user.get_full_name }}</strong>
-                    {% endif %}
-                    {% if profile.user.email %}
-                        <p>{{ profile.user.email }}</p>
-                    {% endif %}
-                </div>
+                {% if profile.user.get_full_name %}
+                    <strong>{{ profile.user.get_full_name }}</strong>
+                {% endif %}
+                {% if profile.user.email %}
+                    <p>{{ profile.user.email }}</p>
+                {% endif %}
             </div>
             <h3>{% trans "Collections" %}</h3>
             <ul class="unstyled">
@@ -54,6 +58,9 @@
                     {% endifnotequal %}
                 {% endfor %}
             </ul>
+            {# Disqus #}
+            <h4>{% trans "Recent comments" %}</h4>
+            {% disqus_recent_comments "qnotes" 5 50 0 24 %}
         </div>
         <div class="span9">
             {% if user == profile.user %}

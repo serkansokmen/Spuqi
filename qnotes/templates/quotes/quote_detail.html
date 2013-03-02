@@ -2,20 +2,29 @@
 {% load i18n %}
 {% load crispy_forms_tags %}
 {% load humanize %}
+{% load disqus_tags %}
 
 {% block css %}
 {{ block.super }}
-
 {% endblock css %}
+
+{% block headextra %}
+{{ block.super }}
+{% disqus_dev %}
+{% set_disqus_developer 1 %}
+{% set_disqus_identifier "quote_" quote.id %}
+{% set_disqus_url quote.get_absolute_url %}
+{% set_disqus_title "Quote Discussion" quote.quote %}
+{% endblock headextra %}
 
 {% block content %}
 
 {% include "quotes/quote_item.html" %}
 <hr>
 
+{% disqus_show_comments "qnotes" %}
 {% endblock content %}
 
 {% block js %}
 {{ block.super }}
-
 {% endblock js %}

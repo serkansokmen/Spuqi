@@ -13,7 +13,7 @@ django-grappelli
 django-guardian
 django-autofixture
 django-userena
-django-disqus
+git+git://github.com/arthurk/django-disqus.git
 django-haystack
 django-smuggler
 django-rosetta
