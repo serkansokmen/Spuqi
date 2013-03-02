@@ -14,7 +14,7 @@ class Quote(models.Model):
     user = models.ForeignKey(User)
     source = models.ForeignKey(Source, default=0, verbose_name=_('Source'))
     quote = models.TextField(_('Quote'), max_length=1200)
-    note_type = models.PositiveIntegerField(_('Note type'), choices=NOTE_TYPES, blank=True, null=True)
+    note_type = models.PositiveIntegerField(_('Note type'), choices=NOTE_TYPES, default=1)
     note = models.TextField(_('Note'), blank=True, max_length=500)
     topics = models.ManyToManyField(Topic, blank=True, verbose_name=_('Topics'))
     tags = TaggableManager(blank=True)

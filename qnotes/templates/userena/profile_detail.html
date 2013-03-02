@@ -27,37 +27,46 @@
                 {% if profile.user.email %}
                     <p>{{ profile.user.email }}</p>
                 {% endif %}
-            </div>
-            <h3>{% trans "Collections" %}</h3>
-            <ul class="unstyled">
-            {% for collection in profile.user.owned_collections.all %}
-                {% ifequal profile.user collection.user %}
-                <li>
-                    <a href="{{ collection.get_absolute_url }}">{{ collection }}</a>
-                    <div class="pull-right">
-                        <a href="{% url collection_edit slug=collection.slug %}">
-                            <i class="icon-pencil"></i>
-                        </a>
-                        <a href="{% url collection_delete slug=collection.slug %}">
-                            <i class="icon-trash"></i>
-                        </a>
-                    </div>
-                </li>
-                {% endifequal %}
-            {% empty %}
-                {% trans "No collections" %}
-            {% endfor %}
-            </ul>
-            <h3>{% trans "Other collections" %}</h3>
-            <ul class="unstyled">
+                <h3>{% trans "Collections" %}</h3>
+                <ul class="unstyled">
+                {% for collection in profile.user.owned_collections.all %}
+                    {% ifequal profile.user collection.user %}
+                    <li>
+                        <a href="{{ collection.get_absolute_url }}">{{ collection }}</a>
+                        <div class="pull-right">
+                            <a href="{% url collection_edit slug=collection.slug %}">
+                                <i class="icon-pencil"></i>
+                            </a>
+                            <a href="{% url collection_delete slug=collection.slug %}">
+                                <i class="icon-trash"></i>
+                            </a>
+                        </div>
+                    </li>
+                    {% endifequal %}
+                {% empty %}
+                    {% trans "No collections" %}
+                {% endfor %}
+                </ul>
+                <h3>{% trans "Other collections" %}</h3>
+                <ul class="unstyled">
                 {% for collection in profile.user.followed_collections.all %}
                     {% ifnotequal profile.user collection.user %}
-                        <li>
-                            <a href="{{ collection.get_absolute_url }}">{{ collection }}</a>
-                        </li>
+                    <li>
+                        <a href="{{ collection.get_absolute_url }}">{{ collection }}</a>
+                        <div class="pull-right">
+                            <a href="{% url collection_edit slug=collection.slug %}">
+                                <i class="icon-pencil"></i>
+                            </a>
+                            <a href="{% url collection_delete slug=collection.slug %}">
+                                <i class="icon-trash"></i>
+                            </a>
+                        </div>
+                    </li>
                     {% endifnotequal %}
+                {% empty %}
+                    {% trans "No collections" %}
                 {% endfor %}
-            </ul>
+            </div>
             {# Disqus #}
             <h4>{% trans "Recent comments" %}</h4>
             {% disqus_recent_comments "qnotes" 5 50 0 24 %}
