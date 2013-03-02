@@ -3,11 +3,6 @@
 {% load endless %}
 {% load crispy_forms_tags %}
 
-{% block css %}
-{{ block.super }}
-<link rel="stylesheet" type="text/css" href="{{ STATIC_URL }}fluent_comments/css/ajaxcomments.css" />
-{% endblock css %}
-
 {% block sidebar %}
     <h4>{% trans "Your private quotes" %}</h4>
     <hr>
@@ -33,8 +28,3 @@
     </div>
     {% show_pages %}
 {% endblock inner_content %}
-
-{% block js %}
-{{ block.super }}
-<script type="text/javascript" src="{{ STATIC_URL }}fluent_comments/js/ajaxcomments.js"></script>
-{% endblock js %}

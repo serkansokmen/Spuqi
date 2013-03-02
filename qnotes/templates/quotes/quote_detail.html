@@ -2,21 +2,17 @@
 {% load i18n %}
 {% load comments %}
 {% load crispy_forms_tags %}
-{% load fluent_comments_tags %}
 
 {% block css %}
 {{ block.super }}
-<link rel="stylesheet" type="text/css" href="{{ STATIC_URL }}fluent_comments/css/ajaxcomments.css" />
+
 {% endblock css %}
 
 {% block content %}
 {% with current_quote as quote %}
 {% include "quotes/quote_item.html" %}
 {% if not quote.is_private %}
-
-{# {% render_comment_list for quote %} #}
-
-{% get_comment_form for quote as form %}
+{% comment %}
 <form class="form-horizontal" action="{% comment_form_target %}" method="post">
     {% csrf_token %}
     {{ form|crispy }}
@@ -25,11 +21,12 @@
         <button type="submit" class="btn btn-primary">{% trans "Save" %}</button>
     </div>
 </form>
+{% endcomment %}
 {% endif %}
 {% endwith %}
 {% endblock content %}
 
 {% block js %}
 {{ block.super }}
-<script type="text/javascript" src="{{ STATIC_URL }}fluent_comments/js/ajaxcomments.js"></script>
+
 {% endblock js %}

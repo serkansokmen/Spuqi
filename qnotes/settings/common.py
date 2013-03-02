@@ -230,9 +230,6 @@ THIRD_PARTY_APPS = (
     # django-crispy-forms
     'crispy_forms',
 
-    # django-fluent-comments (depends on crispy_forms)
-    'fluent_comments',
-
     # django-extra-views
     'extra_views',
 
@@ -344,12 +341,6 @@ AUTOCOMPLETE_LIMIT = 10
 
 
 ########## DJANGO CRISPY FORMS CONFIGURATION
-# 'name', 'email', 'url'
-# FLUENT_COMMENTS_EXCLUDE_FIELDS = ('url')
-INSTALLED_APPS += (
-    'threadedcomments',
-)
-COMMENTS_APP = 'fluent_comments'
 CRISPY_TEMPLATE_PACK = 'bootstrap'
 ########## END DJANGO CRISPY FORMS CONFIGURATION
 

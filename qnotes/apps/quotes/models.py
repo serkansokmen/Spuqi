@@ -5,7 +5,6 @@ from qnotes.apps.sources.models import Source
 from qnotes.apps.topics.models import Topic
 from django.utils.translation import ugettext as _
 from taggit.managers import TaggableManager
-from fluent_comments.moderation import moderate_model
 
 
 class Quote(models.Model):
@@ -32,9 +31,3 @@ class Quote(models.Model):
 
     class Meta:
         ordering = ['-created_at']
-
-
-moderate_model(Quote,
-    publication_date_field='publication_date',
-    enable_comments_field='enable_comments',
-)
