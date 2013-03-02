@@ -42,9 +42,10 @@
             <img src="{{ quote.user.get_profile.get_mugshot_url }}" alt="{{ quote.user }}" title="{{ quote.user }}" rel="tooltip">
         </a>
         {% if quotes %}
-        <a class="btn btn-inverse" href="{{ quote.get_absolute_url }}"><i class="icon-eye-open" title="{% trans "Details" %}" rel="tooltip"></i></a>
+        {# <a class="btn btn-inverse" href="{{ quote.get_absolute_url }}"><i class="icon-eye-open" title="{% trans "Details" %}" rel="tooltip"></i></a> #}
+        <a class="btn btn-success" href="{{ quote.get_absolute_url }}"><i class="icon-comments"></i></a>
         {% else %}
-        <button class="btn btn-success" data-toggle="collapse" data-parent="#quote-list" href="#comments-{{ quote.id }}"><i class="icon-comments"></i></button>
+        <a class="btn btn-success" data-toggle="collapse" data-parent="#quote-list" href="#comments-{{ quote.id }}"><i class="icon-comments"></i></a>
         {% endif %}
     </div>
     {% if quote.user == request.user %}
