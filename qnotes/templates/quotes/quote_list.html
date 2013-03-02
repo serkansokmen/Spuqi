@@ -22,7 +22,7 @@
     {% endif %}
 {% endblock sidebar %}
 {% block inner_content %}
-    <a class="btn btn-large pull-right" href="{% url quote_add %}"><i class="icon-plus-sign icon-large"></i> {% trans "New Quote" %}</a>
+    <a class="btn btn-success btn-large pull-right" href="{% url quote_add %}"><i class="icon-plus-sign icon-large"></i> {% trans "New Quote" %}</a>
     <h4>{% trans "Timeline" %}</h4>
     <hr>
     {% paginate 5 quotes %}

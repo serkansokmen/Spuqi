@@ -1,5 +1,5 @@
 {% load i18n %}
-{% load comments %}
+{% load humanize %}
 
 <div class="well">
     <blockquote>
@@ -33,6 +33,8 @@
             <a href="{{ topic.get_absolute_url }}">{{ topic }}</a>{% if not forloop.last %}, {% endif %}
             {% endfor %}
             {% endif %}
+            <br>
+            <small>{{ quote.created_at|naturaltime }}</small>
         </div>
     </div>
 </div>
@@ -42,10 +44,7 @@
             <img src="{{ quote.user.get_profile.get_mugshot_url }}" alt="{{ quote.user }}" title="{{ quote.user }}" rel="tooltip">
         </a>
         {% if quotes %}
-        {# <a class="btn btn-inverse" href="{{ quote.get_absolute_url }}"><i class="icon-eye-open" title="{% trans "Details" %}" rel="tooltip"></i></a> #}
         <a class="btn btn-success" href="{{ quote.get_absolute_url }}"><i class="icon-comments"></i></a>
-        {% else %}
-        <a class="btn btn-success" data-toggle="collapse" data-parent="#quote-list" href="#comments-{{ quote.id }}"><i class="icon-comments"></i></a>
         {% endif %}
     </div>
     {% if quote.user == request.user %}
@@ -58,13 +57,6 @@
         </a>
     </div>
     {% endif %}
-</div>
-{% endif %}
-
-{% if not quotes %}
-<div id="comments-{{ quote.id }}" class="row-fluid collapse">
-    {% render_comment_list for quote %}
-    {% render_comment_form for quote %}
 </div>
 {% endif %}
 {% if forloop and not forloop.last %}<hr>{% endif %}
