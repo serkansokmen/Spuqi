@@ -1,6 +1,6 @@
 from django import forms
 from .models import Source
-from apps.authors.forms import AuthorChoices
+from apps.authors.forms import AuthorMultipleChoices
 from django_select2.fields import AutoModelSelect2Field, AutoSelect2MultipleField
 
 
@@ -16,7 +16,7 @@ class SourceMultipleChoices(AutoSelect2MultipleField):
 
 class SourceForm(forms.ModelForm):
 
-    authors = AuthorChoices()
+    authors = AuthorMultipleChoices()
 
     class Meta:
         model = Source
