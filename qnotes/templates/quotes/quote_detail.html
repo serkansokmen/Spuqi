@@ -2,6 +2,8 @@
 {% load i18n %}
 {% load comments %}
 {% load crispy_forms_tags %}
+{% load fluent_comments_tags %}
+{% load humanize %}
 
 {% block css %}
 {{ block.super }}
@@ -12,6 +14,62 @@
 
 {% include "quotes/quote_item.html" %}
 <hr>
+{% get_comment_count for quote as comments_count %}
+
+    <div id="comments-wrapper">
+        {% if comments_count %}
+            <h3 class="has-comments-title">
+                <i class="icon-comments"></i>
+                {% blocktrans with quote_quote=quote.quote count comments_count=comments_count %}{{ comments_count }} comment {% plural %}{{ comments_count }} comments {% endblocktrans %}
+            </h3>
+            <br>
+            {# {% render_comment_list for quote %} #}
+            {% get_comment_list for quote as comments_list %}
+            {% for comment in comments_list %}
+            <div class="row-fluid">
+                <div class="pull-left">
+                    <a{% if comment.user.id %} href="{% url userena_profile_detail comment.user.username %}"{% endif %} title="{{ comment.user }}" rel="tooltip">
+                        <img src="{{ comment.user.get_profile.get_mugshot_url }}" alt="{{ comment.user }}">
+                    </a>
+                </div>
+                <div class="pull-left" style="margin-left:10px;">
+                    {{ comment.comment }}
+                    <br>
+                    <small class="text-info">{{ comment.submit_date|naturaltime }}</small>
+                </div>
+            </div>
+            <hr>
+            {% endfor %}
+
+            {% if not quote|comments_are_open %}
+                <p class="comments-closed">{% trans "Comments are closed." %}</p>
+            {% endif %}
+        {% else %}
+            {# no comments yet, invite #}
+            {% if quote|comments_are_open %}
+                <h3 class="no-comments-title">{% trans "Leave a reply" %}</h3>
+            {% endif %}
+        {% endif %}
+
+        {% if quote|comments_are_open %}
+        <div id="comments-form-wrapper">
+            {% get_comment_form for quote as form %}
+            <form action="{% comment_form_target %}" method="post" class="js-comments-form comments-form form-horizontal"
+                  >{% csrf_token %}
+                {% if next %}<div><input type="hidden" name="next" value="{{ next }}" /></div>{% endif %}
+                {% csrf_token %}
+                {{ form|crispy }}
+                <div class="form-actions">
+                    <input type="submit" name="post" class="btn primary btn-submit" value="{% trans "Send" %}" />
+                    <input type="submit" name="preview" class="btn btn-submit" value="{% trans "Preview" %}" />
+                    {% ajax_comment_tags %}
+                </div>
+            </form>
+        </div>
+        {% endif %}
+    </div>
+<hr>
+{% comment %}
 <h2>{% blocktrans with quote as quote %}Comments for {{ quote }}{% endblocktrans %}</h2>
 {% render_comment_list for quote %}
 {% if user.is_authenticated %}
@@ -26,6 +84,7 @@
     </div>
 </form>
 {% endif %}
+{% endcomment %}
 {% endblock content %}
 
 {% block js %}

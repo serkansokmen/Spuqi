@@ -3,9 +3,7 @@
 
 <div class="well">
     <blockquote>
-        <i class="icon-quote-left"></i>
-        <i>{{ quote }}</i>
-        <i class="icon-quote-right"></i>
+        {% autoescape off %}<i class="icon-quote-left"></i> <i>{{ quote }}</i> <i class="icon-quote-right"></i>{% endautoescape %}
     </blockquote>
     <div class="row-fluid">
         {% if quote.note %}

@@ -10594,3 +10594,8 @@ footer {
 #hint_id_members {
   display: none;
 }
+
+#div_id_honeypot,
+#id_honeypot {
+  display: none;
+}

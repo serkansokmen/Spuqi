@@ -66,6 +66,16 @@
                         {% trans "No quotes" %}
                     {% endfor %}
                 {% endwith %}
+            {% else %}
+                {% with profile.user.quote_set.all as quotes %}
+                    {% paginate 5 quotes %}
+                    {% show_pages %}
+                    {% for quote in quotes %}
+                        {% include "quotes/quote_item.html" %}
+                    {% empty %}
+                        {% trans "No quotes" %}
+                    {% endfor %}
+                {% endwith %}
             {% endif %}
         </div>
     </div>

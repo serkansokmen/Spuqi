@@ -12,11 +12,10 @@ urlpatterns = patterns(
     (r'^admin/', include('smuggler.urls')),  # put it before admin url patterns
     (r'^admin/', include(admin.site.urls)),
 
-    # Django Facebook & Userena URLs
-    # (r'^facebook/', include('django_facebook.urls')),
+    # django-userena URLs
     (r'^accounts/', include('userena.urls')),
 
-    # Quotes Application URLs
+    # local app URLs
     (r'^author/', include('apps.authors.urls')),
     (r'^collection/', include('apps.collections.urls')),
     (r'^quote/', include('apps.quotes.urls')),
