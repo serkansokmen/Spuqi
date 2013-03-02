@@ -12,7 +12,7 @@ class Note(TimeStampedModel):
 
     MEDIA_TYPES = ((1, _('Text')), (2, _('Voice')), (3, _('Video')))
 
-    media_type = models.PositiveIntegerField(_('Note type'), choices=MEDIA_TYPES)
+    media_type = models.PositiveIntegerField(_('Note type'), choices=MEDIA_TYPES, default=1)
     text_note = models.TextField(_('Text'), blank=True)
     video_url = models.URLField(_('Text'), blank=True)
     sound_url = models.URLField(_('Text'), blank=True)
