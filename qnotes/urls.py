@@ -24,9 +24,11 @@ urlpatterns = patterns('',
     (r'^topic/', include('apps.topics.urls')),
 
     # django-select2 URLs
-    url(r'^ext/', include('django_select2.urls')),
-
-    url(r'^comments/', include('fluent_comments.urls')),
+    (r'^ext/', include('django_select2.urls')),
+    # django-grappelli
+    (r'^grappelli/', include('grappelli.urls')),
+    # django-fluent-comments
+    (r'^comments/', include('fluent_comments.urls')),
 )
 
 if settings.DEBUG:

@@ -193,6 +193,8 @@ DJANGO_APPS = (
     # Useful template tags:
     'django.contrib.humanize',
 
+    # django-grappelli
+    'grappelli',
     # Admin panel and documentation:
     'django.contrib.admin',
     'django.contrib.admindocs',
@@ -333,6 +335,12 @@ FACEBOOK_REGISTRATION_BACKEND = 'django_facebook.registration_backends.UserenaBa
 ########## SELECT2 CONFIGURATION
 AUTO_RENDER_SELECT2_STATICS = False
 ########## END SELECT2 CONFIGURATION
+
+
+########## GRAPPELLI CONFIGURATION
+GRAPPELLI_ADMIN_TITLE = u'Qnotes'
+AUTOCOMPLETE_LIMIT = 10
+########## END GRAPPELLI CONFIGURATION
 
 
 ########## DJANGO CRISPY FORMS CONFIGURATION
