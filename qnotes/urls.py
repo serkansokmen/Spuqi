@@ -9,7 +9,9 @@ urlpatterns = patterns(
     '',
     (r'^$', redirect_to, {'url': 'quote/'}),
 
-    (r'^admin/', include('smuggler.urls')),  # put it before admin url patterns
+    # django-grappelli
+    (r'^grappelli/', include('grappelli.urls')),
+    # (r'^admin/', include('smuggler.urls')),  # put it before admin url patterns
     (r'^admin/', include(admin.site.urls)),
 
     # django-userena URLs
@@ -24,8 +26,6 @@ urlpatterns = patterns(
 
     # django-select2 URLs
     (r'^ext/', include('django_select2.urls')),
-    # django-grappelli
-    (r'^grappelli/', include('grappelli.urls')),
 )
 
 if settings.DEBUG:

@@ -209,8 +209,6 @@ THIRD_PARTY_APPS = (
     'rosetta',
     # django-haystack
     'haystack',
-    # Smuggler Data Tool
-    'smuggler',
     # django-userena
     'userena',
     # django-userena umessages
