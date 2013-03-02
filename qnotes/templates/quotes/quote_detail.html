@@ -1,6 +1,5 @@
 {% extends "base.html" %}
 {% load i18n %}
-{% load comments %}
 {% load crispy_forms_tags %}
 
 {% block css %}
@@ -9,9 +8,9 @@
 {% endblock css %}
 
 {% block content %}
-{% with current_quote as quote %}
+
 {% include "quotes/quote_item.html" %}
-{% if not quote.is_private %}
+
 {% comment %}
 <form class="form-horizontal" action="{% comment_form_target %}" method="post">
     {% csrf_token %}
@@ -22,8 +21,9 @@
     </div>
 </form>
 {% endcomment %}
+<hr>
 {% endif %}
-{% endwith %}
+
 {% endblock content %}
 
 {% block js %}
