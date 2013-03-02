@@ -4,7 +4,8 @@ from qnotes.apps.quotes.views import (
     QuoteList, QuoteDetail, QuoteCreate, QuoteUpdate, QuoteDelete
 )
 
-urlpatterns = patterns('',
+urlpatterns = patterns(
+    '',
     url(r'^$', login_required(QuoteList.as_view()), name='quote_list'),
     url(r'^new/$', login_required(QuoteCreate.as_view()), name='quote_add'),
     url(r'^(?P<pk>\d+)/$', login_required(QuoteDetail.as_view()), name='quote_detail'),

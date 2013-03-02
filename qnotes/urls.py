@@ -5,8 +5,8 @@ from django.views.generic.simple import redirect_to
 
 admin.autodiscover()
 
-urlpatterns = patterns('',
-
+urlpatterns = patterns(
+    '',
     (r'^$', redirect_to, {'url': 'quote/'}),
 
     (r'^admin/', include('smuggler.urls')),  # put it before admin url patterns
@@ -28,11 +28,12 @@ urlpatterns = patterns('',
     # django-grappelli
     (r'^grappelli/', include('grappelli.urls')),
 
-    url(r'^comments/', include('fluent_comments.urls')),
+    url(r'^usercomments/', include('fluent_comments.urls')),
 )
 
 if settings.DEBUG:
-    urlpatterns += patterns('',
+    urlpatterns += patterns(
+        '',
         (r'^404/$', 'django.views.defaults.page_not_found'),
         (r'^500/$', 'django.views.defaults.server_error'),
         (r'^static/(?P<path>.*)$', 'django.views.static.serve', {'document_root': settings.STATIC_ROOT}),

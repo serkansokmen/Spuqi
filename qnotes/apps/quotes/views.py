@@ -1,12 +1,10 @@
-from django.shortcuts import get_object_or_404
-from django.core.urlresolvers import reverse, reverse_lazy
 from django.http import Http404
-from django.utils.safestring import mark_safe
-from django.utils.translation import ugettext as _
-from django.forms import ValidationError
+from django.core.urlresolvers import reverse, reverse_lazy
 from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView
-from qnotes.apps.quotes.models import Quote
-from qnotes.apps.quotes.forms import QuoteForm
+from django.shortcuts import get_object_or_404
+# from django.utils.translation import ugettext as _
+from .models import Quote
+from .forms import QuoteForm
 
 
 class QuotesMixin(object):
