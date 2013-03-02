@@ -256,8 +256,8 @@ AKISMET_BLOG_URL = 'http://qnotes.herokuapp.com'  # Optional, to override auto d
 AKISMET_IS_TEST = False                        # Enable to make test runs
 
 FLUENT_CONTENTS_USE_AKISMET = True             # Enabled by default when AKISMET_API_KEY is set.
-FLUENT_COMMENTS_CLOSE_AFTER_DAYS = None        # Auto-close comments after N days
-FLUENT_COMMENTS_MODERATE_AFTER_DAYS = None     # Auto-moderate comments after N days.
+FLUENT_COMMENTS_CLOSE_AFTER_DAYS = 60          # Auto-close comments after N days
+FLUENT_COMMENTS_MODERATE_AFTER_DAYS = 14       # Auto-moderate comments after N days.
 FLUENT_COMMENTS_AKISMET_ACTION = 'moderate'    # Set to 'moderate' or 'delete'
 FLUENT_COMMENTS_USE_EMAIL_NOTIFICATION = True
 FLUENT_COMMENTS_EXCLUDE_FIELDS = ('name', 'email', 'url')
