@@ -21,8 +21,8 @@ class Quote(models.Model):
     tags = TaggableManager(blank=True)
     is_private = models.BooleanField(_('Is private'), default=False)
 
-    created_at = models.DateField(auto_now_add=True)
-    updated_at = models.DateField(auto_now=True)
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
 
     def __unicode__(self):
         return self.quote
