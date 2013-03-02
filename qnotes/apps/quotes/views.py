@@ -37,7 +37,7 @@ class QuoteList(ListView):
 
 
 class QuoteDetail(DetailView):
-    context_object_name = 'current_quote'
+    context_object_name = 'quote'
 
     def get_object(self):
         try:
