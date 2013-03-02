@@ -5,7 +5,9 @@
     "fields": {
       "slug": "agatha-christie",
       "user": 1,
-      "name": "Agatha Christie"
+      "name": "Agatha Christie",
+      "modified": "2013-03-03T01:15:13.268",
+      "created": "2013-03-03T01:15:13.268"
     }
   },
   {
@@ -14,7 +16,9 @@
     "fields": {
       "slug": "albert-camus",
       "user": 1,
-      "name": "Albert Camus"
+      "name": "Albert Camus",
+      "modified": "2013-03-03T01:15:13.268",
+      "created": "2013-03-03T01:15:13.268"
     }
   },
   {
@@ -23,7 +27,9 @@
     "fields": {
       "slug": "aldous-huxley",
       "user": 1,
-      "name": "Aldous Huxley"
+      "name": "Aldous Huxley",
+      "modified": "2013-03-03T01:15:13.268",
+      "created": "2013-03-03T01:15:13.268"
     }
   },
   {
@@ -32,7 +38,9 @@
     "fields": {
       "slug": "alexandre-dumas",
       "user": 1,
-      "name": "Alexandre Dumas"
+      "name": "Alexandre Dumas",
+      "modified": "2013-03-03T01:15:13.268",
+      "created": "2013-03-03T01:15:13.268"
     }
   },
   {
@@ -41,7 +49,9 @@
     "fields": {
       "slug": "anton-chekhov",
       "user": 1,
-      "name": "Anton Chekhov"
+      "name": "Anton Chekhov",
+      "modified": "2013-03-03T01:15:13.268",
+      "created": "2013-03-03T01:15:13.268"
     }
   },
   {
@@ -50,7 +60,9 @@
     "fields": {
       "slug": "arthur-conan-doyle",
       "user": 1,
-      "name": "Arthur Conan Doyle"
+      "name": "Arthur Conan Doyle",
+      "modified": "2013-03-03T01:15:13.268",
+      "created": "2013-03-03T01:15:13.268"
     }
   },
   {
@@ -59,7 +71,9 @@
     "fields": {
       "slug": "ayn-rand",
       "user": 1,
-      "name": "Ayn Rand"
+      "name": "Ayn Rand",
+      "modified": "2013-03-03T01:15:13.268",
+      "created": "2013-03-03T01:15:13.268"
     }
   },
   {
@@ -68,7 +82,9 @@
     "fields": {
       "slug": "bram-stoker",
       "user": 1,
-      "name": "Bram Stoker"
+      "name": "Bram Stoker",
+      "modified": "2013-03-03T01:15:13.268",
+      "created": "2013-03-03T01:15:13.268"
     }
   },
   {
@@ -77,7 +93,9 @@
     "fields": {
       "slug": "cs-lewis",
       "user": 1,
-      "name": "C.S. Lewis"
+      "name": "C.S. Lewis",
+      "modified": "2013-03-03T01:15:13.268",
+      "created": "2013-03-03T01:15:13.268"
     }
   },
   {
@@ -86,7 +104,9 @@
     "fields": {
       "slug": "charles-bukowski",
       "user": 1,
-      "name": "Charles Bukowski"
+      "name": "Charles Bukowski",
+      "modified": "2013-03-03T01:15:13.268",
+      "created": "2013-03-03T01:15:13.268"
     }
   },
   {
@@ -95,7 +115,9 @@
     "fields": {
       "slug": "charles-dickens",
       "user": 1,
-      "name": "Charles Dickens"
+      "name": "Charles Dickens",
+      "modified": "2013-03-03T01:15:13.268",
+      "created": "2013-03-03T01:15:13.268"
     }
   },
   {
@@ -104,7 +126,9 @@
     "fields": {
       "slug": "charlotte-bronte",
       "user": 1,
-      "name": "Charlotte Bronte"
+      "name": "Charlotte Bronte",
+      "modified": "2013-03-03T01:15:13.268",
+      "created": "2013-03-03T01:15:13.268"
     }
   },
   {
@@ -113,7 +137,9 @@
     "fields": {
       "slug": "chuck-palahniuk",
       "user": 1,
-      "name": "Chuck Palahniuk"
+      "name": "Chuck Palahniuk",
+      "modified": "2013-03-03T01:15:13.268",
+      "created": "2013-03-03T01:15:13.268"
     }
   },
   {
@@ -122,7 +148,9 @@
     "fields": {
       "slug": "cormac-mccarthy",
       "user": 1,
-      "name": "Cormac McCarthy"
+      "name": "Cormac McCarthy",
+      "modified": "2013-03-03T01:15:13.268",
+      "created": "2013-03-03T01:15:13.268"
     }
   },
   {
@@ -131,7 +159,9 @@
     "fields": {
       "slug": "d-h-lawrence",
       "user": 1,
-      "name": "D. H. Lawrence"
+      "name": "D. H. Lawrence",
+      "modified": "2013-03-03T01:15:13.268",
+      "created": "2013-03-03T01:15:13.268"
     }
   },
   {
@@ -140,7 +170,9 @@
     "fields": {
       "slug": "dan-brown",
       "user": 1,
-      "name": "Dan Brown"
+      "name": "Dan Brown",
+      "modified": "2013-03-03T01:15:13.268",
+      "created": "2013-03-03T01:15:13.268"
     }
   },
   {
@@ -149,7 +181,9 @@
     "fields": {
       "slug": "dante-alighieri",
       "user": 1,
-      "name": "Dante Alighieri"
+      "name": "Dante Alighieri",
+      "modified": "2013-03-03T01:15:13.268",
+      "created": "2013-03-03T01:15:13.268"
     }
   },
   {
@@ -158,7 +192,9 @@
     "fields": {
       "slug": "douglas-adams",
       "user": 1,
-      "name": "Douglas Adams"
+      "name": "Douglas Adams",
+      "modified": "2013-03-03T01:15:13.268",
+      "created": "2013-03-03T01:15:13.268"
     }
   },
   {
@@ -167,7 +203,9 @@
     "fields": {
       "slug": "dr-seuss",
       "user": 1,
-      "name": "Dr. Seuss"
+      "name": "Dr. Seuss",
+      "modified": "2013-03-03T01:15:13.268",
+      "created": "2013-03-03T01:15:13.268"
     }
   },
   {
@@ -176,7 +214,9 @@
     "fields": {
       "slug": "edgar-allan-poe",
       "user": 1,
-      "name": "Edgar Allan Poe"
+      "name": "Edgar Allan Poe",
+      "modified": "2013-03-03T01:15:13.268",
+      "created": "2013-03-03T01:15:13.268"
     }
   },
   {
@@ -185,7 +225,9 @@
     "fields": {
       "slug": "edith-wharton",
       "user": 1,
-      "name": "Edith Wharton"
+      "name": "Edith Wharton",
+      "modified": "2013-03-03T01:15:13.268",
+      "created": "2013-03-03T01:15:13.268"
     }
   },
   {
@@ -194,7 +236,9 @@
     "fields": {
       "slug": "emily-bronte",
       "user": 1,
-      "name": "Emily Bronte"
+      "name": "Emily Bronte",
+      "modified": "2013-03-03T01:15:13.268",
+      "created": "2013-03-03T01:15:13.268"
     }
   },
   {
@@ -203,7 +247,9 @@
     "fields": {
       "slug": "emily-dickinson",
       "user": 1,
-      "name": "Emily Dickinson"
+      "name": "Emily Dickinson",
+      "modified": "2013-03-03T01:15:13.268",
+      "created": "2013-03-03T01:15:13.268"
     }
   },
   {
@@ -212,7 +258,9 @@
     "fields": {
       "slug": "ernest-hemingway",
       "user": 1,
-      "name": "Ernest Hemingway"
+      "name": "Ernest Hemingway",
+      "modified": "2013-03-03T01:15:13.268",
+      "created": "2013-03-03T01:15:13.268"
     }
   },
   {
@@ -221,7 +269,9 @@
     "fields": {
       "slug": "evely-waugh",
       "user": 1,
-      "name": "Evely Waugh"
+      "name": "Evely Waugh",
+      "modified": "2013-03-03T01:15:13.268",
+      "created": "2013-03-03T01:15:13.268"
     }
   },
   {
@@ -230,7 +280,9 @@
     "fields": {
       "slug": "f-scott-fitzgerald",
       "user": 1,
-      "name": "F. Scott Fitzgerald"
+      "name": "F. Scott Fitzgerald",
+      "modified": "2013-03-03T01:15:13.268",
+      "created": "2013-03-03T01:15:13.268"
     }
   },
   {
@@ -239,7 +291,9 @@
     "fields": {
       "slug": "franz-kafka",
       "user": 1,
-      "name": "Franz Kafka"
+      "name": "Franz Kafka",
+      "modified": "2013-03-03T01:15:13.268",
+      "created": "2013-03-03T01:15:13.268"
     }
   },
   {
@@ -248,7 +302,9 @@
     "fields": {
       "slug": "friedrich-nietzsche",
       "user": 1,
-      "name": "Friedrich Nietzsche"
+      "name": "Friedrich Nietzsche",
+      "modified": "2013-03-03T01:15:13.268",
+      "created": "2013-03-03T01:15:13.268"
     }
   },
   {
@@ -257,7 +313,9 @@
     "fields": {
       "slug": "fyodor-dostoevsky",
       "user": 1,
-      "name": "Fyodor Dostoevsky"
+      "name": "Fyodor Dostoevsky",
+      "modified": "2013-03-03T01:15:13.268",
+      "created": "2013-03-03T01:15:13.268"
     }
   },
   {
@@ -266,7 +324,9 @@
     "fields": {
       "slug": "gabriel-garcia-marquez",
       "user": 1,
-      "name": "Gabriel Garcia Marquez"
+      "name": "Gabriel Garcia Marquez",
+      "modified": "2013-03-03T01:15:13.268",
+      "created": "2013-03-03T01:15:13.268"
     }
   },
   {
@@ -275,7 +335,9 @@
     "fields": {
       "slug": "george-eliot",
       "user": 1,
-      "name": "George Eliot"
+      "name": "George Eliot",
+      "modified": "2013-03-03T01:15:13.268",
+      "created": "2013-03-03T01:15:13.268"
     }
   },
   {
@@ -284,7 +346,9 @@
     "fields": {
       "slug": "george-orwell",
       "user": 1,
-      "name": "George Orwell"
+      "name": "George Orwell",
+      "modified": "2013-03-03T01:15:13.268",
+      "created": "2013-03-03T01:15:13.268"
     }
   },
   {
@@ -293,7 +357,9 @@
     "fields": {
       "slug": "graham-greene",
       "user": 1,
-      "name": "Graham Greene"
+      "name": "Graham Greene",
+      "modified": "2013-03-03T01:15:13.268",
+      "created": "2013-03-03T01:15:13.268"
     }
   },
   {
@@ -302,7 +368,9 @@
     "fields": {
       "slug": "gustave-flaubert",
       "user": 1,
-      "name": "Gustave Flaubert"
+      "name": "Gustave Flaubert",
+      "modified": "2013-03-03T01:15:13.268",
+      "created": "2013-03-03T01:15:13.268"
     }
   },
   {
@@ -311,7 +379,9 @@
     "fields": {
       "slug": "h-g-wells",
       "user": 1,
-      "name": "H. G. Wells"
+      "name": "H. G. Wells",
+      "modified": "2013-03-03T01:15:13.268",
+      "created": "2013-03-03T01:15:13.268"
     }
   },
   {
@@ -320,7 +390,9 @@
     "fields": {
       "slug": "hp-lovecraft",
       "user": 1,
-      "name": "H.P. Lovecraft"
+      "name": "H.P. Lovecraft",
+      "modified": "2013-03-03T01:15:13.268",
+      "created": "2013-03-03T01:15:13.268"
     }
   },
   {
@@ -329,7 +401,9 @@
     "fields": {
       "slug": "harper-lee",
       "user": 1,
-      "name": "Harper Lee"
+      "name": "Harper Lee",
+      "modified": "2013-03-03T01:15:13.268",
+      "created": "2013-03-03T01:15:13.268"
     }
   },
   {
@@ -338,7 +412,9 @@
     "fields": {
       "slug": "henry-david-thoreau",
       "user": 1,
-      "name": "Henry David Thoreau"
+      "name": "Henry David Thoreau",
+      "modified": "2013-03-03T01:15:13.268",
+      "created": "2013-03-03T01:15:13.268"
     }
   },
   {
@@ -347,7 +423,9 @@
     "fields": {
       "slug": "henry-miller",
       "user": 1,
-      "name": "Henry Miller"
+      "name": "Henry Miller",
+      "modified": "2013-03-03T01:15:13.268",
+      "created": "2013-03-03T01:15:13.268"
     }
   },
   {
@@ -356,7 +434,9 @@
     "fields": {
       "slug": "herman-melville",
       "user": 1,
-      "name": "Herman Melville"
+      "name": "Herman Melville",
+      "modified": "2013-03-03T01:15:13.268",
+      "created": "2013-03-03T01:15:13.268"
     }
   },
   {
@@ -365,7 +445,9 @@
     "fields": {
       "slug": "homer",
       "user": 1,
-      "name": "Homer"
+      "name": "Homer",
+      "modified": "2013-03-03T01:15:13.268",
+      "created": "2013-03-03T01:15:13.268"
     }
   },
   {
@@ -374,7 +456,9 @@
     "fields": {
       "slug": "honore-de-balzac",
       "user": 1,
-      "name": "Honore de Balzac"
+      "name": "Honore de Balzac",
+      "modified": "2013-03-03T01:15:13.268",
+      "created": "2013-03-03T01:15:13.268"
     }
   },
   {
@@ -383,7 +467,9 @@
     "fields": {
       "slug": "hunter-s-thompson",
       "user": 1,
-      "name": "Hunter S. Thompson"
+      "name": "Hunter S. Thompson",
+      "modified": "2013-03-03T01:15:13.268",
+      "created": "2013-03-03T01:15:13.268"
     }
   },
   {
@@ -392,7 +478,9 @@
     "fields": {
       "slug": "ian-mcewan",
       "user": 1,
-      "name": "Ian McEwan"
+      "name": "Ian McEwan",
+      "modified": "2013-03-03T01:15:13.268",
+      "created": "2013-03-03T01:15:13.268"
     }
   },
   {
@@ -401,7 +489,9 @@
     "fields": {
       "slug": "isaac-asimov",
       "user": 1,
-      "name": "Isaac Asimov"
+      "name": "Isaac Asimov",
+      "modified": "2013-03-03T01:15:13.268",
+      "created": "2013-03-03T01:15:13.268"
     }
   },
   {
@@ -410,7 +500,9 @@
     "fields": {
       "slug": "jd-salinger",
       "user": 1,
-      "name": "J.D. Salinger"
+      "name": "J.D. Salinger",
+      "modified": "2013-03-03T01:15:13.268",
+      "created": "2013-03-03T01:15:13.268"
     }
   },
   {
@@ -419,7 +511,9 @@
     "fields": {
       "slug": "jk-rowling",
       "user": 1,
-      "name": "J.K. Rowling"
+      "name": "J.K. Rowling",
+      "modified": "2013-03-03T01:15:13.268",
+      "created": "2013-03-03T01:15:13.268"
     }
   },
   {
@@ -428,7 +522,9 @@
     "fields": {
       "slug": "jrr-tolkien",
       "user": 1,
-      "name": "J.R.R. Tolkien"
+      "name": "J.R.R. Tolkien",
+      "modified": "2013-03-03T01:15:13.268",
+      "created": "2013-03-03T01:15:13.268"
     }
   },
   {
@@ -437,7 +533,9 @@
     "fields": {
       "slug": "jack-kerouac",
       "user": 1,
-      "name": "Jack Kerouac"
+      "name": "Jack Kerouac",
+      "modified": "2013-03-03T01:15:13.268",
+      "created": "2013-03-03T01:15:13.268"
     }
   },
   {
@@ -446,7 +544,9 @@
     "fields": {
       "slug": "jack-london",
       "user": 1,
-      "name": "Jack London"
+      "name": "Jack London",
+      "modified": "2013-03-03T01:15:13.268",
+      "created": "2013-03-03T01:15:13.268"
     }
   },
   {
@@ -455,7 +555,9 @@
     "fields": {
       "slug": "james-joyce",
       "user": 1,
-      "name": "James Joyce"
+      "name": "James Joyce",
+      "modified": "2013-03-03T01:15:13.268",
+      "created": "2013-03-03T01:15:13.268"
     }
   },
   {
@@ -464,7 +566,9 @@
     "fields": {
       "slug": "jane-austen",
       "user": 1,
-      "name": "Jane Austen"
+      "name": "Jane Austen",
+      "modified": "2013-03-03T01:15:13.268",
+      "created": "2013-03-03T01:15:13.268"
     }
   },
   {
@@ -473,7 +577,9 @@
     "fields": {
       "slug": "jean-paul-sarte",
       "user": 1,
-      "name": "Jean Paul Sarte"
+      "name": "Jean Paul Sarte",
+      "modified": "2013-03-03T01:15:13.268",
+      "created": "2013-03-03T01:15:13.268"
     }
   },
   {
@@ -482,7 +588,9 @@
     "fields": {
       "slug": "jodi-picoult",
       "user": 1,
-      "name": "Jodi Picoult"
+      "name": "Jodi Picoult",
+      "modified": "2013-03-03T01:15:13.268",
+      "created": "2013-03-03T01:15:13.268"
     }
   },
   {
@@ -491,7 +599,9 @@
     "fields": {
       "slug": "johann-wolfgang-von-goethe",
       "user": 1,
-      "name": "Johann Wolfgang von Goethe"
+      "name": "Johann Wolfgang von Goethe",
+      "modified": "2013-03-03T01:15:13.268",
+      "created": "2013-03-03T01:15:13.268"
     }
   },
   {
@@ -500,7 +610,9 @@
     "fields": {
       "slug": "john-grisham",
       "user": 1,
-      "name": "John Grisham"
+      "name": "John Grisham",
+      "modified": "2013-03-03T01:15:13.268",
+      "created": "2013-03-03T01:15:13.268"
     }
   },
   {
@@ -509,7 +621,9 @@
     "fields": {
       "slug": "john-irving",
       "user": 1,
-      "name": "John Irving"
+      "name": "John Irving",
+      "modified": "2013-03-03T01:15:13.268",
+      "created": "2013-03-03T01:15:13.268"
     }
   },
   {
@@ -518,7 +632,9 @@
     "fields": {
       "slug": "john-milton",
       "user": 1,
-      "name": "John Milton"
+      "name": "John Milton",
+      "modified": "2013-03-03T01:15:13.268",
+      "created": "2013-03-03T01:15:13.268"
     }
   },
   {
@@ -527,7 +643,9 @@
     "fields": {
       "slug": "john-steinbeck",
       "user": 1,
-      "name": "John Steinbeck"
+      "name": "John Steinbeck",
+      "modified": "2013-03-03T01:15:13.268",
+      "created": "2013-03-03T01:15:13.268"
     }
   },
   {
@@ -536,7 +654,9 @@
     "fields": {
       "slug": "jorge-luis-borges",
       "user": 1,
-      "name": "Jorge Luis Borges"
+      "name": "Jorge Luis Borges",
+      "modified": "2013-03-03T01:15:13.268",
+      "created": "2013-03-03T01:15:13.268"
     }
   },
   {
@@ -545,7 +665,9 @@
     "fields": {
       "slug": "joseph-conrad",
       "user": 1,
-      "name": "Joseph Conrad"
+      "name": "Joseph Conrad",
+      "modified": "2013-03-03T01:15:13.268",
+      "created": "2013-03-03T01:15:13.268"
     }
   },
   {
@@ -554,7 +676,9 @@
     "fields": {
       "slug": "joseph-heller",
       "user": 1,
-      "name": "Joseph Heller"
+      "name": "Joseph Heller",
+      "modified": "2013-03-03T01:15:13.268",
+      "created": "2013-03-03T01:15:13.268"
     }
   },
   {
@@ -563,7 +687,9 @@
     "fields": {
       "slug": "jules-verne",
       "user": 1,
-      "name": "Jules Verne"
+      "name": "Jules Verne",
+      "modified": "2013-03-03T01:15:13.268",
+      "created": "2013-03-03T01:15:13.268"
     }
   },
   {
@@ -572,7 +698,9 @@
     "fields": {
       "slug": "khalid-hosseini",
       "user": 1,
-      "name": "Khalid Hosseini"
+      "name": "Khalid Hosseini",
+      "modified": "2013-03-03T01:15:13.268",
+      "created": "2013-03-03T01:15:13.268"
     }
   },
   {
@@ -581,7 +709,9 @@
     "fields": {
       "slug": "kurt-vonnegut",
       "user": 1,
-      "name": "Kurt Vonnegut"
+      "name": "Kurt Vonnegut",
+      "modified": "2013-03-03T01:15:13.268",
+      "created": "2013-03-03T01:15:13.268"
     }
   },
   {
@@ -590,7 +720,9 @@
     "fields": {
       "slug": "leo-tolstoy",
       "user": 1,
-      "name": "Leo Tolstoy"
+      "name": "Leo Tolstoy",
+      "modified": "2013-03-03T01:15:13.268",
+      "created": "2013-03-03T01:15:13.268"
     }
   },
   {
@@ -599,7 +731,9 @@
     "fields": {
       "slug": "marcel-proust",
       "user": 1,
-      "name": "Marcel Proust"
+      "name": "Marcel Proust",
+      "modified": "2013-03-03T01:15:13.268",
+      "created": "2013-03-03T01:15:13.268"
     }
   },
   {
@@ -608,7 +742,9 @@
     "fields": {
       "slug": "margaret-atwood",
       "user": 1,
-      "name": "Margaret Atwood"
+      "name": "Margaret Atwood",
+      "modified": "2013-03-03T01:15:13.268",
+      "created": "2013-03-03T01:15:13.268"
     }
   },
   {
@@ -617,7 +753,9 @@
     "fields": {
       "slug": "mark-twain",
       "user": 1,
-      "name": "Mark Twain"
+      "name": "Mark Twain",
+      "modified": "2013-03-03T01:15:13.268",
+      "created": "2013-03-03T01:15:13.268"
     }
   },
   {
@@ -626,7 +764,9 @@
     "fields": {
       "slug": "miguel-de-cervantes",
       "user": 1,
-      "name": "Miguel de Cervantes"
+      "name": "Miguel de Cervantes",
+      "modified": "2013-03-03T01:15:13.268",
+      "created": "2013-03-03T01:15:13.268"
     }
   },
   {
@@ -635,7 +775,9 @@
     "fields": {
       "slug": "mikhail-bulgakov",
       "user": 1,
-      "name": "Mikhail Bulgakov"
+      "name": "Mikhail Bulgakov",
+      "modified": "2013-03-03T01:15:13.268",
+      "created": "2013-03-03T01:15:13.268"
     }
   },
   {
@@ -644,7 +786,9 @@
     "fields": {
       "slug": "nathaniel-hawthorne",
       "user": 1,
-      "name": "Nathaniel Hawthorne"
+      "name": "Nathaniel Hawthorne",
+      "modified": "2013-03-03T01:15:13.268",
+      "created": "2013-03-03T01:15:13.268"
     }
   },
   {
@@ -653,7 +797,9 @@
     "fields": {
       "slug": "nicholas-sparks",
       "user": 1,
-      "name": "Nicholas Sparks"
+      "name": "Nicholas Sparks",
+      "modified": "2013-03-03T01:15:13.268",
+      "created": "2013-03-03T01:15:13.268"
     }
   },
   {
@@ -662,7 +808,9 @@
     "fields": {
       "slug": "nikolai-gogol",
       "user": 1,
-      "name": "Nikolai Gogol"
+      "name": "Nikolai Gogol",
+      "modified": "2013-03-03T01:15:13.268",
+      "created": "2013-03-03T01:15:13.268"
     }
   },
   {
@@ -671,7 +819,9 @@
     "fields": {
       "slug": "orson-scott-card",
       "user": 1,
-      "name": "Orson Scott Card"
+      "name": "Orson Scott Card",
+      "modified": "2013-03-03T01:15:13.268",
+      "created": "2013-03-03T01:15:13.268"
     }
   },
   {
@@ -680,7 +830,9 @@
     "fields": {
       "slug": "oscar-wilde",
       "user": 1,
-      "name": "Oscar Wilde"
+      "name": "Oscar Wilde",
+      "modified": "2013-03-03T01:15:13.268",
+      "created": "2013-03-03T01:15:13.268"
     }
   },
   {
@@ -689,7 +841,9 @@
     "fields": {
       "slug": "paulo-coelho",
       "user": 1,
-      "name": "Paulo Coelho"
+      "name": "Paulo Coelho",
+      "modified": "2013-03-03T01:15:13.268",
+      "created": "2013-03-03T01:15:13.268"
     }
   },
   {
@@ -698,7 +852,9 @@
     "fields": {
       "slug": "philip-pullman",
       "user": 1,
-      "name": "Philip Pullman"
+      "name": "Philip Pullman",
+      "modified": "2013-03-03T01:15:13.268",
+      "created": "2013-03-03T01:15:13.268"
     }
   },
   {
@@ -707,7 +863,9 @@
     "fields": {
       "slug": "plato",
       "user": 1,
-      "name": "Plato"
+      "name": "Plato",
+      "modified": "2013-03-03T01:15:13.268",
+      "created": "2013-03-03T01:15:13.268"
     }
   },
   {
@@ -716,7 +874,9 @@
     "fields": {
       "slug": "ralph-waldo-emerson",
       "user": 1,
-      "name": "Ralph Waldo Emerson"
+      "name": "Ralph Waldo Emerson",
+      "modified": "2013-03-03T01:15:13.268",
+      "created": "2013-03-03T01:15:13.268"
     }
   },
   {
@@ -725,7 +885,9 @@
     "fields": {
       "slug": "ray-bradbury",
       "user": 1,
-      "name": "Ray Bradbury"
+      "name": "Ray Bradbury",
+      "modified": "2013-03-03T01:15:13.268",
+      "created": "2013-03-03T01:15:13.268"
     }
   },
   {
@@ -734,7 +896,9 @@
     "fields": {
       "slug": "roald-dahl",
       "user": 1,
-      "name": "Roald Dahl"
+      "name": "Roald Dahl",
+      "modified": "2013-03-03T01:15:13.268",
+      "created": "2013-03-03T01:15:13.268"
     }
   },
   {
@@ -743,7 +907,9 @@
     "fields": {
       "slug": "robert-louis-stevenson",
       "user": 1,
-      "name": "Robert Louis Stevenson"
+      "name": "Robert Louis Stevenson",
+      "modified": "2013-03-03T01:15:13.268",
+      "created": "2013-03-03T01:15:13.268"
     }
   },
   {
@@ -752,7 +918,9 @@
     "fields": {
       "slug": "rudyard-kipling",
       "user": 1,
-      "name": "Rudyard Kipling"
+      "name": "Rudyard Kipling",
+      "modified": "2013-03-03T01:15:13.268",
+      "created": "2013-03-03T01:15:13.268"
     }
   },
   {
@@ -761,7 +929,9 @@
     "fields": {
       "slug": "salman-rushdie",
       "user": 1,
-      "name": "Salman Rushdie"
+      "name": "Salman Rushdie",
+      "modified": "2013-03-03T01:15:13.268",
+      "created": "2013-03-03T01:15:13.268"
     }
   },
   {
@@ -770,7 +940,9 @@
     "fields": {
       "slug": "samuel-beckett",
       "user": 1,
-      "name": "Samuel Beckett"
+      "name": "Samuel Beckett",
+      "modified": "2013-03-03T01:15:13.268",
+      "created": "2013-03-03T01:15:13.268"
     }
   },
   {
@@ -779,7 +951,9 @@
     "fields": {
       "slug": "sidney-sheldon",
       "user": 1,
-      "name": "Sidney Sheldon"
+      "name": "Sidney Sheldon",
+      "modified": "2013-03-03T01:15:13.268",
+      "created": "2013-03-03T01:15:13.268"
     }
   },
   {
@@ -788,7 +962,9 @@
     "fields": {
       "slug": "stephen-king",
       "user": 1,
-      "name": "Stephen King"
+      "name": "Stephen King",
+      "modified": "2013-03-03T01:15:13.268",
+      "created": "2013-03-03T01:15:13.268"
     }
   },
   {
@@ -797,7 +973,9 @@
     "fields": {
       "slug": "sylvia-plath",
       "user": 1,
-      "name": "Sylvia Plath"
+      "name": "Sylvia Plath",
+      "modified": "2013-03-03T01:15:13.268",
+      "created": "2013-03-03T01:15:13.268"
     }
   },
   {
@@ -806,7 +984,9 @@
     "fields": {
       "slug": "terry-pratchett",
       "user": 1,
-      "name": "Terry Pratchett"
+      "name": "Terry Pratchett",
+      "modified": "2013-03-03T01:15:13.268",
+      "created": "2013-03-03T01:15:13.268"
     }
   },
   {
@@ -815,7 +995,9 @@
     "fields": {
       "slug": "thomas-hardy",
       "user": 1,
-      "name": "Thomas Hardy"
+      "name": "Thomas Hardy",
+      "modified": "2013-03-03T01:15:13.268",
+      "created": "2013-03-03T01:15:13.268"
     }
   },
   {
@@ -824,7 +1006,9 @@
     "fields": {
       "slug": "thomas-mann",
       "user": 1,
-      "name": "Thomas Mann"
+      "name": "Thomas Mann",
+      "modified": "2013-03-03T01:15:13.268",
+      "created": "2013-03-03T01:15:13.268"
     }
   },
   {
@@ -833,7 +1017,9 @@
     "fields": {
       "slug": "toni-morrison",
       "user": 1,
-      "name": "Toni Morrison"
+      "name": "Toni Morrison",
+      "modified": "2013-03-03T01:15:13.268",
+      "created": "2013-03-03T01:15:13.268"
     }
   },
   {
@@ -842,7 +1028,9 @@
     "fields": {
       "slug": "victor-hugo",
       "user": 1,
-      "name": "Victor Hugo"
+      "name": "Victor Hugo",
+      "modified": "2013-03-03T01:15:13.268",
+      "created": "2013-03-03T01:15:13.268"
     }
   },
   {
@@ -851,7 +1039,9 @@
     "fields": {
       "slug": "virginia-woolf",
       "user": 1,
-      "name": "Virginia Woolf"
+      "name": "Virginia Woolf",
+      "modified": "2013-03-03T01:15:13.268",
+      "created": "2013-03-03T01:15:13.268"
     }
   },
   {
@@ -860,7 +1050,9 @@
     "fields": {
       "slug": "vladimir-nabokov",
       "user": 1,
-      "name": "Vladimir Nabokov"
+      "name": "Vladimir Nabokov",
+      "modified": "2013-03-03T01:15:13.268",
+      "created": "2013-03-03T01:15:13.268"
     }
   },
   {
@@ -869,7 +1061,9 @@
     "fields": {
       "slug": "w-somerset-maugham",
       "user": 1,
-      "name": "W. Somerset Maugham"
+      "name": "W. Somerset Maugham",
+      "modified": "2013-03-03T01:15:13.268",
+      "created": "2013-03-03T01:15:13.268"
     }
   },
   {
@@ -878,7 +1072,9 @@
     "fields": {
       "slug": "william-blake",
       "user": 1,
-      "name": "William Blake"
+      "name": "William Blake",
+      "modified": "2013-03-03T01:15:13.268",
+      "created": "2013-03-03T01:15:13.268"
     }
   },
   {
@@ -887,7 +1083,9 @@
     "fields": {
       "slug": "william-faulkner",
       "user": 1,
-      "name": "William Faulkner"
+      "name": "William Faulkner",
+      "modified": "2013-03-03T01:15:13.268",
+      "created": "2013-03-03T01:15:13.268"
     }
   },
   {
@@ -896,7 +1094,9 @@
     "fields": {
       "slug": "william-shakespeare",
       "user": 1,
-      "name": "William Shakespeare"
+      "name": "William Shakespeare",
+      "modified": "2013-03-03T01:15:13.268",
+      "created": "2013-03-03T01:15:13.268"
     }
   }
 ]
