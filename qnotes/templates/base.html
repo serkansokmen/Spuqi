@@ -18,13 +18,14 @@
     {% compress css %}
     {% block css %}
     <link href="{{ STATIC_URL }}css/bootstrap.css" rel="stylesheet" type="text/css"/>
-    {% endblock css %}
     <!--[if gte IE 9]>
     <style type="text/css">
         .gradient { filter: none; }
     </style>
     <![endif]-->
+    {% endblock css %}
     {% endcompress css %}
+
     {% compress js %}
     {% block head_extra %}
     <script src="{{ STATIC_URL }}js/vendor/jquery-1.9.1.js"></script>
