@@ -1,19 +1,8 @@
 from django import forms
 from django.forms import Textarea
-from qnotes.apps.quotes.models import Quote
-from qnotes.apps.sources.models import Source
-from qnotes.apps.topics.models import Topic
-from django_select2.fields import AutoModelSelect2Field, AutoModelSelect2MultipleField
-
-
-class SourceChoices(AutoModelSelect2Field):
-    queryset = Source.objects
-    search_fields = ['title__icontains', ]
-
-
-class TopicChoices(AutoModelSelect2MultipleField):
-    queryset = Topic.objects
-    search_fields = ['title__icontains', ]
+from .models import Quote
+from apps.sources.forms import SourceChoices
+from apps.topics.forms import TopicChoices
 
 
 class QuoteForm(forms.ModelForm):
@@ -23,7 +12,7 @@ class QuoteForm(forms.ModelForm):
 
     class Meta:
         model = Quote
-        exclude = ('user', 'note_type',)
+        exclude = ('user', 'note_type', 'tags',)
         widgets = {
             'quote': Textarea(attrs={'rows': 6, 'class': 'input-xxlarge'}),
             'note': Textarea(attrs={'rows': 4, 'class': 'input-xlarge'}),

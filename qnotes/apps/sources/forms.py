@@ -1,12 +1,12 @@
 from django import forms
 from .models import Source
-from apps.authors.models import Author
-from django_select2.fields import AutoModelSelect2MultipleField
+from apps.authors.forms import AuthorChoices
+from django_select2.fields import AutoModelSelect2Field
 
 
-class AuthorChoices(AutoModelSelect2MultipleField):
-    queryset = Author.objects
-    search_fields = ['name__icontains', ]
+class SourceChoices(AutoModelSelect2Field):
+    queryset = Source.objects
+    search_fields = ['title__icontains', ]
 
 
 class SourceForm(forms.ModelForm):
