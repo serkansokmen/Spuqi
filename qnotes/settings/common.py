@@ -260,7 +260,7 @@ FLUENT_COMMENTS_CLOSE_AFTER_DAYS = 60          # Auto-close comments after N day
 FLUENT_COMMENTS_MODERATE_AFTER_DAYS = 14       # Auto-moderate comments after N days.
 FLUENT_COMMENTS_AKISMET_ACTION = 'moderate'    # Set to 'moderate' or 'delete'
 FLUENT_COMMENTS_USE_EMAIL_NOTIFICATION = True
-FLUENT_COMMENTS_EXCLUDE_FIELDS = ('name', 'email', 'url')
+# FLUENT_COMMENTS_EXCLUDE_FIELDS = ('name', 'email', 'url')
 
 COMMENTS_APP = 'fluent_comments'
 CRISPY_TEMPLATE_PACK = 'bootstrap'
