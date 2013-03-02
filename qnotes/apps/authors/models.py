@@ -3,15 +3,16 @@ from django.contrib.auth.models import User
 from django.core.urlresolvers import reverse
 from django.utils.translation import ugettext as _
 from libs.utils import slugify
+from apps.helpers.models import TimeStampedModel
 
 
-class Author(models.Model):
+class Author(TimeStampedModel):
     user = models.ForeignKey(User)
     name = models.CharField(_('Name'), max_length=255, unique=True)
     slug = models.SlugField(editable=False, blank=True, null=True)
 
     class Meta:
-        ordering = ['name']
+        ordering = ['name', '-created']
 
     def save(self, *args, **kwargs):
         self.slug = slugify(self.name)

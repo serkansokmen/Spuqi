@@ -1,12 +1,13 @@
 from django.db import models
 from django.contrib.auth.models import User
 from django.core.urlresolvers import reverse
-from qnotes.apps.authors.models import Author
-from libs.utils import slugify
 from django.utils.translation import ugettext as _
+from apps.authors.models import Author
+from apps.helpers.models import TimeStampedModel
+from libs.utils import slugify
 
 
-class Source(models.Model):
+class Source(TimeStampedModel):
     user = models.ForeignKey(User)
     title = models.CharField(_('Title'), max_length=250, unique=True)
     slug = models.SlugField(max_length=250, editable=False, blank=True, null=True)

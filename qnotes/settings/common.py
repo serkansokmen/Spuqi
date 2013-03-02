@@ -235,13 +235,14 @@ THIRD_PARTY_APPS = (
 
 LOCAL_APPS = (
     # Profile
-    'qnotes.apps.accounts',
+    'apps.accounts',
     # Quotes application
-    'qnotes.apps.collections',
-    'qnotes.apps.sources',
-    'qnotes.apps.topics',
-    'qnotes.apps.authors',
-    'qnotes.apps.quotes',
+    'apps.collections',
+    'apps.sources',
+    'apps.topics',
+    'apps.authors',
+    'apps.quotes',
+    'apps.helpers',
 )
 
 INSTALLED_APPS = DJANGO_APPS + THIRD_PARTY_APPS + LOCAL_APPS

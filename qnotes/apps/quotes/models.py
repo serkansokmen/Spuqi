@@ -1,27 +1,45 @@
 from django.db import models
 from django.contrib.auth.models import User
 from django.core.urlresolvers import reverse
-from qnotes.apps.sources.models import Source
-from qnotes.apps.topics.models import Topic
 from django.utils.translation import ugettext as _
+from apps.sources.models import Source
+from apps.topics.models import Topic
+from apps.helpers.models import TimeStampedModel
 from taggit.managers import TaggableManager
 
 
-class Quote(models.Model):
+class Note(TimeStampedModel):
 
-    NOTE_TYPES = ((1, _('Text')), (2, _('Voice')), (3, _('Video')))
+    MEDIA_TYPES = ((1, _('Text')), (2, _('Voice')), (3, _('Video')))
+
+    media_type = models.PositiveIntegerField(_('Note type'), choices=MEDIA_TYPES)
+    text_note = models.TextField(_('Text'), blank=True)
+    video_url = models.URLField(_('Text'), blank=True)
+    sound_url = models.URLField(_('Text'), blank=True)
+
+    order = models.PositiveSmallIntegerField(default=0)
+
+    def __unicode__(self):
+        if self.media_type == 1:
+            return self.text_note
+        elif self.media_type == 2:
+            return self.video_url
+        elif self.media_type == 3:
+            return self.sound_url
+
+    class Meta:
+        ordering = ['-order']
+
+
+class Quote(TimeStampedModel):
 
     user = models.ForeignKey(User)
     source = models.ForeignKey(Source, default=0, verbose_name=_('Source'))
     quote = models.TextField(_('Quote'), max_length=1200)
-    note_type = models.PositiveIntegerField(_('Note type'), choices=NOTE_TYPES, default=1)
-    note = models.TextField(_('Note'), blank=True, max_length=500)
+    notes = models.ManyToManyField(Note, verbose_name=_('Notes'))
     topics = models.ManyToManyField(Topic, blank=True, verbose_name=_('Topics'))
     tags = TaggableManager(blank=True)
     is_private = models.BooleanField(_('Is private'), default=False)
-
-    created_at = models.DateTimeField(auto_now_add=True)
-    updated_at = models.DateTimeField(auto_now=True)
 
     def __unicode__(self):
         return self.quote
@@ -33,4 +51,4 @@ class Quote(models.Model):
         super(Quote, self).save(*args, **kwargs)
 
     class Meta:
-        ordering = ['-created_at']
+        ordering = ['-created']

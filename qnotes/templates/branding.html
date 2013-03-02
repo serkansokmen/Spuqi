@@ -17,15 +17,10 @@
                 <span class="icon-bar"></span>
             </a>
             <div class="nav-collapse">
-                <ul class="nav">
-                    {# <li{% ifequal active_tab 'sources'  %} class="active"{% endifequal %}><a href="{% url source_list %}"> {% trans "Sources" %}</a></li> #}
-                    <li{% ifequal active_tab 'quotes'  %} class="active"{% endifequal %}><a href="{% url quote_list %}"> {% trans "Quotes" %}</a></li>
-                    <li{% ifequal active_tab 'collections'  %} class="active"{% endifequal %}><a href="{% url collection_list %}"> {% trans "Collections" %}</a></li>
-                    {# <li{% ifequal active_tab 'authors'  %} class="active"{% endifequal %}><a href="{% url author_list %}"> {% trans "Authors" %}</a></li> #}
-                    {# <li{% ifequal active_tab 'topics'  %} class="active"{% endifequal %}><a href="{% url topic_list %}"> {% trans "Topics" %}</a></li> #}
+                <ul class="nav pull-left">
+                    <li{% ifequal active_tab 'quotes'  %} class="active"{% endifequal %}><a href="{% url quote_list %}">{% trans "Quotes" %}</a></li>
+                    <li{% ifequal active_tab 'collections'  %} class="active"{% endifequal %}><a href="{% url collection_list %}">{% trans "Collections" %}</a></li>
                 </ul>
-            </div><!-- /.nav-collapse -->
-            <div class="">
                 <ul class="nav pull-right">
                     {% if user.is_authenticated %}
                     <li>
@@ -61,6 +56,11 @@
                         </ul>
                     {% endif %}
                     </li>
+                </ul>
+                <ul class="nav pull-right">
+                    <li{% ifequal active_tab 'sources'  %} class="active"{% endifequal %}><a href="{% url source_list %}"> {% trans "Sources" %}</a></li>
+                    <li{% ifequal active_tab 'authors'  %} class="active"{% endifequal %}><a href="{% url author_list %}"> {% trans "Authors" %}</a></li>
+                    <li{% ifequal active_tab 'topics'  %} class="active"{% endifequal %}><a href="{% url topic_list %}"> {% trans "Topics" %}</a></li>
                 </ul>
             </div><!-- /.nav-collapse -->
         </div>
