@@ -1,18 +1,7 @@
 from unidecode import unidecode
-from datetime import datetime
+# from datetime import datetime
 from django.template.defaultfilters import slugify as slgfy
-from django.utils.translation import ugettext_lazy as _, ungettext
-
-
-def remove_holddown(form, fields):
-    """This removes the unhelpful "Hold down the...." help texts for the
-    specified fields for a form."""
-    remove_message = unicode(_('Hold down "Control", or "Command" on a Mac, to select more than one.'))
-    for field in fields:
-        if field in form.base_fields:
-            if form.base_fields[field].help_text:
-                form.base_fields[field].help_text = form.base_fields[field].help_text.replace(remove_message, '').strip()
-    return form
+# from django.utils.translation import ugettext_lazy as _, ungettext
 
 
 IGNORED_WORDS = ['cd', 'mh', 'tr']
@@ -38,7 +27,7 @@ def slugify(s, max_length=50, max_words=None):
         slug = '-'.join(words)
     return slug
 
-
+'''
 def get_diff_date(date):
     now = datetime.now()
     diff = now - date
@@ -64,3 +53,4 @@ def get_diff_date(date):
         return ungettext('%(min)d min ago', '%(min)d mins ago', minutes) % {'min': minutes}
     else:
         return _('just now')
+'''
