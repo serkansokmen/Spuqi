@@ -10595,6 +10595,10 @@ footer {
   display: none;
 }
 
+.container > .navbar {
+  margin-bottom: 0;
+}
+
 /*
 // Hide spam-protection field in comment form
 #div_id_honeypot, #id_honeypot {
