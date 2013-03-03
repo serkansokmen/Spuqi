@@ -35,13 +35,22 @@
 <body>
     <div class="container">
         {% include "branding.html" %}
-        {% block content_title %}
         <header class="lead main-header">
-            <h1>
-                <a href="{% url quote_list %}">{% trans "Qnotes" %}</a>
-                &nbsp;<small>{% trans "Collaborative space for social reading" %}</small>
-            </h1>
+            <div class="row-fluid">
+                <div class="pull-left">
+                    <h1>
+                        <a href="{% url quote_list %}">{% trans "Qnotes" %}</a>
+                        &nbsp;<small>{% trans "Collaborative space for social reading" %}</small>
+                    </h1>
+                </div>
+                <div class="pull-right">
+                    {% block header_actions %}
+                    {% endblock header_actions %}
+                </div>
+            </div>
+
         </header>
+        {% block content_title %}
         {% endblock content_title %}
         {% block content %}
         <section class="row-fluid">
