@@ -23,10 +23,11 @@ class Migration(SchemaMigration):
         # Deleting field 'Quote.note_type'
         db.delete_column('quotes_quote', 'note_type')
 
+
         # Renaming column for 'Quote.note' to match new field type.
         db.rename_column('quotes_quote', 'note', 'note_id')
         # Changing field 'Quote.note'
-        # db.alter_column('quotes_quote', 'note_id', self.gf('django.db.models.fields.related.ForeignKey')(to=orm['quotes.Note']))
+        db.alter_column('quotes_quote', 'note_id', self.gf('django.db.models.fields.related.ForeignKey')(to=orm['quotes.Note']))
         # Adding index on 'Quote', fields ['note']
         db.create_index('quotes_quote', ['note_id'])
 
