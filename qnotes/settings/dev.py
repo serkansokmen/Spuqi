@@ -1,8 +1,5 @@
 '''Development settings and globals.'''
 
-
-from os.path import join, normpath
-
 from common import *
 
 
@@ -52,6 +49,11 @@ CACHES = {
 # See: http://docs.celeryq.org/en/latest/configuration.html#celery-always-eager
 CELERY_ALWAYS_EAGER = True
 ########## END CELERY CONFIGURATION
+
+
+########## ROSETTA CONFIGURATION
+ROSETTA_WSGI_AUTO_RELOAD = False
+########## END ROSETTA CONFIGURATION
 
 
 ########## TOOLBAR CONFIGURATION
