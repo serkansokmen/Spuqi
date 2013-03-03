@@ -3,7 +3,11 @@
 {% load staticfiles %}
 {% load crispy_forms_tags %}
 
-{% block content %}
+{% block sidebar %}
+<legend>{% trans "Add new quote" %}</legend>
+{% endblock sidebar %}
+
+{% block inner_content %}
 <form class="form-horizontal" method="post">
 	{% csrf_token %}
 	{{ form|crispy }}
@@ -12,7 +16,7 @@
         <a href="{% if quote %}{{ quote.get_absolute_url }}{% else %}{% url quote_list %}{% endif %}" class="btn">{% trans "Cancel" %}</a>
 	</div>
 </form>
-{% endblock content %}
+{% endblock inner_content %}
 
 {% block js %}
 {{ block.super }}

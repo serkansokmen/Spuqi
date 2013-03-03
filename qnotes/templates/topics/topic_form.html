@@ -1,7 +1,11 @@
 {% extends "base.html" %}
 {% load i18n crispy_forms_tags %}
 
-{% block content %}
+{% block sidebar %}
+<legend>{% trans "Add new topic" %}</legend>
+{% endblock sidebar %}
+
+{% block inner_content %}
 <form class="form-horizontal" method="post">
     {% csrf_token %}
     {{ form|crispy }}
@@ -10,4 +14,4 @@
         <a href="{% if topic %}{{ topic.get_absolute_url }}{% else %}{% url topic_list %}{% endif %}" class="btn">{% trans "Cancel" %}</a>
     </div>
 </form>
-{% endblock content %}
+{% endblock inner_content %}
