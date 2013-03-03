@@ -5,6 +5,7 @@ from apps.sources.forms import SourceMultipleChoices
 
 
 class CollectionForm(forms.ModelForm):
+
     sources = SourceMultipleChoices()
     members = MemberMultipleChoices()
 
