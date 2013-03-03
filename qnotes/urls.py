@@ -1,16 +1,14 @@
 from django.conf.urls.defaults import *
 from django.contrib import admin
 from django.conf import settings
-from django.views.generic.simple import redirect_to
+from django.views.generic import TemplateView
 
 admin.autodiscover()
 
 urlpatterns = patterns(
     '',
-    (r'^$', redirect_to, {'url': 'quote/'}),
+    (r'^$', TemplateView.as_view(template_name='base.html')),
 
-    # django-grappelli
-    (r'^grappelli/', include('grappelli.urls')),
     # (r'^admin/', include('smuggler.urls')),  # put it before admin url patterns
     (r'^admin/', include(admin.site.urls)),
 
@@ -24,8 +22,10 @@ urlpatterns = patterns(
     (r'^source/', include('apps.sources.urls')),
     (r'^topic/', include('apps.topics.urls')),
 
+    # django-grappelli
+    (r'^grappelli/', include('grappelli.urls')),
     # django-select2 URLs
-    (r'^ext/', include('django_select2.urls')),
+    (r'^select2/', include('django_select2.urls')),
 )
 
 if settings.DEBUG:
@@ -36,4 +36,10 @@ if settings.DEBUG:
         (r'^static/(?P<path>.*)$', 'django.views.static.serve', {'document_root': settings.STATIC_ROOT}),
         (r'^media/(?P<path>.*)$', 'django.views.static.serve', {'document_root': settings.MEDIA_ROOT}),
         (r'^rosetta/', include('rosetta.urls')),
+    )
+
+if 'rosetta' in settings.INSTALLED_APPS:
+    urlpatterns += patterns(
+        '',
+        url(r'^rosetta/', include('rosetta.urls')),
     )
