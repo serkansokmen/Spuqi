@@ -12,10 +12,11 @@ class Note(TimeStampedModel):
 
     MEDIA_TYPES = ((1, _('Text')), (2, _('Voice')), (3, _('Video')))
 
+    quote = models.ForeignKey('Quote')
     media_type = models.PositiveIntegerField(_('Note type'), choices=MEDIA_TYPES, default=1)
     text_note = models.TextField(_('Text'), blank=True)
-    video_url = models.URLField(_('Text'), blank=True)
-    sound_url = models.URLField(_('Text'), blank=True)
+    video_url = models.URLField(_('Video URL'), blank=True)
+    sound_url = models.URLField(_('Sound URL'), blank=True)
 
     order = models.PositiveSmallIntegerField(default=0)
 
@@ -36,7 +37,6 @@ class Quote(TimeStampedModel):
     user = models.ForeignKey(User)
     source = models.ForeignKey(Source, default=0, verbose_name=_('Source'))
     quote = models.TextField(_('Quote'), max_length=1200)
-    notes = models.ManyToManyField(Note, verbose_name=_('Notes'))
     topics = models.ManyToManyField(Topic, blank=True, verbose_name=_('Topics'))
     tags = TaggableManager(blank=True)
     is_private = models.BooleanField(_('Is private'), default=False)
