@@ -219,8 +219,6 @@ THIRD_PARTY_APPS = (
     'extra_views',
     # django-taggit
     'taggit',
-    # django-ajax-selects
-    'ajax_select',
     # django-endless-pagination
     'endless_pagination',
     # easy_thumbnails

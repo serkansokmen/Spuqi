@@ -2,7 +2,6 @@ from django.conf.urls.defaults import *
 from django.contrib import admin
 from django.conf import settings
 from django.views.generic import TemplateView
-from ajax_select import urls as ajax_select_urls
 
 admin.autodiscover()
 
