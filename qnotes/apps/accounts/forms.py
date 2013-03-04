@@ -4,9 +4,9 @@ from django_select2.fields import AutoModelSelect2Field, AutoModelSelect2Multipl
 
 class MemberChoices(AutoModelSelect2Field):
     queryset = User.objects.filter(pk__gt=-1)
-    search_fields = ['username__icontains', ]
+    search_fields = ['username__icontains', 'first_name__icontains', 'last_name__icontains', 'email__icontains']
 
 
 class MemberMultipleChoices(AutoModelSelect2MultipleField):
     queryset = User.objects.filter(pk__gt=-1)
-    search_fields = ['username__icontains', ]
+    search_fields = ['username__icontains', 'first_name__icontains', 'last_name__icontains', 'email__icontains']
