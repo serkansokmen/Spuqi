@@ -1,7 +1,7 @@
 #encoding:utf-8
 '''Common settings and globals.'''
 
-
+from os import environ
 from datetime import timedelta
 from os.path import abspath, basename, dirname, join, normpath
 from sys import path
@@ -117,7 +117,7 @@ STATICFILES_FINDERS = (
 
 ########## SECRET CONFIGURATION
 # See: https://docs.djangoproject.com/en/dev/ref/settings/#secret-key
-SECRET_KEY = 'abcdefgh'
+SECRET_KEY = 'donttellanyone'
 ########## END SECRET CONFIGURATION
 
 
@@ -277,7 +277,7 @@ SMUGGLER_INDENT = 2
 
 
 ########## DISQUS CONFIGURATION
-DISQUS_API_KEY = 'd07Bo1xYutaqglgWA5VYwuz4c17mMtqCMhIVnm6KdOihPwjA00O4bSiMNaqolafJ'
+DISQUS_API_KEY = environ.get('DISQUS_API_KEY', '')
 DISQUS_WEBSITE_SHORTNAME = 'qnotes'
 ########## END DISQUS CONFIGURATION
 
