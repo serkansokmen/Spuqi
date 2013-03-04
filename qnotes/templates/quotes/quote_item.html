@@ -1,78 +1,66 @@
 {% load i18n %}
 {% load humanize %}
 
-<div class="wells">
+<div class="row-fluid">
     <blockquote>
         {% autoescape off %}<i class="icon-quote-left"></i> <i>{{ quote }}</i> <i class="icon-quote-right"></i>{% endautoescape %}
     </blockquote>
-    <div class="row-fluid">
-
-        {# Text #}
-        {% if quote.note_type == 1 %}
-        <div class="text-warning span8">
-            <small><i class="icon-comment"></i> {{ quote.note }}</small>
-        </div>
-        {% endif %}
-
-        {# Voice #}
-        {% if quote.note_type == 2 %}
-        <div class="text-warning span8">
-            <a class="btn btn-warning"><i class="icon-play"></i></a>
-        </div>
-        {% endif %}
-
-        {# Video #}
-        {% if quote.note_type == 3 %}
-        {% endif %}
-
-
-        <div class="meta span4">
-
-        {% if quote.is_private %}
-            <small class="text-warning">
-                <i class="icon-eye-close"></i>
-                {% trans "Private Quotation" %}
-            </small>
-        {% else %}
-            <small class="text-info">
-                <i class="icon-eye-open"></i>
-                {% trans "Public Quotation" %}
-            </small>
-        {% endif %}
-
-            <br>
-            <strong>{% trans "Source" %}:</strong> <a href="{{ quote.source.get_absolute_url }}">{{ quote.source }}</a>
-
-        {% if quote.topics.0 %}
-            <br>
-            <strong>{% trans "Topics" %}:</strong>
-            {% for topic in quote.topics.all %}
-            <a href="{{ topic.get_absolute_url }}">{{ topic }}</a>{% if not forloop.last %}, {% endif %}
-            {% endfor %}
-            <br>
-        {% endif %}
-            <small>{{ quote.created_at|naturaltime }}</small>
-        </div>
-    </div>
-</div>
-<div class="btn-toolbar well well-small">
-    <div class="btn-group">
+    <br>
+    <div class="pull-left">
         <a class="btn btn-link" href="{% url userena_profile_detail username=quote.user.username %}">
             <img src="{{ quote.user.get_profile.get_mugshot_url }}" alt="{{ quote.user }}" title="{{ quote.user }}" rel="tooltip">
         </a>
-        {% if quotes %}
-        <a class="btn" href="{{ quote.get_absolute_url }}"><i class="icon-comments"></i></a>
+    </div>
+
+    <div class="pull-left">
+        {% if quote.notes.0 %}
+            {% for note in quote.notes %}
+                {# Text #}
+                {% if note.media_type == 1 %}
+                    <small><i class="icon-comment"></i> {{ quote.note }}</small>
+                {% endif %}
+
+                {# Voice #}
+                {% if note.media_type == 2 %}
+                    <a class="btn btn-warning"><i class="icon-play"></i></a>
+                {% endif %}
+
+                {# Video #}
+                {% if note.media_type == 3 %}
+                {% endif %}
+            {% empty %}
+                {% trans "No related notes" %}
+            {% endfor %}
         {% endif %}
     </div>
+
     {% if quote.user == request.user %}
     <div class="btn-group pull-right">
-        <a class="btn btn-info" href="{% url quote_edit pk=quote.pk %}">
+        {% if quotes %}
+        <a class="btn btn-link" href="{{ quote.get_absolute_url }}"><i class="icon-comments"></i></a>
+        {% endif %}
+        <a class="btn btn-link" href="{% url quote_edit pk=quote.pk %}">
             <i class="icon-pencil"></i>
         </a>
-        <a class="btn btn-danger" href="{% url quote_delete pk=quote.pk %}">
+        <a class="btn btn-link" href="{% url quote_delete pk=quote.pk %}">
             <i class="icon-trash"></i>
         </a>
     </div>
     {% endif %}
+
+    <div class="clearfix">
+        <div class="meta">
+            <strong>{% trans "Source" %}:</strong> <a href="{{ quote.source.get_absolute_url }}">{{ quote.source }}</a>
+            {% if quote.topics %}
+                <br>
+                <strong>{% trans "Topics" %}:</strong>
+                {% for topic in quote.topics.all %}
+                <a href="{{ topic.get_absolute_url }}">{{ topic }}</a>{% if not forloop.last %}, {% endif %}
+                {% endfor %}
+                <br>
+            {% endif %}
+            <small>{{ quote.created_at|naturaltime }}</small>
+        </div>
+    </div>
 </div>
-{% if forloop and not forloop.last %}<hr>{% endif %}
+<hr>
