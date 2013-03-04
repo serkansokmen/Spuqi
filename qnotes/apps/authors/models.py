@@ -9,7 +9,7 @@ from apps.helpers.models import TimeStampedModel
 class Author(TimeStampedModel):
     user = models.ForeignKey(User)
     name = models.CharField(_('Name'), max_length=255, unique=True)
-    slug = models.SlugField(editable=False, blank=True, null=True)
+    slug = models.SlugField()
 
     class Meta:
         ordering = ['name', '-created']

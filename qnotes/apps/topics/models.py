@@ -9,7 +9,7 @@ from libs.utils import slugify
 class Topic(TimeStampedModel):
     user = models.ForeignKey(User)
     title = models.CharField(_('Title'), max_length=25)
-    slug = models.SlugField(max_length=25, editable=False, blank=True, null=True)
+    slug = models.SlugField()
 
     class Meta:
         ordering = ['title']

@@ -6,6 +6,7 @@ from apps.sources.models import Source
 from apps.topics.models import Topic
 from apps.helpers.models import TimeStampedModel
 from taggit.managers import TaggableManager
+from libs.utils import slugify
 
 
 class Note(TimeStampedModel):
@@ -39,6 +40,7 @@ class Quote(TimeStampedModel):
     user = models.ForeignKey(User)
     source = models.ForeignKey(Source, default=0, verbose_name=_('Source'))
     quote = models.TextField(_('Quote'), max_length=1200)
+    slug = models.SlugField()
     topics = models.ManyToManyField(Topic, blank=True, verbose_name=_('Topics'))
     tags = TaggableManager(blank=True)
     is_private = models.BooleanField(_('Is private'), default=False)
@@ -47,9 +49,10 @@ class Quote(TimeStampedModel):
         return self.quote
 
     def get_absolute_url(self):
-        return reverse('quote_detail', kwargs={'pk': self.pk})
+        return reverse('quote_detail', kwargs={'slug': self.slug})
 
     def save(self, *args, **kwargs):
+        self.slug = slugify(self.quote)
         super(Quote, self).save(*args, **kwargs)
 
     class Meta:

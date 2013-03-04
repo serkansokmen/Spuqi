@@ -13,11 +13,11 @@
         {# {% trans "share" %} #}
     </a>
     {% if user.is_authenticated and user == quote.user %}
-    <a class="btn btn-mini" href="{% url quote_edit pk=quote.pk %}">
+    <a class="btn btn-mini" href="{% url quote_edit slug=quote.slug %}">
         <i class="icon-pencil"></i>
         {# {% trans "edit" %} #}
     </a>
-    <a class="btn btn-mini" href="{% url quote_delete pk=quote.pk %}">
+    <a class="btn btn-mini" href="{% url quote_delete slug=quote.slug %}">
         <i class="icon-trash"></i>
         {# {% trans "delete" %} #}
     </a>

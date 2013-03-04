@@ -8,7 +8,7 @@ urlpatterns = patterns(
     '',
     url(r'^$', login_required(QuoteList.as_view()), name='quote_list'),
     url(r'^new/$', login_required(QuoteCreate.as_view()), name='quote_add'),
-    url(r'^(?P<pk>\d+)/$', login_required(QuoteDetail.as_view()), name='quote_detail'),
-    url(r'^(?P<pk>\d+)/edit/$', login_required(QuoteUpdate.as_view()), name='quote_edit'),
-    url(r'^(?P<pk>\d+)/delete/$', login_required(QuoteDelete.as_view()), name='quote_delete'),
+    url(r'^(?P<slug>[\d\w\_\-]+)/$', login_required(QuoteDetail.as_view()), name='quote_detail'),
+    url(r'^(?P<slug>[\d\w\_\-]+)/edit/$', login_required(QuoteUpdate.as_view()), name='quote_edit'),
+    url(r'^(?P<slug>[\d\w\_\-]+)/delete/$', login_required(QuoteDelete.as_view()), name='quote_delete'),
 )

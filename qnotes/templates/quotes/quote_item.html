@@ -39,10 +39,10 @@
         {% if quotes %}
         <a class="btn btn-link" href="{{ quote.get_absolute_url }}"><i class="icon-comments"></i></a>
         {% endif %}
-        <a class="btn btn-link" href="{% url quote_edit pk=quote.pk %}">
+        <a class="btn btn-link" href="{% url quote_edit slug=quote.slug %}">
             <i class="icon-pencil"></i>
         </a>
-        <a class="btn btn-link" href="{% url quote_delete pk=quote.pk %}">
+        <a class="btn btn-link" href="{% url quote_delete slug=quote.slug %}">
             <i class="icon-trash"></i>
         </a>
     </div>

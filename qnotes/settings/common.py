@@ -219,8 +219,8 @@ THIRD_PARTY_APPS = (
     'extra_views',
     # django-taggit
     'taggit',
-    # django-select2
-    'django_select2',
+    # django-ajax-selects
+    'ajax_select',
     # django-endless-pagination
     'endless_pagination',
     # easy_thumbnails
@@ -308,10 +308,17 @@ USERENA_MUGSHOT_SIZE = 31
 ########## END USERENA CONFIGURATION
 
 
-########## SELECT2 CONFIGURATION
-AUTO_RENDER_SELECT2_STATICS = False
-ENABLE_SELECT2_MULTI_PROCESS_SUPPORT = True
-########## END SELECT2 CONFIGURATION
+########## AJAX SELECTS CONFIGURATION
+# define the lookup channels in use on the site
+AJAX_LOOKUP_CHANNELS = {
+    # pass a dict with the model and the field to search against
+    'authors': {'model': 'authors.Author', 'search_field': 'name'},
+    'topics': {'model': 'topics.Topic', 'search_field': 'title'}
+}
+# magically include jqueryUI/js/css
+AJAX_SELECT_BOOTSTRAP = True
+AJAX_SELECT_INLINES = 'inline'
+########## END AJAX SELECTS CONFIGURATION
 
 
 ########## GRAPPELLI CONFIGURATION

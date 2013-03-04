@@ -1,4 +1,4 @@
-{% extends "forms/select2_base.html" %}
+{% extends "base.html" %}
 {% load i18n %}
 {% load staticfiles %}
 {% load crispy_forms_tags %}
@@ -17,15 +17,3 @@
 	</div>
 </form>
 {% endblock inner_content %}
-
-{% block js %}
-{{ block.super }}
-<script type="text/javascript">
-    // $(function() {
-    //     $('#id_tags').select2({
-    //         tags: $('#id_tags').val(),
-    //         tokenSeparators: [','],
-    //     })
-    // });
-</script>
-{% endblock js %}

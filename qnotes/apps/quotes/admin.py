@@ -6,6 +6,7 @@ class QuoteAdmin(admin.ModelAdmin):
     list_display = ('quote', 'user', 'source', 'is_private', 'created', 'modified',)
     list_display_links = ('quote',)
     filter_horizontal = ['topics', ]
+    prepopulated_fields = {'slug': ('quote',)}
 
 
 class NoteAdmin(admin.ModelAdmin):

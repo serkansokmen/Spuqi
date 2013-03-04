@@ -10,7 +10,7 @@ from libs.utils import slugify
 class Source(TimeStampedModel):
     user = models.ForeignKey(User)
     title = models.CharField(_('Title'), max_length=250, unique=True)
-    slug = models.SlugField(max_length=250, editable=False, blank=True, null=True)
+    slug = models.SlugField()
     authors = models.ManyToManyField(Author, verbose_name=_('Authors'))
     url = models.URLField(_('URL'), blank=True, null=True)
     isbn = models.CharField(_('ISBN'), max_length=10, blank=True, null=True)

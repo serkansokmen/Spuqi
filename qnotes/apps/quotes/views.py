@@ -35,12 +35,12 @@ class QuoteDetail(QuotesMixin, DetailView):
 
     def get_object(self):
         try:
-            quote = Quote.objects.get(pk=self.kwargs['pk'])
+            quote = Quote.objects.get(slug=self.kwargs['slug'])
             if quote.user == self.request.user:
                 return quote
         except Quote.DoesNotExist:
             raise Http404
-        return get_object_or_404(Quote, pk=self.kwargs['pk'], is_private=False)
+        return get_object_or_404(Quote, slug=self.kwargs['slug'], is_private=False)
 
 
 class QuoteCreate(ReturnToQuoteDetailMixin, CreateView):
@@ -73,11 +73,11 @@ class QuoteUpdate(ReturnToQuoteDetailMixin, UpdateView):
     form_class = QuoteForm
 
     def get_object(self):
-        return get_object_or_404(Quote, user=self.request.user, pk=self.kwargs['pk'])
+        return get_object_or_404(Quote, user=self.request.user, slug=self.kwargs['slug'])
 
 
 class QuoteDelete(DeleteView):
     success_url = reverse_lazy('quote_list')
 
     def get_object(self):
-        return get_object_or_404(Quote, user=self.request.user, pk=self.kwargs['pk'])
+        return get_object_or_404(Quote, user=self.request.user, slug=self.kwargs['slug'])

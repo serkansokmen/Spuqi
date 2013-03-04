@@ -2,6 +2,7 @@ from django.conf.urls.defaults import *
 from django.contrib import admin
 from django.conf import settings
 from django.views.generic import TemplateView
+from ajax_select import urls as ajax_select_urls
 
 admin.autodiscover()
 
@@ -12,10 +13,10 @@ urlpatterns = patterns(
     # (r'^admin/', include('smuggler.urls')),  # put it before admin url patterns
     (r'^admin/', include(admin.site.urls)),
 
-    # django-userena URLs
+    # django-userena
     (r'^accounts/', include('userena.urls')),
 
-    # local app URLs
+    # local apps
     (r'^author/', include('apps.authors.urls')),
     (r'^collection/', include('apps.collections.urls')),
     (r'^quote/', include('apps.quotes.urls')),
@@ -24,8 +25,6 @@ urlpatterns = patterns(
 
     # django-grappelli
     (r'^grappelli/', include('grappelli.urls')),
-    # django-select2 URLs
-    (r'^select2/', include('django_select2.urls')),
 )
 
 if settings.DEBUG:
