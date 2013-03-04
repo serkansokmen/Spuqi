@@ -106,8 +106,7 @@ AWS_QUERYSTRING_AUTH = False
 # AWS cache settings, don't change unless you know what you're doing:
 AWS_EXPIREY = 60 * 60 * 24 * 7
 AWS_HEADERS = {
-    'Cache-Control': 'max-age=%d, s-maxage=%d, must-revalidate' % (AWS_EXPIREY,
-        AWS_EXPIREY)
+    'Cache-Control': 'max-age=%d, s-maxage=%d, must-revalidate' % (AWS_EXPIREY, AWS_EXPIREY)
 }
 
 # See: https://docs.djangoproject.com/en/dev/ref/settings/#static-url
