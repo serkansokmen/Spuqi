@@ -34,6 +34,8 @@ class Note(TimeStampedModel):
 
 class Quote(TimeStampedModel):
 
+    # PRIVACY_STATES = ((1, _('Public')), (2, _('Private')), )
+
     user = models.ForeignKey(User)
     source = models.ForeignKey(Source, default=0, verbose_name=_('Source'))
     quote = models.TextField(_('Quote'), max_length=1200)
