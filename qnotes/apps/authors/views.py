@@ -6,23 +6,31 @@ from .models import Author
 from .forms import AuthorForm
 
 
-class AuthorSidebarMixin(object):
+class AuthorsMixin(object):
     # Add collections to the context
     def get_context_data(self, **kwargs):
-        context = super(AuthorSidebarMixin, self).get_context_data(**kwargs)
+        context = super(AuthorsMixin, self).get_context_data(**kwargs)
         context['authors'] = Author.objects.all()
         context['active_tab'] = 'authors'
         return context
 
 
-class AuthorList(AuthorSidebarMixin, ListView):
+class AuthorFormMixin(object):
+
+    def get_context_data(self, **kwargs):
+        context = super(AuthorFormMixin, self).get_context_data(**kwargs)
+        context['author_form'] = AuthorForm()
+        return context
+
+
+class AuthorList(AuthorsMixin, ListView):
     context_object_name = 'authors'
 
     def get_queryset(self):
         return Author.objects.filter(user=self.request.user)
 
 
-class AuthorDetail(AuthorSidebarMixin, DetailView):
+class AuthorDetail(AuthorsMixin, DetailView):
     context_object_name = 'current_author'
 
     def get_object(self):
@@ -35,7 +43,7 @@ class AuthorDetail(AuthorSidebarMixin, DetailView):
         return context
 
 
-class AuthorCreate(AuthorSidebarMixin, CreateView):
+class AuthorCreate(AuthorsMixin, CreateView):
     model = Author
     form_class = AuthorForm
     success_url = reverse_lazy('author_list')
@@ -45,7 +53,7 @@ class AuthorCreate(AuthorSidebarMixin, CreateView):
         return super(AuthorCreate, self).form_valid(form)
 
 
-class AuthorUpdate(AuthorSidebarMixin, UpdateView):
+class AuthorUpdate(AuthorsMixin, UpdateView):
     model = Author
     form_class = AuthorForm
     success_url = reverse_lazy('author_list')
@@ -54,7 +62,7 @@ class AuthorUpdate(AuthorSidebarMixin, UpdateView):
         return get_object_or_404(Author, user=self.request.user, slug=self.kwargs['slug'])
 
 
-class AuthorDelete(AuthorSidebarMixin, DeleteView):
+class AuthorDelete(AuthorsMixin, DeleteView):
     success_url = reverse_lazy('author_list')
 
     def get_object(self):

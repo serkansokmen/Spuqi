@@ -1,9 +1,10 @@
 from django.core.urlresolvers import reverse_lazy
 from django.shortcuts import get_object_or_404
 from django.views.generic import DetailView, CreateView, UpdateView, DeleteView
-from qnotes.apps.sources.models import Source
 from qnotes.apps.quotes.models import Quote
-from qnotes.apps.sources.forms import SourceForm
+from qnotes.apps.authors.views import AuthorFormMixin
+from .models import Source
+from .forms import SourceForm
 from endless_pagination.views import AjaxListView
 
 
@@ -36,7 +37,7 @@ class SourceDetail(SourceSidebarMixin, DetailView):
         return context
 
 
-class SourceCreate(SourceSidebarMixin, CreateView):
+class SourceCreate(AuthorFormMixin, SourceSidebarMixin, CreateView):
     model = Source
     form_class = SourceForm
     success_url = reverse_lazy('source_list')
@@ -46,7 +47,7 @@ class SourceCreate(SourceSidebarMixin, CreateView):
         return super(SourceCreate, self).form_valid(form)
 
 
-class SourceUpdate(SourceSidebarMixin, UpdateView):
+class SourceUpdate(AuthorFormMixin, SourceSidebarMixin, UpdateView):
     model = Source
     form_class = SourceForm
     success_url = reverse_lazy('source_list')
