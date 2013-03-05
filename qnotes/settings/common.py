@@ -208,8 +208,6 @@ THIRD_PARTY_APPS = (
     'djcelery',
     # Rosetta
     'rosetta',
-    # django-haystack
-    'haystack',
     # django-userena
     'userena',
     # django-userena umessages
@@ -332,20 +330,6 @@ AUTOCOMPLETE_LIMIT = 10
 CRISPY_TEMPLATE_PACK = 'bootstrap'
 ########## END DJANGO CRISPY FORMS CONFIGURATION
 
-
-########## HAYSTACK CONFIGURATION
-HAYSTACK_CONNECTIONS = {
-    'default': {
-        'ENGINE': 'haystack.backends.elasticsearch_backend.ElasticsearchSearchEngine',
-        'URL': 'http://local.host:8000/solr'
-        # ...or for multicore...
-        # 'URL': 'http://127.0.0.1:8983/solr/mysite',
-    },
-}
-
-HAYSTACK_SITECONF = 'search_sites'
-HAYSTACK_SEARCH_ENGINE = 'simple'
-#HAYSTACK_WHOOSH_PATH = '/home/user/web/drumcoder/index.whoosh'
 
 ########## CELERY CONFIGURATION
 # See: http://celery.readthedocs.org/en/latest/configuration.html#celery-task-result-expires

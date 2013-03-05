@@ -14,7 +14,6 @@ django-guardian
 django-autofixture
 django-userena
 git+git://github.com/arthurk/django-disqus.git
-django-haystack
 django-rosetta
 django-tastypie
 django-taggit
