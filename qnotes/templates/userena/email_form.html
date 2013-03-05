@@ -1,6 +1,6 @@
 {% extends 'userena/base_userena.html' %}
 {% load i18n %}
-{% load crispy_forms_tags %}
+{% load bootstrap %}
 
 {% block inner_title %}
 <h2>{% trans "Change email address" %}</h2>
@@ -12,7 +12,7 @@
 <form action="" method="post" class="form-horizontal">
   {% csrf_token %}
   <fieldset>
-    {{ form|crispy }}
+    {{ form|bootstrap }}
   </fieldset>
   <div class="form-actions">
     <input class="btn btn-primary" type="submit" value="{% trans "Change email" %}" />

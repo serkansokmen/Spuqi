@@ -18,6 +18,6 @@ django-rosetta
 django-tastypie
 django-taggit
 django-extra-views
-django-crispy-forms
+django-bootstrap-form
 django-endless-pagination
 django-dajaxice

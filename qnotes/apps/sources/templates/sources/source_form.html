@@ -1,16 +1,16 @@
 {% extends "base.html" %}
-{% load i18n crispy_forms_tags %}
+{% load i18n %}
+{% load bootstrap %}
 
 {% block sidebar %}
 <legend>{% trans "Add new source" %}</legend>
 {% endblock sidebar %}
 
 {% block inner_content %}
-    {% crispy form form.helper %}
 
     <form class="form-horizontal" method="post">
         {% csrf_token %}
-        {{ form|crispy }}
+        {{ form|bootstrap }}
         <div class="form-actions">
             <button type="submit" class="btn btn-primary">{% trans "Save" %}</button>
             <a href="{% if source %}{{ source.get_absolute_url }}{% else %}{% url source_list %}{% endif %}" class="btn">{% trans "Cancel" %}</a>
@@ -26,7 +26,7 @@
         <div class="modal-body">
             <form class="form-horizontal" method="post" id="new-author-form">
             {% csrf_token %}
-            {{ author_form|crispy }}
+            {{ author_form|bootstrap }}
         </form>
         </div>
         <div class="modal-footer">

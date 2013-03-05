@@ -223,8 +223,8 @@ THIRD_PARTY_APPS = (
     'endless_pagination',
     # easy_thumbnails
     'easy_thumbnails',
-    # django-crispy-forms
-    'crispy_forms',
+    # django-bootstrap-form
+    'bootstrapform',
     # django-disqus
     'disqus',
     # django-dajaxice
@@ -325,11 +325,6 @@ AJAX_SELECT_INLINES = 'inline'
 GRAPPELLI_ADMIN_TITLE = u'Qnotes'
 AUTOCOMPLETE_LIMIT = 10
 ########## END GRAPPELLI CONFIGURATION
-
-
-########## DJANGO CRISPY FORMS CONFIGURATION
-CRISPY_TEMPLATE_PACK = 'bootstrap'
-########## END DJANGO CRISPY FORMS CONFIGURATION
 
 
 ########## CELERY CONFIGURATION
