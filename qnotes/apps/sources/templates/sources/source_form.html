@@ -14,4 +14,38 @@
             <a href="{% if source %}{{ source.get_absolute_url }}{% else %}{% url source_list %}{% endif %}" class="btn">{% trans "Cancel" %}</a>
         </div>
     </form>
+
+    <a href="#new-author-modal" data-toggle="modal" class="btn btn-success">{% trans "New author" %}</a>
+    <div class="modal fade" id="new-author-modal">
+        <div class="modal-header">
+            <a class="close" data-dismiss="modal">&times;</a>
+            <h3>{% trans "New Author" %}</h3>
+        </div>
+        <div class="modal-body">
+            <form class="form-horizontal" method="post" id="new-author-form">
+            {% csrf_token %}
+            {{ author_form|crispy }}
+        </form>
+        </div>
+        <div class="modal-footer">
+            <a href="#" class="btn btn-primary btn-new-author">{% trans "Save" %}</a>
+            <a href="#" class="btn" data-dismiss="modal">{% trans "Cancel" %}</a>
+        </div>
+    </div>
 {% endblock inner_content %}
+
+{% block js %}
+{{ block.super }}
+<script type="text/javascript">
+    $(function() {
+        $('.btn-new-author').on('click', function () {
+            Dajaxice.authors.new(author_callback, {
+                'form': $('#new-author-form').serialize()
+            });
+        });
+        function author_callback(data){
+            console.log(data);
+        }
+    });
+</script>
+{% endblock js %}
