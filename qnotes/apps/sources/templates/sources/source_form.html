@@ -10,7 +10,16 @@
 
     <form class="form-horizontal" method="post">
         {% csrf_token %}
-        {{ form|bootstrap }}
+        {% for error in form.non_field_errors %}
+        <div class="alert alert-error">
+            {# <a class="close" data-dismiss="alert">&times;</a> #}
+            <strong>{% trans "Error!" %}</strong> {{ error }}
+        </div>
+        {% endfor %}
+        {% for hidden in form.hidden_fields %}{{ hidden }}{% endfor %}
+        {% for field in form.visible_fields %}
+        {{ field|bootstrap }}
+        {% endfor %}
         <div class="form-actions">
             <button type="submit" class="btn btn-primary">{% trans "Save" %}</button>
             <a href="{% if source %}{{ source.get_absolute_url }}{% else %}{% url source_list %}{% endif %}" class="btn">{% trans "Cancel" %}</a>
