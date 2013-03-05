@@ -92,3 +92,27 @@ DEBUG_TOOLBAR_CONFIG = {
 }
 INTERNAL_IPS = ('127.0.0.1',)
 ########## END DEBUG TOOLBAR CONFIGURATION
+
+
+LOGGING = {
+    'version': 1,
+    'disable_existing_loggers': True,
+    'formatters': {
+        'simple': {
+            'format': '%(levelname)s %(message)s',
+        },
+    },
+    'handlers': {
+        'console': {
+            'level': 'DEBUG',
+            'class': 'logging.StreamHandler',
+            'formatter': 'simple'
+        },
+    },
+    'loggers': {
+        'django': {
+            'handlers': ['console'],
+            'level': 'DEBUG',
+        },
+    }
+}
