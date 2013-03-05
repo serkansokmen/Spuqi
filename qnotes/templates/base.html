@@ -1,5 +1,6 @@
 {% load i18n %}
 {% load compress %}
+{% load dajaxice_templatetags %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -76,6 +77,7 @@
     {% block js %}
     {% compress js %}
     <script src="{{ STATIC_URL }}js/vendor/bootstrap.js"></script>
+    {% dajaxice_js_import %}
     <script src="{{ STATIC_URL }}js/app.js"></script>
     {% endcompress %}
     {% endblock js %}

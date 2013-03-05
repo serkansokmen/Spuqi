@@ -2,8 +2,10 @@ from django.conf.urls.defaults import *
 from django.contrib import admin
 from django.conf import settings
 from django.views.generic import TemplateView
+from dajaxice.core import dajaxice_autodiscover, dajaxice_config
 
 admin.autodiscover()
+dajaxice_autodiscover()
 
 urlpatterns = patterns(
     '',
@@ -24,6 +26,12 @@ urlpatterns = patterns(
 
     # django-grappelli
     (r'^grappelli/', include('grappelli.urls')),
+
+    # django-dajaxice
+    (dajaxice_config.dajaxice_url, include('dajaxice.urls')),
+
+    (r'^robots\.txt$', simple.direct_to_template,   {'template': 'robots.txt', 'mimetype': 'text/plain'}),
+    (r'^favicon\.ico$', simple.redirect_to,         {'url': '/static/images/favicon.ico'})
 )
 
 if settings.DEBUG:

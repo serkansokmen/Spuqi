@@ -111,6 +111,7 @@ STATICFILES_FINDERS = (
     'django.contrib.staticfiles.finders.FileSystemFinder',
     'django.contrib.staticfiles.finders.AppDirectoriesFinder',
     'compressor.finders.CompressorFinder',
+    'dajaxice.finders.DajaxiceFinder',
 )
 ########## END STATIC FILE CONFIGURATION
 
