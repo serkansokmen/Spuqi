@@ -21,3 +21,4 @@ django-taggit
 django-extra-views
 django-crispy-forms
 django-endless-pagination
+django-dajaxice
