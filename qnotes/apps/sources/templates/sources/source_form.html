@@ -38,13 +38,28 @@
 {{ block.super }}
 <script type="text/javascript">
     $(function() {
+
         $('.btn-new-author').on('click', function () {
+            // remove errors
+            $('.error').removeClass('error');
+            $('.alert-error').remove();
+            // submit data
             Dajaxice.authors.new(author_callback, {
                 'form': $('#new-author-form').serialize()
             });
         });
-        function author_callback(data){
-            console.log(data);
+        function author_callback(data) {
+            if (!data.status) {
+                if (data.errors) {
+                    $('<div class="alert alert-error"><strong>{% trans "Error!" %}</strong></div>').insertBefore('#new-author-form')
+                    for (error in data.errors) {
+                        $('#div_id_' + error).addClass('error');
+                    }
+                    $('.alert').fadeIn('slow');
+                }
+            } else {
+                $('#new-author-modal').modal('hide');
+            }
         }
     });
 </script>

@@ -9,14 +9,17 @@ from dajaxice.utils import deserialize_form
 def new_author(request, form):
     if not request.user.is_authenticated:
         return simplejson.dumps({
-            'status': 'Login required!'
+            'status': False,
+            'message': 'Login required!'
         })
     form = AuthorForm(deserialize_form(form))
     if form.is_valid():
         try:
-            author = form.save()  # Could throw exception
+            author = form.save(commit=False)  # Could throw exception
+            author.user = request.user
+            author.save()
             return simplejson.dumps({
-                'status': 'Success!',
+                'status': True,
                 'author': {
                     'id': author.id,
                     'name': author.name
@@ -24,6 +27,10 @@ def new_author(request, form):
             })
         except IntegrityError:
             return simplejson.dumps({
-                'status': 'Integrity Error!'
+                'status': False,
+                'message': 'Integrity Error!'
             })
-    return simplejson.dumps({'status': form.errors})
+    return simplejson.dumps({
+        'status': False,
+        'errors': form.errors
+    })

@@ -30,8 +30,8 @@ urlpatterns = patterns(
     # django-dajaxice
     (dajaxice_config.dajaxice_url, include('dajaxice.urls')),
 
-    (r'^robots\.txt$', simple.direct_to_template,   {'template': 'robots.txt', 'mimetype': 'text/plain'}),
-    (r'^favicon\.ico$', simple.redirect_to,         {'url': '/static/images/favicon.ico'})
+    (r'^robots\.txt$', 'django.views.generic.simple.direct_to_template', {'template': 'robots.txt', 'mimetype': 'text/plain'}),
+    (r'^favicon\.ico$', 'django.views.generic.simple.redirect_to', {'url': '/static/images/favicon.ico'})
 )
 
 if settings.DEBUG:
