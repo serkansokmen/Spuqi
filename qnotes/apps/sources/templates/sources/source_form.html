@@ -6,6 +6,8 @@
 {% endblock sidebar %}
 
 {% block inner_content %}
+    {% crispy form form.helper %}
+
     <form class="form-horizontal" method="post">
         {% csrf_token %}
         {{ form|crispy }}
