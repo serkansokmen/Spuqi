@@ -7,6 +7,11 @@
 <h2>{{ user.email }} {% if user.get_full_name %}({{ user.get_full_name }}){% endif %}</h2>
 {% endblock %}
 
+{% block header_actions %}
+<a class="btn btn-success btn-large" href="{% url quote_add %}"><i class="icon-plus-sign icon-large"></i> {% trans "New Quote" %}</a>
+<a class="btn btn-success btn-large" href="{% url collection_add %}"><i class="icon-plus-sign icon-large"></i> {% trans "New Collection" %}</a>
+{% endblock header_actions %}
+
 {% block content %}
     {% block profile_details %}
     <div class="row-fluid">

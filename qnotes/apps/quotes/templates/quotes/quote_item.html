@@ -34,7 +34,6 @@
         {% endif %}
     </div>
 
-    {% if quote.user == request.user %}
     <div class="btn-group pull-right">
         {% if quotes %}
         <a class="btn btn-link" href="{{ quote.get_absolute_url }}">
@@ -42,14 +41,15 @@
             {{ quote.get_privacy_state_display }}
         </a>
         {% endif %}
+        {% if quote.user == request.user %}
         <a class="btn btn-link" href="{% url quote_edit slug=quote.slug %}">
             <i class="icon-pencil"></i>
         </a>
         <a class="btn btn-link" href="{% url quote_delete slug=quote.slug %}">
             <i class="icon-trash"></i>
         </a>
+        {% endif %}
     </div>
-    {% endif %}
 
     {% for state in PRIVACY_STATES %}
         {% ifequal quote.privacy_state state %}

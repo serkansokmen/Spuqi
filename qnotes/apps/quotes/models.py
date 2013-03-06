@@ -36,6 +36,9 @@ class Note(TimeStampedModel):
 class Quote(TimeStampedModel):
 
     PRIVACY_STATES = ((1, _('Open to discussion')), (2, _('Read only')), (3, _('Private')), )
+    OPEN = PRIVACY_STATES[0][0]
+    READ_ONLY = PRIVACY_STATES[1][0]
+    PRIVATE = PRIVACY_STATES[2][0]
 
     user = models.ForeignKey(User)
     source = models.ForeignKey(Source, default=0, verbose_name=_('Source'))
@@ -52,7 +55,7 @@ class Quote(TimeStampedModel):
         return reverse('quote_detail', kwargs={'slug': self.slug})
 
     def save(self, *args, **kwargs):
-        self.slug = slugify(self.quote)
+        self.slug = slugify('%s-%s' % (self.source, self.quote))
         super(Quote, self).save(*args, **kwargs)
 
     class Meta:

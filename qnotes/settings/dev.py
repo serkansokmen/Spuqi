@@ -93,7 +93,7 @@ DEBUG_TOOLBAR_CONFIG = {
 INTERNAL_IPS = ('127.0.0.1',)
 ########## END DEBUG TOOLBAR CONFIGURATION
 
-
+'''
 LOGGING = {
     'version': 1,
     'disable_existing_loggers': True,
@@ -116,3 +116,4 @@ LOGGING = {
         },
     }
 }
+'''
