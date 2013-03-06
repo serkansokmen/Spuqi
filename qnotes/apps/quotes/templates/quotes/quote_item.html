@@ -18,7 +18,6 @@
             {% for topic in quote.topics.all %}
             <a href="{{ topic.get_absolute_url }}">{{ topic }}</a>{% if not forloop.last %}, {% endif %}
             {% endfor %}
-            <br>
         {% endif %}
         <br>
         <small>{{ quote.created|naturaltime }}</small>
