@@ -3,7 +3,7 @@
 {% load bootstrap %}
 
 {% block sidebar %}
-<legend>{% trans "Add new author" %}</legend>
+<legend>{% if form.instance.id %}{% trans "Update author" %}{% else %}{% trans "Add new author" %}{% endif %}</legend>
 {% endblock sidebar %}
 
 {% block inner_content %}

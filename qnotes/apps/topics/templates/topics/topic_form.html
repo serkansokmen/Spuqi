@@ -3,7 +3,7 @@
 {% load bootstrap %}
 
 {% block sidebar %}
-<legend>{% trans "Add new topic" %}</legend>
+<legend>{% if form.instance.id %}{% trans "Update topic" %}{% else %}{% trans "Add new topic" %}{% endif %}</legend>
 {% endblock sidebar %}
 
 {% block inner_content %}
