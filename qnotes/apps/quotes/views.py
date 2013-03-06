@@ -1,5 +1,6 @@
 from django.core.urlresolvers import reverse, reverse_lazy
 from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView
+from django.http import Http404, HttpResponseForbidden
 from django.shortcuts import get_object_or_404
 from django.utils.safestring import mark_safe
 from django.utils.translation import ugettext as _
@@ -45,17 +46,18 @@ class QuoteDetail(QuotesMixin, DetailView):
     context_object_name = 'quote'
 
     def get_object(self):
-        # Return user's Quote
-        if self.request.user.is_authenticated():
-            return get_object_or_404(
-                Quote,
-                slug=self.kwargs['slug'],
-                user=self.request.user
-            )
+        # try to get Quote object
+        quote = get_object_or_404(
+            Quote,
+            slug=self.kwargs['slug'],
+        )
+        # if quote is private
+        if quote.privacy_state == Quote.PRIVATE:
+            # if user owns quote or it is someone else, return forbidden
+            return quote if quote.user == self.request.user else HttpResponseForbidden()
+        # or else return Quote object
         else:
-            # OPEN and READ_ONLY Quote objects
-            public_quotes = Quote.objects.exclude(privacy_state=Quote.PRIVATE)
-            return get_object_or_404(Quote, slug=self.kwargs['slug'], id__in=public_quotes)
+            return quote
 
 
 class QuoteCreate(ReturnToQuoteDetailMixin, CreateView):
