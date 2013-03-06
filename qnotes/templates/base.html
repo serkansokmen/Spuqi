@@ -75,9 +75,9 @@
     {# <script src="http://cdnjs.cloudflare.com/ajax/libs/knockout/2.2.0/knockout-min.js"></script> #}
     {# <script src="http://cdnjs.cloudflare.com/ajax/libs/knockout.mapping/2.3.3/knockout.mapping.js"></script> #}
     {% block js %}
+    {% dajaxice_js_import %}
     {% compress js %}
     <script src="{{ STATIC_URL }}js/vendor/bootstrap.js"></script>
-    {% dajaxice_js_import %}
     <script src="{{ STATIC_URL }}js/app.js"></script>
     {% endcompress %}
     {% endblock js %}

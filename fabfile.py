@@ -7,6 +7,7 @@ from fabric.api import abort, env, local, settings, task
 
 ########## GLOBALS
 env.run = 'heroku run python manage.py'
+
 HEROKU_ADDONS = (
     'cloudamqp:lemur',
     'heroku-postgresql:dev',
@@ -95,27 +96,33 @@ def bootstrap():
     cont('heroku create', "Couldn't create the Heroku app, continue anyway?")
 
     for addon in HEROKU_ADDONS:
-        cont('heroku addons:add %s' % addon,
+        cont(
+            'heroku addons:add %s' % addon,
             "Couldn't add %s to your Heroku app, continue anyway?" % addon)
 
     for config in HEROKU_CONFIGS:
-        cont('heroku config:add %s' % config,
+        cont(
+            'heroku config:add %s' % config,
             "Couldn't add %s to your Heroku app, continue anyway?" % config)
 
-    cont('git push heroku master',
-            "Couldn't push your application to Heroku, continue anyway?")
+    cont(
+        'git push heroku master',
+        "Couldn't push your application to Heroku, continue anyway?")
 
     syncdb()
     migrate()
 
-    cont('%(run)s newrelic-admin validate-config - stdout' % env,
-            "Couldn't initialize New Relic, continue anyway?")
+    cont(
+        '%(run)s newrelic-admin validate-config - stdout' % env,
+        "Couldn't initialize New Relic, continue anyway?")
 
 
 @task
 def deploy():
     """ Deploy to Heroku """
-    # TODO: write deploy sequence
+    syncdb()
+    migrate()
+    collectstatic()
 
 
 @task
