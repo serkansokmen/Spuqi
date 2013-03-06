@@ -1,18 +1,59 @@
 {% load i18n %}
 {% load humanize %}
 
+<blockquote>
+    {% autoescape off %}<i class="icon-quote-left"></i> <i>{{ quote }}</i> <i class="icon-quote-right"></i>{% endautoescape %}
+</blockquote>
 <div class="row-fluid">
-    <blockquote>
-        {% autoescape off %}<i class="icon-quote-left"></i> <i>{{ quote }}</i> <i class="icon-quote-right"></i>{% endautoescape %}
-    </blockquote>
-    <br>
-    <div class="pull-left">
-        <a class="btn btn-link" href="{% url userena_profile_detail username=quote.user.username %}">
-            <img src="{{ quote.user.get_profile.get_mugshot_url }}" alt="{{ quote.user }}" title="{{ quote.user }}" rel="tooltip">
+    <div class="span1">
+        <a href="{% url userena_profile_detail username=quote.user.username %}" title="{{ quote.user }}" rel="tooltip">
+            <img src="{{ quote.user.get_profile.get_mugshot_url }}" alt="{{ quote.user }}">
         </a>
     </div>
+    <div class="span7">
+        <strong>{% trans "Source" %}:</strong> <a href="{{ quote.source.get_absolute_url }}">{{ quote.source }}</a>
+        {% if quote.topics.count > 0 %}
+            <br>
+            <strong>{% trans "Topics" %}:</strong>
+            {% for topic in quote.topics.all %}
+            <a href="{{ topic.get_absolute_url }}">{{ topic }}</a>{% if not forloop.last %}, {% endif %}
+            {% endfor %}
+            <br>
+        {% endif %}
+        <small>{{ quote.created|naturaltime }}</small>
+    </div>
+    <div class="span4">
+        <ul class="pull-right inline">
+            {% if quotes %}
+            <li>
+                <a class="btn btn-link" href="{{ quote.get_absolute_url }}" title="{{ quote.get_privacy_state_display }}" rel="tooltip">
+                    {% if quote.privacy_state == 1 %}
+                    <i class="icon-comments-alt"></i>
+                    {% elif quote.privacy_state == 2 %}
+                    <i class="icon-eye-open"></i>
+                    {% elif quote.privacy_state == 3 %}
+                    <i class="icon-eye-close"></i>
+                    {% endif %}
+                </a>
+            </li>
+            {% endif %}
+            {% if quote.user == request.user %}
+            <li>
+                <a class="btn btn-link" href="{% url quote_edit slug=quote.slug %}" title="{% trans "Edit" %}" rel="tooltip">
+                    <i class="icon-pencil"></i>
+                </a>
+            </li>
+            <li>
+                <a class="btn btn-link" href="{% url quote_delete slug=quote.slug %}" title="{% trans "Delete" %}" rel="tooltip">
+                    <i class="icon-trash"></i>
+                </a>
+            </li>
+            {% endif %}
+        </ul>
+    </div>
 
-    <div class="pull-left">
+    {% comment %}
+    <div class="span8">
         {% if quote.notes.0 %}
             {% for note in quote.notes %}
                 {# Text #}
@@ -33,47 +74,7 @@
             {% endfor %}
         {% endif %}
     </div>
-
-    <div class="btn-group pull-right">
-        {% if quotes %}
-        <a class="btn btn-link" href="{{ quote.get_absolute_url }}">
-            <i class="icon-comments"></i>
-            {{ quote.get_privacy_state_display }}
-        </a>
-        {% endif %}
-        {% if quote.user == request.user %}
-        <a class="btn btn-link" href="{% url quote_edit slug=quote.slug %}">
-            <i class="icon-pencil"></i>
-        </a>
-        <a class="btn btn-link" href="{% url quote_delete slug=quote.slug %}">
-            <i class="icon-trash"></i>
-        </a>
-        {% endif %}
-    </div>
-
-    {% for state in PRIVACY_STATES %}
-        {% ifequal quote.privacy_state state %}
-            <p class="{% cycle 'text-info' 'text-warning' 'text-error' %}" href="{{ quote.get_absolute_url }}">
-                <i class="icon-comments"></i>
-                {{ quote.get_privacy_state_display }}
-            </p>
-        {% endifequal %}
-    {% endfor %}
-
-    <div class="clearfix">
-        <div class="meta">
-            <strong>{% trans "Source" %}:</strong> <a href="{{ quote.source.get_absolute_url }}">{{ quote.source }}</a>
-            {% if quote.topics %}
-                <br>
-                <strong>{% trans "Topics" %}:</strong>
-                {% for topic in quote.topics.all %}
-                <a href="{{ topic.get_absolute_url }}">{{ topic }}</a>{% if not forloop.last %}, {% endif %}
-                {% endfor %}
-                <br>
-            {% endif %}
-            <small>{{ quote.created_at|naturaltime }}</small>
-        </div>
-    </div>
+    {% endcomment %}
 </div>
 {% if not forloop.last %}
 <hr>

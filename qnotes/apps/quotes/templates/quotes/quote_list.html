@@ -15,11 +15,16 @@
 {% endblock header_actions %}
 
 {% block content %}
-    <h4>{% trans "Timeline" %}</h4>
     <hr>
-    {% paginate 5 quotes %}
+    {% paginate 10 quotes %}
     {% for quote in quotes %}
-        {% include "quotes/quote_item.html" %}
+        {% if forloop.counter0|divisibleby:"2" %}<div class="row-fluid">{% endif %}
+        <div class="span6">
+            {% include "quotes/quote_item.html" %}
+        </div>
+        {% if forloop.last or forloop.counter|divisibleby:"2" %}</div>{% endif %}
+    {% empty %}
+        <p class="alert alert-info">{% trans "No quotes" %}</p>
     {% endfor %}
     {% show_pages %}
 {% endblock content %}
