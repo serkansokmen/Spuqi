@@ -1,5 +1,3 @@
-from django import forms
-from django.utils.translation import ugettext_lazy as _
 from userena.forms import SignupForm, AuthenticationForm
 from captcha.fields import ReCaptchaField
 
@@ -13,7 +11,7 @@ class SignupFormReCaptcha(SignupForm):
     #                             max_length=30,
     #                             required=True)
 
-    capctha = ReCaptchaField(attrs={'theme': 'white'})
+    capctha = ReCaptchaField(label=u'', attrs={'theme': 'white'})
     '''
     def __init__(self, *args, **kwargs):
         super(SignupFormReCaptcha, self).__init__(*args, **kwargs)
