@@ -36,7 +36,8 @@
 <hr>
 <strong>{% trans "Members" %}:</strong>
 {% for member in collection.members.all %}
-    {{ member }}{% if not forloop.last %}, {% endif %}
+    <a href="{% url userena_profile_detail member.username %}" title="{{ member }}">{{ member }}</a>
+    {% if not forloop.last %}, {% endif %}
 {% endfor %}
 {% endwith %}
 {% endblock content %}
