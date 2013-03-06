@@ -40,7 +40,14 @@
     <ul class="unstyled">
     {% for collection in followed_collections %}
         <li{% ifequal collection current_collection %} class="active"{% endifequal %}>
-            <a href="{{ collection.get_absolute_url }}">{{ collection }}</a>
+            <a href="{{ collection.get_absolute_url }}">
+                {% if collection.sources.0 %}
+                <i class="icon-folder-close-alt"></i>
+                {% else %}
+                <i class="icon-folder-close"></i>
+                {% endif %}
+                {{ collection }}
+            </a>
             {% ifequal collection.user request.user %}
             <div class="pull-right">
                 <a href="{% url collection_edit slug=collection.slug %}">

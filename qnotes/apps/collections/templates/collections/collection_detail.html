@@ -2,42 +2,46 @@
 {% load i18n %}
 {% load endless %}
 
-{% block content %}
-{% with current_collection as collection %}
-<h4>{{ collection }}</h4>
-{% with collection_sources as sources %}
-<table class="table table-condensed table-striped">
-    <thead>
-        <tr>
-            <th>{% trans "Source" %}</th>
-            <th>{% trans "ISBN" %}</th>
-            <td>{% trans "Authors" %}</td>
-        </tr>
-    </thead>
-    <tbody>
-        {% paginate sources %}
-        {% for source in sources %}
-        <tr>
-            <td>
-                {% ifequal source current_source %}
-                {{ source }}
-                {% else %}
-                <a href="{{ source.get_absolute_url }}" title="{{ source }}">{{ source }}</a>
-                {% endifequal %}
-            </td>
-            <td>{{ source.isbn|default:"-" }}</td>
-            <td>{% for author in source.authors.all %}{{ author }}{% if not forloop.last %}, {% endif %}{% endfor %}</td>
-        </tr>
-        {% endfor %}
-    </tbody>
-</table>
-{% show_pages %}
-{% endwith %}
-<hr>
-<strong>{% trans "Members" %}:</strong>
-{% for member in collection.members.all %}
-    <a href="{% url userena_profile_detail member.username %}" title="{{ member }}">{{ member }}</a>
-    {% if not forloop.last %}, {% endif %}
+{% block content_title %}
+<h3><i class="icon-folder-open"></i> {{ current_collection }}</h3>
+{% endblock content_title %}
+
+{% block sidebar %}
+<h4>{% trans "Members" %}:</h4>
+{% for member in current_collection.members.all %}
+    <a href="{% url userena_profile_detail member.username %}" title="{{ member }}" rel="tooltip">
+        <img src="{{ member.get_profile.get_mugshot_url }}" alt="{{ member }}">
+    </a>
 {% endfor %}
-{% endwith %}
-{% endblock content %}
+{% endblock sidebar %}
+
+{% block inner_content %}
+    {% with collection_sources as sources %}
+    <table class="table table-condensed table-striped">
+        <thead>
+            <tr>
+                <th>{% trans "Source" %}</th>
+                <th>{% trans "ISBN" %}</th>
+                <td>{% trans "Authors" %}</td>
+            </tr>
+        </thead>
+        <tbody>
+            {% paginate sources %}
+            {% for source in sources %}
+            <tr>
+                <td>
+                    {% ifequal source current_source %}
+                    {{ source }}
+                    {% else %}
+                    <a href="{{ source.get_absolute_url }}" title="{{ source }}">{{ source }}</a>
+                    {% endifequal %}
+                </td>
+                <td>{{ source.isbn|default:"-" }}</td>
+                <td>{% for author in source.authors.all %}{{ author }}{% if not forloop.last %}, {% endif %}{% endfor %}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    {% show_pages %}
+    {% endwith %}
+{% endblock inner_content %}

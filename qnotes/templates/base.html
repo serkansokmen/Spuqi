@@ -78,7 +78,11 @@
     {% dajaxice_js_import %}
     {% compress js %}
     <script src="{{ STATIC_URL }}js/vendor/bootstrap.js"></script>
-    <script src="{{ STATIC_URL }}js/app.js"></script>
+    <script type="text/javascript">
+        $(function () {
+            $("[rel='tooltip']").tooltip();
+        });
+    </script>
     {% endcompress %}
     {% endblock js %}
 </body>
