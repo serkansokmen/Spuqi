@@ -8,12 +8,14 @@
 {% endblock css %}
 
 {% block headextra %}
+{% if not quote.is_private %}
 {{ block.super }}
 {% disqus_dev %}
 {% set_disqus_developer 1 %}
 {% set_disqus_identifier "quote_" quote.id %}
 {% set_disqus_url quote.get_absolute_url %}
 {% set_disqus_title "Quote Discussion" quote.quote %}
+{% endif %}
 {% endblock headextra %}
 
 {% block content %}
@@ -21,7 +23,9 @@
 {% include "quotes/quote_item.html" %}
 <hr>
 
+{% if not quote.is_private %}
 {% disqus_show_comments "qnotes" %}
+{% endif %}
 {% endblock content %}
 
 {% block js %}
