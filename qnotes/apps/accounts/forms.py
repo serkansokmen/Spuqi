@@ -1,3 +1,4 @@
+from django.utils.translation import get_language
 from userena.forms import SignupForm, AuthenticationForm
 from captcha.fields import ReCaptchaField
 
@@ -11,7 +12,10 @@ class SignupFormReCaptcha(SignupForm):
     #                             max_length=30,
     #                             required=True)
 
-    capctha = ReCaptchaField(label=u'', attrs={'theme': 'white'})
+    capctha = ReCaptchaField(label=u'', attrs={'theme': 'white', 'lang': get_language()})
+
+    def __init__(self, *args, **kwargs):
+        super(SignupFormReCaptcha, self).__init__(*args, **kwargs)
     '''
     def __init__(self, *args, **kwargs):
         super(SignupFormReCaptcha, self).__init__(*args, **kwargs)

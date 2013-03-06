@@ -5,8 +5,10 @@ from os import environ
 from datetime import timedelta
 from os.path import abspath, basename, dirname, join, normpath
 from sys import path
-
 from djcelery import setup_loader
+
+
+gettext = lambda s: s
 
 
 ########## PATH CONFIGURATION
@@ -65,13 +67,11 @@ DATABASES = {
 TIME_ZONE = 'Europe/Istanbul'
 
 # See: https://docs.djangoproject.com/en/dev/ref/settings/#language-code
-LANGUAGE_CODE = 'en/us'
-
-gettext = lambda s: s
+LANGUAGE_CODE = 'tr'
 
 LANGUAGES = (
-    ('tr', gettext('Turkish')),
     ('en', gettext('English')),
+    ('tr', gettext('Turkish')),
 )
 
 # See: https://docs.djangoproject.com/en/dev/ref/settings/#site-id
@@ -171,6 +171,7 @@ MIDDLEWARE_CLASSES = (
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.middleware.locale.LocaleMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
+    'qnotes.middleware.ForceLangMiddleware',
     'userena.middleware.UserenaLocaleMiddleware',
 )
 ########## END MIDDLEWARE CONFIGURATION
