@@ -55,7 +55,7 @@ class Quote(TimeStampedModel):
         return reverse('quote_detail', kwargs={'slug': self.slug})
 
     def save(self, *args, **kwargs):
-        self.slug = slugify('%s-%s' % (self.source, self.quote))
+        self.slug = '%s-%s' % (slugify(self.source.title), slugify(self.quote))
         super(Quote, self).save(*args, **kwargs)
 
     class Meta:

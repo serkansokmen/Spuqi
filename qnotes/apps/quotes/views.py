@@ -1,6 +1,9 @@
 from django.core.urlresolvers import reverse, reverse_lazy
 from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView
 from django.shortcuts import get_object_or_404
+from django.utils.safestring import mark_safe
+from django.utils.translation import ugettext as _
+from django.forms import ValidationError
 from .models import Quote
 from .forms import QuoteForm
 
@@ -60,7 +63,19 @@ class QuoteCreate(ReturnToQuoteDetailMixin, CreateView):
     form_class = QuoteForm
 
     def form_valid(self, form):
+        # set instance user
         form.instance.user = self.request.user
+        # if the quote and source is supplied, check if there is another
+        # quote with the same source
+        if self.request.user and not form.errors and not form.instance.id:
+            if Quote.objects.filter(
+                quote=form.instance.quote,
+                source=form.instance.source
+            ).count() > 0:
+                msg = mark_safe(
+                    '%s' % _('This quotation is already created.')
+                )
+                raise ValidationError(msg)
         return super(QuoteCreate, self).form_valid(form)
 
 
