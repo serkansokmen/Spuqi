@@ -35,7 +35,7 @@ class Note(TimeStampedModel):
 
 class Quote(TimeStampedModel):
 
-    # PRIVACY_STATES = ((1, _('Public')), (2, _('Private')), )
+    PRIVACY_STATES = ((1, _('Open to discussion')), (2, _('Read only')), (3, _('Private')), )
 
     user = models.ForeignKey(User)
     source = models.ForeignKey(Source, default=0, verbose_name=_('Source'))
@@ -43,7 +43,7 @@ class Quote(TimeStampedModel):
     slug = models.SlugField()
     topics = models.ManyToManyField(Topic, blank=True, verbose_name=_('Topics'))
     tags = TaggableManager(blank=True)
-    is_private = models.BooleanField(_('Is private'), default=False)
+    privacy_state = models.PositiveSmallIntegerField(_('Privacy state'), choices=PRIVACY_STATES, default=2)
 
     def __unicode__(self):
         return self.quote

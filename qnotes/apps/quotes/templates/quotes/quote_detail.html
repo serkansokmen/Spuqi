@@ -8,24 +8,21 @@
 {% endblock css %}
 
 {% block headextra %}
-{% if not quote.is_private %}
+{% ifequal quote.privacy_state PRIVACY_STATES.0.0 %}
 {{ block.super }}
 {% disqus_dev %}
 {% set_disqus_developer 1 %}
 {% set_disqus_identifier "quote_" quote.id %}
 {% set_disqus_url quote.get_absolute_url %}
 {% set_disqus_title "Quote Discussion" quote.quote %}
-{% endif %}
+{% endifequal %}
 {% endblock headextra %}
 
 {% block content %}
-
 {% include "quotes/quote_item.html" %}
-<hr>
-
-{% if not quote.is_private %}
+{% ifequal quote.privacy_state PRIVACY_STATES.0.0 %}
 {% disqus_show_comments "qnotes" %}
-{% endif %}
+{% endifequal %}
 {% endblock content %}
 
 {% block js %}

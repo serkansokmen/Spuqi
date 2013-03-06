@@ -3,7 +3,7 @@ from qnotes.apps.quotes.models import Quote, Note
 
 
 class QuoteAdmin(admin.ModelAdmin):
-    list_display = ('quote', 'user', 'source', 'is_private', 'created', 'modified',)
+    list_display = ('quote', 'user', 'source', 'privacy_state', 'created', 'modified',)
     list_display_links = ('quote',)
     filter_horizontal = ['topics', ]
     prepopulated_fields = {'slug': ('quote',)}

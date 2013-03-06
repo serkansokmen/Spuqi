@@ -11,7 +11,7 @@ class QuotesMixin(object):
 
     def get_context_data(self, **kwargs):
         context = super(QuotesMixin, self).get_context_data(**kwargs)
-        context['private_quotes'] = Quote.objects.filter(user=self.request.user, is_private=True)
+        context['private_quotes'] = Quote.objects.filter(user=self.request.user, privacy_state=Quote.PRIVACY_STATES[2][0])
         context['active_tab'] = 'quotes'
         return context
 
@@ -27,7 +27,7 @@ class QuoteList(QuotesMixin, ListView):
 
     def get_queryset(self):
         # return Quote.objects.filter(user=self.request.user)
-        return Quote.objects.filter(is_private=False)
+        return Quote.objects.exclude(privacy_state=Quote.PRIVACY_STATES[2][0])
 
 
 class QuoteDetail(QuotesMixin, DetailView):
@@ -40,7 +40,7 @@ class QuoteDetail(QuotesMixin, DetailView):
                 return quote
         except Quote.DoesNotExist:
             raise Http404
-        return get_object_or_404(Quote, slug=self.kwargs['slug'], is_private=False)
+        return get_object_or_404(Quote, slug=self.kwargs['slug'], privacy_state=Quote.PRIVACY_STATES[2])
 
 
 class QuoteCreate(ReturnToQuoteDetailMixin, CreateView):

@@ -141,6 +141,7 @@ TEMPLATE_CONTEXT_PROCESSORS = (
     'django.core.context_processors.tz',
     'django.contrib.messages.context_processors.messages',
     'django.core.context_processors.request',
+    'qnotes.context_processors.site_processor',
 )
 
 # See: https://docs.djangoproject.com/en/dev/ref/settings/#template-loaders

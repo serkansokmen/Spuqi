@@ -37,7 +37,10 @@
     {% if quote.user == request.user %}
     <div class="btn-group pull-right">
         {% if quotes %}
-        <a class="btn btn-link" href="{{ quote.get_absolute_url }}"><i class="icon-comments"></i></a>
+        <a class="btn btn-link" href="{{ quote.get_absolute_url }}">
+            <i class="icon-comments"></i>
+            {{ quote.get_privacy_state_display }}
+        </a>
         {% endif %}
         <a class="btn btn-link" href="{% url quote_edit slug=quote.slug %}">
             <i class="icon-pencil"></i>
@@ -47,6 +50,15 @@
         </a>
     </div>
     {% endif %}
+
+    {% for state in PRIVACY_STATES %}
+        {% ifequal quote.privacy_state state %}
+            <p class="{% cycle 'text-info' 'text-warning' 'text-error' %}" href="{{ quote.get_absolute_url }}">
+                <i class="icon-comments"></i>
+                {{ quote.get_privacy_state_display }}
+            </p>
+        {% endifequal %}
+    {% endfor %}
 
     <div class="clearfix">
         <div class="meta">
@@ -63,4 +75,6 @@
         </div>
     </div>
 </div>
+{% if not forloop.last %}
 <hr>
+{% endif %}
