@@ -1,7 +1,9 @@
 from django.db import models
+from django.db.models.signals import pre_save
 from django.contrib.auth.models import User
 from django.core.urlresolvers import reverse
 from django.utils.translation import ugettext as _
+from django.dispatch import receiver
 from apps.sources.models import Source
 from apps.topics.models import Topic
 from apps.helpers.models import TimeStampedModel
@@ -60,3 +62,10 @@ class Quote(TimeStampedModel):
 
     class Meta:
         ordering = ['-created']
+
+
+@receiver(pre_save, sender=Quote)
+def truncater(sender, instance, **kwargs):
+    if sender is Quote:
+        if len(instance.slug) > 50:
+            instance.slug = instance.slug[:50]
