@@ -21,3 +21,4 @@ django-extra-views
 django-bootstrap-form
 django-endless-pagination
 django-dajaxice
+django-recaptcha

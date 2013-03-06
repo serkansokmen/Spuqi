@@ -2,6 +2,7 @@ from django.conf.urls.defaults import *
 from django.contrib import admin
 from django.conf import settings
 from django.views.generic import TemplateView
+from apps.accounts.forms import SignupFormReCaptcha, SigninFormReCaptcha
 from dajaxice.core import dajaxice_autodiscover, dajaxice_config
 
 admin.autodiscover()
@@ -15,6 +16,8 @@ urlpatterns = patterns(
     (r'^admin/', include(admin.site.urls)),
 
     # django-userena
+    (r'^accounts/signup/$', 'userena.views.signup', {'signup_form': SignupFormReCaptcha}),
+    (r'^accounts/signin/$', 'userena.views.signin', {'auth_form': SigninFormReCaptcha}),
     (r'^accounts/', include('userena.urls')),
 
     # local apps

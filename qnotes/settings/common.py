@@ -230,6 +230,8 @@ THIRD_PARTY_APPS = (
     'disqus',
     # django-dajaxice
     'dajaxice',
+    # django-recaptcha
+    'captcha',
 )
 
 LOCAL_APPS = (
@@ -281,6 +283,13 @@ SMUGGLER_INDENT = 2
 DISQUS_API_KEY = environ.get('DISQUS_API_KEY', '')
 DISQUS_WEBSITE_SHORTNAME = 'qnotes'
 ########## END DISQUS CONFIGURATION
+
+
+########## reCAPCTHA CONFIGURATION
+RECAPTCHA_PUBLIC_KEY = environ.get('RECAPTCHA_PUBLIC_KEY', '')
+RECAPTCHA_PRIVATE_KEY = environ.get('RECAPTCHA_PRIVATE_KEY', '')
+RECAPTCHA_USE_SSL = True
+########## END reCAPCTHA CONFIGURATION
 
 
 ########## AUTHENTICATION CONFIGURATION
