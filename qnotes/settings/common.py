@@ -173,6 +173,7 @@ MIDDLEWARE_CLASSES = (
     'django.contrib.messages.middleware.MessageMiddleware',
     'qnotes.middleware.ForceLangMiddleware',
     'userena.middleware.UserenaLocaleMiddleware',
+    'hunger.middleware.BetaMiddleware',
 )
 ########## END MIDDLEWARE CONFIGURATION
 
@@ -233,6 +234,8 @@ THIRD_PARTY_APPS = (
     'dajaxice',
     # django-recaptcha
     'captcha',
+    # django-hunger
+    'hunger',
 )
 
 LOCAL_APPS = (
@@ -291,6 +294,13 @@ RECAPTCHA_PUBLIC_KEY = environ.get('RECAPTCHA_PUBLIC_KEY', '')
 RECAPTCHA_PRIVATE_KEY = environ.get('RECAPTCHA_PRIVATE_KEY', '')
 RECAPTCHA_USE_SSL = True
 ########## END reCAPCTHA CONFIGURATION
+
+
+########## HUNGER CONFIGURATION
+HUNGER_ALWAYS_ALLOW_MODULES = [
+    'django.contrib.auth.views'
+]
+########## END HUNGER CONFIGURATION
 
 
 ########## AUTHENTICATION CONFIGURATION

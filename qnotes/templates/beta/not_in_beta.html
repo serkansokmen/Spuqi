@@ -1,0 +1,7 @@
+{% extends "base.html" %}
+
+{% block content %}
+<p>{% trans "We are constanlty improving and testing Qnotes for you." %}</p>
+<p>{% trans "If you would like to join us, please let us know:" %}</p>
+<a class="btn btn-primary" href="{% url beta_invite %}">{% trans "Request invite" %}</a>
+{% endblock content %}
