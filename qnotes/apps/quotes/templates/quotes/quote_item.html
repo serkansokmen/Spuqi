@@ -5,12 +5,12 @@
     {% autoescape off %}<i class="icon-quote-left"></i> <i>{{ quote }}</i> <i class="icon-quote-right"></i>{% endautoescape %}
 </blockquote>
 <div class="row-fluid">
-    <div class="span1">
-        <a href="{% url userena_profile_detail username=quote.user.username %}" title="{{ quote.user }}" rel="tooltip">
+    <div class="pull-left">
+        <a class="btn btn-link" href="{% url userena_profile_detail username=quote.user.username %}" title="{{ quote.user }}" rel="tooltip">
             <img src="{{ quote.user.get_profile.get_mugshot_url }}" alt="{{ quote.user }}">
         </a>
     </div>
-    <div class="span7">
+    <div class="pull-left">
         <strong>{% trans "Source" %}:</strong> <a href="{{ quote.source.get_absolute_url }}">{{ quote.source }}</a>
         {% if quote.topics.count > 0 %}
             <br>
@@ -19,39 +19,7 @@
             <a href="{{ topic.get_absolute_url }}">{{ topic }}</a>{% if not forloop.last %}, {% endif %}
             {% endfor %}
         {% endif %}
-        <br>
-        <small>{{ quote.created|naturaltime }}</small>
     </div>
-    <div class="span4">
-        <ul class="pull-right inline">
-            {% if quotes %}
-            <li>
-                <a class="btn btn-link" href="{{ quote.get_absolute_url }}" title="{{ quote.get_privacy_state_display }}" rel="tooltip">
-                    {% if quote.privacy_state == 1 %}
-                    <i class="icon-comments-alt"></i>
-                    {% elif quote.privacy_state == 2 %}
-                    <i class="icon-eye-open"></i>
-                    {% elif quote.privacy_state == 3 %}
-                    <i class="icon-eye-close"></i>
-                    {% endif %}
-                </a>
-            </li>
-            {% endif %}
-            {% if quote.user == request.user %}
-            <li>
-                <a class="btn btn-link" href="{% url quote_edit slug=quote.slug %}" title="{% trans "Edit" %}" rel="tooltip">
-                    <i class="icon-pencil"></i>
-                </a>
-            </li>
-            <li>
-                <a class="btn btn-link" href="{% url quote_delete slug=quote.slug %}" title="{% trans "Delete" %}" rel="tooltip">
-                    <i class="icon-trash"></i>
-                </a>
-            </li>
-            {% endif %}
-        </ul>
-    </div>
-
     {% comment %}
     <div class="span8">
         {% if quote.notes.0 %}
@@ -75,6 +43,34 @@
         {% endif %}
     </div>
     {% endcomment %}
+</div>
+<div class="row-fluid">
+    <div class="pull-left" style="margin-top:6px">
+        <small class="muted"><i class="icon-time"></i> {{ quote.created|naturaltime }}</small>
+    </div>
+    <div class="pull-right">
+        <div class="btn-group">
+            {% if quotes %}
+            <a class="btn btn-link" href="{{ quote.get_absolute_url }}" title="{{ quote.get_privacy_state_display }}" rel="tooltip">
+                {% if quote.privacy_state == 1 %}
+                <i class="icon-comments-alt"></i>
+                {% elif quote.privacy_state == 2 %}
+                <i class="icon-eye-open"></i>
+                {% elif quote.privacy_state == 3 %}
+                <i class="icon-eye-close"></i>
+                {% endif %}
+            </a>
+            {% endif %}
+            {% if quote.user == request.user %}
+            <a class="btn btn-link" href="{% url quote_edit slug=quote.slug %}" title="{% trans "Edit" %}" rel="tooltip">
+                <i class="icon-pencil"></i>
+            </a>
+            <a class="btn btn-link" href="{% url quote_delete slug=quote.slug %}" title="{% trans "Delete" %}" rel="tooltip">
+                <i class="icon-trash"></i>
+            </a>
+            {% endif %}
+        </div>
+    </div>
 </div>
 {% if not forloop.last %}
 <hr>

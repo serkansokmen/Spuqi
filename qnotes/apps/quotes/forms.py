@@ -10,7 +10,6 @@ class QuoteForm(forms.ModelForm):
         model = Quote
         exclude = ('user', 'slug', 'tags',)
         widgets = {
-            'quote': Textarea(attrs={'rows': 6, 'class': 'input-xxlarge'}),
-            'note': Textarea(attrs={'rows': 4, 'class': 'input-xlarge'}),
+            'quote': Textarea(attrs={'rows': 6}),
             # 'tags': Select2MultipleWidget()
         }

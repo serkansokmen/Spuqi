@@ -2,7 +2,7 @@
 {% load i18n %}
 
 {% block header_actions %}
-<a class="btn btn-success btn-large" href="{% url collection_add %}"><i class="icon-plus-sign icon-large"></i> {% trans "New Collection" %}</a>
+<a class="btn btn-success" href="{% url collection_add %}"><i class="icon-plus-sign "></i> {% trans "New Collection" %}</a>
 {% endblock header_actions %}
 
 {% block content %}
@@ -11,25 +11,27 @@
     <strong>{% trans "Your own Collections" %}:</strong>
     <ul class="unstyled">
     {% for collection in owned_collections %}
-        <li{% ifequal collection current_collection %} class="active"{% endifequal %}>
-            <a href="{{ collection.get_absolute_url }}">
-                {% if collection.sources.0 %}
-                <i class="icon-folder-close-alt"></i>
-                {% else %}
-                <i class="icon-folder-close"></i>
-                {% endif %}
-                {{ collection }}
-            </a>
-            {% ifequal collection.user request.user %}
-            <div class="pull-right">
-                <a href="{% url collection_edit slug=collection.slug %}">
-                    <i class="icon-pencil"></i>
+        <li>
+            <h3>
+                <a href="{{ collection.get_absolute_url }}">
+                    {% if collection.sources.0 %}
+                    <i class="icon-folder-close-alt"></i>
+                    {% else %}
+                    <i class="icon-folder-close"></i>
+                    {% endif %}
+                    {{ collection }}
                 </a>
-                <a href="{% url collection_delete slug=collection.slug %}">
-                    <i class="icon-trash"></i>
-                </a>
-            </div>
-            {% endifequal %}
+                {% ifequal collection.user request.user %}
+                <div class="pull-right">
+                    <a href="{% url collection_edit slug=collection.slug %}" title="{% trans "Edit" %}" rel="tooltip">
+                        <i class="icon-pencil"></i>
+                    </a>
+                    <a href="{% url collection_delete slug=collection.slug %}" title="{% trans "Delete" %}" rel="tooltip">
+                        <i class="icon-trash"></i>
+                    </a>
+                </div>
+                {% endifequal %}
+            </h3>
         </li>
     {% endfor %}
     </ul>
@@ -39,25 +41,27 @@
     <strong>{% trans "You are a member of these collections" %}:</strong>
     <ul class="unstyled">
     {% for collection in followed_collections %}
-        <li{% ifequal collection current_collection %} class="active"{% endifequal %}>
-            <a href="{{ collection.get_absolute_url }}">
-                {% if collection.sources.0 %}
-                <i class="icon-folder-close-alt"></i>
-                {% else %}
-                <i class="icon-folder-close"></i>
-                {% endif %}
-                {{ collection }}
-            </a>
-            {% ifequal collection.user request.user %}
-            <div class="pull-right">
-                <a href="{% url collection_edit slug=collection.slug %}">
-                    <i class="icon-pencil"></i>
+        <li>
+            <h3>
+                <a href="{{ collection.get_absolute_url }}">
+                    {% if collection.sources.0 %}
+                    <i class="icon-folder-close-alt"></i>
+                    {% else %}
+                    <i class="icon-folder-close"></i>
+                    {% endif %}
+                    {{ collection }}
                 </a>
-                <a href="{% url collection_delete slug=collection.slug %}">
-                    <i class="icon-trash"></i>
-                </a>
-            </div>
-            {% endifequal %}
+                {% ifequal collection.user request.user %}
+                <div class="pull-right">
+                    <a href="{% url collection_edit slug=collection.slug %}" title="{% trans "Edit" %}" rel="tooltip">
+                        <i class="icon-pencil"></i>
+                    </a>
+                    <a href="{% url collection_delete slug=collection.slug %}" title="{% trans "Delete" %}" rel="tooltip">
+                        <i class="icon-trash"></i>
+                    </a>
+                </div>
+                {% endifequal %}
+            </h3>
         </li>
     {% endfor %}
     </ul>

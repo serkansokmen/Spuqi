@@ -3,10 +3,11 @@
 {% load endless %}
 
 {% block header_actions %}
-<a class="btn btn-success btn-large" href="{% url author_add %}"><i class="icon-plus-sign icon-large"></i> {% trans "New Author" %}</a>
+<a class="btn btn-success" href="{% url author_add %}"><i class="icon-plus-sign "></i> {% trans "New Author" %}</a>
 {% endblock header_actions %}
 
 {% block content %}
+<hr>
 <ul class="unstyled">
 {% paginate authors %}
 {% for author in authors %}

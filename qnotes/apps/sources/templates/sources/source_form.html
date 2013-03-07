@@ -6,7 +6,7 @@
 <legend>{% if form.instance.id %}{% trans "Update source" %}{% else %}{% trans "Add new source" %}{% endif %}</legend>
 {% endblock sidebar %}
 
-{% block inner_content %}
+{% block content %}
 
     <form class="form-horizontal" method="post">
         {% csrf_token %}
@@ -44,7 +44,7 @@
         </div>
     </div>
     {% endcomment %}
-{% endblock inner_content %}
+{% endblock content %}
 
 {% comment %}
 {% block js %}

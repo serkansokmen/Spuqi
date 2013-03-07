@@ -3,40 +3,44 @@
 {% load endless %}
 
 {% block content_title %}
-<h3><i class="icon-folder-open"></i> {{ current_collection }}</h3>
+<div class="row-fluid">
+    <div class="span8 pull-left">
+        <h3><i class="icon-folder-open"></i> {{ current_collection }}</h3>
+    </div>
+    <div class="span4">
+        <h4>{% trans "Members" %}:</h4>
+        {% for member in current_collection.members.all %}
+            <a href="{% url userena_profile_detail member.username %}" title="{{ member }}" rel="tooltip">
+                <img src="{{ member.get_profile.get_mugshot_url }}" alt="{{ member }}">
+            </a>
+        {% endfor %}
+    </div>
+</div>
 {% endblock content_title %}
 
-{% block sidebar %}
-<h4>{% trans "Members" %}:</h4>
-{% for member in current_collection.members.all %}
-    <a href="{% url userena_profile_detail member.username %}" title="{{ member }}" rel="tooltip">
-        <img src="{{ member.get_profile.get_mugshot_url }}" alt="{{ member }}">
-    </a>
-{% endfor %}
-{% endblock sidebar %}
-
-{% block inner_content %}
-    {% with collection_sources as sources %}
-    <table class="table table-condensed table-striped">
-        <thead>
-            <tr>
-                <th>{% trans "Source" %}</th>
-                <th>{% trans "ISBN" %}</th>
-                <td>{% trans "Authors" %}</td>
-            </tr>
-        </thead>
-        <tbody>
-            {% paginate sources %}
-            {% for source in sources %}
-            {% include "sources/source_item.html" %}
-            {% endfor %}
-        </tbody>
-    </table>
-    {% show_pages %}
-    <div class="form-actions">
-        <a class="btn btn-success" href="{% url source_add %}?next={{ request.path }}"><i class="icon-plus-sign"></i> {% trans "Add Source" %}</a>
-        <a class="btn btn-success" href="{% url author_add %}?next={{ request.path }}"><i class="icon-plus-sign"></i> {% trans "Add Author" %}</a>
-        <a class="btn btn-success" href="{% url topic_add %}?next={{ request.path }}"><i class="icon-plus-sign"></i> {% trans "Add Topic" %}</a>
-    </div>
-    {% endwith %}
-{% endblock inner_content %}
+{% block content %}
+{% with collection_sources as sources %}
+<hr>
+<table class="table table-condensed table-striped">
+    <thead>
+        <tr>
+            <th>{% trans "Source" %}</th>
+            <th>{% trans "ISBN" %}</th>
+            <td>{% trans "Authors" %}</td>
+        </tr>
+    </thead>
+    <tbody>
+        {% paginate sources %}
+        {% for source in sources %}
+        {% include "sources/source_item.html" %}
+        {% endfor %}
+    </tbody>
+</table>
+{% show_pages %}
+<div class="form-actions">
+    <a class="btn btn-success" href="{% url source_add %}?next={{ request.path }}"><i class="icon-plus-sign"></i> {% trans "Add Source" %}</a>
+    <a class="btn btn-success" href="{% url author_add %}?next={{ request.path }}"><i class="icon-plus-sign"></i> {% trans "Add Author" %}</a>
+    <a class="btn btn-success" href="{% url topic_add %}?next={{ request.path }}"><i class="icon-plus-sign"></i> {% trans "Add Topic" %}</a>
+</div>
+{% endwith %}
+{% endblock content %}

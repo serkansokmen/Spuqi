@@ -4,12 +4,12 @@
 
 {% block title %}{% trans "Signup" %}{% endblock %}
 
-{% block inner_title %}
+{% block content_title %}
 <h2>{% trans "Signup" %}</h2>
 <hr>
-{% endblock inner_title %}
+{% endblock content_title %}
 
-{% block inner_content %}
+{% block content %}
 <form action="" method="post" class="form-horizontal">
     {% csrf_token %}
     {{ form|bootstrap }}
@@ -17,4 +17,4 @@
         <input class="btn btn-primary" type="submit" value="{% trans "Signup"%}" />
     </div>
 </form>
-{% endblock inner_content %}
+{% endblock content %}

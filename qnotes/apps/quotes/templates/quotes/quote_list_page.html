@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+{% load i18n %}
+{% load endless %}
+{% load humanize %}
+{% load disqus_tags %}
+
+{% block headextra %}
+{{ block.super }}
+{% disqus_dev %}
+{% set_disqus_developer 1 %}
+{% endblock headextra %}
+
+{% block header_actions %}
+<a class="btn btn-success" href="{% url quote_add %}"><i class="icon-plus-sign "></i> {% trans "New Quote" %}</a>
+{% endblock header_actions %}
+
+{% block content %}
+    <hr>
+    {% paginate 10 quotes %}
+    {% include "quotes/quote_list.html" %}
+    {% show_pages %}
+{% endblock content %}

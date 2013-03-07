@@ -4,9 +4,9 @@
 
 {% block title %}{% trans "Account setup" %}{% endblock %}
 
-{% block inner_title %}<h2>{% trans "Edit profile" %}</h2><hr>{% endblock %}
+{% block content_title %}<h2>{% trans "Edit profile" %}</h2><hr>{% endblock %}
 
-{% block inner_content %}
+{% block content %}
 <form class="form-horizontal" action="" enctype="multipart/form-data" method="post">
     {% csrf_token %}
     <fieldset>
@@ -16,4 +16,4 @@
         <input class="btn btn-primary" type="submit" value="{% trans "Save changes" %}" />
     </div>
 </form>
-{% endblock inner_content %}
+{% endblock content %}

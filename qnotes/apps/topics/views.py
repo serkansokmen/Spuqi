@@ -27,15 +27,7 @@ class TopicDetail(DetailView):
         return context
 
 
-class TopicFormRouteMixin(object):
-
-    def get_success_url(self):
-        if self.request.GET['next']:
-            return self.request.GET['next']
-        return reverse_lazy('author_list')
-
-
-class TopicCreate(TopicFormRouteMixin, CreateView):
+class TopicCreate(CreateView):
     model = Topic
     form_class = TopicForm
     success_url = reverse_lazy('topic_list')
@@ -45,7 +37,7 @@ class TopicCreate(TopicFormRouteMixin, CreateView):
         return super(TopicCreate, self).form_valid(form)
 
 
-class TopicUpdate(TopicFormRouteMixin, UpdateView):
+class TopicUpdate(UpdateView):
     model = Topic
     form_class = TopicForm
     success_url = reverse_lazy('topic_list')

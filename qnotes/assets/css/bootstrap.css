@@ -10603,6 +10603,11 @@ footer {
   display: none;
 }
 
+.container-narrow {
+  max-width: 700px;
+  margin: 0 auto;
+}
+
 /*
 // Hide spam-protection field in comment form
 #div_id_honeypot, #id_honeypot {

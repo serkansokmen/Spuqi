@@ -3,9 +3,9 @@
 
 {% block title %}{% trans "Signup almost done!" %}{% endblock %}
 
-{% block inner_title %}<h2>{% trans "Signup" %}</h2><hr>{% endblock %}
+{% block content_title %}<h2>{% trans "Signup" %}</h2><hr>{% endblock %}
 
-{% block inner_content %}
+{% block content %}
 <p>{% trans "Thank you for signing up with us!" %}</p>
 
 {% if userena_activation_required %}
@@ -15,4 +15,4 @@
 <p>{% blocktrans %}You can now use the supplied credentials to signin.{% endblocktrans %}</p>
 {% endif %}
 
-{% endblock inner_content %}
+{% endblock content %}

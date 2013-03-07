@@ -3,98 +3,94 @@
 {% load endless %}
 
 {% block title %}{% blocktrans with user.username as username %}{{ username }}'s profile.{% endblocktrans %}{% endblock %}
-{% block inner_title %}
-<h2>{{ user.email }} {% if user.get_full_name %}({{ user.get_full_name }}){% endif %}</h2>
+{% block content_title %}
+{# <h2>{{ user.email }} {% if user.get_full_name %}({{ user.get_full_name }}){% endif %}</h2> #}
 {% endblock %}
 
+{% block header_main %}
+<div class="wells">
+    <div class="row-fluid" style="margin-top:20px;">
+        <div class="span1">
+            <img src="{{ profile.get_mugshot_url }}" alt="{{ profile.get_full_name }}" />
+        </div>
+        <div class="span3">
+            <strong>{{ profile.user.username }}</strong>
+            <br>
+            {% if profile.user.get_full_name %}
+                <p>{{ profile.user.get_full_name }}</p>
+            {% endif %}
+        </div>
+        <div class="span4 well well-small">
+            <h4>
+                {% if profile.user.owned_collections.count > 0 %}
+                <i class="icon-folder-close"></i>
+                {% else %}
+                <i class="icon-folder-close-alt"></i>
+                {% endif %}
+                {% trans "Your Collections" %}
+            </h4>
+            {% for collection in profile.user.owned_collections.all %}
+                {% ifequal profile.user collection.user %}
+                    <a href="{{ collection.get_absolute_url }}">{{ collection }}</a>
+                    <div class="pull-right">
+                        <a href="{% url collection_edit slug=collection.slug %}">
+                            <i class="icon-pencil"></i>
+                        </a>
+                        <a href="{% url collection_delete slug=collection.slug %}">
+                            <i class="icon-trash"></i>
+                        </a>
+                    </div>
+                {% endifequal %}
+            {% empty %}
+                {% trans "No collections" %}
+            {% endfor %}
+        </div>
+        <div class="span4 well well-small">
+            <h4>
+                {% if profile.user.followed_collections.count > 0 %}
+                <i class="icon-folder-close"></i>
+                {% else %}
+                <i class="icon-folder-close-alt"></i>
+                {% endif %}
+                {% trans "Related collections" %}
+            </h4>
+            {% for collection in profile.user.followed_collections.all %}
+                {% ifnotequal profile.user collection.user %}
+                    <a href="{{ collection.get_absolute_url }}">{{ collection }}</a>
+                    <div class="pull-right">
+                        <a href="{% url collection_edit slug=collection.slug %}">
+                            <i class="icon-pencil"></i>
+                        </a>
+                        <a href="{% url collection_delete slug=collection.slug %}">
+                            <i class="icon-trash"></i>
+                        </a>
+                    </div>
+                {% endifnotequal %}
+            {% empty %}
+                {% trans "No collections" %}
+            {% endfor %}
+        </div>
+    </div>
+</div>
+{% endblock header_main %}
+
 {% block header_actions %}
-{# <a class="btn btn-success btn-large" href="{% url quote_add %}"><i class="icon-plus-sign icon-large"></i> {% trans "New Quote" %}</a> #}
-{# <a class="btn btn-success btn-large" href="{% url collection_add %}"><i class="icon-plus-sign icon-large"></i> {% trans "New Collection" %}</a> #}
+{# <a class="btn btn-success" href="{% url quote_add %}"><i class="icon-plus-sign "></i> {% trans "New Quote" %}</a> #}
+{# <a class="btn btn-success" href="{% url collection_add %}"><i class="icon-plus-sign "></i> {% trans "New Collection" %}</a> #}
 {% endblock header_actions %}
 
 {% block content %}
-    {% block profile_details %}
-    <div class="row-fluid">
-        <div class="span3">
-            <div class="well">
-                <div class="row-fluid" style="margin-top:20px;">
-                    <div class="span2">
-                        <img src="{{ profile.get_mugshot_url }}" alt="{% trans "Your mugshot" %}" />
-                    </div>
-                    <div class="span10">
-                        <h4>{{ profile.user.username }}</h4>
-                    </div>
-                </div>
-                {% if profile.user.get_full_name %}
-                    <strong>{{ profile.user.get_full_name }}</strong>
-                {% endif %}
-                {% if profile.user.email %}
-                    <p>{{ profile.user.email }}</p>
-                {% endif %}
-                <h3>{% trans "Collections" %}</h3>
-                <ul class="unstyled">
-                {% for collection in profile.user.owned_collections.all %}
-                    {% ifequal profile.user collection.user %}
-                    <li>
-                        <a href="{{ collection.get_absolute_url }}">{{ collection }}</a>
-                        <div class="pull-right">
-                            <a href="{% url collection_edit slug=collection.slug %}">
-                                <i class="icon-pencil"></i>
-                            </a>
-                            <a href="{% url collection_delete slug=collection.slug %}">
-                                <i class="icon-trash"></i>
-                            </a>
-                        </div>
-                    </li>
-                    {% endifequal %}
-                {% empty %}
-                    {% trans "No collections" %}
-                {% endfor %}
-                </ul>
-                <h3>{% trans "Other collections" %}</h3>
-                <ul class="unstyled">
-                {% for collection in profile.user.followed_collections.all %}
-                    {% ifnotequal profile.user collection.user %}
-                    <li>
-                        <a href="{{ collection.get_absolute_url }}">{{ collection }}</a>
-                        <div class="pull-right">
-                            <a href="{% url collection_edit slug=collection.slug %}">
-                                <i class="icon-pencil"></i>
-                            </a>
-                            <a href="{% url collection_delete slug=collection.slug %}">
-                                <i class="icon-trash"></i>
-                            </a>
-                        </div>
-                    </li>
-                    {% endifnotequal %}
-                {% empty %}
-                    {% trans "No collections" %}
-                {% endfor %}
-            </div>
-        </div>
-        <div class="span9">
-            {% if user == profile.user %}
-                {% with user.quote_set.all as quotes %}
-                    {% paginate 5 quotes %}
-                    {% show_pages %}
-                    {% for quote in quotes %}
-                        {% include "quotes/quote_item.html" %}
-                    {% empty %}
-                        {% trans "No quotes" %}
-                    {% endfor %}
-                {% endwith %}
-            {% else %}
-                {% with profile.user.quote_set.all as quotes %}
-                    {% paginate 5 quotes %}
-                    {% show_pages %}
-                    {% for quote in quotes %}
-                        {% include "quotes/quote_item.html" %}
-                    {% empty %}
-                        {% trans "No quotes" %}
-                    {% endfor %}
-                {% endwith %}
-            {% endif %}
-        </div>
-    </div>
-{% endblock %}
+    {% if user == profile.user %}
+        {% with user.quote_set.all as quotes %}
+            {% paginate 5 quotes %}
+            {% include "quotes/quote_list.html" %}
+            {% show_pages %}
+        {% endwith %}
+    {% else %}
+        {% with profile.user.quote_set.all as quotes %}
+            {% paginate 5 quotes %}
+            {% include "quotes/quote_list.html" %}
+            {% show_pages %}
+        {% endwith %}
+    {% endif %}
 {% endblock content %}

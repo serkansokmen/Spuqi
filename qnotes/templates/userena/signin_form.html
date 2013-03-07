@@ -4,7 +4,7 @@
 
 {% block title %}{% trans "Signin" %}{% endblock %}
 
-{% block inner_title %}
+{% block content_title %}
 <h2>{% trans "Signin" %}</h2>
 <div>
 {% url userena_signup as signup_url %}
@@ -13,9 +13,9 @@
 {% endblocktrans %}
 </div>
 <hr>
-{% endblock inner_title %}
+{% endblock content_title %}
 
-{% block inner_content %}
+{% block content %}
 <form action="" method="post" class="form-horizontal">
     {% csrf_token %}
     <fieldset>
@@ -27,4 +27,4 @@
     </div>
     {% if next %}<input type="hidden" name="next" value="{{ next }}" />{% endif %}
 </form>
-{% endblock inner_content %}
+{% endblock content %}

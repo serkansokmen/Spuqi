@@ -25,6 +25,7 @@ class ReturnToQuoteDetailMixin(object):
 
 class QuoteList(QuotesMixin, ListView):
     context_object_name = 'quotes'
+    template_name = 'quotes/quote_list_page.html'
 
     def get_queryset(self):
         wanted_quotes = set()

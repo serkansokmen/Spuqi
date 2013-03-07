@@ -34,36 +34,45 @@
     {% endcompress js %}
 </head>
 <body>
-    <div class="container">
+    <div class="container-narrow">
         {% include "site/navbar.html" %}
-        <header class="lead main-header">
-            <div class="row-fluid">
-                <div class="pull-left">
-                    <h1>
-                        <a href="{% url quote_list %}">{% trans "Qnotes" %}</a>
-                        &nbsp;<small>{% trans "Collaborative space for social reading" %}</small>
-                    </h1>
-                </div>
-                <div class="pull-right">
-                    {% block header_actions %}
-                    {% endblock header_actions %}
-                </div>
+        <div class="row-fluid jumbotron">
+            {% block header_main %}
+            <h1>{% trans "Qnotes" %}</h1>
+            <p class="lead">{% trans "Collaborative space for social reading" %}</p>
+            {% endblock header_main %}
+            <div class="pull-right">
+                {% block header_actions %}
+                {% endblock header_actions %}
             </div>
-        </header>
-        {% block content_title %}
-        {% endblock content_title %}
-        {% block content %}
-        <section class="row-fluid">
-            <div class="span3">
-                {% block sidebar %}
-                {% endblock sidebar %}
+        </div>
+        {% comment %}
+        <div class="row-fluid marketing">
+            <div class="span6">
+                <h4>Subheading</h4>
+                <p>Donec id elit non mi porta gravida at eget metus. Maecenas faucibus mollis interdum.</p>
+
+                <h4>Subheading</h4>
+                <p>Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Cras mattis consectetur purus sit amet fermentum.</p>
+
+                <h4>Subheading</h4>
+                <p>Maecenas sed diam eget risus varius blandit sit amet non magna.</p>
             </div>
-            <div class="span9">
-                {% block inner_content %}
-                {% endblock inner_content %}
+
+            <div class="span6">
+                <h4>Subheading</h4>
+                <p>Donec id elit non mi porta gravida at eget metus. Maecenas faucibus mollis interdum.</p>
+
+                <h4>Subheading</h4>
+                <p>Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Cras mattis consectetur purus sit amet fermentum.</p>
+
+                <h4>Subheading</h4>
+                <p>Maecenas sed diam eget risus varius blandit sit amet non magna.</p>
             </div>
-        </section>
-        {% endblock content %}
+        </div>
+        {% endcomment %}
+        {% block content_title %}{% endblock content_title %}
+        {% block content %}{% endblock content %}
         <hr>
         <footer class="row-fluid">
             <small>&copy; Qnotes {% now "Y" %}</small>

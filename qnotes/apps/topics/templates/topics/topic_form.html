@@ -6,7 +6,7 @@
 <legend>{% if form.instance.id %}{% trans "Update topic" %}{% else %}{% trans "Add new topic" %}{% endif %}</legend>
 {% endblock sidebar %}
 
-{% block inner_content %}
+{% block content %}
 <form class="form-horizontal" method="post">
     {% csrf_token %}
     {{ form|bootstrap }}
@@ -15,4 +15,4 @@
         <a href="{% if topic %}{{ topic.get_absolute_url }}{% else %}{% url topic_list %}{% endif %}" class="btn">{% trans "Cancel" %}</a>
     </div>
 </form>
-{% endblock inner_content %}
+{% endblock content %}

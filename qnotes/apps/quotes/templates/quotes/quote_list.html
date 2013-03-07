@@ -1,22 +1,5 @@
-{% extends "base.html" %}
 {% load i18n %}
-{% load endless %}
-{% load humanize %}
-{% load disqus_tags %}
-
-{% block headextra %}
-{{ block.super }}
-{% disqus_dev %}
-{% set_disqus_developer 1 %}
-{% endblock headextra %}
-
-{% block header_actions %}
-<a class="btn btn-success btn-large" href="{% url quote_add %}"><i class="icon-plus-sign icon-large"></i> {% trans "New Quote" %}</a>
-{% endblock header_actions %}
-
-{% block content %}
-    <hr>
-    {% paginate 10 quotes %}
+<div class="row-fluid">
     {% for quote in quotes %}
         {% if forloop.counter0|divisibleby:"2" %}<div class="row-fluid">{% endif %}
         <div class="span6">
@@ -26,5 +9,4 @@
     {% empty %}
         <p class="alert alert-info">{% trans "No quotes" %}</p>
     {% endfor %}
-    {% show_pages %}
-{% endblock content %}
+</div>

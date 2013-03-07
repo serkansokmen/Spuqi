@@ -28,26 +28,20 @@ class SourceDetail(DetailView):
         return context
 
 
-class SourceFormRouteMixin(object):
-
-    def get_success_url(self):
-        if self.request.GET['next']:
-            return self.request.GET['next']
-        return reverse_lazy('source_list')
-
-
-class SourceCreate(AuthorFormMixin, SourceFormRouteMixin, CreateView):
+class SourceCreate(AuthorFormMixin, CreateView):
     model = Source
     form_class = SourceForm
+    success_url = reverse_lazy('source_list')
 
     def form_valid(self, form):
         form.instance.user = self.request.user
         return super(SourceCreate, self).form_valid(form)
 
 
-class SourceUpdate(AuthorFormMixin, SourceFormRouteMixin, UpdateView):
+class SourceUpdate(AuthorFormMixin, UpdateView):
     model = Source
     form_class = SourceForm
+    success_url = reverse_lazy('source_list')
 
     def get_object(self):
         return get_object_or_404(Source, user=self.request.user, slug=self.kwargs['slug'])

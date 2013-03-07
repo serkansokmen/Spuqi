@@ -1,9 +1,9 @@
 {% extends 'userena/base_userena.html' %}
 {% load i18n %}
 
-{% block inner_title %}<h2>{% trans 'Profiles' %}</h2>{% endblock %}
+{% block content_title %}<h2>{% trans 'Profiles' %}</h2>{% endblock %}
 
-{% block inner_content %}
+{% block content %}
 <ul id="profile_list">
   {% for profile in profile_list %}
   <li>
@@ -32,4 +32,4 @@
   </span>
 </div>
 {% endif %}
-{% endblock inner_content %}
+{% endblock content %}
