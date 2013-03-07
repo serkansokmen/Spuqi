@@ -43,20 +43,26 @@ class AuthorDetail(AuthorsMixin, DetailView):
         return context
 
 
-class AuthorCreate(AuthorsMixin, CreateView):
+class AuthorFormWithNextMixin(object):
+
+    def get_success_url(self):
+        if self.request.GET['next']:
+            return self.request.GET['next']
+        return reverse_lazy('author_list')
+
+
+class AuthorCreate(AuthorsMixin, AuthorFormWithNextMixin, CreateView):
     model = Author
     form_class = AuthorForm
-    success_url = reverse_lazy('author_list')
 
     def form_valid(self, form):
         form.instance.user = self.request.user
         return super(AuthorCreate, self).form_valid(form)
 
 
-class AuthorUpdate(AuthorsMixin, UpdateView):
+class AuthorUpdate(AuthorsMixin, AuthorFormWithNextMixin, UpdateView):
     model = Author
     form_class = AuthorForm
-    success_url = reverse_lazy('author_list')
 
     def get_object(self):
         return get_object_or_404(Author, user=self.request.user, slug=self.kwargs['slug'])
