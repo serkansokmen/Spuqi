@@ -6,23 +6,14 @@ from qnotes.apps.quotes.models import Quote
 from qnotes.apps.topics.forms import TopicForm
 
 
-class TopicSidebarMixin(object):
-    # Add collections to the context
-    def get_context_data(self, **kwargs):
-        context = super(TopicSidebarMixin, self).get_context_data(**kwargs)
-        context['topics'] = Topic.objects.all()
-        context['active_tab'] = 'topics'
-        return context
-
-
-class TopicList(TopicSidebarMixin, ListView):
+class TopicList(ListView):
     context_object_name = 'topics'
 
     def get_queryset(self):
         return Topic.objects.filter(user=self.request.user)
 
 
-class TopicDetail(TopicSidebarMixin, DetailView):
+class TopicDetail(DetailView):
     context_object_name = 'current_topic'
     slug_field = 'slug'
 
@@ -36,7 +27,15 @@ class TopicDetail(TopicSidebarMixin, DetailView):
         return context
 
 
-class TopicCreate(TopicSidebarMixin, CreateView):
+class TopicFormRouteMixin(object):
+
+    def get_success_url(self):
+        if self.request.GET['next']:
+            return self.request.GET['next']
+        return reverse_lazy('author_list')
+
+
+class TopicCreate(TopicFormRouteMixin, CreateView):
     model = Topic
     form_class = TopicForm
     success_url = reverse_lazy('topic_list')
@@ -46,7 +45,7 @@ class TopicCreate(TopicSidebarMixin, CreateView):
         return super(TopicCreate, self).form_valid(form)
 
 
-class TopicUpdate(TopicSidebarMixin, UpdateView):
+class TopicUpdate(TopicFormRouteMixin, UpdateView):
     model = Topic
     form_class = TopicForm
     success_url = reverse_lazy('topic_list')
@@ -55,7 +54,7 @@ class TopicUpdate(TopicSidebarMixin, UpdateView):
         return get_object_or_404(Topic, user=self.request.user, slug=self.kwargs['slug'])
 
 
-class TopicDelete(TopicSidebarMixin, DeleteView):
+class TopicDelete(DeleteView):
     success_url = reverse_lazy('topic_list')
 
     def get_object(self):

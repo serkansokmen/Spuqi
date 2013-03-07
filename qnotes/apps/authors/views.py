@@ -43,7 +43,7 @@ class AuthorDetail(AuthorsMixin, DetailView):
         return context
 
 
-class AuthorFormWithNextMixin(object):
+class AuthorFormRouteMixin(object):
 
     def get_success_url(self):
         if self.request.GET['next']:
@@ -51,7 +51,7 @@ class AuthorFormWithNextMixin(object):
         return reverse_lazy('author_list')
 
 
-class AuthorCreate(AuthorsMixin, AuthorFormWithNextMixin, CreateView):
+class AuthorCreate(AuthorsMixin, AuthorFormRouteMixin, CreateView):
     model = Author
     form_class = AuthorForm
 
@@ -60,7 +60,7 @@ class AuthorCreate(AuthorsMixin, AuthorFormWithNextMixin, CreateView):
         return super(AuthorCreate, self).form_valid(form)
 
 
-class AuthorUpdate(AuthorsMixin, AuthorFormWithNextMixin, UpdateView):
+class AuthorUpdate(AuthorsMixin, AuthorFormRouteMixin, UpdateView):
     model = Author
     form_class = AuthorForm
 

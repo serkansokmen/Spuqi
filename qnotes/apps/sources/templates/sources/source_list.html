@@ -7,7 +7,7 @@
 {% endblock header_actions %}
 
 {% block content %}
-<table class="table table-condensed table-striped">
+<table class="table table-striped">
     <thead>
         <tr>
             <th>{% trans "Source" %}</th>
@@ -19,29 +19,7 @@
     <tbody>
         {% paginate sources %}
         {% for source in sources %}
-        <tr>
-            <td>
-                {% ifequal source current_source %}
-                {{ source }}
-                {% else %}
-                <a href="{{ source.get_absolute_url }}" title="{{ source }}">{{ source }}</a>
-                {% endifequal %}
-            </td>
-            <td>{{ source.isbn|default:"-" }}</td>
-            <td>{% for author in source.authors.all %}{{ author }}{% if not forloop.last %}, {% endif %}{% endfor %}</td>
-            <td>
-                <div class="btn-group pull-right">
-                    {% ifequal source.user request.user %}
-                    <a class="btn" href="{% url source_edit slug=source.slug %}">
-                        <i class="icon-pencil"></i>
-                    </a>
-                    <a class="btn btn-danger" href="{% url source_delete slug=source.slug %}">
-                        <i class="icon-trash"></i>
-                    </a>
-                    {% endifequal %}
-                </div>
-            </td>
-        </tr>
+        {% include "sources/source_item.html" %}
         {% endfor %}
     </tbody>
 </table>

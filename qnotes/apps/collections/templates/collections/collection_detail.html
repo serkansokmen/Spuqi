@@ -28,24 +28,15 @@
         <tbody>
             {% paginate sources %}
             {% for source in sources %}
-            <tr>
-                <td>
-                    {% ifequal source current_source %}
-                    {{ source }}
-                    {% else %}
-                    <a href="{{ source.get_absolute_url }}" title="{{ source }}">{{ source }}</a>
-                    {% endifequal %}
-                </td>
-                <td>{{ source.isbn|default:"-" }}</td>
-                <td>{% for author in source.authors.all %}{{ author }}{% if not forloop.last %}, {% endif %}{% endfor %}</td>
-            </tr>
+            {% include "sources/source_item.html" %}
             {% endfor %}
         </tbody>
     </table>
     {% show_pages %}
     <div class="form-actions">
-        <a class="btn btn-primary" href="{% url source_add %}?next={{ current_collection.get_absolute_url }}"><i class="icon-plus-sign icon-large"></i> {% trans "New Source" %}</a>
-        <a class="btn btn-success" href="{% url author_add %}?next={{ current_collection.get_absolute_url }}"><i class="icon-plus-sign icon-large"></i> {% trans "New Author" %}</a>
+        <a class="btn btn-success" href="{% url source_add %}?next={{ request.path }}"><i class="icon-plus-sign"></i> {% trans "Add Source" %}</a>
+        <a class="btn btn-success" href="{% url author_add %}?next={{ request.path }}"><i class="icon-plus-sign"></i> {% trans "Add Author" %}</a>
+        <a class="btn btn-success" href="{% url topic_add %}?next={{ request.path }}"><i class="icon-plus-sign"></i> {% trans "Add Topic" %}</a>
     </div>
     {% endwith %}
 {% endblock inner_content %}

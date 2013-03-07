@@ -28,7 +28,7 @@ class SourceDetail(DetailView):
         return context
 
 
-class SourceFormWithNextMixin(object):
+class SourceFormRouteMixin(object):
 
     def get_success_url(self):
         if self.request.GET['next']:
@@ -36,7 +36,7 @@ class SourceFormWithNextMixin(object):
         return reverse_lazy('source_list')
 
 
-class SourceCreate(AuthorFormMixin, SourceFormWithNextMixin, CreateView):
+class SourceCreate(AuthorFormMixin, SourceFormRouteMixin, CreateView):
     model = Source
     form_class = SourceForm
 
@@ -45,7 +45,7 @@ class SourceCreate(AuthorFormMixin, SourceFormWithNextMixin, CreateView):
         return super(SourceCreate, self).form_valid(form)
 
 
-class SourceUpdate(AuthorFormMixin, SourceFormWithNextMixin, UpdateView):
+class SourceUpdate(AuthorFormMixin, SourceFormRouteMixin, UpdateView):
     model = Source
     form_class = SourceForm
 
