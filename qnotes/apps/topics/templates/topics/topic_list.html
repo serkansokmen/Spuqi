@@ -8,21 +8,33 @@
 
 {% block content %}
 <hr>
-<ul class="unstyled">
-{% paginate topics %}
-{% for topic in topics %}
-    <li{% ifequal topic current_topic %} class="active"{% endifequal %}>
-        <a href="{{ topic.get_absolute_url }}">{{ topic }}</a>
-        {% ifequal topic.user request.user %}
-        <a href="{% url topic_edit slug=topic.slug %}">
-            <i class="icon-pencil"></i>
-        </a>
-        <a href="{% url topic_delete slug=topic.slug %}">
-            <i class="icon-trash"></i>
-        </a>
-        {% endifequal %}
-    </li>
-{% endfor %}
-</ul>
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>{% trans "Title" %}</th>
+            <td>&nbsp;</td>
+        </tr>
+    </thead>
+    <tbody>
+        {% paginate topics %}
+        {% for topic in topics %}
+            <tr>
+                <td><a href="{{ topic.get_absolute_url }}">{{ topic }}</a></td>
+                <td>
+                    {% ifequal topic.user request.user %}
+                    <div class="pull-right">
+                        <a class="btn btn-link btn-small" href="{% url topic_edit slug=topic.slug %}">
+                            <i class="icon-pencil"></i>
+                        </a>
+                        <a class="btn btn-link btn-small" href="{% url topic_delete slug=topic.slug %}">
+                            <i class="icon-trash"></i>
+                        </a>
+                    </div>
+                    {% endifequal %}
+                </td>
+            </tr>
+        {% endfor %}
+    </tbody>
+</table>
 {% show_pages %}
 {% endblock content %}

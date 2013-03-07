@@ -8,25 +8,33 @@
 
 {% block content %}
 <hr>
-<ul class="unstyled">
-{% paginate authors %}
-{% for author in authors %}
-    <li class="{% ifequal author current_author %} active{% endifequal %}">
-        <a href="{{ author.get_absolute_url }}">{{ author|truncatechars:35 }}</a>
-        {% ifequal author.user request.user %}
-        <div class="pull-right">
-            <a href="{% url author_edit slug=author.slug %}">
-                <i class="icon-pencil"></i>
-            </a>
-            <a href="{% url author_delete slug=author.slug %}">
-                <i class="icon-trash"></i>
-            </a>
-        </div>
-        {% endifequal %}
-    </li>
-    {# {% if not forloop.last %}<hr>{% endif %} #}
-{% endfor %}
-</ul>
-<br>
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>{% trans "Name" %}</th>
+            <td>&nbsp;</td>
+        </tr>
+    </thead>
+    <tbody>
+        {% paginate authors %}
+        {% for author in authors %}
+            <tr>
+                <td><a href="{{ author.get_absolute_url }}">{{ author|truncatechars:35 }}</a></td>
+                <td>
+                    {% ifequal author.user request.user %}
+                    <div class="pull-right">
+                        <a class="btn btn-link btn-small" href="{% url author_edit slug=author.slug %}">
+                            <i class="icon-pencil"></i>
+                        </a>
+                        <a class="btn btn-link btn-small" href="{% url author_delete slug=author.slug %}">
+                            <i class="icon-trash"></i>
+                        </a>
+                    </div>
+                    {% endifequal %}
+                </td>
+            </tr>
+        {% endfor %}
+    </tbody>
+</table>
 {% show_pages %}
 {% endblock content %}

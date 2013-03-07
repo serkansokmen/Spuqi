@@ -9,12 +9,12 @@
     <td>{{ source.isbn|default:"-" }}</td>
     <td>{% for author in source.authors.all %}{{ author }}{% if not forloop.last %}, {% endif %}{% endfor %}</td>
     <td>
-        <div class="btn-group pull-right">
+        <div class="pull-right">
             {% ifequal source.user request.user %}
-            <a class="btn" href="{% url source_edit slug=source.slug %}">
+            <a class="btn btn-link btn-small" href="{% url source_edit slug=source.slug %}">
                 <i class="icon-pencil"></i>
             </a>
-            <a class="btn btn-danger" href="{% url source_delete slug=source.slug %}">
+            <a class="btn btn-link btn-small" href="{% url source_delete slug=source.slug %}">
                 <i class="icon-trash"></i>
             </a>
             {% endifequal %}
