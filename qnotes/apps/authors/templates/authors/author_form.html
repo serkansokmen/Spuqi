@@ -2,9 +2,9 @@
 {% load i18n %}
 {% load bootstrap %}
 
-{% block sidebar %}
+{% block header_main %}
 <legend>{% if form.instance.id %}{% trans "Update author" %}{% else %}{% trans "Add new author" %}{% endif %}</legend>
-{% endblock sidebar %}
+{% endblock header_main %}
 
 {% block content %}
 <form class="form-horizontal" method="post">
