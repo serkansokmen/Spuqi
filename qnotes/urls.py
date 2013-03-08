@@ -2,7 +2,6 @@ from django.conf.urls.defaults import *
 from django.contrib import admin
 from django.conf import settings
 from django.views.generic import TemplateView
-from django.shortcuts import redirect
 from apps.accounts.forms import SignupFormReCaptcha, SigninFormReCaptcha
 from dajaxice.core import dajaxice_autodiscover, dajaxice_config
 
@@ -22,11 +21,11 @@ urlpatterns = patterns(
     (r'^accounts/', include('userena.urls')),
 
     # local apps
-    (r'^author/', include('apps.authors.urls')),
-    (r'^collection/', include('apps.collections.urls')),
-    (r'^quote/', include('apps.quotes.urls')),
-    (r'^source/', include('apps.sources.urls')),
-    (r'^topic/', include('apps.topics.urls')),
+    (r'^authors/', include('apps.authors.urls')),
+    (r'^collections/', include('apps.collections.urls')),
+    (r'^quotes/', include('apps.quotes.urls')),
+    (r'^sources/', include('apps.sources.urls')),
+    (r'^topics/', include('apps.topics.urls')),
 
     # django-hunger
     (r'^beta/', include('hunger.urls')),
