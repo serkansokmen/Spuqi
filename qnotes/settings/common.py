@@ -296,13 +296,6 @@ RECAPTCHA_USE_SSL = True
 ########## END reCAPCTHA CONFIGURATION
 
 
-########## HUNGER CONFIGURATION
-HUNGER_ALWAYS_ALLOW_MODULES = [
-    'django.contrib.auth.views'
-]
-########## END HUNGER CONFIGURATION
-
-
 ########## AUTHENTICATION CONFIGURATION
 LOGIN_REDIRECT_URL = '/accounts/%(username)s/'
 LOGIN_URL = '/accounts/signin/'
@@ -318,6 +311,21 @@ AUTHENTICATION_BACKENDS = (
     'django.contrib.auth.backends.ModelBackend',
 )
 ########## END AUTHENTICATION CONFIGURATION
+
+
+########## HUNGER CONFIGURATION
+BETA_ALWAYS_ALLOW_VIEWS = [
+    'userena.views.signin',
+]
+BETA_ALWAYS_ALLOW_MODULES = [
+    'django.contrib.auth.views',
+]
+BETA_SIGNUP_URL = '/beta/'
+BETA_EMAIL_TEMPLATES_DIR = 'hunger'
+BETA_REDIRECT_URL = '/beta/'
+BETA_ENABLE_BETA = True
+BETA_INVITE_CODE_LENGTH = 12
+########## END HUNGER CONFIGURATION
 
 
 ########## USERENA CONFIGURATION
