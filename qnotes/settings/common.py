@@ -314,17 +314,24 @@ AUTHENTICATION_BACKENDS = (
 
 
 ########## HUNGER CONFIGURATION
-BETA_ALWAYS_ALLOW_VIEWS = [
-    'userena.views.signin',
+BETA_ENABLE_BETA = True
+BETA_SIGNUP_VIEWS = [
+    'userena.views.signup',
+    # 'userena.views.activate',
+    # 'userena.views.email_confirm',
 ]
+BETA_SIGNUP_CONFIRMATION_VIEW = 'userena.views.signin',
 BETA_ALWAYS_ALLOW_MODULES = [
     'django.contrib.auth.views',
+    'usernena.views.signin',
+    'hunger.views',
 ]
-BETA_SIGNUP_URL = '/beta/'
-BETA_EMAIL_TEMPLATES_DIR = 'hunger'
 BETA_REDIRECT_URL = '/beta/'
-BETA_ENABLE_BETA = True
-BETA_INVITE_CODE_LENGTH = 12
+BETA_SIGNUP_URL = '/accounts/signup/'
+
+BETA_EMAIL_TEMPLATES_DIR = 'hunger'
+# Breaks PostgreSQL transaction, currently limited to defaults
+#BETA_INVITE_CODE_LENGTH = 8
 ########## END HUNGER CONFIGURATION
 
 
