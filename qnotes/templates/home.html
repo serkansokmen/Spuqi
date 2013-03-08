@@ -1,8 +1,11 @@
 {% extends "base.html" %}
 {% load i18n %}
 
+{% endcompress css %}
+{% endblock css %}
+
 {% block header_main %}
-<h1 style="margin-top:60px;">{% trans "Qnotes" %}</h1>
+<h1>{% trans "Qnotes" %}</h1>
 <p class="lead">{% trans "Collaborative space for social reading" %}</p>
 {% endblock header_main %}
 

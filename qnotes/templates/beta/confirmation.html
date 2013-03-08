@@ -2,6 +2,9 @@
 {% load i18n %}
 
 {% block content %}
-<p>{% trans "We have received your request for invite to the private beta." %}</p>
-<p>{% trans "We'll contact you as soon as we are ready!" %}</p>
+<p style="white-space: pre">{% blocktrans %}
+We have received your request for invite to the private beta.
+We'll contact you as soon as we are ready!
+{% endblocktrans %}</p>
+<p>{% trans "Thank you." %}</p>
 {% endblock content %}
