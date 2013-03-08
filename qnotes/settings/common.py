@@ -325,14 +325,14 @@ AUTHENTICATION_BACKENDS = (
 ########## HUNGER CONFIGURATION
 BETA_ENABLE_BETA = True
 BETA_SIGNUP_VIEWS = [
-    'userena.views.signup',
-    # 'userena.views.activate',
-    # 'userena.views.email_confirm',
+    'userena_signup',
+    'userena_activate',
+    'userena_signup_complete',
 ]
-BETA_SIGNUP_CONFIRMATION_VIEW = 'userena.views.signin',
+BETA_SIGNUP_CONFIRMATION_VIEW = 'userena_',
 BETA_ALWAYS_ALLOW_MODULES = [
     'django.contrib.auth.views',
-    'userena.views.signin',
+    'userena.views',
     'hunger.views',
 ]
 BETA_REDIRECT_URL = '/beta/'
