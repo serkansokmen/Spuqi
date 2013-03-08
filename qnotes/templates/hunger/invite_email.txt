@@ -1,0 +1,1 @@
+{% load i18n %}{% trans "Visit {{ invite_url }} to join the private beta." %}

@@ -1,2 +1,0 @@
-{% load i18n %}{% blocktrans with invite_url as invite_url %}Visit {{ invite_url }} to join
-Qnotes private beta.{% endblocktrans %}

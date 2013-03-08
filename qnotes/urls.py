@@ -28,7 +28,7 @@ urlpatterns = patterns(
     (r'^topics/', include('apps.topics.urls')),
 
     # django-hunger
-    (r'^beta/', include('hunger.urls')),
+    (r'^register/', include('hunger.urls')),
 
     # django-grappelli
     (r'^grappelli/', include('grappelli.urls')),

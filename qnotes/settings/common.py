@@ -183,8 +183,8 @@ MIDDLEWARE_CLASSES = (
     'django.middleware.locale.LocaleMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'qnotes.middleware.ForceLangMiddleware',
-    'userena.middleware.UserenaLocaleMiddleware',
     'hunger.middleware.BetaMiddleware',
+    'userena.middleware.UserenaLocaleMiddleware',
 )
 ########## END MIDDLEWARE CONFIGURATION
 
@@ -323,24 +323,13 @@ AUTHENTICATION_BACKENDS = (
 
 
 ########## HUNGER CONFIGURATION
-BETA_ENABLE_BETA = True
-BETA_SIGNUP_VIEWS = [
-    'userena_signup',
+HUNGER_ALWAYS_ALLOW_VIEWS = [
+    'userena_signin',
     'userena_activate',
-    'userena_signup_complete',
 ]
-BETA_SIGNUP_CONFIRMATION_VIEW = 'userena_',
-BETA_ALWAYS_ALLOW_MODULES = [
+HUNGER_ALWAYS_ALLOW_MODULES = [
     'django.contrib.auth.views',
-    'userena.views',
-    'hunger.views',
 ]
-BETA_REDIRECT_URL = '/beta/'
-BETA_SIGNUP_URL = '/accounts/signup/'
-
-BETA_EMAIL_TEMPLATES_DIR = 'hunger'
-# Breaks PostgreSQL transaction, currently limited to defaults
-#BETA_INVITE_CODE_LENGTH = 8
 ########## END HUNGER CONFIGURATION
 
 

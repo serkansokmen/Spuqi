@@ -1,0 +1,16 @@
+{% load i18n %}
+
+{% block subject %}{% trans "Here is your invite" %}{% endblock %}
+
+{% block plain %}
+  {% trans "Visit {{ invite_url }} to join the private beta." %}
+{% endblock %}
+
+{% block html %}
+  <p>{% blocktrans with invite_url as invite_url %}Visit <a href="{{ invite_url }}" target="_blank">{{ invite_url }}</a> to join the private beta.{% endblocktrans %}</p>
+{% endblock %}
+
+
+{% load i18n %}
+
+

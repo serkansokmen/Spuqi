@@ -23,7 +23,7 @@ EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'qnotes',
+        'NAME': 'qnotes2',
         'USER': '',
         'PASSWORD': '',
         'HOST': 'localhost',
@@ -93,27 +93,28 @@ DEBUG_TOOLBAR_CONFIG = {
 INTERNAL_IPS = ('127.0.0.1',)
 ########## END DEBUG TOOLBAR CONFIGURATION
 
-'''
-LOGGING = {
-    'version': 1,
-    'disable_existing_loggers': True,
-    'formatters': {
-        'simple': {
-            'format': '%(levelname)s %(message)s',
+LOG_SQL = False
+
+if LOG_SQL:
+    LOGGING = {
+        'version': 1,
+        'disable_existing_loggers': True,
+        'formatters': {
+            'simple': {
+                'format': '%(levelname)s %(message)s',
+            },
         },
-    },
-    'handlers': {
-        'console': {
-            'level': 'DEBUG',
-            'class': 'logging.StreamHandler',
-            'formatter': 'simple'
+        'handlers': {
+            'console': {
+                'level': 'DEBUG',
+                'class': 'logging.StreamHandler',
+                'formatter': 'simple'
+            },
         },
-    },
-    'loggers': {
-        'django': {
-            'handlers': ['console'],
-            'level': 'DEBUG',
-        },
+        'loggers': {
+            'django': {
+                'handlers': ['console'],
+                'level': 'DEBUG',
+            },
+        }
     }
-}
-'''
