@@ -2,6 +2,7 @@ from django.conf.urls.defaults import *
 from django.contrib import admin
 from django.conf import settings
 from django.views.generic import TemplateView
+from django.shortcuts import redirect
 from apps.accounts.forms import SignupFormReCaptcha, SigninFormReCaptcha
 from dajaxice.core import dajaxice_autodiscover, dajaxice_config
 
@@ -10,7 +11,7 @@ dajaxice_autodiscover()
 
 urlpatterns = patterns(
     '',
-    (r'^$', TemplateView.as_view(template_name='base.html')),
+    (r'^$', TemplateView.as_view(template_name='home.html')),
 
     # (r'^admin/', include('smuggler.urls')),  # put it before admin url patterns
     (r'^admin/', include(admin.site.urls)),

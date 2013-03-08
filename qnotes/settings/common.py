@@ -11,6 +11,17 @@ from djcelery import setup_loader
 gettext = lambda s: s
 
 
+########## API-KEY CONFIGURATION
+DISQUS_API_KEY = environ.get('QNOTES_DISQUS_API_KEY', '')
+RECAPTCHA_PUBLIC_KEY = environ.get('QNOTES_RECAPTCHA_PUBLIC_KEY', '')
+RECAPTCHA_PRIVATE_KEY = environ.get('QNOTES_RECAPTCHA_PRIVATE_KEY', '')
+TWITTER_CONSUMER_KEY = environ.get('QNOTES_TWITTER_CONSUMER_KEY', '')
+TWITTER_CONSUMER_SECRET = environ.get('QNOTES_TWITTER_CONSUMER_SECRET', '')
+FACEBOOK_APP_ID = environ.get('QNOTES_FACEBOOK_APP_ID', '')
+FACEBOOK_APP_SECRET = environ.get('QNOTES_FACEBOOK_APP_SECRET', '')
+########## END API-KEY CONFIGURATION
+
+
 ########## PATH CONFIGURATION
 # Absolute filesystem path to the Django project directory:
 DJANGO_ROOT = dirname(dirname(abspath(__file__)))
@@ -275,6 +286,7 @@ LOGGING = {
 }
 ########## END LOGGING CONFIGURATION
 
+
 ########## SMUGGLER CONFIGURATION
 SMUGGLER_EXCLUDE_LIST = []  # 'app_label.ModelName'
 SMUGGLER_FIXTURE_DIR = 'fixtures/'
@@ -284,14 +296,11 @@ SMUGGLER_INDENT = 2
 
 
 ########## DISQUS CONFIGURATION
-DISQUS_API_KEY = environ.get('DISQUS_API_KEY', '')
 DISQUS_WEBSITE_SHORTNAME = 'qnotes'
 ########## END DISQUS CONFIGURATION
 
 
 ########## reCAPCTHA CONFIGURATION
-RECAPTCHA_PUBLIC_KEY = environ.get('RECAPTCHA_PUBLIC_KEY', '')
-RECAPTCHA_PRIVATE_KEY = environ.get('RECAPTCHA_PRIVATE_KEY', '')
 RECAPTCHA_USE_SSL = True
 ########## END reCAPCTHA CONFIGURATION
 
@@ -314,7 +323,7 @@ AUTHENTICATION_BACKENDS = (
 
 
 ########## HUNGER CONFIGURATION
-BETA_ENABLE_BETA = True
+BETA_ENABLE_BETA = False
 BETA_SIGNUP_VIEWS = [
     'userena.views.signup',
     # 'userena.views.activate',
@@ -366,7 +375,6 @@ AUTOCOMPLETE_LIMIT = 10
 ########## CELERY CONFIGURATION
 # See: http://celery.readthedocs.org/en/latest/configuration.html#celery-task-result-expires
 CELERY_TASK_RESULT_EXPIRES = timedelta(minutes=30)
-
 # See: http://celery.github.com/celery/django/
 setup_loader()
 ########## END CELERY CONFIGURATION
