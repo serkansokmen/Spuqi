@@ -35,7 +35,9 @@
 </head>
 <body>
     <div class="container-narrow">
+        {% if user.is_authenticated %}
         {% include "site/navbar.html" %}
+        {% endif %}
         <div class="row-fluid jumbotron">
             {% block header_main %}
             <h1>{% trans "Qnotes" %}</h1>
