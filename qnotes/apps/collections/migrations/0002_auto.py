@@ -8,23 +8,29 @@ from django.db import models
 class Migration(SchemaMigration):
 
     def forwards(self, orm):
-        # Adding field 'Topic.created'
-        db.add_column('topics_topic', 'created',
-                      self.gf('django.db.models.fields.DateTimeField')(auto_now_add=True, default=datetime.datetime(2013, 3, 3, 0, 0), blank=True),
-                      keep_default=False)
+        # Adding M2M table for field sources on 'Collection'
+        db.create_table('collections_collection_sources', (
+            ('id', models.AutoField(verbose_name='ID', primary_key=True, auto_created=True)),
+            ('collection', models.ForeignKey(orm['collections.collection'], null=False)),
+            ('source', models.ForeignKey(orm['sources.source'], null=False))
+        ))
+        db.create_unique('collections_collection_sources', ['collection_id', 'source_id'])
 
-        # Adding field 'Topic.modified'
-        db.add_column('topics_topic', 'modified',
-                      self.gf('django.db.models.fields.DateTimeField')(auto_now=True, default=datetime.datetime(2013, 3, 3, 0, 0), blank=True),
-                      keep_default=False)
+        # Adding M2M table for field members on 'Collection'
+        db.create_table('collections_collection_members', (
+            ('id', models.AutoField(verbose_name='ID', primary_key=True, auto_created=True)),
+            ('collection', models.ForeignKey(orm['collections.collection'], null=False)),
+            ('user', models.ForeignKey(orm['auth.user'], null=False))
+        ))
+        db.create_unique('collections_collection_members', ['collection_id', 'user_id'])
 
 
     def backwards(self, orm):
-        # Deleting field 'Topic.created'
-        db.delete_column('topics_topic', 'created')
+        # Removing M2M table for field sources on 'Collection'
+        db.delete_table('collections_collection_sources')
 
-        # Deleting field 'Topic.modified'
-        db.delete_column('topics_topic', 'modified')
+        # Removing M2M table for field members on 'Collection'
+        db.delete_table('collections_collection_members')
 
 
     models = {
@@ -57,6 +63,26 @@ class Migration(SchemaMigration):
             'user_permissions': ('django.db.models.fields.related.ManyToManyField', [], {'to': "orm['auth.Permission']", 'symmetrical': 'False', 'blank': 'True'}),
             'username': ('django.db.models.fields.CharField', [], {'unique': 'True', 'max_length': '30'})
         },
+        'authors.author': {
+            'Meta': {'ordering': "['name', '-created']", 'object_name': 'Author'},
+            'created': ('django.db.models.fields.DateTimeField', [], {'auto_now_add': 'True', 'blank': 'True'}),
+            'id': ('django.db.models.fields.AutoField', [], {'primary_key': 'True'}),
+            'modified': ('django.db.models.fields.DateTimeField', [], {'auto_now': 'True', 'blank': 'True'}),
+            'name': ('django.db.models.fields.CharField', [], {'unique': 'True', 'max_length': '255'}),
+            'slug': ('django.db.models.fields.SlugField', [], {'max_length': '50'}),
+            'user': ('django.db.models.fields.related.ForeignKey', [], {'to': "orm['auth.User']"})
+        },
+        'collections.collection': {
+            'Meta': {'ordering': "['title']", 'object_name': 'Collection'},
+            'created': ('django.db.models.fields.DateTimeField', [], {'auto_now_add': 'True', 'blank': 'True'}),
+            'id': ('django.db.models.fields.AutoField', [], {'primary_key': 'True'}),
+            'members': ('django.db.models.fields.related.ManyToManyField', [], {'related_name': "'followed_collections'", 'symmetrical': 'False', 'to': "orm['auth.User']"}),
+            'modified': ('django.db.models.fields.DateTimeField', [], {'auto_now': 'True', 'blank': 'True'}),
+            'slug': ('django.db.models.fields.SlugField', [], {'max_length': '50'}),
+            'sources': ('django.db.models.fields.related.ManyToManyField', [], {'to': "orm['sources.Source']", 'symmetrical': 'False'}),
+            'title': ('django.db.models.fields.CharField', [], {'max_length': '100'}),
+            'user': ('django.db.models.fields.related.ForeignKey', [], {'related_name': "'owned_collections'", 'to': "orm['auth.User']"})
+        },
         'contenttypes.contenttype': {
             'Meta': {'ordering': "('name',)", 'unique_together': "(('app_label', 'model'),)", 'object_name': 'ContentType', 'db_table': "'django_content_type'"},
             'app_label': ('django.db.models.fields.CharField', [], {'max_length': '100'}),
@@ -64,15 +90,18 @@ class Migration(SchemaMigration):
             'model': ('django.db.models.fields.CharField', [], {'max_length': '100'}),
             'name': ('django.db.models.fields.CharField', [], {'max_length': '100'})
         },
-        'topics.topic': {
-            'Meta': {'ordering': "['title']", 'object_name': 'Topic'},
+        'sources.source': {
+            'Meta': {'object_name': 'Source'},
+            'authors': ('django.db.models.fields.related.ManyToManyField', [], {'to': "orm['authors.Author']", 'symmetrical': 'False'}),
             'created': ('django.db.models.fields.DateTimeField', [], {'auto_now_add': 'True', 'blank': 'True'}),
             'id': ('django.db.models.fields.AutoField', [], {'primary_key': 'True'}),
+            'isbn': ('django.db.models.fields.CharField', [], {'max_length': '13', 'null': 'True', 'blank': 'True'}),
             'modified': ('django.db.models.fields.DateTimeField', [], {'auto_now': 'True', 'blank': 'True'}),
-            'slug': ('django.db.models.fields.SlugField', [], {'max_length': '25', 'null': 'True', 'blank': 'True'}),
-            'title': ('django.db.models.fields.CharField', [], {'max_length': '25'}),
+            'slug': ('django.db.models.fields.SlugField', [], {'max_length': '50'}),
+            'title': ('django.db.models.fields.CharField', [], {'unique': 'True', 'max_length': '250'}),
+            'url': ('django.db.models.fields.URLField', [], {'max_length': '200', 'null': 'True', 'blank': 'True'}),
             'user': ('django.db.models.fields.related.ForeignKey', [], {'to': "orm['auth.User']"})
         }
     }
 
-    complete_apps = ['topics']
+    complete_apps = ['collections']

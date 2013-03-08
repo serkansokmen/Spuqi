@@ -8,34 +8,26 @@ from django.db import models
 class Migration(SchemaMigration):
 
     def forwards(self, orm):
-        # Adding field 'Note.order'
-        db.add_column('quotes_note', 'order',
-                      self.gf('django.db.models.fields.PositiveSmallIntegerField')(default=0),
+        # Adding field 'Quote.source'
+        db.add_column('quotes_quote', 'source',
+                      self.gf('django.db.models.fields.related.ForeignKey')(default=0, to=orm['sources.Source']),
                       keep_default=False)
 
-        # Deleting field 'Quote.note'
-        db.delete_column('quotes_quote', 'note_id')
-
-        # Adding M2M table for field notes on 'Quote'
-        db.create_table('quotes_quote_notes', (
+        # Adding M2M table for field topics on 'Quote'
+        db.create_table('quotes_quote_topics', (
             ('id', models.AutoField(verbose_name='ID', primary_key=True, auto_created=True)),
             ('quote', models.ForeignKey(orm['quotes.quote'], null=False)),
-            ('note', models.ForeignKey(orm['quotes.note'], null=False))
+            ('topic', models.ForeignKey(orm['topics.topic'], null=False))
         ))
-        db.create_unique('quotes_quote_notes', ['quote_id', 'note_id'])
+        db.create_unique('quotes_quote_topics', ['quote_id', 'topic_id'])
 
 
     def backwards(self, orm):
-        # Deleting field 'Note.order'
-        db.delete_column('quotes_note', 'order')
+        # Deleting field 'Quote.source'
+        db.delete_column('quotes_quote', 'source_id')
 
-        # Adding field 'Quote.note'
-        db.add_column('quotes_quote', 'note',
-                      self.gf('django.db.models.fields.related.ForeignKey')(default=u'', to=orm['quotes.Note']),
-                      keep_default=False)
-
-        # Removing M2M table for field notes on 'Quote'
-        db.delete_table('quotes_quote_notes')
+        # Removing M2M table for field topics on 'Quote'
+        db.delete_table('quotes_quote_topics')
 
 
     models = {
@@ -74,7 +66,7 @@ class Migration(SchemaMigration):
             'id': ('django.db.models.fields.AutoField', [], {'primary_key': 'True'}),
             'modified': ('django.db.models.fields.DateTimeField', [], {'auto_now': 'True', 'blank': 'True'}),
             'name': ('django.db.models.fields.CharField', [], {'unique': 'True', 'max_length': '255'}),
-            'slug': ('django.db.models.fields.SlugField', [], {'max_length': '50', 'null': 'True', 'blank': 'True'}),
+            'slug': ('django.db.models.fields.SlugField', [], {'max_length': '50'}),
             'user': ('django.db.models.fields.related.ForeignKey', [], {'to': "orm['auth.User']"})
         },
         'contenttypes.contenttype': {
@@ -88,9 +80,10 @@ class Migration(SchemaMigration):
             'Meta': {'ordering': "['-order']", 'object_name': 'Note'},
             'created': ('django.db.models.fields.DateTimeField', [], {'auto_now_add': 'True', 'blank': 'True'}),
             'id': ('django.db.models.fields.AutoField', [], {'primary_key': 'True'}),
-            'media_type': ('django.db.models.fields.PositiveIntegerField', [], {}),
+            'media_type': ('django.db.models.fields.PositiveIntegerField', [], {'default': '1'}),
             'modified': ('django.db.models.fields.DateTimeField', [], {'auto_now': 'True', 'blank': 'True'}),
             'order': ('django.db.models.fields.PositiveSmallIntegerField', [], {'default': '0'}),
+            'quote': ('django.db.models.fields.related.ForeignKey', [], {'to': "orm['quotes.Quote']"}),
             'sound_url': ('django.db.models.fields.URLField', [], {'max_length': '200', 'blank': 'True'}),
             'text_note': ('django.db.models.fields.TextField', [], {'blank': 'True'}),
             'video_url': ('django.db.models.fields.URLField', [], {'max_length': '200', 'blank': 'True'})
@@ -99,10 +92,10 @@ class Migration(SchemaMigration):
             'Meta': {'ordering': "['-created']", 'object_name': 'Quote'},
             'created': ('django.db.models.fields.DateTimeField', [], {'auto_now_add': 'True', 'blank': 'True'}),
             'id': ('django.db.models.fields.AutoField', [], {'primary_key': 'True'}),
-            'is_private': ('django.db.models.fields.BooleanField', [], {'default': 'False'}),
             'modified': ('django.db.models.fields.DateTimeField', [], {'auto_now': 'True', 'blank': 'True'}),
-            'notes': ('django.db.models.fields.related.ManyToManyField', [], {'to': "orm['quotes.Note']", 'symmetrical': 'False'}),
+            'privacy_state': ('django.db.models.fields.PositiveSmallIntegerField', [], {'default': '2'}),
             'quote': ('django.db.models.fields.TextField', [], {'max_length': '1200'}),
+            'slug': ('django.db.models.fields.SlugField', [], {'max_length': '50'}),
             'source': ('django.db.models.fields.related.ForeignKey', [], {'default': '0', 'to': "orm['sources.Source']"}),
             'topics': ('django.db.models.fields.related.ManyToManyField', [], {'to': "orm['topics.Topic']", 'symmetrical': 'False', 'blank': 'True'}),
             'user': ('django.db.models.fields.related.ForeignKey', [], {'to': "orm['auth.User']"})
@@ -112,9 +105,9 @@ class Migration(SchemaMigration):
             'authors': ('django.db.models.fields.related.ManyToManyField', [], {'to': "orm['authors.Author']", 'symmetrical': 'False'}),
             'created': ('django.db.models.fields.DateTimeField', [], {'auto_now_add': 'True', 'blank': 'True'}),
             'id': ('django.db.models.fields.AutoField', [], {'primary_key': 'True'}),
-            'isbn': ('django.db.models.fields.CharField', [], {'max_length': '10', 'null': 'True', 'blank': 'True'}),
+            'isbn': ('django.db.models.fields.CharField', [], {'max_length': '13', 'null': 'True', 'blank': 'True'}),
             'modified': ('django.db.models.fields.DateTimeField', [], {'auto_now': 'True', 'blank': 'True'}),
-            'slug': ('django.db.models.fields.SlugField', [], {'max_length': '250', 'null': 'True', 'blank': 'True'}),
+            'slug': ('django.db.models.fields.SlugField', [], {'max_length': '50'}),
             'title': ('django.db.models.fields.CharField', [], {'unique': 'True', 'max_length': '250'}),
             'url': ('django.db.models.fields.URLField', [], {'max_length': '200', 'null': 'True', 'blank': 'True'}),
             'user': ('django.db.models.fields.related.ForeignKey', [], {'to': "orm['auth.User']"})
@@ -137,7 +130,7 @@ class Migration(SchemaMigration):
             'created': ('django.db.models.fields.DateTimeField', [], {'auto_now_add': 'True', 'blank': 'True'}),
             'id': ('django.db.models.fields.AutoField', [], {'primary_key': 'True'}),
             'modified': ('django.db.models.fields.DateTimeField', [], {'auto_now': 'True', 'blank': 'True'}),
-            'slug': ('django.db.models.fields.SlugField', [], {'max_length': '25', 'null': 'True', 'blank': 'True'}),
+            'slug': ('django.db.models.fields.SlugField', [], {'max_length': '50'}),
             'title': ('django.db.models.fields.CharField', [], {'max_length': '25'}),
             'user': ('django.db.models.fields.related.ForeignKey', [], {'to': "orm['auth.User']"})
         }

@@ -8,23 +8,18 @@ from django.db import models
 class Migration(SchemaMigration):
 
     def forwards(self, orm):
-        # Adding field 'Quote.created_at'
-        db.add_column('quotes_quote', 'created_at',
-                      self.gf('django.db.models.fields.DateField')(auto_now_add=True, default=datetime.datetime(2013, 3, 2, 0, 0), blank=True),
-                      keep_default=False)
-
-        # Adding field 'Quote.updated_at'
-        db.add_column('quotes_quote', 'updated_at',
-                      self.gf('django.db.models.fields.DateField')(auto_now=True, default=datetime.datetime(2013, 3, 2, 0, 0), blank=True),
-                      keep_default=False)
+        # Adding M2M table for field authors on 'Source'
+        db.create_table('sources_source_authors', (
+            ('id', models.AutoField(verbose_name='ID', primary_key=True, auto_created=True)),
+            ('source', models.ForeignKey(orm['sources.source'], null=False)),
+            ('author', models.ForeignKey(orm['authors.author'], null=False))
+        ))
+        db.create_unique('sources_source_authors', ['source_id', 'author_id'])
 
 
     def backwards(self, orm):
-        # Deleting field 'Quote.created_at'
-        db.delete_column('quotes_quote', 'created_at')
-
-        # Deleting field 'Quote.updated_at'
-        db.delete_column('quotes_quote', 'updated_at')
+        # Removing M2M table for field authors on 'Source'
+        db.delete_table('sources_source_authors')
 
 
     models = {
@@ -58,10 +53,12 @@ class Migration(SchemaMigration):
             'username': ('django.db.models.fields.CharField', [], {'unique': 'True', 'max_length': '30'})
         },
         'authors.author': {
-            'Meta': {'ordering': "['name']", 'object_name': 'Author'},
+            'Meta': {'ordering': "['name', '-created']", 'object_name': 'Author'},
+            'created': ('django.db.models.fields.DateTimeField', [], {'auto_now_add': 'True', 'blank': 'True'}),
             'id': ('django.db.models.fields.AutoField', [], {'primary_key': 'True'}),
+            'modified': ('django.db.models.fields.DateTimeField', [], {'auto_now': 'True', 'blank': 'True'}),
             'name': ('django.db.models.fields.CharField', [], {'unique': 'True', 'max_length': '255'}),
-            'slug': ('django.db.models.fields.SlugField', [], {'max_length': '50', 'null': 'True', 'blank': 'True'}),
+            'slug': ('django.db.models.fields.SlugField', [], {'max_length': '50'}),
             'user': ('django.db.models.fields.related.ForeignKey', [], {'to': "orm['auth.User']"})
         },
         'contenttypes.contenttype': {
@@ -71,49 +68,18 @@ class Migration(SchemaMigration):
             'model': ('django.db.models.fields.CharField', [], {'max_length': '100'}),
             'name': ('django.db.models.fields.CharField', [], {'max_length': '100'})
         },
-        'quotes.quote': {
-            'Meta': {'ordering': "['-created_at']", 'object_name': 'Quote'},
-            'created_at': ('django.db.models.fields.DateField', [], {'auto_now_add': 'True', 'blank': 'True'}),
-            'id': ('django.db.models.fields.AutoField', [], {'primary_key': 'True'}),
-            'is_private': ('django.db.models.fields.BooleanField', [], {'default': 'False'}),
-            'note': ('django.db.models.fields.TextField', [], {'max_length': '500', 'blank': 'True'}),
-            'note_type': ('django.db.models.fields.PositiveIntegerField', [], {'null': 'True', 'blank': 'True'}),
-            'quote': ('django.db.models.fields.TextField', [], {'max_length': '1200'}),
-            'source': ('django.db.models.fields.related.ForeignKey', [], {'default': '0', 'to': "orm['sources.Source']"}),
-            'topics': ('django.db.models.fields.related.ManyToManyField', [], {'to': "orm['topics.Topic']", 'symmetrical': 'False', 'blank': 'True'}),
-            'updated_at': ('django.db.models.fields.DateField', [], {'auto_now': 'True', 'blank': 'True'}),
-            'user': ('django.db.models.fields.related.ForeignKey', [], {'to': "orm['auth.User']"})
-        },
         'sources.source': {
             'Meta': {'object_name': 'Source'},
             'authors': ('django.db.models.fields.related.ManyToManyField', [], {'to': "orm['authors.Author']", 'symmetrical': 'False'}),
+            'created': ('django.db.models.fields.DateTimeField', [], {'auto_now_add': 'True', 'blank': 'True'}),
             'id': ('django.db.models.fields.AutoField', [], {'primary_key': 'True'}),
-            'isbn': ('django.db.models.fields.CharField', [], {'max_length': '10', 'null': 'True', 'blank': 'True'}),
-            'slug': ('django.db.models.fields.SlugField', [], {'max_length': '250', 'null': 'True', 'blank': 'True'}),
+            'isbn': ('django.db.models.fields.CharField', [], {'max_length': '13', 'null': 'True', 'blank': 'True'}),
+            'modified': ('django.db.models.fields.DateTimeField', [], {'auto_now': 'True', 'blank': 'True'}),
+            'slug': ('django.db.models.fields.SlugField', [], {'max_length': '50'}),
             'title': ('django.db.models.fields.CharField', [], {'unique': 'True', 'max_length': '250'}),
             'url': ('django.db.models.fields.URLField', [], {'max_length': '200', 'null': 'True', 'blank': 'True'}),
-            'user': ('django.db.models.fields.related.ForeignKey', [], {'to': "orm['auth.User']"})
-        },
-        'taggit.tag': {
-            'Meta': {'object_name': 'Tag'},
-            'id': ('django.db.models.fields.AutoField', [], {'primary_key': 'True'}),
-            'name': ('django.db.models.fields.CharField', [], {'max_length': '100'}),
-            'slug': ('django.db.models.fields.SlugField', [], {'unique': 'True', 'max_length': '100'})
-        },
-        'taggit.taggeditem': {
-            'Meta': {'object_name': 'TaggedItem'},
-            'content_type': ('django.db.models.fields.related.ForeignKey', [], {'related_name': "'taggit_taggeditem_tagged_items'", 'to': "orm['contenttypes.ContentType']"}),
-            'id': ('django.db.models.fields.AutoField', [], {'primary_key': 'True'}),
-            'object_id': ('django.db.models.fields.IntegerField', [], {'db_index': 'True'}),
-            'tag': ('django.db.models.fields.related.ForeignKey', [], {'related_name': "'taggit_taggeditem_items'", 'to': "orm['taggit.Tag']"})
-        },
-        'topics.topic': {
-            'Meta': {'ordering': "['title']", 'object_name': 'Topic'},
-            'id': ('django.db.models.fields.AutoField', [], {'primary_key': 'True'}),
-            'slug': ('django.db.models.fields.SlugField', [], {'max_length': '25', 'null': 'True', 'blank': 'True'}),
-            'title': ('django.db.models.fields.CharField', [], {'max_length': '25'}),
             'user': ('django.db.models.fields.related.ForeignKey', [], {'to': "orm['auth.User']"})
         }
     }
 
-    complete_apps = ['quotes']
+    complete_apps = ['sources']

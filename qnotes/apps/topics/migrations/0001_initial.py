@@ -11,9 +11,11 @@ class Migration(SchemaMigration):
         # Adding model 'Topic'
         db.create_table('topics_topic', (
             ('id', self.gf('django.db.models.fields.AutoField')(primary_key=True)),
+            ('created', self.gf('django.db.models.fields.DateTimeField')(auto_now_add=True, blank=True)),
+            ('modified', self.gf('django.db.models.fields.DateTimeField')(auto_now=True, blank=True)),
             ('user', self.gf('django.db.models.fields.related.ForeignKey')(to=orm['auth.User'])),
             ('title', self.gf('django.db.models.fields.CharField')(max_length=25)),
-            ('slug', self.gf('django.db.models.fields.SlugField')(max_length=25, null=True, blank=True)),
+            ('slug', self.gf('django.db.models.fields.SlugField')(max_length=50)),
         ))
         db.send_create_signal('topics', ['Topic'])
 
@@ -62,8 +64,10 @@ class Migration(SchemaMigration):
         },
         'topics.topic': {
             'Meta': {'ordering': "['title']", 'object_name': 'Topic'},
+            'created': ('django.db.models.fields.DateTimeField', [], {'auto_now_add': 'True', 'blank': 'True'}),
             'id': ('django.db.models.fields.AutoField', [], {'primary_key': 'True'}),
-            'slug': ('django.db.models.fields.SlugField', [], {'max_length': '25', 'null': 'True', 'blank': 'True'}),
+            'modified': ('django.db.models.fields.DateTimeField', [], {'auto_now': 'True', 'blank': 'True'}),
+            'slug': ('django.db.models.fields.SlugField', [], {'max_length': '50'}),
             'title': ('django.db.models.fields.CharField', [], {'max_length': '25'}),
             'user': ('django.db.models.fields.related.ForeignKey', [], {'to': "orm['auth.User']"})
         }

@@ -11,38 +11,18 @@ class Migration(SchemaMigration):
         # Adding model 'Collection'
         db.create_table('collections_collection', (
             ('id', self.gf('django.db.models.fields.AutoField')(primary_key=True)),
+            ('created', self.gf('django.db.models.fields.DateTimeField')(auto_now_add=True, blank=True)),
+            ('modified', self.gf('django.db.models.fields.DateTimeField')(auto_now=True, blank=True)),
             ('user', self.gf('django.db.models.fields.related.ForeignKey')(related_name='owned_collections', to=orm['auth.User'])),
             ('title', self.gf('django.db.models.fields.CharField')(max_length=100)),
-            ('slug', self.gf('django.db.models.fields.SlugField')(max_length=100, null=True, blank=True)),
+            ('slug', self.gf('django.db.models.fields.SlugField')(max_length=50)),
         ))
         db.send_create_signal('collections', ['Collection'])
-
-        # Adding M2M table for field sources on 'Collection'
-        db.create_table('collections_collection_sources', (
-            ('id', models.AutoField(verbose_name='ID', primary_key=True, auto_created=True)),
-            ('collection', models.ForeignKey(orm['collections.collection'], null=False)),
-            ('source', models.ForeignKey(orm['sources.source'], null=False))
-        ))
-        db.create_unique('collections_collection_sources', ['collection_id', 'source_id'])
-
-        # Adding M2M table for field members on 'Collection'
-        db.create_table('collections_collection_members', (
-            ('id', models.AutoField(verbose_name='ID', primary_key=True, auto_created=True)),
-            ('collection', models.ForeignKey(orm['collections.collection'], null=False)),
-            ('user', models.ForeignKey(orm['auth.user'], null=False))
-        ))
-        db.create_unique('collections_collection_members', ['collection_id', 'user_id'])
 
 
     def backwards(self, orm):
         # Deleting model 'Collection'
         db.delete_table('collections_collection')
-
-        # Removing M2M table for field sources on 'Collection'
-        db.delete_table('collections_collection_sources')
-
-        # Removing M2M table for field members on 'Collection'
-        db.delete_table('collections_collection_members')
 
 
     models = {
@@ -75,19 +55,12 @@ class Migration(SchemaMigration):
             'user_permissions': ('django.db.models.fields.related.ManyToManyField', [], {'to': "orm['auth.Permission']", 'symmetrical': 'False', 'blank': 'True'}),
             'username': ('django.db.models.fields.CharField', [], {'unique': 'True', 'max_length': '30'})
         },
-        'authors.author': {
-            'Meta': {'ordering': "['name']", 'object_name': 'Author'},
-            'id': ('django.db.models.fields.AutoField', [], {'primary_key': 'True'}),
-            'name': ('django.db.models.fields.CharField', [], {'unique': 'True', 'max_length': '255'}),
-            'slug': ('django.db.models.fields.SlugField', [], {'max_length': '50', 'null': 'True', 'blank': 'True'}),
-            'user': ('django.db.models.fields.related.ForeignKey', [], {'to': "orm['auth.User']"})
-        },
         'collections.collection': {
             'Meta': {'ordering': "['title']", 'object_name': 'Collection'},
+            'created': ('django.db.models.fields.DateTimeField', [], {'auto_now_add': 'True', 'blank': 'True'}),
             'id': ('django.db.models.fields.AutoField', [], {'primary_key': 'True'}),
-            'members': ('django.db.models.fields.related.ManyToManyField', [], {'blank': 'True', 'related_name': "'followed_collections'", 'null': 'True', 'symmetrical': 'False', 'to': "orm['auth.User']"}),
-            'slug': ('django.db.models.fields.SlugField', [], {'max_length': '100', 'null': 'True', 'blank': 'True'}),
-            'sources': ('django.db.models.fields.related.ManyToManyField', [], {'symmetrical': 'False', 'to': "orm['sources.Source']", 'null': 'True', 'blank': 'True'}),
+            'modified': ('django.db.models.fields.DateTimeField', [], {'auto_now': 'True', 'blank': 'True'}),
+            'slug': ('django.db.models.fields.SlugField', [], {'max_length': '50'}),
             'title': ('django.db.models.fields.CharField', [], {'max_length': '100'}),
             'user': ('django.db.models.fields.related.ForeignKey', [], {'related_name': "'owned_collections'", 'to': "orm['auth.User']"})
         },
@@ -97,16 +70,6 @@ class Migration(SchemaMigration):
             'id': ('django.db.models.fields.AutoField', [], {'primary_key': 'True'}),
             'model': ('django.db.models.fields.CharField', [], {'max_length': '100'}),
             'name': ('django.db.models.fields.CharField', [], {'max_length': '100'})
-        },
-        'sources.source': {
-            'Meta': {'object_name': 'Source'},
-            'authors': ('django.db.models.fields.related.ManyToManyField', [], {'to': "orm['authors.Author']", 'symmetrical': 'False'}),
-            'id': ('django.db.models.fields.AutoField', [], {'primary_key': 'True'}),
-            'isbn': ('django.db.models.fields.CharField', [], {'max_length': '10', 'null': 'True', 'blank': 'True'}),
-            'slug': ('django.db.models.fields.SlugField', [], {'max_length': '250', 'null': 'True', 'blank': 'True'}),
-            'title': ('django.db.models.fields.CharField', [], {'unique': 'True', 'max_length': '250'}),
-            'url': ('django.db.models.fields.URLField', [], {'max_length': '200', 'null': 'True', 'blank': 'True'}),
-            'user': ('django.db.models.fields.related.ForeignKey', [], {'to': "orm['auth.User']"})
         }
     }
 
