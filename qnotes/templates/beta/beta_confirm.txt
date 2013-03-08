@@ -1,0 +1,2 @@
+{% load i18n %}{% blocktrans %}We have received your request for invite to Qnotes private beta.
+We'll contact you as soon as we are ready!{% endblocktrans %}

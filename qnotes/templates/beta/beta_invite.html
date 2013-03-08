@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+{% load i18n %}
+
+{% block content %}
+<p>{% blocktrans with invite_url as invite_url %}
+Visit <a href="{{ invite_url }}" target="_blank">{{ invite_url }}</a> to join
+Qnotes private beta.
+{% endblocktrans %}</p>
+<p>{% trans "Thank you." %}</p>
+{% endblock content %}
+
