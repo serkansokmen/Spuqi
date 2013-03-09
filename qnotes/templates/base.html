@@ -40,14 +40,7 @@
         {% endif %}
         <div class="row-fluid jumbotron" {% if not user.is_authenticated %}style="margin-top:21px;"{% endif %}>
             <div class="row-fluid">
-                {% block header_actions %}
-                <ul class="inline">
-                    {% if not user.is_authenticated %}
-                    <li><a href="{% url userena_signin %}"><i class="icon-signin"></i> {% trans "Login" %}</a></li>
-                    <li><a href="{% url userena_signup %}"><i class="icon-user"></i> {% trans "Signup" %}</a></li>
-                    {% endif %}
-                </ul>
-                {% endblock header_actions %}
+                {% block header_actions %}{% endblock header_actions %}
             </div>
         </div>
         {% comment %}

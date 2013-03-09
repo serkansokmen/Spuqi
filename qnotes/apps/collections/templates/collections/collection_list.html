@@ -23,10 +23,10 @@
                 </a>
                 {% ifequal collection.user request.user %}
                 <div class="pull-right">
-                    <a href="{% url collection_edit slug=collection.slug %}" title="{% trans "Edit" %}" rel="tooltip">
+                    <a href="{% url collection_edit slug=collection.slug %}?next={{ request.path }}" title="{% trans "Edit" %}" rel="tooltip">
                         <i class="icon-pencil"></i>
                     </a>
-                    <a href="{% url collection_delete slug=collection.slug %}" title="{% trans "Delete" %}" rel="tooltip">
+                    <a href="{% url collection_delete slug=collection.slug %}?next={{ request.path }}" title="{% trans "Delete" %}" rel="tooltip">
                         <i class="icon-trash"></i>
                     </a>
                 </div>
