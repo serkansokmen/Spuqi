@@ -25,11 +25,11 @@
 {% endblock header_main %}
 
 {% block header_actions %}
-{# <a class="btn btn-success" href="{% url quote_add %}"><i class="icon-plus-sign "></i> {% trans "New Quote" %}</a> #}
-{# <a class="btn btn-success" href="{% url collection_add %}"><i class="icon-plus-sign "></i> {% trans "New Collection" %}</a> #}
+<a class="btn btn-success" href="{% url quote_add %}"><i class="icon-plus-sign "></i> {% trans "New Quote" %}</a>
 {% endblock header_actions %}
 
 {% block content %}
+<hr>
     <div class="row-fluid">
         <div class="span4 well">
             <h4>
@@ -86,6 +86,8 @@
                 {% trans "No collections" %}
             {% endfor %}
             </ul>
+            <br>
+            <a class="btn btn-success" href="{% url collection_add %}"><i class="icon-plus-sign "></i> {% trans "New Collection" %}</a>
         </div>
         <div class="span8">
             {% if user == profile.user %}

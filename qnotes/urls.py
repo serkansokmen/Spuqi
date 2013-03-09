@@ -25,7 +25,6 @@ urlpatterns = patterns(
     (r'^collections/', include('apps.collections.urls')),
     (r'^quotes/', include('apps.quotes.urls')),
     (r'^sources/', include('apps.sources.urls')),
-    (r'^topics/', include('apps.topics.urls')),
 
     # django-grappelli
     (r'^grappelli/', include('grappelli.urls')),

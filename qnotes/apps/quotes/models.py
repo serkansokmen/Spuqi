@@ -5,7 +5,6 @@ from django.core.urlresolvers import reverse
 from django.utils.translation import ugettext as _
 from django.dispatch import receiver
 from apps.sources.models import Source
-from apps.topics.models import Topic
 from apps.helpers.models import TimeStampedModel
 from taggit.managers import TaggableManager
 from libs.utils import slugify
@@ -46,7 +45,6 @@ class Quote(TimeStampedModel):
     source = models.ForeignKey(Source, default=0, verbose_name=_('Source'))
     quote = models.TextField(_('Quote'), max_length=1200)
     slug = models.SlugField()
-    topics = models.ManyToManyField(Topic, blank=True, verbose_name=_('Topics'))
     tags = TaggableManager(blank=True)
     privacy_state = models.PositiveSmallIntegerField(_('Privacy state'), choices=PRIVACY_STATES, default=2)
 

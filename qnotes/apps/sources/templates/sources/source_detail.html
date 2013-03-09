@@ -6,11 +6,20 @@
 {% endblock header_actions %}
 
 {% block content %}
+<hr>
 {% with current_source as source %}
 <p>{% blocktrans with source as source %}Quotes from <i class="text-info">&ldquo; {{ source }} &rdquo;</i>{% endblocktrans %} :</p>
-<ul>
+<ul class="unstyled">
 {% for quote in source_quotes %}
-    <li><a href="{{ quote.get_absolute_url }}">{{ quote }}</a></li>
+    <li>
+        <blockquote>
+            <i class="icon-quote-left"></i>
+            <a href="{{ quote.get_absolute_url }}">
+                {% autoescape off %}<i>{{ quote }}</i>{% endautoescape %}
+            </a>
+            <i class="icon-quote-right"></i>
+        </blockquote>
+    </li>
 {% empty %}
     {% trans "No quotes" %}
 {% endfor %}

@@ -40,7 +40,6 @@
 <div class="form-actions">
     <a class="btn btn-success" href="{% url source_add %}?next={{ request.path }}"><i class="icon-plus-sign"></i> {% trans "Add Source" %}</a>
     <a class="btn btn-success" href="{% url author_add %}?next={{ request.path }}"><i class="icon-plus-sign"></i> {% trans "Add Author" %}</a>
-    <a class="btn btn-success" href="{% url topic_add %}?next={{ request.path }}"><i class="icon-plus-sign"></i> {% trans "Add Topic" %}</a>
 </div>
 {% endwith %}
 {% endblock content %}

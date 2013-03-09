@@ -1,5 +1,4 @@
 from django import forms
-from django.forms import Textarea
 from .models import Quote
 
 
@@ -8,8 +7,9 @@ class QuoteForm(forms.ModelForm):
 
     class Meta:
         model = Quote
-        exclude = ('user', 'slug', 'tags',)
+        exclude = ('user', 'slug',)
         widgets = {
-            'quote': Textarea(attrs={'rows': 6}),
+            'quote': forms.Textarea(attrs={'rows': 6}),
             # 'tags': Select2MultipleWidget()
+            # 'privacy_state': forms.RadioSelect()
         }

@@ -12,11 +12,12 @@
     </div>
     <div class="pull-left">
         <strong>{% trans "Source" %}:</strong> <a href="{{ quote.source.get_absolute_url }}">{{ quote.source }}</a>
-        {% if quote.topics.count > 0 %}
+        {# Tags #}
+        {% if quote.tags.count > 0 %}
             <br>
-            <strong>{% trans "Topics" %}:</strong>
-            {% for topic in quote.topics.all %}
-            <a href="{{ topic.get_absolute_url }}">{{ topic }}</a>{% if not forloop.last %}, {% endif %}
+            <strong>{% trans "Tags" %}:</strong>
+            {% for tag in quote.tags.all %}
+            <span class="badge badge-info">{{ tag }}</span>
             {% endfor %}
         {% endif %}
     </div>

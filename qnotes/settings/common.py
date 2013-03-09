@@ -237,7 +237,6 @@ LOCAL_APPS = (
     # Quotes application
     'apps.collections',
     'apps.sources',
-    'apps.topics',
     'apps.authors',
     'apps.quotes',
     'apps.helpers',
@@ -329,7 +328,6 @@ USERENA_MUGSHOT_SIZE = 39
 AJAX_LOOKUP_CHANNELS = {
     # pass a dict with the model and the field to search against
     'authors': {'model': 'authors.Author', 'search_field': 'name'},
-    'topics': {'model': 'topics.Topic', 'search_field': 'title'}
 }
 # magically include jqueryUI/js/css
 AJAX_SELECT_BOOTSTRAP = True
