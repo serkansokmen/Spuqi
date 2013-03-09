@@ -6,6 +6,12 @@
 
 {% block content_title %}
 <h2>{% trans "Signup" %}</h2>
+<div>
+{% url userena_signin as signin_url %}
+{% blocktrans with signin_url as signin_url %}
+    or <a href="{{ signin_url }}"><i>signin</i></a> with your account.
+{% endblocktrans %}
+</div>
 <hr>
 {% endblock content_title %}
 

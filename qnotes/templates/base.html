@@ -35,14 +35,22 @@
 </head>
 <body>
     <div class="container-narrow">
+        {% if user.is_authenticated %}
         {% include "site/navbar.html" %}
+        {% endif %}
         <div class="row-fluid jumbotron" {% if not user.is_authenticated %}style="margin-top:21px;"{% endif %}>
             {% block header_main %}
-            <h1>{% trans "Qnotes" %}</h1>
+            <h1>Qnotes</h1>
             <p class="lead">{% trans "Collaborative space for social reading" %}</p>
             {% endblock header_main %}
-            <div class="pull-right">
+            <div class="row-fluid">
                 {% block header_actions %}
+                <ul class="inline">
+                    {% if not user.is_authenticated %}
+                    <li><a href="{% url userena_signin %}"><i class="icon-signin"></i> {% trans "Login" %}</a></li>
+                    <li><a href="{% url userena_signup %}"><i class="icon-user"></i> {% trans "Signup" %}</a></li>
+                    {% endif %}
+                </ul>
                 {% endblock header_actions %}
             </div>
         </div>

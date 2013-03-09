@@ -1,12 +1,6 @@
 {% load i18n %}
-<div class="row-fluid">
-    {% for quote in quotes %}
-        {% if forloop.counter0|divisibleby:"2" %}<div class="row-fluid">{% endif %}
-        <div class="span6">
-            {% include "quotes/quote_item.html" %}
-        </div>
-        {% if forloop.last or forloop.counter|divisibleby:"2" %}</div>{% endif %}
-    {% empty %}
-        <p class="alert alert-info">{% trans "No quotes" %}</p>
-    {% endfor %}
-</div>
+{% for quote in quotes %}
+    {% include "quotes/quote_item.html" %}
+{% empty %}
+    <p class="alert alert-info">{% trans "No quotes" %}</p>
+{% endfor %}
