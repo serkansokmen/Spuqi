@@ -58,21 +58,6 @@ MANAGERS = ADMINS
 ########## END MANAGER CONFIGURATION
 
 
-########## DATABASE CONFIGURATION
-# See: https://docs.djangoproject.com/en/dev/ref/settings/#databases
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.',
-        'NAME': '',
-        'USER': '',
-        'PASSWORD': '',
-        'HOST': '',
-        'PORT': '',
-    }
-}
-########## END DATABASE CONFIGURATION
-
-
 ########## GENERAL CONFIGURATION
 # See: https://docs.djangoproject.com/en/dev/ref/settings/#time-zone
 TIME_ZONE = 'Europe/Istanbul'
@@ -183,7 +168,6 @@ MIDDLEWARE_CLASSES = (
     'django.middleware.locale.LocaleMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'qnotes.middleware.ForceLangMiddleware',
-    'hunger.middleware.BetaMiddleware',
     'userena.middleware.UserenaLocaleMiddleware',
 )
 ########## END MIDDLEWARE CONFIGURATION
@@ -245,8 +229,6 @@ THIRD_PARTY_APPS = (
     'dajaxice',
     # django-recaptcha
     'captcha',
-    # django-hunger
-    'hunger',
 )
 
 LOCAL_APPS = (
