@@ -10,7 +10,7 @@
 {% endblock content_title %}
 
 {% block content %}
-<form action="" method="post" class="form-horizontal">
+<form action="" method="post" class="form-horizontal" autocomplete="off">
     {% csrf_token %}
     {{ form|bootstrap }}
     <div class="form-actions">
