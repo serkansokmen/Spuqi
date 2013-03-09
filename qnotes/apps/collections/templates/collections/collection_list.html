@@ -12,7 +12,7 @@
     <ul class="unstyled">
     {% for collection in owned_collections %}
         <li>
-            <h3>
+            <h4>
                 <a href="{{ collection.get_absolute_url }}">
                     {% if collection.sources.0 %}
                     <i class="icon-folder-close-alt"></i>
@@ -31,7 +31,7 @@
                     </a>
                 </div>
                 {% endifequal %}
-            </h3>
+            </h4>
         </li>
     {% endfor %}
     </ul>
@@ -42,7 +42,7 @@
     <ul class="unstyled">
     {% for collection in followed_collections %}
         <li>
-            <h3>
+            <h4>
                 <a href="{{ collection.get_absolute_url }}">
                     {% if collection.sources.0 %}
                     <i class="icon-folder-close-alt"></i>
@@ -61,7 +61,7 @@
                     </a>
                 </div>
                 {% endifequal %}
-            </h3>
+            </h4>
         </li>
     {% endfor %}
     </ul>

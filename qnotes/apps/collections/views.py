@@ -1,8 +1,8 @@
-from django.core.urlresolvers import reverse_lazy
 from django.shortcuts import get_object_or_404
 from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView
-from qnotes.apps.collections.models import Collection
-from qnotes.apps.collections.forms import CollectionForm
+from .models import Collection
+from .forms import CollectionForm
+from apps.helpers.views import FormNextMixin
 
 
 class CollectionMixin(object):
@@ -31,23 +31,25 @@ class CollectionDetail(CollectionMixin, DetailView):
         return context
 
 
-class CollectionCreate(CollectionMixin, CreateView):
+class CollectionCreate(CollectionMixin, FormNextMixin, CreateView):
     model = Collection
     form_class = CollectionForm
+    success_url = 'collection_list'
 
     def form_valid(self, form):
         form.instance.user = self.request.user
         return super(CollectionCreate, self).form_valid(form)
 
 
-class CollectionUpdate(CollectionMixin, UpdateView):
+class CollectionUpdate(CollectionMixin, FormNextMixin, UpdateView):
     model = Collection
     form_class = CollectionForm
     slug_field = 'slug'
+    success_url = 'collection_list'
 
 
-class CollectionDelete(CollectionMixin, DeleteView):
-    success_url = reverse_lazy('collection_list')
+class CollectionDelete(CollectionMixin, FormNextMixin, DeleteView):
+    success_url = 'collection_list'
 
     def get_object(self):
         return get_object_or_404(Collection, user=self.request.user, slug=self.kwargs['slug'])

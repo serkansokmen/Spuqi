@@ -39,10 +39,6 @@
         {% include "site/navbar.html" %}
         {% endif %}
         <div class="row-fluid jumbotron" {% if not user.is_authenticated %}style="margin-top:21px;"{% endif %}>
-            {% block header_main %}
-            <h1>Qnotes</h1>
-            <p class="lead">{% trans "Collaborative space for social reading" %}</p>
-            {% endblock header_main %}
             <div class="row-fluid">
                 {% block header_actions %}
                 <ul class="inline">

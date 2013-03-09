@@ -1,10 +1,9 @@
-from django.core.urlresolvers import reverse_lazy
 from django.shortcuts import get_object_or_404
 from django.views.generic import DetailView, CreateView, UpdateView, DeleteView
 from qnotes.apps.quotes.models import Quote
-from qnotes.apps.authors.views import AuthorFormMixin
 from .models import Source
 from .forms import SourceForm
+from apps.helpers.views import FormNextMixin
 from endless_pagination.views import AjaxListView
 
 
@@ -13,6 +12,11 @@ class SourceList(AjaxListView):
 
     def get_queryset(self):
         return Source.objects.filter(user=self.request.user)
+
+    def get_context_data(self, **kwargs):
+        context = super(SourceList, self).get_context_data(**kwargs)
+        context['active_tab'] = 'sources'
+        return context
 
 
 class SourceDetail(DetailView):
@@ -24,31 +28,32 @@ class SourceDetail(DetailView):
     def get_context_data(self, **kwargs):
         context = super(SourceDetail, self).get_context_data(**kwargs)
         source = get_object_or_404(Source, slug=self.kwargs['slug'])
+        context['active_tab'] = 'sources'
         context['source_quotes'] = Quote.objects.filter(source=source)
         return context
 
 
-class SourceCreate(AuthorFormMixin, CreateView):
+class SourceCreate(FormNextMixin, CreateView):
     model = Source
     form_class = SourceForm
-    success_url = reverse_lazy('source_list')
+    success_url = 'source_list'
 
     def form_valid(self, form):
         form.instance.user = self.request.user
         return super(SourceCreate, self).form_valid(form)
 
 
-class SourceUpdate(AuthorFormMixin, UpdateView):
+class SourceUpdate(FormNextMixin, UpdateView):
     model = Source
     form_class = SourceForm
-    success_url = reverse_lazy('source_list')
+    success_url = 'source_list'
 
     def get_object(self):
         return get_object_or_404(Source, user=self.request.user, slug=self.kwargs['slug'])
 
 
-class SourceDelete(DeleteView):
-    success_url = reverse_lazy('source_list')
+class SourceDelete(FormNextMixin, DeleteView):
+    success_url = 'source_list'
 
     def get_object(self):
         return get_object_or_404(Source, user=self.request.user, slug=self.kwargs['slug'])

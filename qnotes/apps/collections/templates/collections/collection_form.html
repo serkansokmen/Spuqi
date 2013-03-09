@@ -2,9 +2,9 @@
 {% load i18n %}
 {% load bootstrap %}
 
-{% block header_main %}
+{% block content_title %}
 <legend>{% if form.instance.id %}{% trans "Update collection" %}{% else %}{% trans "Add new collection" %}{% endif %}</legend>
-{% endblock header_main %}
+{% endblock content_title %}
 
 {% block content %}
     <div class="row-fluid">

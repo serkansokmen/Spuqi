@@ -1,12 +1,12 @@
-from django.core.urlresolvers import reverse, reverse_lazy
 from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView
-from django.http import Http404, HttpResponseForbidden
+from django.http import HttpResponseForbidden
 from django.shortcuts import get_object_or_404
 from django.utils.safestring import mark_safe
 from django.utils.translation import ugettext as _
 from django.forms import ValidationError
 from .models import Quote
 from .forms import QuoteForm
+from apps.helpers.views import FormNextMixin
 
 
 class QuotesMixin(object):
@@ -15,12 +15,6 @@ class QuotesMixin(object):
         context = super(QuotesMixin, self).get_context_data(**kwargs)
         context['active_tab'] = 'quotes'
         return context
-
-
-class ReturnToQuoteDetailMixin(object):
-
-    def get_success_url(self):
-        return reverse('userena_profile_detail', kwargs={'username': self.request.user.username})
 
 
 class QuoteList(QuotesMixin, ListView):
@@ -61,9 +55,10 @@ class QuoteDetail(QuotesMixin, DetailView):
             return quote
 
 
-class QuoteCreate(ReturnToQuoteDetailMixin, CreateView):
+class QuoteCreate(FormNextMixin, CreateView):
     model = Quote
     form_class = QuoteForm
+    success_url = 'quote_list'
 
     def form_valid(self, form):
         # set instance user
@@ -82,16 +77,17 @@ class QuoteCreate(ReturnToQuoteDetailMixin, CreateView):
         return super(QuoteCreate, self).form_valid(form)
 
 
-class QuoteUpdate(ReturnToQuoteDetailMixin, UpdateView):
+class QuoteUpdate(FormNextMixin, UpdateView):
     model = Quote
     form_class = QuoteForm
+    success_url = 'quote_list'
 
     def get_object(self):
         return get_object_or_404(Quote, user=self.request.user, slug=self.kwargs['slug'])
 
 
-class QuoteDelete(DeleteView):
-    success_url = reverse_lazy('quote_list')
+class QuoteDelete(FormNextMixin, DeleteView):
+    success_url = 'quote_list'
 
     def get_object(self):
         return get_object_or_404(Quote, user=self.request.user, slug=self.kwargs['slug'])

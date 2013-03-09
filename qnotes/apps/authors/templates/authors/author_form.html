@@ -2,13 +2,16 @@
 {% load i18n %}
 {% load bootstrap %}
 
-{% block header_main %}
+{% block content_title %}
 <legend>{% if form.instance.id %}{% trans "Update author" %}{% else %}{% trans "Add new author" %}{% endif %}</legend>
-{% endblock header_main %}
+{% endblock content_title %}
 
 {% block content %}
 <form class="form-horizontal" method="post">
     {% csrf_token %}
+    {% if request.GET.next %}
+    <input type="hidden" name="next" value="{{ request.GET.next }}">
+    {% endif %}
     {{ form|bootstrap }}
     <div class="form-actions">
         <button type="submit" class="btn btn-primary">{% trans "Save" %}</button>
