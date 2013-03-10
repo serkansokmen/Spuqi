@@ -1,7 +1,7 @@
 {% load i18n %}
 {% load endless %}
 
-{% paginate quotes %}
+{% paginate 2 quotes %}
 {% for quote in quotes %}
     {% include "quotes/quote_item.html" %}
 {% empty %}
