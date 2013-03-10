@@ -1,13 +1,12 @@
 from django.shortcuts import get_object_or_404
-from django.views.generic import DetailView, CreateView, UpdateView, DeleteView
+from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView
 from qnotes.apps.quotes.models import Quote
 from .models import Source
 from .forms import SourceForm
 from apps.helpers.views import FormNextMixin
-from endless_pagination.views import AjaxListView
 
 
-class SourceList(AjaxListView):
+class SourceList(ListView):
     context_object_name = 'sources'
 
     def get_queryset(self):

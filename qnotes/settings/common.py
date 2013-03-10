@@ -377,13 +377,7 @@ COMPRESS_JS_FILTERS = [
 ########## DJANGO ENDLESS PAGINATION CONFIGURATION
 ENDLESS_PAGINATION_PER_PAGE = 10
 ENDLESS_PAGINATION_PAGE_LABEL = 'p'
-
-
-def get_page_numbers(current_page, num_pages):
-    return ('previous', 1, None, current_page, 'last')
-
-
-ENDLESS_PAGE_LIST_CALLABLE = ('previous', 1, '...', get_page_numbers, 'next',)
+ENDLESS_PAGINATION_LOADING = """<img src="/static/img/spinner.gif" alt="loading" />"""
 ########## END DJANGO ENDLESS PAGINATION CONFIGURATION
 
 ########## OTHER CONFIGURATION

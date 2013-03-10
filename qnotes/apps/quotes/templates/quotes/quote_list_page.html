@@ -1,7 +1,5 @@
 {% extends "base.html" %}
 {% load i18n %}
-{% load endless %}
-{% load humanize %}
 
 {% block header_actions %}
 <a class="btn btn-success" href="{% url quote_add %}"><i class="icon-plus-sign "></i> {% trans "New Quote" %}</a>
@@ -9,7 +7,5 @@
 
 {% block content %}
     <hr>
-    {% paginate 10 quotes %}
-    {% include "quotes/quote_list_two_cols.html" %}
-    {% show_pages %}
+    {% include page_template %}
 {% endblock content %}

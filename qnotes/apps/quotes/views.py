@@ -7,6 +7,7 @@ from django.forms import ValidationError
 from .models import Quote
 from .forms import QuoteForm
 from apps.helpers.views import FormNextMixin
+from endless_pagination.views import AjaxListView
 
 
 class QuotesMixin(object):
@@ -17,9 +18,10 @@ class QuotesMixin(object):
         return context
 
 
-class QuoteList(QuotesMixin, ListView):
+class QuoteList(QuotesMixin, AjaxListView):
     context_object_name = 'quotes'
     template_name = 'quotes/quote_list_page.html'
+    page_template = 'quotes/quote_list.html'
 
     def get_queryset(self):
         wanted_quotes = set()

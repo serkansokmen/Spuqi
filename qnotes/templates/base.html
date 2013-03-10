@@ -70,7 +70,6 @@
         {% endcomment %}
         {% block content_title %}{% endblock content_title %}
         {% block content %}{% endblock content %}
-        <hr>
         <footer class="row-fluid">
             <small>&copy; Qnotes {% now "Y" %}</small>
         </footer>
@@ -80,18 +79,21 @@
     ================================================== -->
     {# <script src="http://cdnjs.cloudflare.com/ajax/libs/knockout/2.2.0/knockout-min.js"></script> #}
     {# <script src="http://cdnjs.cloudflare.com/ajax/libs/knockout.mapping/2.3.3/knockout.mapping.js"></script> #}
-    {% block js %}
     {% dajaxice_js_import %}
     {% compress js %}
+    {% block js %}
     <script src="{{ STATIC_URL }}js/vendor/bootstrap.js"></script>
+    <script src="{{ STATIC_URL }}endless_pagination/js/endless-pagination.js"></script>
     <script type="text/javascript">
         $(function () {
             $("[rel='tooltip']").tooltip();
+            $.endlessPaginate({
+                paginateOnScroll: true,
+                paginateOnScrollMargin: 20
+            });
         });
     </script>
-    <script src="{{ STATIC_URL }}endless_pagination/js/endless-pagination.js"></script>
-    <script>$.endlessPaginate();</script>
-    {% endcompress %}
     {% endblock js %}
+    {% endcompress %}
 </body>
 </html>

@@ -1,6 +1,10 @@
 {% load i18n %}
+{% load endless %}
+
+{% paginate quotes %}
 {% for quote in quotes %}
     {% include "quotes/quote_item.html" %}
 {% empty %}
     <p class="alert alert-info">{% trans "No quotes" %}</p>
 {% endfor %}
+{% show_more %}
