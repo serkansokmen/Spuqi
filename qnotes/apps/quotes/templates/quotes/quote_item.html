@@ -10,7 +10,7 @@
             <img src="{{ quote.user.get_profile.get_mugshot_url }}" alt="{{ quote.user }}">
         </a>
     </div>
-    <div class="pull-left">
+    <div class="span7">
         <strong>{% trans "Source" %}:</strong> <a href="{{ quote.source.get_absolute_url }}">{{ quote.source }}</a>
         {# Tags #}
         {% if quote.tags.count > 0 %}
@@ -21,8 +21,8 @@
             {% endfor %}
         {% endif %}
     </div>
-    <div class="pull-right">
-        <div class="btn-group">
+    <div class="span3">
+        <div class="btn-group pull-right">
             {% if quotes %}
             <a class="btn btn-link" href="{{ quote.get_absolute_url }}" title="{{ quote.get_privacy_state_display }}" rel="tooltip">
                 {% if quote.privacy_state == 1 %}

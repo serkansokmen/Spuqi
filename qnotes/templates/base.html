@@ -83,14 +83,9 @@
     {% compress js %}
     {% block js %}
     <script src="{{ STATIC_URL }}js/vendor/bootstrap.js"></script>
-    <script src="{{ STATIC_URL }}endless_pagination/js/endless-pagination.js"></script>
     <script type="text/javascript">
         $(function () {
             $("[rel='tooltip']").tooltip();
-            $.endlessPaginate({
-                paginateOnScroll: true,
-                paginateOnScrollMargin: 20
-            });
         });
     </script>
     {% endblock js %}
