@@ -6,6 +6,7 @@ from common import *
 ########## DEBUG CONFIGURATION
 # See: https://docs.djangoproject.com/en/dev/ref/settings/#debug
 DEBUG = True
+LOG_SQL = False
 
 # See: https://docs.djangoproject.com/en/dev/ref/settings/#template-debug
 TEMPLATE_DEBUG = DEBUG
@@ -92,8 +93,6 @@ DEBUG_TOOLBAR_CONFIG = {
 }
 INTERNAL_IPS = ('127.0.0.1',)
 ########## END DEBUG TOOLBAR CONFIGURATION
-
-LOG_SQL = False
 
 if LOG_SQL:
     LOGGING = {
