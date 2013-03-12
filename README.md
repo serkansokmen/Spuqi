@@ -1,4 +1,4 @@
-https://api.travis-ci.org/serkansokmen/Qnotes.png
+[![Build Status](https://api.travis-ci.org/serkansokmen/Qnotes.png)](https://api.travis-ci.org/serkansokmen/Qnotes.png)
 
 Qnotes
 =============
