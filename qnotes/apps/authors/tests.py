@@ -1,5 +1,6 @@
 from django.test import TestCase, LiveServerTestCase
 from django.core.urlresolvers import reverse
+from django.contrib.auth.models import User
 from .models import Author
 from selenium import webdriver
 from selenium.webdriver.common.keys import Keys
@@ -11,32 +12,31 @@ class AuthorsViewsTest(TestCase):
     def setUp(self):
         self.client.login(username='ssokmen', password='12345')
 
-    def test_author_list(self):
-        """
-        Tests author list view
-        """
-        self.client.login(username='ssokmen', password='12345')
+    def test_author_list_view(self):
+        # request user is uthenticated
+        self.assertIn('_auth_user_id', self.client.session)
+        # go to author_list url
         response = self.client.get(reverse('author_list'))
+        # server response is OK
         self.assertEqual(response.status_code, 200)
+        # rendered with right template
+        # has author_list in context
 
-    def test_author_detail(self):
-        """
-        Tests author list view
-        """
+    def test_author_detail_view(self):
+        self.assertIn('_auth_user_id', self.client.session)
+        # self.assertEqual(self.client.session['_auth_user_id'], user.pk)
         author = Author.objects.get(id=1)
-        response = self.client.get(reverse('author_detail', kwargs={'slug': author.slug}))
-        self.assertEqual(response.status_code, 200)
-
-    '''
-    def test_author_create(self):
-        """
-        Tests author list view
-        """
-        author = Author.objects.create(name=u'New Author', user=self.session.user)
-        response = self.client.get(reverse('author_detail', kwargs={'slug': author.slug}))
+        response = self.client.get(reverse(
+            'author_detail',
+            kwargs={'slug': author.slug}))
         self.assertEqual(response.status_code, 200)
     '''
+    def test_author_create_view(self):
+        user = User.objects.get(pk=self.client.session['_auth_user_id'])
+        author = Author.objects.create(name=u'New Author', user=user)
 
+        self.assertEqual(response.status_code, 200)
+    '''
 '''
 class SeleniumTests(LiveServerTestCase):
     fixtures = ['users.json']
