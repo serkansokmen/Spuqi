@@ -13,7 +13,7 @@ django-grappelli
 django-guardian
 django-rosetta==0.7.1
 django-autofixture
-django-userena
+django-userena==1.2.0
 git+git://github.com/arthurk/django-disqus.git
 django-tastypie
 django-taggit
