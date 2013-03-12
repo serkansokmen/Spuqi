@@ -15,7 +15,9 @@
 <script src="{{ STATIC_URL }}endless_pagination/js/endless-pagination.js"></script>
 <script type="text/javascript">
     $(function () {
-        $("[rel='tooltip']").tooltip();
+        $('body').tooltip({
+            selector: '[rel=tooltip]'
+        });
         $.endlessPaginate({
             paginateOnScroll: true,
             paginateOnScrollMargin: 20
