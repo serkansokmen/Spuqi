@@ -3,7 +3,7 @@
 {% load endless %}
 
 {% block header_actions %}
-<a class="btn btn-success" href="{% url author_add %}"><i class="icon-plus-sign "></i> {% trans "New Author" %}</a>
+<a class="btn btn-success" href="{% url 'author_add' %}"><i class="icon-plus-sign "></i> {% trans "New Author" %}</a>
 {% endblock header_actions %}
 
 {% block content %}
@@ -23,10 +23,10 @@
                 <td>
                     {% ifequal author.user request.user %}
                     <div class="pull-right">
-                        <a class="btn btn-link btn-small" href="{% url author_edit slug=author.slug %}">
+                        <a class="btn btn-link btn-small" href="{% url 'author_edit' slug=author.slug %}">
                             <i class="icon-pencil"></i>
                         </a>
-                        <a class="btn btn-link btn-small" href="{% url author_delete slug=author.slug %}">
+                        <a class="btn btn-link btn-small" href="{% url 'author_delete' slug=author.slug %}">
                             <i class="icon-trash"></i>
                         </a>
                     </div>

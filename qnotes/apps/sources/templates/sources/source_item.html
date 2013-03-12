@@ -11,10 +11,10 @@
     <td>
         <div class="pull-right">
             {% ifequal source.user request.user %}
-            <a class="btn btn-link btn-small" href="{% url source_edit slug=source.slug %}?next={{ request.path }}">
+            <a class="btn btn-link btn-small" href="{% url 'source_edit' slug=source.slug %}?next={{ request.path }}">
                 <i class="icon-pencil"></i>
             </a>
-            <a class="btn btn-link btn-small" href="{% url source_delete slug=source.slug %}?next={{ request.path }}">
+            <a class="btn btn-link btn-small" href="{% url 'source_delete' slug=source.slug %}?next={{ request.path }}">
                 <i class="icon-trash"></i>
             </a>
             {% endifequal %}

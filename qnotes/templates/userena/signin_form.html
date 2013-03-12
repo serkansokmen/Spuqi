@@ -7,7 +7,7 @@
 {% block content_title %}
 <h2>{% trans "Signin" %}</h2>
 <div>
-{% url userena_signup as signup_url %}
+{% url 'userena_signup' as signup_url %}
 {% blocktrans with signup_url as signup_url %}
     or <a href="{{ signup_url }}"><i>signup</i></a> for a new account.
 {% endblocktrans %}
@@ -23,7 +23,7 @@
     </fieldset>
     <div class="form-actions">
         <input class="btn btn-primary" type="submit" value="{% trans "Signin" %}" />
-        <a class="btn btn-link" href='{% url userena_password_reset %}' title="{% trans "Forgot your password?" %}">{% trans "Forgot your password?" %}</a>
+        <a class="btn btn-link" href='{% url 'userena_password_reset' %}' title="{% trans "Forgot your password?" %}">{% trans "Forgot your password?" %}</a>
     </div>
     {% if next %}<input type="hidden" name="next" value="{{ next }}" />{% endif %}
 </form>

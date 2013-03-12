@@ -12,10 +12,10 @@
         <a href="{{ source.get_absolute_url }}">{{ source }}</a>
         {% ifequal source.user request.user %}
         <div class="pull-right">
-            <a href="{% url source_edit slug=source.slug %}">
+            <a href="{% url 'source_edit' slug=source.slug %}">
                 <i class="icon-pencil"></i>
             </a>
-            <a href="{% url source_delete slug=source.slug %}">
+            <a href="{% url 'source_delete' slug=source.slug %}">
                 <i class="icon-trash"></i>
             </a>
         </div>

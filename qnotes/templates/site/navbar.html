@@ -12,18 +12,18 @@
             <a class="brand" href="/">Qnotes</a>
             <div class="nav-collapse">
                 <ul class="nav pull-left">
-                    <li{% ifequal active_tab 'quotes'  %} class="active"{% endifequal %}><a href="{% url quote_list %}">{% trans "Quotes" %}</a></li>
-                    <li{% ifequal active_tab 'collections'  %} class="active"{% endifequal %}><a href="{% url collection_list %}">{% trans "Collections" %}</a></li>
+                    <li{% ifequal active_tab 'quotes'  %} class="active"{% endifequal %}><a href="{% url 'quote_list' %}">{% trans "Quotes" %}</a></li>
+                    <li{% ifequal active_tab 'collections'  %} class="active"{% endifequal %}><a href="{% url 'collection_list' %}">{% trans "Collections" %}</a></li>
                 </ul>
                 <ul class="nav pull-right">
                     {% if user.is_authenticated %}
                     <li>
-                        <a href="{% url userena_profile_detail user.username %}">
+                        <a href="{% url 'userena_profile_detail' user.username %}">
                             <img class="mugshot" src="{{ user.get_profile.get_mugshot_url }}" alt="{{ user }}" style="width:21px;height:21px;"/>
                         </a>
                     </li>
                     {% if user.is_superuser %}
-                    <li><a href="{% url admin:index %}" title="{% trans "Admin Panel" %}"><i class="icon-cogs"></i> {# {% trans "Admin Panel" %} #}</a></li>
+                    <li><a href="{% url 'admin:index' %}" title="{% trans "Admin Panel" %}"><i class="icon-cogs"></i> {# {% trans "Admin Panel" %} #}</a></li>
                     {% endif %}
                     {% endif %}
                     <li class="dropdown">
@@ -33,11 +33,11 @@
                             <b class="icon-user"></b>
                         </a>
                         <ul class="dropdown-menu">
-                            <li><a href="{% url userena_profile_edit user.username %}"><i class="icon-pencil"></i> {% trans "Edit profile" %}</a></li>
-                            <li><a href="{% url userena_password_change user.username %}"><i class="icon-key"></i> {% trans "Change password" %}</a></li>
-                            <li><a href="{% url userena_email_change user.username %}"><i class="icon-envelope"></i> {% trans "Change email" %}</a></li>
+                            <li><a href="{% url 'userena_profile_edit' user.username %}"><i class="icon-pencil"></i> {% trans "Edit profile" %}</a></li>
+                            <li><a href="{% url 'userena_password_change' user.username %}"><i class="icon-key"></i> {% trans "Change password" %}</a></li>
+                            <li><a href="{% url 'userena_email_change' user.username %}"><i class="icon-envelope"></i> {% trans "Change email" %}</a></li>
                             <li class="divider"></li>
-                            <li><a href="{% url userena_signout %}"><i class="icon-signout"></i> {% trans "Signout" %}</a></li>
+                            <li><a href="{% url 'userena_signout' %}"><i class="icon-signout"></i> {% trans "Signout" %}</a></li>
                         </ul>
                         {% endwith %}
                     {% else %}
@@ -45,15 +45,15 @@
                             <i class="icon-user"></i> <b class="caret"></b>
                         </a>
                         <ul class="dropdown-menu">
-                            <li><a href="{% url userena_signin %}"><i class="icon-signin"></i> {% trans "Login" %}</a></li>
-                            <li><a href="{% url userena_signup %}"><i class="icon-user"></i> {% trans "Signup" %}</a></li>
+                            <li><a href="{% url 'userena_signin' %}"><i class="icon-signin"></i> {% trans "Login" %}</a></li>
+                            <li><a href="{% url 'userena_signup' %}"><i class="icon-user"></i> {% trans "Signup" %}</a></li>
                         </ul>
                     {% endif %}
                     </li>
                 </ul>
                 <ul class="nav pull-right">
-                    <li{% ifequal active_tab 'sources'  %} class="active"{% endifequal %}><a href="{% url source_list %}"> {% trans "Sources" %}</a></li>
-                    <li{% ifequal active_tab 'authors'  %} class="active"{% endifequal %}><a href="{% url author_list %}"> {% trans "Authors" %}</a></li>
+                    <li{% ifequal active_tab 'sources'  %} class="active"{% endifequal %}><a href="{% url 'source_list' %}"> {% trans "Sources" %}</a></li>
+                    <li{% ifequal active_tab 'authors'  %} class="active"{% endifequal %}><a href="{% url 'author_list' %}"> {% trans "Authors" %}</a></li>
                 </ul>
             </div><!-- /.nav-collapse -->
         </div>

@@ -13,7 +13,7 @@
             {{ form|bootstrap }}
             <div class="form-actions">
                 <button type="submit" class="btn btn-primary">{% trans "Save" %}</button>
-                <a href="{% if collection %}{{ collection.get_absolute_url }}{% else %}{% url collection_list %}{% endif %}" class="btn">{% trans "Cancel" %}</a>
+                <a href="{% if collection %}{{ collection.get_absolute_url }}{% else %}{% url 'collection_list' %}{% endif %}" class="btn">{% trans "Cancel" %}</a>
             </div>
         </form>
     </div>

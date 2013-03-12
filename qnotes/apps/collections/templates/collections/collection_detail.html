@@ -8,10 +8,10 @@
         <h3><i class="icon-folder-open"></i> {{ current_collection }}</h3>
         {% ifequal current_collection.user request.user %}
         <div class="pull-left">
-            <a href="{% url collection_edit slug=current_collection.slug %}?next={{ request.path }}" title="{% trans "Edit" %}" rel="tooltip">
+            <a href="{% url 'collection_edit' slug=current_collection.slug %}?next={{ request.path }}" title="{% trans "Edit" %}" rel="tooltip">
                 <i class="icon-pencil"></i>
             </a>
-            <a href="{% url collection_delete slug=current_collection.slug %}" title="{% trans "Delete" %}" rel="tooltip">
+            <a href="{% url 'collection_delete' slug=current_collection.slug %}" title="{% trans "Delete" %}" rel="tooltip">
                 <i class="icon-trash"></i>
             </a>
         </div>
@@ -20,7 +20,7 @@
     <div class="span4">
         <h4>{% trans "Members" %}:</h4>
         {% for member in current_collection.members.all %}
-            <a href="{% url userena_profile_detail member.username %}" title="{{ member }}" rel="tooltip">
+            <a href="{% url 'userena_profile_detail' member.username %}" title="{{ member }}" rel="tooltip">
                 <img src="{{ member.get_profile.get_mugshot_url }}" alt="{{ member }}">
             </a>
         {% endfor %}
@@ -48,8 +48,8 @@
 </table>
 {% show_pages %}
 <div class="form-actions">
-    <a class="btn btn-success" href="{% url source_add %}?next={{ request.path }}"><i class="icon-plus-sign"></i> {% trans "Add Source" %}</a>
-    <a class="btn btn-success" href="{% url author_add %}?next={{ request.path }}"><i class="icon-plus-sign"></i> {% trans "Add Author" %}</a>
+    <a class="btn btn-success" href="{% url 'source_add' %}?next={{ request.path }}"><i class="icon-plus-sign"></i> {% trans "Add Source" %}</a>
+    <a class="btn btn-success" href="{% url 'author_add' %}?next={{ request.path }}"><i class="icon-plus-sign"></i> {% trans "Add Author" %}</a>
 </div>
 {% endwith %}
 {% endblock content %}

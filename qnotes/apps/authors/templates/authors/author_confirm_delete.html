@@ -9,7 +9,7 @@
     {% endblocktrans %}</p>
     <div class="form-actions">
         <input type="submit" value="{% trans "Yes" %}" class="btn btn-danger">
-        <a href="{% url author_list %}" class="btn">{% trans "Cancel" %}</a>
+        <a href="{% url 'author_list' %}" class="btn">{% trans "Cancel" %}</a>
     </div>
 </form>
 {% endblock content %}

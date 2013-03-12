@@ -6,7 +6,7 @@
 </blockquote>
 <div class="row-fluid">
     <div class="pull-left">
-        <a class="btn btn-link" href="{% url userena_profile_detail username=quote.user.username %}" title="{{ quote.user }}" rel="tooltip">
+        <a class="btn btn-link" href="{% url 'userena_profile_detail' username=quote.user.username %}" title="{{ quote.user }}" rel="tooltip">
             <img src="{{ quote.user.get_profile.get_mugshot_url }}" alt="{{ quote.user }}">
         </a>
     </div>
@@ -35,10 +35,10 @@
             </a>
             {% endif %}
             {% if quote.user == request.user %}
-            <a class="btn btn-link" href="{% url quote_edit slug=quote.slug %}?next={{ request.path }}" title="{% trans "Edit" %}" rel="tooltip">
+            <a class="btn btn-link" href="{% url 'quote_edit' slug=quote.slug %}?next={{ request.path }}" title="{% trans "Edit" %}" rel="tooltip">
                 <i class="icon-pencil"></i>
             </a>
-            <a class="btn btn-link" href="{% url quote_delete slug=quote.slug %}?next={{ request.path }}" title="{% trans "Delete" %}" rel="tooltip">
+            <a class="btn btn-link" href="{% url 'quote_delete' slug=quote.slug %}?next={{ request.path }}" title="{% trans "Delete" %}" rel="tooltip">
                 <i class="icon-trash"></i>
             </a>
             {% endif %}
