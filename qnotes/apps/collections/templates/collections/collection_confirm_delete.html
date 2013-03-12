@@ -5,9 +5,9 @@
     <form method="post">
         {% csrf_token %}
 
-        {% blocktrans with collection as collection %}
-        <p>Delete {{ collection }}?</p>
-        {% endblocktrans %}
+        <p>{% blocktrans with collection as collection %}
+        Delete {{ collection }}?
+        {% endblocktrans %}</p>
 
         <div class="form-actions">
             <input type="submit" value="{% trans "Yes" %}" class="btn btn-danger">

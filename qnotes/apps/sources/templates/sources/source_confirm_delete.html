@@ -4,9 +4,9 @@
 {% block content %}
     <form method="post">
         {% csrf_token %}
-        {% blocktrans with source as source %}
-        <p>Delete {{ source }}?</p>
-        {% endblocktrans %}
+        <p>{% blocktrans with source as source %}
+        Delete {{ source }}?
+        {% endblocktrans %}</p>
 
         <div class="form-actions">
             <input type="submit" value="{% trans "Yes" %}" class="btn btn-danger">

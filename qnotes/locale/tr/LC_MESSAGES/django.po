@@ -1,0 +1,706 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+# 
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2013-03-13 00:34+0200\n"
+"PO-Revision-Date: 2013-03-13 00:43+0157\n"
+"Last-Translator: Serkan Sokmen <e.serkan.sokmen@gmail.com>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: \n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"X-Translated-Using: django-rosetta 0.7.1\n"
+
+#: apps/accounts/models.py:16
+msgid "User"
+msgstr "Kullanıcı"
+
+#: apps/authors/models.py:11
+#: apps/authors/templates/authors/author_list.html:14
+msgid "Name"
+msgstr "İsim"
+
+#: apps/authors/templates/authors/author_confirm_delete.html:7
+#, python-format
+msgid ""
+"\n"
+"    Delete %(author)s?\n"
+"    "
+msgstr ""
+"\n"
+"%(author)s adlı yazar silinsin mi?"
+
+#: apps/authors/templates/authors/author_confirm_delete.html:11
+#: apps/collections/templates/collections/collection_confirm_delete.html:13
+#: apps/quotes/templates/quotes/quote_confirm_delete.html:10
+#: apps/sources/templates/sources/source_confirm_delete.html:12
+msgid "Yes"
+msgstr "Evet"
+
+#: apps/authors/templates/authors/author_confirm_delete.html:12
+#: apps/authors/templates/authors/author_form.html:18
+#: apps/collections/templates/collections/collection_confirm_delete.html:14
+#: apps/collections/templates/collections/collection_form.html:16
+#: apps/quotes/templates/quotes/quote_confirm_delete.html:11
+#: apps/quotes/templates/quotes/quote_form.html:15
+#: apps/sources/templates/sources/source_confirm_delete.html:13
+#: apps/sources/templates/sources/source_form.html:28
+msgid "Cancel"
+msgstr "İptal"
+
+#: apps/authors/templates/authors/author_form.html:6
+msgid "Update author"
+msgstr "Yazarı güncelle"
+
+#: apps/authors/templates/authors/author_form.html:6
+msgid "Add new author"
+msgstr "Yeni yazar ekle"
+
+#: apps/authors/templates/authors/author_form.html:17
+#: apps/collections/templates/collections/collection_form.html:15
+#: apps/quotes/templates/quotes/quote_form.html:14
+#: apps/sources/templates/sources/source_form.html:27
+msgid "Save"
+msgstr "Kaydet"
+
+#: apps/authors/templates/authors/author_list.html:6
+msgid "New Author"
+msgstr "Yeni Yazar"
+
+#: apps/collections/models.py:12 apps/sources/models.py:12
+msgid "Title"
+msgstr "Başlık"
+
+#: apps/collections/models.py:14 templates/site/navbar.html:55
+msgid "Sources"
+msgstr "Kaynaklar"
+
+#: apps/collections/models.py:15
+#: apps/collections/templates/collections/collection_detail.html:21
+msgid "Members"
+msgstr "Üyeler"
+
+#: apps/collections/templates/collections/collection_confirm_delete.html:8
+#, python-format
+msgid ""
+"\n"
+"        Delete %(collection)s?\n"
+"        "
+msgstr ""
+"\n"
+"%(collection)s adlı kolleksiyon silinsin mi?"
+
+#: apps/collections/templates/collections/collection_detail.html:11
+#: apps/collections/templates/collections/collection_list.html:26
+#: apps/collections/templates/collections/collection_list.html:56
+#: apps/quotes/templates/quotes/quote_item.html:38
+msgid "Edit"
+msgstr "Düzenle"
+
+#: apps/collections/templates/collections/collection_detail.html:14
+#: apps/collections/templates/collections/collection_list.html:29
+#: apps/collections/templates/collections/collection_list.html:59
+#: apps/quotes/templates/quotes/quote_item.html:41
+msgid "Delete"
+msgstr "Sil"
+
+#: apps/collections/templates/collections/collection_detail.html:37
+#: apps/quotes/models.py:45 apps/quotes/templates/quotes/quote_item.html:14
+#: apps/sources/templates/sources/source_list.html:14
+msgid "Source"
+msgstr "Kaynak"
+
+#: apps/collections/templates/collections/collection_detail.html:38
+#: apps/sources/models.py:16
+#: apps/sources/templates/sources/source_list.html:15
+msgid "ISBN"
+msgstr "ISBN"
+
+#: apps/collections/templates/collections/collection_detail.html:39
+#: apps/sources/models.py:14
+#: apps/sources/templates/sources/source_list.html:16
+#: templates/site/navbar.html:56
+msgid "Authors"
+msgstr "Yazarlar"
+
+#: apps/collections/templates/collections/collection_detail.html:51
+msgid "Add Source"
+msgstr "Kaynek Ekle"
+
+#: apps/collections/templates/collections/collection_detail.html:52
+msgid "Add Author"
+msgstr "Yazar Ekle"
+
+#: apps/collections/templates/collections/collection_form.html:6
+msgid "Update collection"
+msgstr "Kolleksiyonu güncelle"
+
+#: apps/collections/templates/collections/collection_form.html:6
+msgid "Add new collection"
+msgstr "Yeni kolleksiyon oluştur"
+
+#: apps/collections/templates/collections/collection_list.html:5
+#: templates/userena/profile_detail.html:29
+msgid "New Collection"
+msgstr "Yeni Kolleksiyon"
+
+#: apps/collections/templates/collections/collection_list.html:11
+msgid "Your own collections"
+msgstr "Sizin kolleksiyonlarınız"
+
+#: apps/collections/templates/collections/collection_list.html:41
+msgid "You are a member of these collections"
+msgstr "Şu kolleksiyonların üyesisiniz"
+
+#: apps/quotes/models.py:15 apps/quotes/models.py:19
+msgid "Text"
+msgstr "Yazı"
+
+#: apps/quotes/models.py:15
+msgid "Voice"
+msgstr "Ses"
+
+#: apps/quotes/models.py:15
+msgid "Video"
+msgstr "Video"
+
+#: apps/quotes/models.py:18
+msgid "Note type"
+msgstr "Not tipi"
+
+#: apps/quotes/models.py:20
+msgid "Video URL"
+msgstr "Video adresi"
+
+#: apps/quotes/models.py:21
+msgid "Sound URL"
+msgstr "Ses adresi"
+
+#: apps/quotes/models.py:39
+msgid "Open to discussion"
+msgstr "Tartışmaya açık"
+
+#: apps/quotes/models.py:39
+msgid "Read only"
+msgstr "Salt okunur"
+
+#: apps/quotes/models.py:39
+msgid "Private"
+msgstr "Özel"
+
+#: apps/quotes/models.py:46
+msgid "Quote"
+msgstr "Alıntı"
+
+#: apps/quotes/models.py:49
+msgid "Privacy state"
+msgstr "Gizlilik durumu"
+
+#: apps/quotes/views.py:76
+msgid "This quotation is already created."
+msgstr "Bu alıntı daha önce yapılmış."
+
+#: apps/quotes/templates/quotes/quote_confirm_delete.html:7
+msgid "Delete this quote?"
+msgstr "Alıntıyı silmek istiyor musunuz?"
+
+#: apps/quotes/templates/quotes/quote_form.html:6
+msgid "Update quote"
+msgstr "Alıntıyı güncelle"
+
+#: apps/quotes/templates/quotes/quote_form.html:6
+msgid "Add new quote"
+msgstr "Yeni alıntı yap"
+
+#: apps/quotes/templates/quotes/quote_item.html:18
+msgid "Tags"
+msgstr "Etiketler"
+
+#: apps/quotes/templates/quotes/quote_list.html:8
+#: apps/quotes/templates/quotes/quote_list_two_cols.html:10
+#: apps/sources/templates/sources/source_detail.html:15
+msgid "No quotes"
+msgstr "Alıntı bulunamadı"
+
+#: apps/quotes/templates/quotes/quote_list_page.html:5
+#: templates/userena/profile_detail.html:20
+msgid "New Quote"
+msgstr "Yeni Alıntı"
+
+#: apps/sources/models.py:15
+msgid "URL"
+msgstr "URL"
+
+#: apps/sources/templates/sources/source_confirm_delete.html:7
+#, python-format
+msgid ""
+"\n"
+"        Delete %(source)s?\n"
+"        "
+msgstr ""
+"\n"
+"%(source)s adlı kaynak silinsin mi?"
+
+#: apps/sources/templates/sources/source_detail.html:5
+#: apps/sources/templates/sources/source_list.html:6
+msgid "New Source"
+msgstr "Yeni Kaynak"
+
+#: apps/sources/templates/sources/source_detail.html:11
+#, python-format
+msgid "Quotes from <i class=\"text-info\">&ldquo; %(source)s &rdquo;</i>"
+msgstr ""
+"<i class=\"text-info\">&ldquo; %(source)s &rdquo;</i> kaynağındaki alıntılar"
+
+#: apps/sources/templates/sources/source_form.html:6
+msgid "Update source"
+msgstr "Kaynağı güncelle"
+
+#: apps/sources/templates/sources/source_form.html:6
+msgid "Add new source"
+msgstr "Yeni kaynak ekle"
+
+#: apps/sources/templates/sources/source_form.html:19
+msgid "Error!"
+msgstr "Hata!"
+
+#: settings/common.py:72
+msgid "English"
+msgstr "İngilizce"
+
+#: settings/common.py:73
+msgid "Turkish"
+msgstr "Türkçe"
+
+#: templates/404.html:3
+msgid "Page not found!"
+msgstr "Sayfa bulunamadı!"
+
+#: templates/500.html:3
+msgid "Server error!"
+msgstr "Sunucu hatası!"
+
+#: templates/home.html:6
+msgid "Collaborative space for social reading"
+msgstr "Sosyal okuma amaçlı işbirlik alanı"
+
+#: templates/home.html:11 templates/site/navbar.html:48
+msgid "Login"
+msgstr "Giriş"
+
+#: templates/home.html:12 templates/site/navbar.html:49
+#: templates/userena/signup_complete.html:6
+#: templates/userena/signup_form.html:5 templates/userena/signup_form.html:8
+#: templates/userena/signup_form.html:23
+msgid "Signup"
+msgstr "Kaydol"
+
+#: templates/toolbar.html:4
+msgid "Enter keywords"
+msgstr "Anahtar kelimeler girin"
+
+#: templates/toolbar.html:5
+msgid "Search"
+msgstr "Ara"
+
+#: templates/endless/show_more.html:5
+msgid "more"
+msgstr "diğer"
+
+#: templates/site/navbar.html:15
+msgid "Quotes"
+msgstr "Alıntılar"
+
+#: templates/site/navbar.html:16
+msgid "Collections"
+msgstr "Kolleksiyonlar"
+
+#: templates/site/navbar.html:26
+msgid "Admin Panel"
+msgstr "Yönetici Paneli"
+
+#: templates/site/navbar.html:36 templates/userena/profile_form.html:7
+msgid "Edit profile"
+msgstr "Profil düzenle"
+
+#: templates/site/navbar.html:37 templates/userena/password_form.html:5
+#: templates/userena/password_form.html:20
+msgid "Change password"
+msgstr "Şifre değiştir"
+
+#: templates/site/navbar.html:38 templates/userena/email_form.html:18
+msgid "Change email"
+msgstr "E-posta değiştir"
+
+#: templates/site/navbar.html:40
+msgid "Signout"
+msgstr "Çıkış"
+
+#: templates/userena/activate_fail.html:4
+msgid "Account activation failed."
+msgstr "Hesap etkinleştirme başarısız oldu."
+
+#: templates/userena/activate_fail.html:5
+msgid "Your account could not be activated..."
+msgstr "Hesabınız etkinleştirilemedi..."
+
+#: templates/userena/activate_fail.html:8
+msgid ""
+"Your account could not be activated. This could be because your activation "
+"link has aged."
+msgstr ""
+"Hesabınız etkinleştirilemedi. Sebebi etkinleştirme bağlantınızın süresinin "
+"dolmuş olması olabilir."
+
+#: templates/userena/activate_fail.html:9
+msgid ""
+"Please try signing up again or contact us if you think something went wrong."
+msgstr ""
+"Lütfen bir daha giriş yapmayı deneyin veya eğer bir hata olduğunu "
+"düşünüyorsanız bizimle iletişim kurun."
+
+#: templates/userena/disabled.html:4
+msgid "Disabled account"
+msgstr "Engelli hesap"
+
+#: templates/userena/disabled.html:5
+msgid "Your account has been disabled"
+msgstr "Hesabınız engellendi."
+
+#: templates/userena/disabled.html:7
+msgid "It seems your account has been disabled."
+msgstr "Görünüşe göre hesabınız engellendi."
+
+#: templates/userena/disabled.html:8
+msgid ""
+"If you feel that injustice has been done to you, feel free to contact the "
+"administrators to find out why"
+msgstr ""
+"Size bir haksızlık yapıldığını düşünüyorsanız, bilgi almak için lütfen "
+"yönetici ile iletişim kurun"
+
+#: templates/userena/email_change_complete.html:4
+msgid "Email verification"
+msgstr "E-posta doğrulaması"
+
+#: templates/userena/email_change_complete.html:5
+msgid "Confirm your new email"
+msgstr "E-postanızı doğrulayın"
+
+#: templates/userena/email_change_complete.html:8
+#, python-format
+msgid "You have received an email at %(email)s."
+msgstr "%(email)s adresinde bir e-posta aldınız."
+
+#: templates/userena/email_change_complete.html:9
+#, python-format
+msgid ""
+"To associate this email address with your account (%(username)s) click on "
+"the link provided in this email."
+msgstr ""
+"Bu e-posta adresini hesabınızla (%(username)s) ilişkilendirmek için lütfen "
+"bu e-postada sunulan bağlantıya gidin."
+
+#: templates/userena/email_confirm_complete.html:4
+msgid "Email changed!"
+msgstr "E-posta değiştirildi!"
+
+#: templates/userena/email_confirm_complete.html:6
+msgid "Email changed"
+msgstr "E-posta değiştirildi"
+
+#: templates/userena/email_confirm_complete.html:8
+#, python-format
+msgid ""
+"Your new email address is saved. You can continue using %(site)s with this "
+"email."
+msgstr ""
+"Yeni e-posta adresiniz kaydedildi. %(site)s adresini bu e-posta adresi ile "
+"kullanabilirsiniz."
+
+#: templates/userena/email_confirm_fail.html:4
+msgid "Email verification failed."
+msgstr "E-posta doğrulama başarısız."
+
+#: templates/userena/email_confirm_fail.html:5
+#: templates/userena/email_confirm_fail.html:8
+msgid "Your email could not be verified..."
+msgstr "E-postaadresiniz doğrulanamadı..."
+
+#: templates/userena/email_confirm_fail.html:9
+msgid "You could try changing it again in your account settings."
+msgstr "Hesap ayarlarınızda tekrar değiştirmeyi deneyebilirsiniz."
+
+#: templates/userena/email_form.html:6
+msgid "Change email address"
+msgstr "E-posta adresi değiştir"
+
+#: templates/userena/email_form.html:7 templates/userena/password_form.html:9
+#, python-format
+msgid "Account &raquo; %(username)s"
+msgstr "Hesap &raquo; %(username)s"
+
+#: templates/userena/password_complete.html:4
+msgid "Password changed"
+msgstr "Şifre değiştirildi"
+
+#: templates/userena/password_complete.html:5
+msgid "Your password has been changed"
+msgstr "Şifreniz başarıyla değiştirildi"
+
+#: templates/userena/password_complete.html:8
+msgid "From now on you can use your new password to signin"
+msgstr "Artık giriş yapmak için yeni şifrenizi kullanabilirsiniz"
+
+#: templates/userena/password_form.html:8
+msgid "Change Password"
+msgstr "Şifre Değiştir"
+
+#: templates/userena/password_reset_complete.html:4
+msgid "Password reset"
+msgstr "Şifre sıfırlandı"
+
+#: templates/userena/password_reset_complete.html:5
+msgid "Your password has been reset"
+msgstr "Şifreniz başarıyla sıfırlandı"
+
+#: templates/userena/password_reset_complete.html:8
+#, python-format
+msgid "You can now <a href=\"%(signin_url)s\">signin</a> with your new password."
+msgstr ""
+"Artık yeni şifrenizi kullanarak <a href=\"%(signin_url)s\">giriş</a> "
+"yapabilirsiniz."
+
+#: templates/userena/password_reset_confirm_form.html:5
+#: templates/userena/password_reset_confirm_form.html:6
+#: templates/userena/password_reset_confirm_form.html:15
+#: templates/userena/password_reset_form.html:5
+#: templates/userena/password_reset_form.html:6
+msgid "Reset password"
+msgstr "Şifre sıfırla"
+
+#: templates/userena/password_reset_done.html:4
+#: templates/userena/password_reset_done.html:5
+msgid "Password reset email sent"
+msgstr "Şifre sıfırlama e-postası gönderildi"
+
+#: templates/userena/password_reset_done.html:8
+msgid ""
+"An e-mail has been sent to you which explains how to reset your password."
+msgstr "Size şifrenizi sıfırlama talimatlarını içeren bir e-posta gönderildi."
+
+#: templates/userena/password_reset_form.html:15
+msgid "Submit"
+msgstr "Gönder"
+
+#: templates/userena/profile_detail.html:5
+#, python-format
+msgid "%(username)s's profile."
+msgstr "%(username)s profili."
+
+#: templates/userena/profile_detail.html:37
+msgid "Your Collections"
+msgstr "Kolleksiyonlarınız"
+
+#: templates/userena/profile_detail.html:55
+#: templates/userena/profile_detail.html:83
+msgid "No collections"
+msgstr "Kolleksiyon bulunamadı"
+
+#: templates/userena/profile_detail.html:65
+msgid "Related collections"
+msgstr "İlgili kolleksiyonlar"
+
+#: templates/userena/profile_form.html:5
+msgid "Account setup"
+msgstr "Hesap ayarları"
+
+#: templates/userena/profile_form.html:16
+msgid "Save changes"
+msgstr "Değişiklikleri kaydet"
+
+#: templates/userena/profile_list.html:4
+msgid "Profiles"
+msgstr "Profiller"
+
+#: templates/userena/profile_list.html:20
+msgid "previous"
+msgstr "önceki"
+
+#: templates/userena/profile_list.html:24
+#, python-format
+msgid ""
+"\n"
+"      Page %(page)s of %(num_pages)s\n"
+"      "
+msgstr ""
+"\n"
+"%(num_pages)s sayfadan %(page)s."
+
+#: templates/userena/profile_list.html:30
+msgid "next"
+msgstr "sonraki"
+
+#: templates/userena/signin_form.html:5 templates/userena/signin_form.html:8
+#: templates/userena/signin_form.html:25
+msgid "Signin"
+msgstr "Giriş"
+
+#: templates/userena/signin_form.html:11
+#, python-format
+msgid ""
+"\n"
+"    or <a href=\"%(signup_url)s\"><i>signup</i></a> for a new account.\n"
+msgstr ""
+"\n"
+"ya da yeni bir hesap için <a href=\"%(signup_url)s\"><i>kaydolun</i></a>.\n"
+
+#: templates/userena/signin_form.html:26
+msgid "Forgot your password?"
+msgstr "Şifrenizi mi unuttunuz?"
+
+#: templates/userena/signout.html:4
+msgid "Signed out"
+msgstr "Çıkış yapıldı"
+
+#: templates/userena/signout.html:5
+msgid "You have been signed out"
+msgstr "Çıkış işleminiz tamamlandı"
+
+#: templates/userena/signout.html:8
+msgid "Till we meet again"
+msgstr "Tekrar görüşmek üzere"
+
+#: templates/userena/signup_complete.html:4
+msgid "Signup almost done!"
+msgstr "Kayıt işlemi neredeyse tamam!"
+
+#: templates/userena/signup_complete.html:9
+msgid "Thank you for signing up with us!"
+msgstr "Bize kaydolduğunuz için teşekkürler!"
+
+#: templates/userena/signup_complete.html:12
+msgid ""
+"You have been sent an e-mail with an activation link to the supplied email."
+msgstr "Verdiğiniz e-posta adresine bir etkinleştirme bağlantısı gönderildi."
+
+#: templates/userena/signup_complete.html:13
+#, python-format
+msgid ""
+"We will store your signup information for %(userena_activation_days)s days "
+"on our server. "
+msgstr ""
+"Kayıt bilgilerinizi %(userena_activation_days)s gün boyunca saklayacağız."
+
+#: templates/userena/signup_complete.html:15
+msgid "You can now use the supplied credentials to signin."
+msgstr "Giriş yapmak için verdiğiniz bilgileri kullanabilirsiniz."
+
+#: templates/userena/signup_form.html:11
+#, python-format
+msgid ""
+"\n"
+"    or <a href=\"%(signin_url)s\"><i>signin</i></a> with your account.\n"
+msgstr ""
+"\n"
+"ya da hesabınızla <a href=\"%(signin_url)s\"><i>giriş yapın</i></a>.\n"
+
+#: templates/userena/emails/activation_email_message.txt:2
+#: templates/userena/emails/confirmation_email_message_new.txt:2
+#: templates/userena/emails/confirmation_email_message_old.txt:2
+#, python-format
+msgid "Dear %(username)s,"
+msgstr "Sayın %(username)s,"
+
+#: templates/userena/emails/activation_email_message.txt:4
+#, python-format
+msgid "Thank you for signing up at %(site)s."
+msgstr "%(site)s adresine kayıt olduğunuz için teşekkür ederiz."
+
+#: templates/userena/emails/activation_email_message.txt:6
+msgid "To activate your account you should click on the link below:"
+msgstr "Hesabınızı etkinleştirmek için lütfen aşağıdaki bağlantıya gidin:"
+
+#: templates/userena/emails/activation_email_message.txt:10
+#: templates/userena/emails/confirmation_email_message_new.txt:12
+#: templates/userena/emails/confirmation_email_message_old.txt:8
+#: templates/userena/emails/password_reset_message.txt:14
+msgid "Thanks for using our site!"
+msgstr "Sitemizi kullandığınız için teşekkürler!"
+
+#: templates/userena/emails/activation_email_message.txt:12
+#: templates/userena/emails/confirmation_email_message_new.txt:14
+#: templates/userena/emails/confirmation_email_message_old.txt:10
+#: templates/userena/emails/password_reset_message.txt:16
+msgid "Sincerely"
+msgstr "Sevgiler"
+
+#: templates/userena/emails/activation_email_subject.txt:2
+#, python-format
+msgid "Your signup at %(site)s."
+msgstr "%(site)s kaydınız."
+
+#: templates/userena/emails/confirmation_email_message_new.txt:4
+#, python-format
+msgid "You requested a change of your email address at %(site)s."
+msgstr "%(site)s adresinde e-posta adresi değişikliği isteğinde bulundunuz."
+
+#: templates/userena/emails/confirmation_email_message_new.txt:7
+msgid "Please confirm this email address by clicking on the link below:"
+msgstr ""
+"Lütfen aşağıdaki bağlantıya giderek bu e-posta adresinin size ait olduğunu "
+"doğrulayın:"
+
+#: templates/userena/emails/confirmation_email_message_old.txt:4
+#, python-format
+msgid "There was a request to change your email address at %(site)s."
+msgstr "%(site)s adresinde e-postanızı değiştirme isteği yapıldı."
+
+#: templates/userena/emails/confirmation_email_message_old.txt:6
+#, python-format
+msgid ""
+"An email has been send to %(new_email)s which contains a verification link. "
+"Click on the link in this email to activate it."
+msgstr ""
+"%(new_email)s adresine doğrulama bağlantısını içeren bir e-posta gönderildi."
+" Bu bağlantıya giderek yeni e-postanızı etkinleştirin."
+
+#: templates/userena/emails/confirmation_email_subject_new.txt:2
+#, python-format
+msgid "Email verification for %(site)s."
+msgstr "%(site)s için e-posta doğrulaması"
+
+#: templates/userena/emails/confirmation_email_subject_old.txt:2
+#, python-format
+msgid "A request to change your email address is made at %(site)s."
+msgstr "%(site)s adreside e-posta adresinizi değiştirme isteği yapıldı."
+
+#: templates/userena/emails/password_reset_message.txt:2
+#, python-format
+msgid ""
+"You're receiving this e-mail because you requested a password reset\n"
+"for your user account at %(site_name)s"
+msgstr ""
+"Bu e-posta %(site_name)s adresinde kullandığınız şifrenizin değiştirilme "
+"isteği üzerine gönderildi"
+
+#: templates/userena/emails/password_reset_message.txt:5
+msgid "Please go to the following page and choose a new password:"
+msgstr "Lütfen şu adrese giderek yeni şifrenizi belirleyin:"
+
+#: templates/userena/emails/password_reset_message.txt:10
+#, python-format
+msgid ""
+"\n"
+"Your username, in case you've forgotten: %(username)s\n"
+msgstr ""
+"\n"
+"Kullanıcı adınız, eğer anımsayamıyorsanız: %(username)s\n"
