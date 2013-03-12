@@ -14,8 +14,6 @@ SITE_ID = 1
 
 BETA_ENABLE_BETA = bool(environ.get('BETA_ENABLE_BETA', False))
 
-ALLOWED_HOSTS = ['qnotes.heokuapp.com']
-
 DEBUG = bool(environ.get('DJANGO_DEBUG', False))
 TEMPLATE_DEBUG = DEBUG
 

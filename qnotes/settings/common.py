@@ -11,6 +11,9 @@ from djcelery import setup_loader
 gettext = lambda s: s
 
 
+ALLOWED_HOSTS = ['qnotes.herokuapp.com', ]
+
+
 ########## API-KEY CONFIGURATION
 DISQUS_API_KEY = environ.get('QNOTES_DISQUS_API_KEY', '')
 RECAPTCHA_PUBLIC_KEY = environ.get('QNOTES_RECAPTCHA_PUBLIC_KEY', '')
@@ -20,7 +23,6 @@ TWITTER_CONSUMER_SECRET = environ.get('QNOTES_TWITTER_CONSUMER_SECRET', '')
 FACEBOOK_APP_ID = environ.get('QNOTES_FACEBOOK_APP_ID', '')
 FACEBOOK_APP_SECRET = environ.get('QNOTES_FACEBOOK_APP_SECRET', '')
 ########## END API-KEY CONFIGURATION
-
 
 ########## PATH CONFIGURATION
 # Absolute filesystem path to the Django project directory:
