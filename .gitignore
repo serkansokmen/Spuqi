@@ -15,7 +15,7 @@ build
 *.db
 
 # postrgesql dump files
-.dump
+*.dump
 
 # Celerybeat scheduler file:
 celerybeat-schedule
