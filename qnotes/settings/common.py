@@ -66,7 +66,7 @@ MANAGERS = ADMINS
 TIME_ZONE = 'Europe/Istanbul'
 
 # See: https://docs.djangoproject.com/en/dev/ref/settings/#language-code
-LANGUAGE_CODE = 'tr'
+LANGUAGE_CODE = 'tr_TR'
 
 LANGUAGES = (
     ('en', gettext('English')),
@@ -80,7 +80,7 @@ SITE_ID = 1
 USE_I18N = True
 
 # See: https://docs.djangoproject.com/en/dev/ref/settings/#use-l10n
-USE_L10N = True
+USE_L10N = False
 ########## END GENERAL CONFIGURATION
 
 

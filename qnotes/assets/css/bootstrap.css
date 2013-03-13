@@ -10566,24 +10566,6 @@ footer {
   padding-bottom: 80px;
 }
 
-.main-header {
-  padding: 22px 30px;
-  padding-top: 48px;
-  font-weight: 400;
-  background-color: #dfdfdf;
-  background-color: #dfdfdf;
-  background-image: linear-gradient(35deg, #efefef, #dfdfdf);
-  background-image: -webkit-linear-gradient(35deg, #efefef, #dfdfdf);
-  background-image: -o-linear-gradient(35deg, #efefef, #dfdfdf);
-  background-image: -moz-linear-gradient(35deg, #efefef, #dfdfdf);
-  background-image: -moz-linear-gradient(35deg, #efefef, #dfdfdf);
-  background-image: -webkit-linear-gradient(35deg, #efefef, #dfdfdf);
-  background-image: -o-linear-gradient(35deg, #efefef, #dfdfdf);
-  background-image: linear-gradient(35deg, #efefef, #dfdfdf);
-  background-repeat: repeat-x;
-  background-repeat: repeat-x;
-}
-
 .main-header small {
   font-weight: 300;
   color: #999999;
@@ -10605,6 +10587,10 @@ footer {
 .container-narrow {
   max-width: 700px;
   margin: 0 auto;
+}
+
+.container-narrow > .inner {
+  margin-top: 21px;
 }
 
 /*

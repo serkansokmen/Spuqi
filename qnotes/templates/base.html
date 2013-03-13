@@ -38,46 +38,19 @@
         {% if user.is_authenticated %}
         {% include "site/navbar.html" %}
         {% endif %}
-        {% if messages %}
-            {% for message in messages %}
-            <div class="alert {% if message.tags %} alert-{{ message.tags }}{% endif %}">
-                <a class="close" data-dismiss="alert"><i class="icon-remove"></i></a>
-                {{ message }}
-            </div>
-            {% endfor %}
-        {% endif %}
-        <div class="row-fluid jumbotron" {% if not user.is_authenticated %}style="margin-top:21px;"{% endif %}>
-            <div class="row-fluid">
-                {% block header_actions %}{% endblock header_actions %}
-            </div>
+        <div class="inner">
+            {% if messages %}
+                {% for message in messages %}
+                <div class="message alert {% if message.tags %} alert-{{ message.tags }}{% endif %}">
+                    <a class="close" data-dismiss="alert"><i class="icon-remove"></i></a>
+                    {{ message }}
+                </div>
+                {% endfor %}
+            {% endif %}
+            {% block header_actions %}{% endblock header_actions %}
+            {% block content_title %}{% endblock content_title %}
+            {% block content %}{% endblock content %}
         </div>
-        {% comment %}
-        <div class="row-fluid marketing">
-            <div class="span6">
-                <h4>Subheading</h4>
-                <p>Donec id elit non mi porta gravida at eget metus. Maecenas faucibus mollis interdum.</p>
-
-                <h4>Subheading</h4>
-                <p>Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Cras mattis consectetur purus sit amet fermentum.</p>
-
-                <h4>Subheading</h4>
-                <p>Maecenas sed diam eget risus varius blandit sit amet non magna.</p>
-            </div>
-
-            <div class="span6">
-                <h4>Subheading</h4>
-                <p>Donec id elit non mi porta gravida at eget metus. Maecenas faucibus mollis interdum.</p>
-
-                <h4>Subheading</h4>
-                <p>Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Cras mattis consectetur purus sit amet fermentum.</p>
-
-                <h4>Subheading</h4>
-                <p>Maecenas sed diam eget risus varius blandit sit amet non magna.</p>
-            </div>
-        </div>
-        {% endcomment %}
-        {% block content_title %}{% endblock content_title %}
-        {% block content %}{% endblock content %}
         <footer class="row-fluid">
             <small>&copy; Qnotes {% now "Y" %}</small>
         </footer>

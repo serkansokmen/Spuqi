@@ -2,20 +2,20 @@
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
-#
+# 
 #, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-03-13 01:18+0200\n"
-"PO-Revision-Date: 2013-03-13 00:43+0157\n"
+"POT-Creation-Date: 2013-03-13 01:42+0200\n"
+"PO-Revision-Date: 2013-03-13 01:47+0157\n"
 "Last-Translator: Serkan Sokmen <e.serkan.sokmen@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
-"Language: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Language: \n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Translated-Using: django-rosetta 0.7.1\n"
 
@@ -474,8 +474,7 @@ msgstr "Şifreniz başarıyla sıfırlandı"
 
 #: templates/userena/password_reset_complete.html:8
 #, python-format
-msgid ""
-"You can now <a href=\"%(signin_url)s\">signin</a> with your new password."
+msgid "You can now <a href=\"%(signin_url)s\">signin</a> with your new password."
 msgstr ""
 "Artık yeni şifrenizi kullanarak <a href=\"%(signin_url)s\">giriş</a> "
 "yapabilirsiniz."
@@ -671,8 +670,8 @@ msgid ""
 "An email has been send to %(new_email)s which contains a verification link. "
 "Click on the link in this email to activate it."
 msgstr ""
-"%(new_email)s adresine doğrulama bağlantısını içeren bir e-posta gönderildi. "
-"Bu bağlantıya giderek yeni e-postanızı etkinleştirin."
+"%(new_email)s adresine doğrulama bağlantısını içeren bir e-posta gönderildi."
+" Bu bağlantıya giderek yeni e-postanızı etkinleştirin."
 
 #: templates/userena/emails/confirmation_email_subject_new.txt:2
 #, python-format

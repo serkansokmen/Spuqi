@@ -51,11 +51,6 @@ CELERY_ALWAYS_EAGER = True
 ########## END CELERY CONFIGURATION
 
 
-########## ROSETTA CONFIGURATION
-ROSETTA_WSGI_AUTO_RELOAD = False
-########## END ROSETTA CONFIGURATION
-
-
 ########## TOOLBAR CONFIGURATION
 # See: https://github.com/django-debug-toolbar/django-debug-toolbar#installation
 INSTALLED_APPS += (
