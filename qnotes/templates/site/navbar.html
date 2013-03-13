@@ -16,23 +16,19 @@
                     <li{% ifequal active_tab 'collections'  %} class="active"{% endifequal %}><a href="{% url 'collection_list' %}">{% trans "Collections" %}</a></li>
                 </ul>
                 <ul class="nav pull-right">
-                    {% if user.is_authenticated %}
-                    <li>
-                        <a href="{% url 'userena_profile_detail' user.username %}">
-                            <img class="mugshot" src="{{ user.get_profile.get_mugshot_url }}" alt="{{ user }}" style="width:21px;height:21px;"/>
-                        </a>
-                    </li>
-                    {% if user.is_superuser %}
-                    <li><a href="{% url 'admin:index' %}" title="{% trans "Admin Panel" %}"><i class="icon-cogs"></i> {# {% trans "Admin Panel" %} #}</a></li>
-                    {% endif %}
-                    {% endif %}
                     <li class="dropdown">
                     {% if user.is_authenticated %}
                         {% with user.get_profile as profile %}
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                            <b class="icon-user"></b>
+                            <img class="mugshot" src="{{ user.get_profile.get_mugshot_url }}" alt="{{ user }}" style="width:21px;height:21px;"/>
+                            <b class="icon-caret-down"></b>
                         </a>
                         <ul class="dropdown-menu">
+                            {% if user.is_staff %}
+                            <li><a href="{% url 'admin:index' %}" title="{% trans "Admin" %}"><i class="icon-cogs"></i> {% trans "Admin" %}</a></li>
+                            <li class="divider"></li>
+                            {% endif %}
+                            <li><a href="{% url 'userena_profile_detail' user.username %}"><i class="icon-user"></i> {% trans "View profile" %}</a></li>
                             <li><a href="{% url 'userena_profile_edit' user.username %}"><i class="icon-pencil"></i> {% trans "Edit profile" %}</a></li>
                             <li><a href="{% url 'userena_password_change' user.username %}"><i class="icon-key"></i> {% trans "Change password" %}</a></li>
                             <li><a href="{% url 'userena_email_change' user.username %}"><i class="icon-envelope"></i> {% trans "Change email" %}</a></li>
