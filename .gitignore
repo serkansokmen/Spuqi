@@ -14,6 +14,9 @@ build
 # SQLite3 database files:
 *.db
 
+# postrgesql dump files
+.dump
+
 # Celerybeat scheduler file:
 celerybeat-schedule
 
