@@ -1,4 +1,4 @@
-Django>=1.4.5,<=1.4.9
+Django>=1.5.0,<=1.5.9
 django-celery==3.0.11
 django_compressor==dev
 easy-thumbnails==1.2
