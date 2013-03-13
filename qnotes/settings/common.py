@@ -121,6 +121,11 @@ SECRET_KEY = 'donttellanyone'
 ########## END SECRET CONFIGURATION
 
 
+########## ROSETTA CONFIGURATION
+ROSETTA_STORAGE_CLASS = 'rosetta.storage.CacheRosettaStorage'
+########## END ROSETTA CONFIGURATION
+
+
 ########## FIXTURE CONFIGURATION
 # See: https://docs.djangoproject.com/en/dev/ref/settings/#std:setting-FIXTURE_DIRS
 FIXTURE_DIRS = (
