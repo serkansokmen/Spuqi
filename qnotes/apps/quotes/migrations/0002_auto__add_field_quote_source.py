@@ -13,21 +13,10 @@ class Migration(SchemaMigration):
                       self.gf('django.db.models.fields.related.ForeignKey')(default=0, to=orm['sources.Source']),
                       keep_default=False)
 
-        # Adding M2M table for field topics on 'Quote'
-        db.create_table('quotes_quote_topics', (
-            ('id', models.AutoField(verbose_name='ID', primary_key=True, auto_created=True)),
-            ('quote', models.ForeignKey(orm['quotes.quote'], null=False)),
-            ('topic', models.ForeignKey(orm['topics.topic'], null=False))
-        ))
-        db.create_unique('quotes_quote_topics', ['quote_id', 'topic_id'])
-
 
     def backwards(self, orm):
         # Deleting field 'Quote.source'
         db.delete_column('quotes_quote', 'source_id')
-
-        # Removing M2M table for field topics on 'Quote'
-        db.delete_table('quotes_quote_topics')
 
 
     models = {
@@ -97,7 +86,6 @@ class Migration(SchemaMigration):
             'quote': ('django.db.models.fields.TextField', [], {'max_length': '1200'}),
             'slug': ('django.db.models.fields.SlugField', [], {'max_length': '50'}),
             'source': ('django.db.models.fields.related.ForeignKey', [], {'default': '0', 'to': "orm['sources.Source']"}),
-            'topics': ('django.db.models.fields.related.ManyToManyField', [], {'to': "orm['topics.Topic']", 'symmetrical': 'False', 'blank': 'True'}),
             'user': ('django.db.models.fields.related.ForeignKey', [], {'to': "orm['auth.User']"})
         },
         'sources.source': {
@@ -124,15 +112,6 @@ class Migration(SchemaMigration):
             'id': ('django.db.models.fields.AutoField', [], {'primary_key': 'True'}),
             'object_id': ('django.db.models.fields.IntegerField', [], {'db_index': 'True'}),
             'tag': ('django.db.models.fields.related.ForeignKey', [], {'related_name': "'taggit_taggeditem_items'", 'to': "orm['taggit.Tag']"})
-        },
-        'topics.topic': {
-            'Meta': {'ordering': "['title']", 'object_name': 'Topic'},
-            'created': ('django.db.models.fields.DateTimeField', [], {'auto_now_add': 'True', 'blank': 'True'}),
-            'id': ('django.db.models.fields.AutoField', [], {'primary_key': 'True'}),
-            'modified': ('django.db.models.fields.DateTimeField', [], {'auto_now': 'True', 'blank': 'True'}),
-            'slug': ('django.db.models.fields.SlugField', [], {'max_length': '50'}),
-            'title': ('django.db.models.fields.CharField', [], {'max_length': '25'}),
-            'user': ('django.db.models.fields.related.ForeignKey', [], {'to': "orm['auth.User']"})
         }
     }
 
