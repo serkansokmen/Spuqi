@@ -24,7 +24,7 @@ EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'qnotes',
+        'NAME': 'qnotes_heroku',
         'USER': '',
         'PASSWORD': '',
         'HOST': 'localhost',
