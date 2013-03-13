@@ -12,8 +12,6 @@ from common import *
 # Set to active site id
 SITE_ID = 1
 
-BETA_ENABLE_BETA = bool(environ.get('BETA_ENABLE_BETA', False))
-
 DEBUG = bool(environ.get('DJANGO_DEBUG', False))
 TEMPLATE_DEBUG = DEBUG
 
