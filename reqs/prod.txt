@@ -6,6 +6,5 @@ django-heroku-postgresify==0.3
 psycopg2==2.4.6
 django-storages==1.1.4
 gevent==0.13.8
-# git+git://github.com/SiteSupport/gevent.git
 gunicorn==0.17.2
 newrelic==1.10.2.38
