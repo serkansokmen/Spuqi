@@ -66,7 +66,7 @@ MANAGERS = ADMINS
 TIME_ZONE = 'Europe/Istanbul'
 
 # See: https://docs.djangoproject.com/en/dev/ref/settings/#language-code
-LANGUAGE_CODE = 'tr_TR'
+LANGUAGE_CODE = 'tr'
 
 LANGUAGES = (
     ('en', gettext('English')),
