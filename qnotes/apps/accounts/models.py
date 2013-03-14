@@ -5,7 +5,7 @@ from django.contrib.auth.models import User
 from django.core.management import call_command
 from django.db.models.signals import post_save
 from django.dispatch import receiver
-from guardian.shortcuts import assign
+from guardian.shortcuts import assign_perm
 from userena.models import UserenaLanguageBaseProfile
 
 
@@ -32,6 +32,6 @@ def create_profile(sender, instance, created, **kwargs):
             profile, new = UserProfile.objects.get_or_create(user=instance)
             if new:
                 call_command('check_permissions')
-                assign('change_profile', instance, instance.get_profile())
+                assign_perm('change_profile', instance, instance.get_profile())
     except DatabaseError:
         pass
