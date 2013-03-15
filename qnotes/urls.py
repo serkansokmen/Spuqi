@@ -18,7 +18,7 @@ urlpatterns = patterns(
     # django-registration
     # (r'^accounts/signup/$', 'userena.views.signup', {'signup_form': SignupFormReCaptcha}),
     # (r'^accounts/signin/$', 'userena.views.signin', {'auth_form': SigninFormReCaptcha}),
-    (r'^accounts/', include('registration.backends.default.urls')),
+    # (r'^accounts/', include('registration.backends.default.urls')),
 
     # local apps
     (r'^authors/', include('apps.authors.urls')),
