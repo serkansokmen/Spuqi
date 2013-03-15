@@ -15,10 +15,6 @@ urlpatterns = patterns(
     # (r'^admin/', include('smuggler.urls')),  # put it before admin url patterns
     (r'^admin/', include(admin.site.urls)),
 
-    # django-registration
-    # (r'^accounts/signup/$', 'userena.views.signup', {'signup_form': SignupFormReCaptcha}),
-    # (r'^accounts/signin/$', 'userena.views.signin', {'auth_form': SigninFormReCaptcha}),
-    # (r'^accounts/', include('registration.backends.default.urls')),
 
     # local apps
     (r'^authors/', include('apps.authors.urls')),
