@@ -1,6 +1,7 @@
 {% extends "base.html" %}
 {% load i18n %}
 {% load endless %}
+{% load thumbnail %}
 
 {% block content_title %}
 <div class="row-fluid">
@@ -20,8 +21,8 @@
     <div class="span4">
         <h4>{% trans "Members" %}:</h4>
         {% for member in current_collection.members.all %}
-            <a href="{% url 'userena_profile_detail' member.username %}" title="{{ member }}" rel="tooltip">
-                <img src="{{ member.get_profile.get_mugshot_url }}" alt="{{ member }}">
+            <a href="#" title="{{ member }}" rel="tooltip">
+                <img src="{{ member.avatar|thumbnail_url:'avatar' }}" alt="{{ member }}">
             </a>
         {% endfor %}
     </div>

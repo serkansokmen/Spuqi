@@ -18,9 +18,8 @@
                 <ul class="nav pull-right">
                     <li class="dropdown">
                     {% if user.is_authenticated %}
-                        {% with user.get_profile as profile %}
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                            <img class="mugshot" src="{{ user.get_profile.get_mugshot_url }}" alt="{{ user }}" style="width:21px;height:21px;"/>
+                            <img src="{{ user.avatar|thumbnail_url:'avatar_small' }}" alt="{{ user }}"/>
                             <b class="icon-caret-down"></b>
                         </a>
                         <ul class="dropdown-menu">
@@ -28,21 +27,20 @@
                             <li><a href="{% url 'admin:index' %}" title="{% trans "Admin" %}"><i class="icon-cogs"></i> {% trans "Admin" %}</a></li>
                             <li class="divider"></li>
                             {% endif %}
-                            {# <li><a href="{% url 'userena_profile_detail' user.username %}"><i class="icon-user"></i> {% trans "View profile" %}</a></li> #}
-                            {# <li><a href="{% url 'userena_profile_edit' user.username %}"><i class="icon-pencil"></i> {% trans "Edit profile" %}</a></li> #}
-                            {# <li><a href="{% url 'userena_password_change' user.username %}"><i class="icon-key"></i> {% trans "Change password" %}</a></li> #}
-                            {# <li><a href="{% url 'userena_email_change' user.username %}"><i class="icon-envelope"></i> {% trans "Change email" %}</a></li> #}
+                            <li><a href="#"><i class="icon-user"></i> {% trans "View profile" %}</a></li>
+                            <li><a href="#"><i class="icon-pencil"></i> {% trans "Edit profile" %}</a></li>
+                            <li><a href="#"><i class="icon-key"></i> {% trans "Change password" %}</a></li>
+                            <li><a href="#"><i class="icon-envelope"></i> {% trans "Change email" %}</a></li>
                             <li class="divider"></li>
-                            <li><a href="{% url 'userena_signout' %}"><i class="icon-signout"></i> {% trans "Signout" %}</a></li>
+                            <li><a href="#"><i class="icon-signout"></i> {% trans "Signout" %}</a></li>
                         </ul>
-                        {% endwith %}
                     {% else %}
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                             <i class="icon-user"></i> <b class="caret"></b>
                         </a>
                         <ul class="dropdown-menu">
-                            <li><a href="{% url 'userena_signin' %}"><i class="icon-signin"></i> {% trans "Login" %}</a></li>
-                            <li><a href="{% url 'userena_signup' %}"><i class="icon-user"></i> {% trans "Signup" %}</a></li>
+                            <li><a href="#"><i class="icon-signin"></i> {% trans "Login" %}</a></li>
+                            <li><a href="™"><i class="icon-user"></i> {% trans "Signup" %}</a></li>
                         </ul>
                     {% endif %}
                     </li>
