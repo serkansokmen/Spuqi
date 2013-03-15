@@ -293,8 +293,7 @@ RECAPTCHA_USE_SSL = True
 LOGIN_URL = '/accounts/login/'
 # LOGOUT_URL = '/accounts/logout/'
 
-ANONYMOUS_USER_ID = -1
-AUTH_USER_MODEL = 'accounts.QnotesUser'
+AUTH_USER_MODEL = 'accounts.SiteUser'
 
 AUTHENTICATION_BACKENDS = (
     'django.contrib.auth.backends.ModelBackend',
