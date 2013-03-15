@@ -278,6 +278,17 @@ SMUGGLER_INDENT = 2
 ########## END SMUGGLER CONFIGURATION
 
 
+########## EASY THUMBNAILS CONFIGURATION
+THUMBNAIL_ALIASES = {
+    '': {
+        'avatar': {'size': (31, 31), 'crop': 'smart'},
+        'avatar_small': {'size': (21, 21), 'crop': 'smart'},
+        'avatar_large': {'size': (64, 64), 'crop': 'smart'},
+    },
+}
+########## END EASY THUMBNAILS CONFIGURATION
+
+
 ########## DISQUS CONFIGURATION
 DISQUS_WEBSITE_SHORTNAME = 'qnotes'
 ########## END DISQUS CONFIGURATION
