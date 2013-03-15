@@ -3,7 +3,6 @@ from django.contrib import admin
 from django.contrib.auth.models import Group
 from django.contrib.auth.admin import UserAdmin
 from django.contrib.auth.forms import ReadOnlyPasswordHashField
-
 from .models import SiteUser
 
 
@@ -59,12 +58,13 @@ class SiteUserAdmin(UserAdmin):
     # The fields to be used in displaying the User model.
     # These override the definitions on the base UserAdmin
     # that reference specific fields on auth.User.
-    list_display = ('email', 'first_name', 'last_name', 'is_admin')
-    list_filter = ('is_admin',)
+    list_display = ('email', 'first_name', 'last_name', 'is_staff')
+    list_filter = ('is_staff',)
+    '''
     fieldsets = (
         (None, {'fields': ('email', 'password')}),
         ('Personal info', {'fields': ('first_name', 'last_name',)}),
-        ('Permissions', {'fields': ('is_admin',)}),
+        ('Permissions', {'fields': ('is_staff',)}),
         ('Important dates', {'fields': ('last_login',)}),
     )
     add_fieldsets = (
@@ -73,7 +73,8 @@ class SiteUserAdmin(UserAdmin):
             'fields': ('email', 'first_name', 'last_name', 'password1', 'password2')
         }),
     )
-    search_fields = ('email',)
+    '''
+    search_fields = ('email', 'first_name', 'last_name', 'username')
     ordering = ('email',)
     filter_horizontal = ()
 
