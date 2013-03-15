@@ -2,20 +2,20 @@
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
-# 
+#
 #, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-03-13 01:42+0200\n"
-"PO-Revision-Date: 2013-03-13 01:47+0157\n"
+"POT-Creation-Date: 2013-03-14 19:07+0200\n"
+"PO-Revision-Date: 2013-03-14 19:01+0157\n"
 "Last-Translator: Serkan Sokmen <e.serkan.sokmen@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: \n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Translated-Using: django-rosetta 0.7.1\n"
 
@@ -79,7 +79,7 @@ msgstr "Yeni Yazar"
 msgid "Title"
 msgstr "Başlık"
 
-#: apps/collections/models.py:14 templates/site/navbar.html:55
+#: apps/collections/models.py:14 templates/site/navbar.html:51
 msgid "Sources"
 msgstr "Kaynaklar"
 
@@ -127,7 +127,7 @@ msgstr "ISBN"
 #: apps/collections/templates/collections/collection_detail.html:39
 #: apps/sources/models.py:14
 #: apps/sources/templates/sources/source_list.html:16
-#: templates/site/navbar.html:56
+#: templates/site/navbar.html:52
 msgid "Authors"
 msgstr "Yazarlar"
 
@@ -292,12 +292,13 @@ msgstr "Sunucu hatası!"
 msgid "Collaborative space for social reading"
 msgstr "Sosyal okuma amaçlı işbirlik alanı"
 
-#: templates/home.html:11 templates/site/navbar.html:48
+#: templates/home.html:9 templates/site/navbar.html:44
+#: templates/userena/signout.html:11
 msgid "Login"
 msgstr "Giriş"
 
-#: templates/home.html:12 templates/site/navbar.html:49
-#: templates/userena/signup_complete.html:6
+#: templates/home.html:10 templates/site/navbar.html:45
+#: templates/userena/signout.html:12 templates/userena/signup_complete.html:6
 #: templates/userena/signup_form.html:5 templates/userena/signup_form.html:8
 #: templates/userena/signup_form.html:23
 msgid "Signup"
@@ -323,24 +324,28 @@ msgstr "Alıntılar"
 msgid "Collections"
 msgstr "Kolleksiyonlar"
 
-#: templates/site/navbar.html:26
-msgid "Admin Panel"
-msgstr "Yönetici Paneli"
+#: templates/site/navbar.html:28
+msgid "Admin"
+msgstr "Yönetici"
 
-#: templates/site/navbar.html:36 templates/userena/profile_form.html:7
+#: templates/site/navbar.html:31
+msgid "View profile"
+msgstr "Profil"
+
+#: templates/site/navbar.html:32 templates/userena/profile_form.html:7
 msgid "Edit profile"
 msgstr "Profil düzenle"
 
-#: templates/site/navbar.html:37 templates/userena/password_form.html:5
+#: templates/site/navbar.html:33 templates/userena/password_form.html:5
 #: templates/userena/password_form.html:20
 msgid "Change password"
 msgstr "Şifre değiştir"
 
-#: templates/site/navbar.html:38 templates/userena/email_form.html:18
+#: templates/site/navbar.html:34 templates/userena/email_form.html:18
 msgid "Change email"
 msgstr "E-posta değiştir"
 
-#: templates/site/navbar.html:40
+#: templates/site/navbar.html:36
 msgid "Signout"
 msgstr "Çıkış"
 
@@ -474,7 +479,8 @@ msgstr "Şifreniz başarıyla sıfırlandı"
 
 #: templates/userena/password_reset_complete.html:8
 #, python-format
-msgid "You can now <a href=\"%(signin_url)s\">signin</a> with your new password."
+msgid ""
+"You can now <a href=\"%(signin_url)s\">signin</a> with your new password."
 msgstr ""
 "Artık yeni şifrenizi kullanarak <a href=\"%(signin_url)s\">giriş</a> "
 "yapabilirsiniz."
@@ -670,8 +676,8 @@ msgid ""
 "An email has been send to %(new_email)s which contains a verification link. "
 "Click on the link in this email to activate it."
 msgstr ""
-"%(new_email)s adresine doğrulama bağlantısını içeren bir e-posta gönderildi."
-" Bu bağlantıya giderek yeni e-postanızı etkinleştirin."
+"%(new_email)s adresine doğrulama bağlantısını içeren bir e-posta gönderildi. "
+"Bu bağlantıya giderek yeni e-postanızı etkinleştirin."
 
 #: templates/userena/emails/confirmation_email_subject_new.txt:2
 #, python-format
