@@ -1,6 +1,6 @@
 from django.db import models
 from django.db.models.signals import pre_save
-from django.contrib.auth.models import User
+from django.conf import settings
 from django.core.urlresolvers import reverse
 from django.utils.translation import ugettext as _
 from django.dispatch import receiver
@@ -41,7 +41,7 @@ class Quote(TimeStampedModel):
     READ_ONLY = PRIVACY_STATES[1][0]
     PRIVATE = PRIVACY_STATES[2][0]
 
-    user = models.ForeignKey(User)
+    user = models.ForeignKey(settings.AUTH_USER_MODEL)
     source = models.ForeignKey(Source, default=0, verbose_name=_('Source'))
     quote = models.TextField(_('Quote'), max_length=1200)
     slug = models.SlugField()

@@ -1,5 +1,5 @@
 from django.db import models
-from django.contrib.auth.models import User
+from django.conf import settings
 from django.core.urlresolvers import reverse
 from django.utils.translation import ugettext as _
 from libs.utils import slugify
@@ -7,7 +7,7 @@ from apps.helpers.models import TimeStampedModel
 
 
 class Author(TimeStampedModel):
-    user = models.ForeignKey(User)
+    user = models.ForeignKey(settings.AUTH_USER_MODEL)
     name = models.CharField(_('Name'), max_length=255, unique=True)
     slug = models.SlugField()
 
