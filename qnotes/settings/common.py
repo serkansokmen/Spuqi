@@ -247,29 +247,6 @@ INSTALLED_APPS = DJANGO_APPS + THIRD_PARTY_APPS + LOCAL_APPS
 ########## END APP CONFIGURATION
 
 
-########## LOGGING CONFIGURATION
-# See: https://docs.djangoproject.com/en/dev/ref/settings/#logging
-LOGGING = {
-    'version': 1,
-    'disable_existing_loggers': False,
-    'handlers': {
-        'mail_admins': {
-            'level': 'ERROR',
-            'filters': [],
-            'class': 'django.utils.log.AdminEmailHandler'
-        }
-    },
-    'loggers': {
-        'django.request': {
-            'handlers': ['mail_admins'],
-            'level': 'ERROR',
-            'propagate': True,
-        },
-    }
-}
-########## END LOGGING CONFIGURATION
-
-
 ########## SMUGGLER CONFIGURATION
 SMUGGLER_EXCLUDE_LIST = []  # 'app_label.ModelName'
 SMUGGLER_FIXTURE_DIR = 'fixtures/'
@@ -371,3 +348,26 @@ ENDLESS_PAGINATION_LOADING = '<i class="icon-spinner icon-large icon-spin"></i>'
 
 ########## OTHER CONFIGURATION
 FIRST_DAY_OF_WEEK = 1
+
+
+########## LOGGING CONFIGURATION
+# See: https://docs.djangoproject.com/en/dev/ref/settings/#logging
+LOGGING = {
+    'version': 1,
+    'disable_existing_loggers': False,
+    'handlers': {
+        'mail_admins': {
+            'level': 'ERROR',
+            'filters': [],
+            'class': 'django.utils.log.AdminEmailHandler'
+        }
+    },
+    'loggers': {
+        'django.request': {
+            'handlers': ['mail_admins'],
+            'level': 'ERROR',
+            'propagate': True,
+        },
+    }
+}
+########## END LOGGING CONFIGURATION
