@@ -2,7 +2,7 @@ from django.conf.urls import *
 from django.contrib import admin
 from django.conf import settings
 from django.views.generic import TemplateView
-from apps.accounts.forms import SignupFormReCaptcha, SigninFormReCaptcha
+# from apps.accounts.forms import SignupFormReCaptcha, SigninFormReCaptcha
 from dajaxice.core import dajaxice_autodiscover, dajaxice_config
 
 admin.autodiscover()
@@ -15,10 +15,10 @@ urlpatterns = patterns(
     # (r'^admin/', include('smuggler.urls')),  # put it before admin url patterns
     (r'^admin/', include(admin.site.urls)),
 
-    # django-userena
-    (r'^accounts/signup/$', 'userena.views.signup', {'signup_form': SignupFormReCaptcha}),
-    (r'^accounts/signin/$', 'userena.views.signin', {'auth_form': SigninFormReCaptcha}),
-    (r'^accounts/', include('userena.urls')),
+    # django-registration
+    # (r'^accounts/signup/$', 'userena.views.signup', {'signup_form': SignupFormReCaptcha}),
+    # (r'^accounts/signin/$', 'userena.views.signin', {'auth_form': SigninFormReCaptcha}),
+    (r'^accounts/', include('registration.backends.default.urls')),
 
     # local apps
     (r'^authors/', include('apps.authors.urls')),

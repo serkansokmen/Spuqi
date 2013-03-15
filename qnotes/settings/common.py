@@ -176,7 +176,6 @@ MIDDLEWARE_CLASSES = (
     'django.middleware.locale.LocaleMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'qnotes.middleware.ForceLangMiddleware',
-    'userena.middleware.UserenaLocaleMiddleware',
 )
 ########## END MIDDLEWARE CONFIGURATION
 
@@ -215,12 +214,6 @@ THIRD_PARTY_APPS = (
     'djcelery',
     # Rosetta
     'rosetta',
-    # django-userena
-    'userena',
-    # django-userena umessages
-    # 'userena.contrib.umessages',
-    # django-guardian (required by userena)
-    'guardian',
     # django-extra-views
     'extra_views',
     # django-taggit
@@ -296,40 +289,17 @@ RECAPTCHA_USE_SSL = True
 
 
 ########## AUTHENTICATION CONFIGURATION
-LOGIN_REDIRECT_URL = '/accounts/%(username)s/'
-LOGIN_URL = '/accounts/signin/'
-LOGOUT_URL = '/accounts/signout/'
+# LOGIN_REDIRECT_URL = '/accounts/%(username)s/'
+LOGIN_URL = '/accounts/login/'
+# LOGOUT_URL = '/accounts/logout/'
 
-AUTH_PROFILE_MODULE = 'accounts.UserProfile'
 ANONYMOUS_USER_ID = -1
-ACCOUNT_ACTIVATION_DAYS = 10
+AUTH_USER_MODEL = 'accounts.QnotesUser'
 
 AUTHENTICATION_BACKENDS = (
-    'userena.backends.UserenaAuthenticationBackend',
-    'guardian.backends.ObjectPermissionBackend',
     'django.contrib.auth.backends.ModelBackend',
 )
 ########## END AUTHENTICATION CONFIGURATION
-
-
-########## HUNGER CONFIGURATION
-HUNGER_ALWAYS_ALLOW_VIEWS = [
-    'userena_signin',
-    'userena_activate',
-]
-HUNGER_ALWAYS_ALLOW_MODULES = [
-    'django.contrib.auth.views',
-]
-########## END HUNGER CONFIGURATION
-
-
-########## USERENA CONFIGURATION
-USERENA_HIDE_EMAIL = True
-USERENA_ACTIVATION_REQUIRED = True
-USERENA_MUGSHOT_DEFAULT = 'mm'
-USERENA_MUGSHOT_PATH = 'mugshots/'
-USERENA_MUGSHOT_SIZE = 39
-########## END USERENA CONFIGURATION
 
 
 ########## AJAX SELECTS CONFIGURATION

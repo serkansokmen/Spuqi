@@ -10,10 +10,7 @@ South==0.7.6
 Sphinx==1.1.3
 PIL
 django-grappelli
-django-guardian==1.0.4
 django-rosetta==0.7.1
-django-autofixture
-django-userena==1.2.0
 git+git://github.com/arthurk/django-disqus.git
 django-tastypie
 django-taggit
@@ -22,3 +19,4 @@ django-bootstrap-form
 django-endless-pagination==2.0
 django-dajaxice
 django-recaptcha
+django-autofixture
