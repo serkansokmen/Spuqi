@@ -11,6 +11,7 @@ dajaxice_autodiscover()
 urlpatterns = patterns(
     '',
     url(r'^$', TemplateView.as_view(template_name='home.html'), name='home'),
+    (r'', include('social_auth.urls')),
     url(r'^survey/$', TemplateView.as_view(template_name='survey.html'), name='survey'),
 
     # (r'^admin/', include('smuggler.urls')),  # put it before admin url patterns

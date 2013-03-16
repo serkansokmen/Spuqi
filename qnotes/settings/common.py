@@ -146,6 +146,10 @@ TEMPLATE_CONTEXT_PROCESSORS = (
     'django.contrib.messages.context_processors.messages',
     'django.core.context_processors.request',
     'qnotes.context_processors.site_processor',
+    'social_auth.context_processors.social_auth_by_name_backends',
+    'social_auth.context_processors.social_auth_backends',
+    'social_auth.context_processors.social_auth_by_type_backends',
+    'social_auth.context_processors.social_auth_login_redirect',
 )
 
 # See: https://docs.djangoproject.com/en/dev/ref/settings/#template-loaders
@@ -214,6 +218,7 @@ THIRD_PARTY_APPS = (
     'djcelery',
     # Rosetta
     'rosetta',
+    # django-social-auth
     # django-extra-views
     'extra_views',
     # django-taggit
@@ -277,16 +282,31 @@ RECAPTCHA_USE_SSL = True
 
 
 ########## AUTHENTICATION CONFIGURATION
-# LOGIN_REDIRECT_URL = '/accounts/%(username)s/'
-LOGIN_URL = '/accounts/login/'
+LOGIN_URL = '/login/'
+LOGIN_REDIRECT_URL = '/quotes/'
+LOGIN_ERROR_URL = '/'
 # LOGOUT_URL = '/accounts/logout/'
 
 AUTH_USER_MODEL = 'accounts.SiteUser'
 
 AUTHENTICATION_BACKENDS = (
+    'social_auth.backends.twitter.TwitterBackend',
+    'social_auth.backends.facebook.FacebookBackend',
     'django.contrib.auth.backends.ModelBackend',
 )
 ########## END AUTHENTICATION CONFIGURATION
+
+
+########## SOCIAL AUTH CONFIGURATION
+SOCIAL_AUTH_USER_MODEL = AUTH_USER_MODEL
+SOCIAL_AUTH_CREATE_USERS = True
+SOCIAL_AUTH_FORCE_RANDOM_USERNAME = False
+import random
+SOCIAL_AUTH_DEFAULT_USERNAME = lambda: random.choice(['Darth Vader', 'Obi-Wan Kenobi', 'R2-D2', 'C-3PO', 'Yoda'])
+SOCIAL_AUTH_COMPLETE_URL_NAME = 'socialauth_complete'
+SOCIAL_AUTH_ASSOCIATE_URL_NAME = 'socialauth_associate_complete'
+FACEBOOK_AUTH_EXTRA_ARGUMENTS = {'display': 'touch'}
+########## END SOCIAL AUTH CONFIGURATION
 
 
 ########## AJAX SELECTS CONFIGURATION
