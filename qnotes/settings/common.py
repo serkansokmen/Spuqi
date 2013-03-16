@@ -286,13 +286,13 @@ RECAPTCHA_USE_SSL = True
 LOGIN_URL = '/login/'
 LOGIN_REDIRECT_URL = '/quotes/'
 LOGIN_ERROR_URL = '/'
-# LOGOUT_URL = '/accounts/logout/'
+LOGOUT_URL = '/logout/'
 
 AUTH_USER_MODEL = 'accounts.SiteUser'
 
 AUTHENTICATION_BACKENDS = (
     'social_auth.backends.twitter.TwitterBackend',
-    'social_auth.backends.facebook.FacebookBackend',
+    # 'social_auth.backends.facebook.FacebookBackend',
     'django.contrib.auth.backends.ModelBackend',
 )
 ########## END AUTHENTICATION CONFIGURATION
@@ -306,8 +306,11 @@ import random
 SOCIAL_AUTH_DEFAULT_USERNAME = lambda: random.choice(['Darth Vader', 'Obi-Wan Kenobi', 'R2-D2', 'C-3PO', 'Yoda'])
 SOCIAL_AUTH_COMPLETE_URL_NAME = 'socialauth_complete'
 SOCIAL_AUTH_ASSOCIATE_URL_NAME = 'socialauth_associate_complete'
+# SOCIAL_AUTH_ASSOCIATE_BY_MAIL = True
 
+FACEBOOK_EXTENDED_PERMISSIONS = ['email']
 FACEBOOK_AUTH_EXTRA_ARGUMENTS = {'display': 'touch'}
+FACEBOOK_PROFILE_EXTRA_PARAMS = {'locale': 'tr_TR'}
 ########## END SOCIAL AUTH CONFIGURATION
 
 
