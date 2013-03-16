@@ -219,6 +219,7 @@ THIRD_PARTY_APPS = (
     # Rosetta
     'rosetta',
     # django-social-auth
+    'social_auth',
     # django-extra-views
     'extra_views',
     # django-taggit
@@ -305,6 +306,7 @@ import random
 SOCIAL_AUTH_DEFAULT_USERNAME = lambda: random.choice(['Darth Vader', 'Obi-Wan Kenobi', 'R2-D2', 'C-3PO', 'Yoda'])
 SOCIAL_AUTH_COMPLETE_URL_NAME = 'socialauth_complete'
 SOCIAL_AUTH_ASSOCIATE_URL_NAME = 'socialauth_associate_complete'
+
 FACEBOOK_AUTH_EXTRA_ARGUMENTS = {'display': 'touch'}
 ########## END SOCIAL AUTH CONFIGURATION
 
