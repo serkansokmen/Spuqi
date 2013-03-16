@@ -11,10 +11,10 @@ dajaxice_autodiscover()
 urlpatterns = patterns(
     '',
     url(r'^$', TemplateView.as_view(template_name='home.html'), name='home'),
+    url(r'^survey/$', TemplateView.as_view(template_name='survey.html'), name='survey'),
 
     # (r'^admin/', include('smuggler.urls')),  # put it before admin url patterns
     (r'^admin/', include(admin.site.urls)),
-
 
     # local apps
     (r'^authors/', include('apps.authors.urls')),
