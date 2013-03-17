@@ -2,18 +2,15 @@
 {% load i18n %}
 
 {% block content %}
-<h1>Qnotes</h1>
-<p class="lead">{% trans "Collaborative space for social reading" %}</p>
+{% include "brand.html" %}
 
-<div class="btn-group">
-    {% if not user.is_authenticated %}
-    <a class="btn btn-link" href="#"><i class="icon-signin"></i> {% trans "Login" %}</a>
-    <a class="btn btn-link" href="#"><i class="icon-user"></i> {% trans "Signup" %}</a>
-    {% endif %}
-</div>
-<br>
+{% if not user.is_authenticated %}
+<a class="btn btn-primary" href="{% url 'auth_login' %}"><i class="icon-signin"></i> {% trans "Login" %}</a>
+<a class="btn btn-info" href="{% url 'registration_register' %}"><i class="icon-user"></i> {% trans "Signup" %}</a>
 <a class="btn btn-link" href="{% url 'socialauth_begin' 'twitter' %}?{{ request.path }}"><i class="icon-twitter"></i> {% trans "Login with Twitter" %}</a>
-<a class="btn btn-link" href="{% url 'socialauth_begin' 'facebook' %}?{{ request.path }}"><i class="icon-facebook"></i> {% trans "Login with Facebook" %}</a>
+{# <a class="btn btn-link" href="{% url 'socialauth_begin' 'facebook' %}?{{ request.path }}"><i class="icon-facebook"></i> {% trans "Login with Facebook" %}</a> #}
+<a class="btn btn-link" href="{% url 'auth_password_reset' %}">{% trans "Forget your password?" %}</a>
+{% endif %}
 <hr>
 <p>{% trans "Please take your time and answer our mini survey. Thanks in advance!" %}</p>
 <a class="btn btn-primary" href="{% url 'survey' %}">{% trans "Take the survey" %}</a>

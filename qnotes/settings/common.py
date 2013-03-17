@@ -218,6 +218,8 @@ THIRD_PARTY_APPS = (
     'djcelery',
     # Rosetta
     'rosetta',
+    # django-registration
+    'registration',
     # django-social-auth
     'social_auth',
     # django-extra-views
@@ -283,10 +285,10 @@ RECAPTCHA_USE_SSL = True
 
 
 ########## AUTHENTICATION CONFIGURATION
-LOGIN_URL = '/login/'
+LOGIN_URL = '/accounts/login/'
 LOGIN_REDIRECT_URL = '/quotes/'
 LOGIN_ERROR_URL = '/'
-LOGOUT_URL = '/logout/'
+LOGOUT_URL = '/accounts/logout/'
 
 AUTH_USER_MODEL = 'accounts.SiteUser'
 
@@ -296,6 +298,11 @@ AUTHENTICATION_BACKENDS = (
     'django.contrib.auth.backends.ModelBackend',
 )
 ########## END AUTHENTICATION CONFIGURATION
+
+
+########## REGISTRATION CONFIGURATION
+ACCOUNT_ACTIVATION_DAYS = 7
+########## END REGISTRATION CONFIGURATION
 
 
 ########## SOCIAL AUTH CONFIGURATION

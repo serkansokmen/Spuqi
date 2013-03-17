@@ -10,7 +10,8 @@ South==0.7.6
 Sphinx==1.1.3
 PIL
 django-grappelli
-django-rosetta==0.7.1
+django-rosetta
+https://bitbucket.org/eire1130/django-registration/get/tip.tar.gz
 django-social-auth
 git+git://github.com/arthurk/django-disqus.git
 django-tastypie

@@ -1,0 +1,33 @@
+{% extends "registration/registration_base.html" %}
+{% load i18n %}
+{% load bootstrap %}
+
+{% block title %}{% trans "Login" %}{% endblock %}
+
+{% block content %}
+<h3>{% trans "Login" %}</h3>
+
+{% if form.errors %}
+<div class="alert alert-error">
+    <a class="close" data-dismiss="alert">&times;</a>
+    <strong>{% trans "Error!" %}</strong>
+    {% trans "Your username and password didn't match. Please try again." %}
+</div>
+{% endif %}
+
+<form class="form-horizontal" method="post" action="{% url 'django.contrib.auth.views.login' %}">
+    {% csrf_token %}
+    <fieldset>
+        {{ form|bootstrap }}
+    </fieldset>
+    <div class="form-actions">
+        <input class="btn btn-primary" type="submit" value="{% trans "Login" %}" />
+        <a class="btn btn-info" href="{% url 'registration_register' %}"><i class="icon-user"></i> {% trans "Signup" %}</a>
+        <a class="btn btn-link" href="{% url 'auth_password_reset' %}">{% trans "Forgot password?" %}</a>
+        <a class="btn btn-link" href="{% url 'registration_register' %}">{% trans "Need an account?" %}</a>
+    </div>
+    {% if next %}<input type="hidden" name="next" value="{{ next }}" />{% endif %}
+</form>
+<a class="btn btn-link" href="{% url 'socialauth_begin' 'twitter' %}?{{ request.path }}"><i class="icon-twitter"></i> {% trans "Login with Twitter" %}</a>
+<hr>
+{% endblock %}
