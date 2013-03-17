@@ -10,9 +10,10 @@
     <a class="btn btn-link" href="#"><i class="icon-signin"></i> {% trans "Login" %}</a>
     <a class="btn btn-link" href="#"><i class="icon-user"></i> {% trans "Signup" %}</a>
     {% endif %}
-    <a class="btn btn-link" href="{% url 'socialauth_begin' 'twitter' %}?{{ request.path }}"><i class="icon-twitter"></i> {% trans "Login with Twitter" %}</a>
-    {# <a class="btn btn-link" href="{% url 'socialauth_begin' 'facebook' %}?{{ request.path }}"><i class="icon-facebook"></i> {% trans "Login with Facebook" %}</a> #}
 </div>
+<br>
+<a class="btn btn-link" href="{% url 'socialauth_begin' 'twitter' %}?{{ request.path }}"><i class="icon-twitter"></i> {% trans "Login with Twitter" %}</a>
+<a class="btn btn-link" href="{% url 'socialauth_begin' 'facebook' %}?{{ request.path }}"><i class="icon-facebook"></i> {% trans "Login with Facebook" %}</a>
 <hr>
 <p>{% trans "Please take your time and answer our mini survey. Thanks in advance!" %}</p>
 <a class="btn btn-primary" href="{% url 'survey' %}">{% trans "Take the survey" %}</a>
