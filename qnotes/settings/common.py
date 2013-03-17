@@ -286,7 +286,7 @@ RECAPTCHA_USE_SSL = True
 
 ########## AUTHENTICATION CONFIGURATION
 LOGIN_URL = '/accounts/login/'
-LOGIN_REDIRECT_URL = '/quotes/'
+LOGIN_REDIRECT_URL = '/'
 LOGIN_ERROR_URL = '/'
 LOGOUT_URL = '/accounts/logout/'
 

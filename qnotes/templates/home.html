@@ -11,8 +11,31 @@
 {# <a class="btn btn-link" href="{% url 'socialauth_begin' 'facebook' %}?{{ request.path }}"><i class="icon-facebook"></i> {% trans "Login with Facebook" %}</a> #}
 <a class="btn btn-link" href="{% url 'auth_password_reset' %}">{% trans "Forget your password?" %}</a>
 {% endif %}
-<hr>
-<p>{% trans "Please take your time and answer our mini survey. Thanks in advance!" %}</p>
-<a class="btn btn-primary" href="{% url 'survey' %}">{% trans "Take the survey" %}</a>
+
+<div class="modal fade" id="survey-launch-modal">
+    <div class="modal-header">
+        <a class="close" data-dismiss="modal">&times;</a>
+        {% if user.is_authenticated %}
+        <h3>{% trans "Dear" %} {{ user.get_full_name }}</h3>
+        {% else %}
+        <h3>{% trans "Hi there" %}</h3>
+        {% endif %}
+    </div>
+    <div class="modal-body">
+        <p>{% trans "Please take your time and answer our mini survey." %}</p>
+    </div>
+    <div class="modal-footer">
+        <a class="btn btn-primary" href="{% url 'survey' %}">{% trans "Take the survey" %}</a>
+    </div>
+</div>
 <hr>
 {% endblock content %}
+
+{% block js %}
+{{ block.super }}
+<script>
+    $(function () {
+        $('#survey-launch-modal').modal();
+    });
+</script>
+{% endblock js %}
