@@ -1,5 +1,5 @@
 from django.contrib import admin
-from qnotes.apps.sources.models import Source
+from .models import Source
 
 
 class SourceAdmin(admin.ModelAdmin):

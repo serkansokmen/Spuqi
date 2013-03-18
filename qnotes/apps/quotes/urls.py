@@ -1,6 +1,6 @@
 from django.conf.urls import *
 from django.contrib.auth.decorators import login_required
-from qnotes.apps.quotes.views import (
+from .views import (
     QuoteList, QuoteDetail, QuoteCreate, QuoteUpdate, QuoteDelete
 )
 

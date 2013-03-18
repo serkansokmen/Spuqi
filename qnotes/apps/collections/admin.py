@@ -1,5 +1,5 @@
 from django.contrib import admin
-from qnotes.apps.collections.models import Collection
+from .models import Collection
 
 
 class CollectionAdmin(admin.ModelAdmin):

@@ -1,5 +1,5 @@
 from django.contrib import admin
-from qnotes.apps.quotes.models import Quote, Note
+from .models import Quote, Note
 
 
 class QuoteAdmin(admin.ModelAdmin):
