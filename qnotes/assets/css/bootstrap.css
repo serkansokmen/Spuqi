@@ -10551,6 +10551,7 @@ a.thumbnail:hover {
 
 body {
   padding-top: 0;
+  background: url('../img/grid.png') left top repeat-x;
 }
 
 a,
@@ -10587,6 +10588,7 @@ footer {
 .container-narrow {
   max-width: 700px;
   margin: 0 auto;
+  background-color: #ffffff;
 }
 
 .container-narrow > .inner {
