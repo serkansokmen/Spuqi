@@ -110,7 +110,6 @@ STATICFILES_FINDERS = (
     'django.contrib.staticfiles.finders.FileSystemFinder',
     'django.contrib.staticfiles.finders.AppDirectoriesFinder',
     'compressor.finders.CompressorFinder',
-    'dajaxice.finders.DajaxiceFinder',
 )
 ########## END STATIC FILE CONFIGURATION
 
@@ -234,8 +233,6 @@ THIRD_PARTY_APPS = (
     'bootstrapform',
     # django-disqus
     'disqus',
-    # django-dajaxice
-    'dajaxice',
     # django-recaptcha
     'captcha',
 )

@@ -1,6 +1,5 @@
 {% load i18n %}
 {% load compress %}
-{% load dajaxice_templatetags %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -60,7 +59,6 @@
     ================================================== -->
     {# <script src="http://cdnjs.cloudflare.com/ajax/libs/knockout/2.2.0/knockout-min.js"></script> #}
     {# <script src="http://cdnjs.cloudflare.com/ajax/libs/knockout.mapping/2.3.3/knockout.mapping.js"></script> #}
-    {% dajaxice_js_import %}
     {% compress js %}
     {% block js %}
     <script src="{{ STATIC_URL }}js/vendor/bootstrap.js"></script>

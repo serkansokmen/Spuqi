@@ -3,10 +3,8 @@ from django.contrib import admin
 from django.conf import settings
 from django.views.generic import TemplateView
 # from apps.accounts.forms import SignupFormReCaptcha, SigninFormReCaptcha
-from dajaxice.core import dajaxice_autodiscover, dajaxice_config
 
 admin.autodiscover()
-dajaxice_autodiscover()
 
 urlpatterns = patterns(
     '',
@@ -27,9 +25,6 @@ urlpatterns = patterns(
 
     # django-grappelli
     (r'^grappelli/', include('grappelli.urls')),
-
-    # django-dajaxice
-    (dajaxice_config.dajaxice_url, include('dajaxice.urls')),
 
     # (r'^robots\.txt$', 'django.views.generic.simple.direct_to_template', {'template': 'robots.txt', 'mimetype': 'text/plain'}),
     # (r'^favicon\.ico$', 'django.views.generic.simple.redirect_to', {'url': '/static/images/favicon.ico'})

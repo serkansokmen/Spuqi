@@ -19,6 +19,5 @@ django-taggit
 django-extra-views
 django-bootstrap-form
 django-endless-pagination==2.0
-django-dajaxice
 django-recaptcha
 django-autofixture
