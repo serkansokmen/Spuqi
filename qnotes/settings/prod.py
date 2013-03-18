@@ -15,7 +15,11 @@ SITE_ID = 1
 DEBUG = bool(environ.get('DJANGO_DEBUG', False))
 TEMPLATE_DEBUG = DEBUG
 
-SECRET_KEY = environ.get('SECRET_KEY', '')
+
+########## SECRET CONFIGURATION
+SECRET_KEY = environ.get('SECRET_KEY', SECRET_KEY)
+########## END SECRET CONFIGURATION
+
 
 ########## EMAIL CONFIGURATION
 # See: https://docs.djangoproject.com/en/dev/ref/settings/#email-backend
@@ -136,9 +140,3 @@ COMPRESS_JS_FILTERS = [
     'compressor.filters.jsmin.SlimItFilter',
 ]
 ########## END COMPRESSION CONFIGURATION
-
-
-########## SECRET CONFIGURATION
-# See: https://docs.djangoproject.com/en/dev/ref/settings/#secret-key
-SECRET_KEY = environ.get('SECRET_KEY', SECRET_KEY)
-########## END SECRET CONFIGURATION
