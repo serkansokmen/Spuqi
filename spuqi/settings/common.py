@@ -53,7 +53,7 @@ TEMPLATE_DEBUG = DEBUG
 ########## MANAGER CONFIGURATION
 # See: https://docs.djangoproject.com/en/dev/ref/settings/#admins
 ADMINS = (
-    ('Serkan Sökmen', 'quotesnotesapp@gmail.com'),
+    ('Serkan Sökmen', 'spuqi.dev@gmail.com'),
 )
 
 # See: https://docs.djangoproject.com/en/dev/ref/settings/#managers
@@ -331,7 +331,7 @@ AJAX_SELECT_INLINES = 'inline'
 
 
 ########## GRAPPELLI CONFIGURATION
-GRAPPELLI_ADMIN_TITLE = u'Qnotes'
+GRAPPELLI_ADMIN_TITLE = u'Spuqi'
 AUTOCOMPLETE_LIMIT = 10
 ########## END GRAPPELLI CONFIGURATION
 

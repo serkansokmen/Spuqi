@@ -1,11 +1,11 @@
-[![Build Status](https://api.travis-ci.org/serkansokmen/Qnotes.png)](https://api.travis-ci.org/serkansokmen/Qnotes.png)
+[![Build Status](https://api.travis-ci.org/serkansokmen/Spuqi.png)](https://api.travis-ci.org/serkansokmen/Spuqi.png)
 
-Qnotes
+Spuqi
 =============
 
 Collaborative space for social reading
 --------------------------------------
 
-django-skel based source code for Qnotes application
+django-skel based source code for Spuqi application
 
 [django-skel](http://django-skel.readthedocs.org/en/latest/ "django-skel")
