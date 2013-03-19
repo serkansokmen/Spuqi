@@ -21,7 +21,7 @@
 {% block content %}
 {% include "quotes/quote_item.html" %}
 {% ifequal quote.privacy_state PRIVACY_STATES.0.0 %}
-{% disqus_show_comments "qnotes" %}
+{% disqus_show_comments "spuqi" %}
 {% endifequal %}
 {% endblock content %}
 

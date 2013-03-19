@@ -1,6 +1,6 @@
 from django.shortcuts import get_object_or_404
 from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView
-from qnotes.apps.quotes.models import Quote
+from spuqi.apps.quotes.models import Quote
 from .models import Source
 from .forms import SourceForm
 from apps.helpers.views import FormNextMixin

@@ -18,7 +18,7 @@ HEROKU_ADDONS = (
     'sentry:developer',
 )
 HEROKU_CONFIGS = (
-    'DJANGO_SETTINGS_MODULE=qnotes.settings.prod',
+    'DJANGO_SETTINGS_MODULE=spuqi.settings.prod',
     'SECRET_KEY=5d_d-d@s-z$zc9vljs4oruq=)o3uvoo#8zgs78jr78ov2=bcdx'
     'AWS_ACCESS_KEY_ID=xxx',
     'AWS_SECRET_ACCESS_KEY=xxx',

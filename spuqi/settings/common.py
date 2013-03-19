@@ -11,17 +11,17 @@ from djcelery import setup_loader
 gettext = lambda s: s
 
 
-ALLOWED_HOSTS = ['qnotes.herokuapp.com', ]
+ALLOWED_HOSTS = ['spuqi.herokuapp.com', 'www.spuqi.com', 'www.spuqy.com']
 
 
 ########## API-KEY CONFIGURATION
-DISQUS_API_KEY = environ.get('QNOTES_DISQUS_API_KEY', '')
-RECAPTCHA_PUBLIC_KEY = environ.get('QNOTES_RECAPTCHA_PUBLIC_KEY', '')
-RECAPTCHA_PRIVATE_KEY = environ.get('QNOTES_RECAPTCHA_PRIVATE_KEY', '')
-TWITTER_CONSUMER_KEY = environ.get('QNOTES_TWITTER_CONSUMER_KEY', '')
-TWITTER_CONSUMER_SECRET = environ.get('QNOTES_TWITTER_CONSUMER_SECRET', '')
-FACEBOOK_APP_ID = environ.get('QNOTES_FACEBOOK_APP_ID', '')
-FACEBOOK_API_SECRET = environ.get('QNOTES_FACEBOOK_API_SECRET', '')
+DISQUS_API_KEY = environ.get('SPUQI_DISQUS_API_KEY', '')
+RECAPTCHA_PUBLIC_KEY = environ.get('SPUQI_RECAPTCHA_PUBLIC_KEY', '')
+RECAPTCHA_PRIVATE_KEY = environ.get('SPUQI_RECAPTCHA_PRIVATE_KEY', '')
+TWITTER_CONSUMER_KEY = environ.get('SPUQI_TWITTER_CONSUMER_KEY', '')
+TWITTER_CONSUMER_SECRET = environ.get('SPUQI_TWITTER_CONSUMER_SECRET', '')
+FACEBOOK_APP_ID = environ.get('SPUQI_FACEBOOK_APP_ID', '')
+FACEBOOK_API_SECRET = environ.get('SPUQI_FACEBOOK_API_SECRET', '')
 ########## END API-KEY CONFIGURATION
 
 ########## PATH CONFIGURATION
@@ -144,7 +144,7 @@ TEMPLATE_CONTEXT_PROCESSORS = (
     'django.core.context_processors.tz',
     'django.contrib.messages.context_processors.messages',
     'django.core.context_processors.request',
-    'qnotes.context_processors.site_processor',
+    'spuqi.context_processors.site_processor',
     'social_auth.context_processors.social_auth_by_name_backends',
     'social_auth.context_processors.social_auth_backends',
     'social_auth.context_processors.social_auth_by_type_backends',
@@ -178,7 +178,7 @@ MIDDLEWARE_CLASSES = (
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.middleware.locale.LocaleMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
-    'qnotes.middleware.ForceLangMiddleware',
+    'spuqi.middleware.ForceLangMiddleware',
 )
 ########## END MIDDLEWARE CONFIGURATION
 
@@ -272,7 +272,7 @@ THUMBNAIL_ALIASES = {
 
 
 ########## DISQUS CONFIGURATION
-DISQUS_WEBSITE_SHORTNAME = 'qnotes'
+DISQUS_WEBSITE_SHORTNAME = 'spuqi'
 ########## END DISQUS CONFIGURATION
 
 

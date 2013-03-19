@@ -2,7 +2,7 @@ from django.db import models
 from django.core.urlresolvers import reverse
 from django.conf import settings
 from django.utils.translation import ugettext as _
-from qnotes.apps.sources.models import Source
+from spuqi.apps.sources.models import Source
 from libs.utils import slugify
 from apps.helpers.models import TimeStampedModel
 
