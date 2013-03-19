@@ -22,6 +22,6 @@ celerybeat-schedule
 
 # Excluded folders
 .codeintel/
-spuqi/static/
-spuqi/media/
+spuqi/spuqi/static/
+spuqi/spuqi/media/
 docs/

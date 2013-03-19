@@ -1,0 +1,10 @@
+
+        body                        { padding-top: 60px; }
+        a, a:hover                  { text-decoration: none; }
+        ul.unstyled li.active a     { color: gray; }
+        footer                      { padding-bottom: 80px; }
+
+        #hint_id_sources,
+        #hint_id_topics,
+        #hint_id_members            { display: none; }
+    
