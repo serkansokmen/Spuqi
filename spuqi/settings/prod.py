@@ -89,32 +89,22 @@ CELERY_RESULT_BACKEND = 'amqp'
 
 
 ########## STORAGE CONFIGURATION
-# See: http://django-storages.readthedocs.org/en/latest/index.html
 INSTALLED_APPS += (
-    'storages',
+    's3_folder_storage',
 )
-
-# See: http://django-storages.readthedocs.org/en/latest/backends/amazon-S3.html#settings
-STATICFILES_STORAGE = DEFAULT_FILE_STORAGE = 'storages.backends.s3boto.S3BotoStorage'
-
-# See: http://django-storages.readthedocs.org/en/latest/backends/amazon-S3.html#settings
-AWS_CALLING_FORMAT = CallingFormat.SUBDOMAIN
-
-# See: http://django-storages.readthedocs.org/en/latest/backends/amazon-S3.html#settings
+DEFAULT_FILE_STORAGE = 's3_folder_storage.s3.DefaultStorage'
+DEFAULT_S3_PATH = 'media'
+STATICFILES_STORAGE = 's3_folder_storage.s3.StaticStorage'
+STATIC_S3_PATH = 'static'
 AWS_ACCESS_KEY_ID = environ.get('AWS_ACCESS_KEY_ID', '')
 AWS_SECRET_ACCESS_KEY = environ.get('AWS_SECRET_ACCESS_KEY', '')
 AWS_STORAGE_BUCKET_NAME = environ.get('AWS_STORAGE_BUCKET_NAME', '')
-AWS_AUTO_CREATE_BUCKET = True
-AWS_QUERYSTRING_AUTH = False
 
-# AWS cache settings, don't change unless you know what you're doing:
-AWS_EXPIREY = 60 * 60 * 24 * 7
-AWS_HEADERS = {
-    'Cache-Control': 'max-age=%d, s-maxage=%d, must-revalidate' % (AWS_EXPIREY, AWS_EXPIREY)
-}
-
-# See: https://docs.djangoproject.com/en/dev/ref/settings/#static-url
-STATIC_URL = 'https://s3.amazonaws.com/%s/' % AWS_STORAGE_BUCKET_NAME
+MEDIA_ROOT = '/%s/' % DEFAULT_S3_PATH
+MEDIA_URL = '//s3.amazonaws.com/%s/media/' % AWS_STORAGE_BUCKET_NAME
+STATIC_ROOT = '/%s/' % STATIC_S3_PATH
+STATIC_URL = '//s3.amazonaws.com/%s/static/' % AWS_STORAGE_BUCKET_NAME
+ADMIN_MEDIA_PREFIX = STATIC_URL + 'admin/'
 ########## END STORAGE CONFIGURATION
 
 
