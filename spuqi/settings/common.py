@@ -248,7 +248,7 @@ LOCAL_APPS = (
     'apps.authors',
     'apps.quotes',
     'apps.helpers',
-    'apps.quickstart',
+    'apps.snippets',
 )
 
 INSTALLED_APPS = DJANGO_APPS + THIRD_PARTY_APPS + LOCAL_APPS
