@@ -4,12 +4,18 @@ from django.conf import settings
 from django.views.generic import TemplateView
 # from apps.accounts.forms import SignupFormReCaptcha, SigninFormReCaptcha
 
+from django.db.models.loading import cache as model_cache
+if not model_cache.loaded:
+    model_cache.get_models()
+
 admin.autodiscover()
 
 urlpatterns = patterns(
     '',
     (r'', include('social_auth.urls')),
     (r'^accounts/', include('registration.backends.default.urls')),
+
+    (r'^api/', include('apps.quickstart.urls')),
 
     url(r'^$', TemplateView.as_view(template_name='home.html'), name='home'),
     url(r'^survey/$', TemplateView.as_view(template_name='survey.html'), name='survey'),
@@ -25,6 +31,9 @@ urlpatterns = patterns(
 
     # django-grappelli
     (r'^grappelli/', include('grappelli.urls')),
+
+    # django-restframework
+    url(r'^api-auth/', include('rest_framework.urls', namespace='rest_framework')),
 
     # (r'^robots\.txt$', 'django.views.generic.simple.direct_to_template', {'template': 'robots.txt', 'mimetype': 'text/plain'}),
     # (r'^favicon\.ico$', 'django.views.generic.simple.redirect_to', {'url': '/static/images/favicon.ico'})

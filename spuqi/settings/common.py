@@ -235,6 +235,8 @@ THIRD_PARTY_APPS = (
     'disqus',
     # django-recaptcha
     'captcha',
+    # django-restframework
+    'rest_framework',
 )
 
 LOCAL_APPS = (
@@ -246,6 +248,7 @@ LOCAL_APPS = (
     'apps.authors',
     'apps.quotes',
     'apps.helpers',
+    'apps.quickstart',
 )
 
 INSTALLED_APPS = DJANGO_APPS + THIRD_PARTY_APPS + LOCAL_APPS
@@ -295,6 +298,14 @@ AUTHENTICATION_BACKENDS = (
     'django.contrib.auth.backends.ModelBackend',
 )
 ########## END AUTHENTICATION CONFIGURATION
+
+
+########## REST FRAMEWORK CONFIGURATION
+REST_FRAMEWORK = {
+    'DEFAULT_PERMISSION_CLASSES': ('rest_framework.permissions.IsAdminUser',),
+    'PAGINATE_BY': 10
+}
+########## END REST FRAMEWORK CONFIGURATION
 
 
 ########## REGISTRATION CONFIGURATION
