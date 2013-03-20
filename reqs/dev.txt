@@ -4,4 +4,4 @@ django-debug-toolbar
 selenium>=2.31.0
 mock
 django-dynamic-fixture
-django-extensions
+

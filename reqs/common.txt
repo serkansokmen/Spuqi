@@ -1,6 +1,6 @@
 Django>=1.5.0,<=1.5.9
 django-celery==3.0.11
-django_compressor==dev
+django_compressor==1.3
 easy-thumbnails==1.2
 Unidecode==0.04.10
 cython
