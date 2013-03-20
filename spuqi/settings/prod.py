@@ -116,8 +116,8 @@ AWS_HEADERS = {
 # MEDIA_ROOT and STATIC_ROOT are superceded by
 # DEFAULT_FILE_STORAGE and STATICFILES_STORAGE respectively and hence not needed.
 # You will, however, want to set MEDIA_URL and STATIC_URL to something like
-MEDIA_URL = 'https//s3.amazonaws.com/%s/media/' % AWS_STORAGE_BUCKET_NAME
-STATIC_URL = 'https//s3.amazonaws.com/%s/static/' % AWS_STORAGE_BUCKET_NAME
+MEDIA_URL = 'https://s3.amazonaws.com/%s/media/' % AWS_STORAGE_BUCKET_NAME
+STATIC_URL = 'https://s3.amazonaws.com/%s/static/' % AWS_STORAGE_BUCKET_NAME
 ADMIN_MEDIA_PREFIX = STATIC_URL + 'admin/'
 ########## END STORAGE CONFIGURATION
 
