@@ -118,7 +118,7 @@ AWS_HEADERS = {
 # You will, however, want to set MEDIA_URL and STATIC_URL to something like
 MEDIA_URL = 'https://s3.amazonaws.com/%s/media/' % AWS_STORAGE_BUCKET_NAME
 STATIC_URL = 'https://s3.amazonaws.com/%s/static/' % AWS_STORAGE_BUCKET_NAME
-ADMIN_MEDIA_PREFIX = STATIC_URL + 'admin/'
+ADMIN_MEDIA_PREFIX = 'https://s3.amazonaws.com/%s/static/admin/' % AWS_STORAGE_BUCKET_NAME
 ########## END STORAGE CONFIGURATION
 
 
