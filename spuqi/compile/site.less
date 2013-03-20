@@ -1,7 +1,6 @@
 html, body {
     height:100%
 }
-body                        { padding-top: 0; background: url('../img/grid.png') left top repeat-x; }
 a, a:hover                  { text-decoration: none; }
 ul.unstyled li.active a     { color: gray; }
 footer                      { padding-bottom: 80px; }
@@ -22,9 +21,11 @@ footer                      { padding-bottom: 80px; }
 .container-narrow {
     margin: 0 auto;
     max-width: 720px;
-    padding: 27px 10px;
-    // background-color: @white;
+    padding: 10px 20px;
     #gradient > .vertical(darken(@white, 2%), darken(@white, 1%));
+    // border: 1px solid darken(@white, 10%);
+    // @shadow: 0 0 60px darken(@white, 20%);
+    // .box-shadow(@shadow);
     height: 100%;
 }
 .container-narrow > .inner {
