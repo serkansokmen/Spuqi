@@ -97,6 +97,7 @@ INSTALLED_APPS += (
 # See: http://django-storages.readthedocs.org/en/latest/backends/amazon-S3.html#settings
 DEFAULT_FILE_STORAGE = 'storages.backends.s3boto.S3BotoStorage'
 STATICFILES_STORAGE = 'storages.backends.s3boto.S3BotoStorage'
+THUMBNAIL_DEFAULT_STORAGE = 'storages.backends.s3boto.S3BotoStorage'
 
 AWS_ACCESS_KEY_ID = environ.get('AWS_ACCESS_KEY_ID', '')
 AWS_SECRET_ACCESS_KEY = environ.get('AWS_SECRET_ACCESS_KEY', '')
@@ -120,6 +121,7 @@ MEDIA_URL = 'https://s3.amazonaws.com/%s/' % AWS_STORAGE_BUCKET_NAME
 STATIC_URL = 'https://s3.amazonaws.com/%s/' % AWS_STORAGE_BUCKET_NAME
 ADMIN_MEDIA_PREFIX = 'https://s3.amazonaws.com/%s/admin/' % AWS_STORAGE_BUCKET_NAME
 ########## END STORAGE CONFIGURATION
+
 
 
 ########## COMPRESSION CONFIGURATION
