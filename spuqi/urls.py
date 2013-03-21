@@ -12,16 +12,15 @@ admin.autodiscover()
 
 urlpatterns = patterns(
     '',
+
     (r'', include('social_auth.urls')),
     (r'^accounts/', include('registration.backends.default.urls')),
-
-    (r'^api/', include('apps.snippets.urls')),
 
     url(r'^$', TemplateView.as_view(template_name='home.html'), name='home'),
     url(r'^survey/$', TemplateView.as_view(template_name='survey.html'), name='survey'),
 
     # (r'^admin/', include('smuggler.urls')),  # put it before admin url patterns
-    (r'^admin/', include(admin.site.urls)),
+    url(r'^admin/', include(admin.site.urls)),
 
     # local apps
     (r'^authors/', include('apps.authors.urls')),
@@ -29,11 +28,13 @@ urlpatterns = patterns(
     (r'^quotes/', include('apps.quotes.urls')),
     (r'^sources/', include('apps.sources.urls')),
 
+    url(r'^api/snippets', include('apps.snippets.urls')),
+    # django-restframework default login/logout views
+    url(r'^api-auth/', include('rest_framework.urls', namespace='rest_framework')),
+
     # django-grappelli
     (r'^grappelli/', include('grappelli.urls')),
 
-    # django-restframework
-    url(r'^api-auth/', include('rest_framework.urls', namespace='rest_framework')),
 
     # (r'^robots\.txt$', 'django.views.generic.simple.direct_to_template', {'template': 'robots.txt', 'mimetype': 'text/plain'}),
     # (r'^favicon\.ico$', 'django.views.generic.simple.redirect_to', {'url': '/static/images/favicon.ico'})

@@ -1,4 +1,4 @@
-from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView
+from django.views.generic import DetailView, CreateView, UpdateView, DeleteView
 from django.http import HttpResponseForbidden
 from django.shortcuts import get_object_or_404
 from django.utils.safestring import mark_safe
