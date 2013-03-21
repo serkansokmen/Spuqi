@@ -7,7 +7,7 @@ from apps.helpers.models import TimeStampedModel
 
 
 class Author(TimeStampedModel):
-    user = models.ForeignKey(settings.AUTH_USER_MODEL)
+    user = models.ForeignKey(settings.AUTH_USER_MODEL, related_name='authors')
     name = models.CharField(_('Name'), max_length=255, unique=True)
     slug = models.SlugField()
 
