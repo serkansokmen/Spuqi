@@ -1,3 +1,5 @@
+@innerPadding: 20px;
+
 html, body {
     height:100%
 }
@@ -15,28 +17,37 @@ footer                      { padding-bottom: 80px; }
 .container > .navbar {
     margin-bottom: 0;
 }
-.asteriskField {
-    display: none;
-}
+
 .container-narrow {
     margin: 0 auto;
-    max-width: 720px;
-    padding: 10px 20px;
+    max-width: 840px;
     #gradient > .vertical(darken(@white, 4%), darken(@white, 8%));
-    // border: 1px solid darken(@white, 10%);
-    // @shadow: 0 0 60px darken(@white, 20%);
-    // .box-shadow(@shadow);
+    border: 1px solid darken(@white, 10%);
+    @shadow: 0 0 60px darken(@white, 20%);
+    .box-shadow(@shadow);
     height: 100%;
 }
+.container-narrow > .navbar > .navbar-inner {
+    background: transparent;
+    padding: @innerPadding;
+    border: none;
+}
 .container-narrow > .inner {
-    margin-top: 21px;
+    margin-top: 0;
+    padding: 0 @innerPadding;
 }
 blockquote {
     background: @white;
 }
+.asteriskField {
+    display: none;
+}
 .form-actions {
     #gradient > .vertical(darken(@white, 4%), darken(@white, 8%));
     border: 1px solid @grayLight;
+}
+footer {
+    padding: @innerPadding;
 }
 /*
 // Hide spam-protection field in comment form

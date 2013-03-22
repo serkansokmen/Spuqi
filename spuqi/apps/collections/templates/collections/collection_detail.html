@@ -2,7 +2,6 @@
 {% load i18n %}
 {% load endless %}
 {% load thumbnail %}
-{% load gravatar %}
 
 {% block content_title %}
 <div class="row-fluid">
@@ -26,7 +25,7 @@
                 {% if member.avatar %}
                 <img src="{{ member.avatar|thumbnail_url:'avatar' }}" alt="{{ member }}">
                 {% else %}
-                {% gravatar member.email 31 member.username %}
+                {{ member }}
                 {% endif %}
             </a>
         {% endfor %}

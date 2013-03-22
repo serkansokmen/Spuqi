@@ -1,0 +1,37 @@
+{% extends "account/base.html" %}
+{% load i18n %}
+{% load account %}
+{% load bootstrap %}
+
+{% block head_title %}{% trans "Sign In" %}{% endblock %}
+
+{% block content %}
+<div class="row-fluid">
+    <div class="span6">
+        <legend>{% trans "Sign In" %}</legend>
+        {% if socialaccount.providers  %}
+        <p>{% blocktrans with site.name as site_name %}Please sign in with one
+        of your existing third party accounts. Or, <a href="{{ signup_url }}">sign up</a>
+        for a {{site_name}} account and sign in:{% endblocktrans %}</p>
+        <ul class="inline">
+            {% include "socialaccount/snippets/provider_list.html" %}
+        </ul>
+        {% include "socialaccount/snippets/login_extra.html" %}
+        {% endif %}
+    </div>
+    <div class="span6">
+        <form class="form-inline" method="POST" action="{% url 'account_login' %}">
+            {% csrf_token %}
+            {{ form|bootstrap }}
+            {% if redirect_field_value %}
+            <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
+            {% endif %}
+            <div class="form-actions">
+                <button class="btn btn-primary" type="submit">{% trans "Sign In" %}</button>
+                <a class="btn btn-link" href="{% url 'account_reset_password' %}">{% trans "Forgot Password?" %}</a>
+            </div>
+        </form>
+    </div>
+</div>
+{% endblock %}
+

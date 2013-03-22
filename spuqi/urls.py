@@ -13,7 +13,7 @@ admin.autodiscover()
 urlpatterns = patterns(
     '',
 
-    (r'^accounts/', include('registration.backends.default.urls')),
+    (r'^accounts/', include('allauth.urls')),
 
     url(r'^$', TemplateView.as_view(template_name='home.html'), name='home'),
     url(r'^survey/$', TemplateView.as_view(template_name='survey.html'), name='survey'),

@@ -11,7 +11,8 @@ Sphinx==1.1.3
 PIL
 django-grappelli
 django-rosetta
-django-allauth
+git+git://github.com/pennersr/django-allauth.git
+django-avatar
 djangorestframework
 markdown
 pyyaml

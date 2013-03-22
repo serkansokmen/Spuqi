@@ -1,8 +1,7 @@
 {% load i18n %}
 {% load thumbnail %}
-{% load gravatar %}
 
-<div class="navbar navbar-inverse">
+<div class="navbar">
     <div class="navbar-inner">
         <div class="container" style="width: auto;">
             <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
@@ -21,9 +20,9 @@
                     {% if user.is_authenticated %}
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                             {% if user.avatar %}
-                            <img src="{{ user.avatar|thumbnail_url:'avatar_small' }}" alt="{{ user }}">
+                            <img class="img-polaroid" src="{{ user.avatar|thumbnail_url:'avatar_small' }}" alt="{{ user }}">
                             {% else %}
-                            {% gravatar user.email 21 user.username %}
+                            {{ user }}
                             {% endif %}
                             <b class="icon-caret-down"></b>
                         </a>
@@ -34,10 +33,10 @@
                             {% endif %}
                             {# <li><a href="#"><i class="icon-user"></i> {% trans "View profile" %}</a></li> #}
                             {# <li><a href="#"><i class="icon-pencil"></i> {% trans "Edit profile" %}</a></li> #}
-                            <li><a href="{% url 'auth_password_change' %}"><i class="icon-key"></i> {% trans "Change password" %}</a></li>
+                            <li><a href="{% url 'account_change_password' %}"><i class="icon-key"></i> {% trans "Change password" %}</a></li>
                             {# <li><a href=""><i class="icon-envelope"></i> {% trans "Change email" %}</a></li> #}
                             <li class="divider"></li>
-                            <li><a href="{% url 'auth_logout' %}"><i class="icon-signout"></i> {% trans "Signout" %}</a></li>
+                            <li><a href="{% url 'account_logout' %}"><i class="icon-signout"></i> {% trans "Signout" %}</a></li>
                         </ul>
                     {% else %}
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">

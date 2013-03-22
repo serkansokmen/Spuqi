@@ -144,6 +144,8 @@ TEMPLATE_CONTEXT_PROCESSORS = (
     'django.contrib.messages.context_processors.messages',
     'django.core.context_processors.request',
     'spuqi.context_processors.site_processor',
+    'allauth.account.context_processors.account',
+    'allauth.socialaccount.context_processors.socialaccount',
 )
 
 # See: https://docs.djangoproject.com/en/dev/ref/settings/#template-loaders
@@ -212,8 +214,14 @@ THIRD_PARTY_APPS = (
     'djcelery',
     # Rosetta
     'rosetta',
-    # django-gravatar2
-    'django_gravatar',
+    # django-allauth
+    'allauth',
+    'allauth.account',
+    'allauth.socialaccount',
+    'allauth.socialaccount.providers.facebook',
+    'allauth.socialaccount.providers.twitter',
+    # django-avatar
+    # 'avatar',
     # django-extra-views
     'extra_views',
     # django-taggit
@@ -284,10 +292,27 @@ LOGOUT_URL = '/accounts/logout/'
 
 AUTHENTICATION_BACKENDS = (
     'django.contrib.auth.backends.ModelBackend',
+    'allauth.account.auth_backends.AuthenticationBackend',
 )
 
-AUTH_USER_MODEL = 'accounts.SiteUser'
+# AUTH_USER_MODEL = 'accounts.SiteUser'
 ########## END AUTHENTICATION CONFIGURATION
+
+
+########## ALLAUTH CONFIGURATION
+# ACCOUNT_ADAPTER =
+ACCOUNT_AUTHENTICATION_METHOD = 'username_email'
+ACCOUNT_EMAIL_REQUIRED = True
+ACCOUNT_EMAIL_VERIFICATION = 'mandatory'
+ACCOUNT_SIGNUP_PASSWORD_VERIFICATION = True
+ACCOUNT_UNIQUE_EMAIL = True
+ACCOUNT_USERNAME_MIN_LENGTH = 6
+ACCOUNT_PASSWORD_INPUT_RENDER_VALUE = False
+ACCOUNT_PASSWORD_MIN_LENGTH = 6
+SOCIALACCOUNT_QUERY_EMAIL = ACCOUNT_EMAIL_REQUIRED
+SOCIALACCOUNT_AUTO_SIGNUP = True
+SOCIALACCOUNT_AVATAR_SUPPORT = False
+########## END ALLAUTH CONFIGURATION
 
 
 ########## REST FRAMEWORK CONFIGURATION
