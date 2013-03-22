@@ -14,4 +14,4 @@ class SiteUser(AbstractUser):
     )
 
     def __unicode__(self):
-        return self.get_full_name() if self.get_full_name() else self.email
+        return self.get_full_name() if self.get_full_name() else self.username
