@@ -2,6 +2,7 @@
 {% load i18n %}
 {% load endless %}
 {% load thumbnail %}
+{% load gravatar %}
 
 {% block content_title %}
 <div class="row-fluid">
@@ -22,7 +23,11 @@
         <h4>{% trans "Members" %}:</h4>
         {% for member in current_collection.members.all %}
             <a href="#" title="{{ member }}" rel="tooltip">
+                {% if member.avatar %}
                 <img src="{{ member.avatar|thumbnail_url:'avatar' }}" alt="{{ member }}">
+                {% else %}
+                {% gravatar member.email 31 member.username %}
+                {% endif %}
             </a>
         {% endfor %}
     </div>

@@ -221,6 +221,8 @@ THIRD_PARTY_APPS = (
     'registration',
     # django-social-auth
     'social_auth',
+    # django-gravatar2
+    'django_gravatar',
     # django-extra-views
     'extra_views',
     # django-taggit

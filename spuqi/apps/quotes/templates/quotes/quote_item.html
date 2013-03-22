@@ -1,6 +1,7 @@
 {% load i18n %}
 {% load humanize %}
 {% load thumbnail %}
+{% load gravatar %}
 
 <blockquote>
     {% autoescape off %}<i class="icon-quote-left"></i> <i>{{ quote }}</i> <i class="icon-quote-right"></i>{% endautoescape %}
@@ -8,7 +9,11 @@
 <div class="row-fluid">
     <div class="pull-left">
         <a class="btn btn-link" href="#" title="{{ quote.user }}" rel="tooltip">
+            {% if quote.user.avatar %}
             <img src="{{ quote.user.avatar|thumbnail_url:'avatar' }}" alt="{{ quote.user }}">
+            {% else %}
+            {% gravatar quote.user.email 31 quote.user.username %}
+            {% endif %}
         </a>
     </div>
     <div class="span7">

@@ -15,6 +15,7 @@ djangorestframework
 markdown
 pyyaml
 django-filter
+django-gravatar2
 https://bitbucket.org/eire1130/django-registration/get/tip.tar.gz
 django-social-auth
 git+git://github.com/arthurk/django-disqus.git

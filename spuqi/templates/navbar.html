@@ -1,5 +1,6 @@
 {% load i18n %}
 {% load thumbnail %}
+{% load gravatar %}
 
 <div class="navbar navbar-inverse">
     <div class="navbar-inner">
@@ -19,7 +20,11 @@
                     <li class="dropdown">
                     {% if user.is_authenticated %}
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                            <img src="{{ user.avatar|thumbnail_url:'avatar_small' }}" alt="{{ user }}"/>
+                            {% if user.avatar %}
+                            <img src="{{ user.avatar|thumbnail_url:'avatar_small' }}" alt="{{ user }}">
+                            {% else %}
+                            {% gravatar user.email 21 user.username %}
+                            {% endif %}
                             <b class="icon-caret-down"></b>
                         </a>
                         <ul class="dropdown-menu">
