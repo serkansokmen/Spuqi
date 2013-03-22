@@ -1,0 +1,40 @@
+[
+{
+  "pk": 1,
+  "model": "accounts.siteuser",
+  "fields": {
+    "username": "admin",
+    "first_name": "",
+    "last_name": "",
+    "is_active": true,
+    "is_superuser": true,
+    "is_staff": true,
+    "last_login": "2013-03-22T16:31:19.919",
+    "avatar": "",
+    "groups": [],
+    "user_permissions": [],
+    "password": "pbkdf2_sha256$10000$lT7Jbc0C0Xyt$hKi/JxFz2sPm6k3AN3CC8NOaTsiR8wcOyfa9DhrYNzw=",
+    "email": "admin@local.host",
+    "date_joined": "2013-03-22T16:29:51.259"
+  }
+},
+{
+  "pk": 2,
+  "model": "accounts.siteuser",
+  "fields": {
+    "username": "franksinatra",
+    "first_name": "Frank",
+    "last_name": "Sinatra",
+    "is_active": true,
+    "is_superuser": true,
+    "is_staff": false,
+    "last_login": "2013-03-22T16:31:47",
+    "avatar": "avatars/2013/03/22/313925_10150382957902814_995070445_n.jpg",
+    "groups": [],
+    "user_permissions": [],
+    "password": "pbkdf2_sha256$10000$4lH3QPgRQD02$bFLLP6XAZ3RjtK2/EAnP2vZ0XjUHwzet6DO3tLyK2dA=",
+    "email": "franksinatra@localhost.com",
+    "date_joined": "2013-03-15T13:32:45"
+  }
+}
+]
