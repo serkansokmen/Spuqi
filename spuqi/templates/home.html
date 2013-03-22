@@ -3,7 +3,6 @@
 
 {% block content %}
 {% include "brand.html" %}
-
 {% if user.is_authenticated %}
 <p>{% blocktrans with user.get_full_name as full_name %}
 Dear {{ full_name }}, welcome back.
@@ -14,37 +13,9 @@ Dear {{ full_name }}, welcome back.
 <a class="btn btn-link" href="{% url 'auth_password_reset' %}">{% trans "Forget your password?" %}</a>
 {% endif %}
 <hr>
-<p>{% trans "Please take your time and answer our mini survey." %}</p>
-<a class="btn btn-primary" href="{% url 'survey' %}">{% trans "Take the survey" %}</a>
-{% comment %}
-<div class="modal fade" id="survey-launch-modal">
-    <div class="modal-header">
-        <a class="close" data-dismiss="modal">&times;</a>
-        {% if user.is_authenticated %}
-        <h3>{% trans "Dear" %} {{ user.get_full_name }}</h3>
-        {% else %}
-        <h3>{% trans "Hi there" %}</h3>
-        {% endif %}
-    </div>
-    <div class="modal-body">
-        <p>{% trans "Please take your time and answer our mini survey." %}</p>
-    </div>
-    <div class="modal-footer">
-        <a class="btn btn-primary" href="{% url 'survey' %}">{% trans "Take the survey" %}</a>
-    </div>
-</div>
-<hr>
-{% endcomment %}
+<p>{% trans "We are constanly improving our site." %} <br>
+{% trans "If you'd like to help us, please take your time and answer our mini survey." %}<br>
+{% trans "See you soon, thanks in advance!" %}</p>
+<a class="btn btn-info" href="{% url 'survey' %}">{% trans "Take the survey" %}</a>
 <hr>
 {% endblock content %}
-
-{% block js %}
-{{ block.super }}
-{% comment %}
-<script>
-    $(function () {
-        $('#survey-launch-modal').modal();
-    });
-</script>
-{% endcomment %}
-{% endblock js %}
