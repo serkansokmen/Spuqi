@@ -8,11 +8,18 @@ from apps.helpers.models import TimeStampedModel
 
 
 class Collection(TimeStampedModel):
-    user = models.ForeignKey(settings.AUTH_USER_MODEL, related_name='owned_collections')
+    user = models.ForeignKey(
+        settings.AUTH_USER_MODEL,
+        related_name='owned_collections')
     title = models.CharField(_('Title'), max_length=100)
     slug = models.SlugField()
-    sources = models.ManyToManyField(Source, verbose_name=_('Sources'),)
-    members = models.ManyToManyField(settings.AUTH_USER_MODEL, related_name='followed_collections', verbose_name=_('Members'))
+    members = models.ManyToManyField(
+        settings.AUTH_USER_MODEL,
+        related_name='followed_collections',
+        verbose_name=_('Members'))
+    sources = models.ManyToManyField(
+        Source,
+        verbose_name=_('Sources'))
 
     class Meta:
         ordering = ['title']

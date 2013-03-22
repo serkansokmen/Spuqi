@@ -12,10 +12,14 @@ from libs.utils import slugify
 
 class Note(TimeStampedModel):
 
-    MEDIA_TYPES = ((1, _('Text')), (2, _('Voice')), (3, _('Video')))
+    MEDIA_TYPES = (
+        (1, _('Text')),
+        (2, _('Voice')),
+        (3, _('Video')))
 
     quote = models.ForeignKey('Quote')
-    media_type = models.PositiveIntegerField(_('Note type'), choices=MEDIA_TYPES, default=1)
+    media_type = models.PositiveIntegerField(
+        _('Note type'), choices=MEDIA_TYPES, default=1)
     text_note = models.TextField(_('Text'), blank=True)
     video_url = models.URLField(_('Video URL'), blank=True)
     sound_url = models.URLField(_('Sound URL'), blank=True)
@@ -36,17 +40,22 @@ class Note(TimeStampedModel):
 
 class Quote(TimeStampedModel):
 
-    PRIVACY_STATES = ((1, _('Open to discussion')), (2, _('Read only')), (3, _('Private')), )
+    PRIVACY_STATES = (
+        (1, _('Open to discussion')),
+        (2, _('Read only')),
+        (3, _('Private')),)
     OPEN = PRIVACY_STATES[0][0]
     READ_ONLY = PRIVACY_STATES[1][0]
     PRIVATE = PRIVACY_STATES[2][0]
 
     user = models.ForeignKey(settings.AUTH_USER_MODEL)
-    source = models.ForeignKey(Source, default=0, verbose_name=_('Source'))
+    source = models.ForeignKey(
+        Source, default=0, verbose_name=_('Source'))
     quote = models.TextField(_('Quote'), max_length=1200)
     slug = models.SlugField()
     tags = TaggableManager(blank=True)
-    privacy_state = models.PositiveSmallIntegerField(_('Privacy state'), choices=PRIVACY_STATES, default=2)
+    privacy_state = models.PositiveSmallIntegerField(
+        _('Privacy state'), choices=PRIVACY_STATES, default=2)
 
     def __unicode__(self):
         return self.quote
@@ -55,7 +64,8 @@ class Quote(TimeStampedModel):
         return reverse('quote_detail', kwargs={'slug': self.slug})
 
     def save(self, *args, **kwargs):
-        self.slug = '%s-%s' % (slugify(self.source.title), slugify(self.quote))
+        self.slug = '%s-%s' % (
+            slugify(self.source.title), slugify(self.quote))
         super(Quote, self).save(*args, **kwargs)
 
     class Meta:

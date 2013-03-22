@@ -12,8 +12,9 @@ class Source(TimeStampedModel):
     title = models.CharField(_('Title'), max_length=250, unique=True)
     slug = models.SlugField()
     authors = models.ManyToManyField(Author, verbose_name=_('Authors'))
-    url = models.URLField(_('URL'), blank=True, null=True)
-    isbn = models.CharField(_('ISBN'), max_length=13, blank=True, null=True)
+    web_address = models.URLField(_('Web Address'), blank=True)
+    isbn = models.CharField(
+        _('ISBN'), max_length=13, blank=True, null=True)
 
     def save(self, *args, **kwargs):
         self.slug = slugify(self.title)

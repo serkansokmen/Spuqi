@@ -15,7 +15,3 @@ class SiteUser(AbstractUser):
 
     def __unicode__(self):
         return self.get_full_name() if self.get_full_name() else self.email
-
-    def get_avatar_url(self):
-        print type(self.avatar)
-        return ''
