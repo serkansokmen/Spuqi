@@ -10,7 +10,7 @@ class UserSerializer(serializers.HyperlinkedModelSerializer):
 
     class Meta:
         model = get_user_model()
-        fields = ('url', 'username', 'email', 'avatar',)
+        fields = ('url', 'username', 'first_name', 'last_name', 'avatar',)
 
 
 class AuthorSerializer(serializers.HyperlinkedModelSerializer):
@@ -23,8 +23,8 @@ class AuthorSerializer(serializers.HyperlinkedModelSerializer):
 
 class SourceSerializer(serializers.HyperlinkedModelSerializer):
     owner = serializers.Field(source='user.username')
-    authors = serializers.HyperlinkedRelatedField(
-        many=True, view_name='author-detail')
+    # authors = serializers.HyperlinkedRelatedField(
+    #     many=True, view_name='author-detail')
 
     class Meta:
         model = Source
@@ -33,10 +33,6 @@ class SourceSerializer(serializers.HyperlinkedModelSerializer):
 
 class CollectionSerializer(serializers.HyperlinkedModelSerializer):
     owner = serializers.Field(source='user.username')
-    members = serializers.HyperlinkedRelatedField(
-        many=True, view_name='siteuser-detail')
-    sources = serializers.HyperlinkedRelatedField(
-        many=True, view_name='source-detail')
 
     class Meta:
         model = Collection
@@ -45,10 +41,10 @@ class CollectionSerializer(serializers.HyperlinkedModelSerializer):
 
 class QuoteSerializer(serializers.HyperlinkedModelSerializer):
     owner = serializers.Field(source='user.username')
-    source = serializers.HyperlinkedRelatedField(
-        view_name='source-detail')
-    privacy = serializers.Field(source='get_privacy_state_display')
+    # owner_avatar
 
     class Meta:
         model = Quote
-        fields = ('url', 'privacy', 'quote', 'owner', 'source',)
+        fields = ('url', 'privacy_state', 'quote',
+                  'owner', 'source',)
+        depth = 0

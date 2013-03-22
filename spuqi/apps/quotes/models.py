@@ -50,7 +50,7 @@ class Quote(TimeStampedModel):
 
     user = models.ForeignKey(settings.AUTH_USER_MODEL)
     source = models.ForeignKey(
-        Source, default=0, verbose_name=_('Source'))
+        Source, verbose_name=_('Source'))
     quote = models.TextField(_('Quote'), max_length=1200)
     slug = models.SlugField()
     tags = TaggableManager(blank=True)
