@@ -29,7 +29,7 @@ urlpatterns = patterns(
     (r'^sources/', include('apps.sources.urls')),
 
     # api urls
-    url(r'^api/', include('apps.api.urls')),
+    url(r'^v1/', include('apps.api.urls')),
     # django-restframework default login/logout views
     url(r'^api-auth/', include('rest_framework.urls', namespace='rest_framework')),
 
