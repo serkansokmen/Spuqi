@@ -32,7 +32,11 @@ footer                      { padding-bottom: 80px; }
     margin-top: 21px;
 }
 blockquote {
-    background: transparent;
+    background: @white;
+}
+.form-actions {
+    #gradient > .vertical(darken(@white, 4%), darken(@white, 8%));
+    border: 1px solid @grayLight;
 }
 /*
 // Hide spam-protection field in comment form

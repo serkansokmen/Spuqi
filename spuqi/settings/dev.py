@@ -7,6 +7,7 @@ from common import *
 # See: https://docs.djangoproject.com/en/dev/ref/settings/#debug
 DEBUG = True
 LOG_SQL = False
+SOUTH_TESTS_MIGRATE = False
 
 # See: https://docs.djangoproject.com/en/dev/ref/settings/#template-debug
 TEMPLATE_DEBUG = DEBUG

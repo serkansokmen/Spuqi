@@ -10607,7 +10607,27 @@ footer {
 }
 
 blockquote {
-  background: transparent;
+  background: #ffffff;
+}
+
+.form-actions {
+  background-color: #f1f1f1;
+  background-color: #f1f1f1;
+  background-image: -moz-linear-gradient(top, #f5f5f5, #ebebeb);
+  background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#f5f5f5), to(#ebebeb));
+  background-image: -o-linear-gradient(top, #f5f5f5, #ebebeb);
+  background-image: linear-gradient(to bottom, #f5f5f5, #ebebeb);
+  background-image: linear-gradient(to bottom, #f5f5f5, #ebebeb);
+  background-image: -o-linear-gradient(top, #f5f5f5, #ebebeb);
+  background-image: -moz-linear-gradient(top, #f5f5f5, #ebebeb);
+  background-image: -webkit-linear-gradient(top, #f5f5f5, #ebebeb);
+  background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#f5f5f5), to(#ebebeb));
+  background-image: -webkit-linear-gradient(top, #f5f5f5, #ebebeb);
+  background-repeat: repeat-x;
+  background-repeat: repeat-x;
+  border: 1px solid #dfdfdf;
+  filter: progid:dximagetransform.microsoft.gradient(startColorstr='#fff5f5f5', endColorstr='#ffebebeb', GradientType=0);
+  filter: progid:dximagetransform.microsoft.gradient(startColorstr='#fff5f5f5', endColorstr='#ffebebeb', GradientType=0);
 }
 
 /*

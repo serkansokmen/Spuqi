@@ -43,7 +43,6 @@ path.append(DJANGO_ROOT)
 ########## DEBUG CONFIGURATION
 # See: https://docs.djangoproject.com/en/dev/ref/settings/#debug
 DEBUG = False
-SOUTH_TESTS_MIGRATE = False
 
 # See: https://docs.djangoproject.com/en/dev/ref/settings/#template-debug
 TEMPLATE_DEBUG = DEBUG
@@ -145,10 +144,6 @@ TEMPLATE_CONTEXT_PROCESSORS = (
     'django.contrib.messages.context_processors.messages',
     'django.core.context_processors.request',
     'spuqi.context_processors.site_processor',
-    'social_auth.context_processors.social_auth_by_name_backends',
-    'social_auth.context_processors.social_auth_backends',
-    'social_auth.context_processors.social_auth_by_type_backends',
-    'social_auth.context_processors.social_auth_login_redirect',
 )
 
 # See: https://docs.djangoproject.com/en/dev/ref/settings/#template-loaders
@@ -217,10 +212,6 @@ THIRD_PARTY_APPS = (
     'djcelery',
     # Rosetta
     'rosetta',
-    # django-registration
-    'registration',
-    # django-social-auth
-    'social_auth',
     # django-gravatar2
     'django_gravatar',
     # django-extra-views
@@ -291,13 +282,11 @@ LOGIN_REDIRECT_URL = '/'
 LOGIN_ERROR_URL = '/'
 LOGOUT_URL = '/accounts/logout/'
 
-AUTH_USER_MODEL = 'accounts.SiteUser'
-
 AUTHENTICATION_BACKENDS = (
-    'social_auth.backends.twitter.TwitterBackend',
-    # 'social_auth.backends.facebook.FacebookBackend',
     'django.contrib.auth.backends.ModelBackend',
 )
+
+AUTH_USER_MODEL = 'accounts.SiteUser'
 ########## END AUTHENTICATION CONFIGURATION
 
 
@@ -308,27 +297,6 @@ REST_FRAMEWORK = {
     'PAGINATE_BY': 10
 }
 ########## END REST FRAMEWORK CONFIGURATION
-
-
-########## REGISTRATION CONFIGURATION
-ACCOUNT_ACTIVATION_DAYS = 7
-########## END REGISTRATION CONFIGURATION
-
-
-########## SOCIAL AUTH CONFIGURATION
-SOCIAL_AUTH_USER_MODEL = AUTH_USER_MODEL
-SOCIAL_AUTH_CREATE_USERS = True
-SOCIAL_AUTH_FORCE_RANDOM_USERNAME = False
-import random
-SOCIAL_AUTH_DEFAULT_USERNAME = lambda: random.choice(['Darth Vader', 'Obi-Wan Kenobi', 'R2-D2', 'C-3PO', 'Yoda'])
-SOCIAL_AUTH_COMPLETE_URL_NAME = 'socialauth_complete'
-SOCIAL_AUTH_ASSOCIATE_URL_NAME = 'socialauth_associate_complete'
-# SOCIAL_AUTH_ASSOCIATE_BY_MAIL = True
-
-FACEBOOK_EXTENDED_PERMISSIONS = ['email']
-FACEBOOK_AUTH_EXTRA_ARGUMENTS = {'display': 'touch'}
-FACEBOOK_PROFILE_EXTRA_PARAMS = {'locale': 'tr_TR'}
-########## END SOCIAL AUTH CONFIGURATION
 
 
 ########## AJAX SELECTS CONFIGURATION
