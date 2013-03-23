@@ -1,25 +1,48 @@
 {% extends "account/base.html" %}
 {% load i18n %}
 {% load account %}
+{% load socialaccount %}
 {% load bootstrap %}
 
 {% block head_title %}{% trans "Sign In" %}{% endblock %}
 
 {% block content %}
 <div class="row-fluid">
-    <div class="span5">
-        <legend>{% trans "Sign In" %}</legend>
-        {% if socialaccount.providers  %}
-        <p>{% blocktrans with site.name as site_name %}Please sign in with one
-        of your existing third party accounts. Or, <a href="{{ signup_url }}">sign up</a>
-        for a {{site_name}} account and sign in:{% endblocktrans %}</p>
-        <ul class="inline">
-            {% include "socialaccount/snippets/provider_list.html" %}
-        </ul>
+    <div class="span6">
+        <p>{% trans "We are constanly improving our site." %} <br>
+        {% trans "If you'd like to help us, please take your time and answer our mini survey." %}<br>
+        {% trans "See you soon, thanks in advance!" %}</p>
+        <a class="btn btn-info" href="{% url 'survey' %}">{% trans "Take the survey" %}</a>
+        <hr>
+        <div class="row-fluid">
+            <div class="span12">
+                <ul class="unstyled nav-social">
+                    <li>
+                        <a class="btn btn-inverse btn-block" href="{{ signup_url }}">
+                            <i class="icon-user"></i>
+                            {% trans "Signup for a new account" %}
+                        </a>
+                    </li>
+                    <li>
+                        <a title="Twitter" class="btn btn-info btn-block" href="{% provider_login_url "twitter" %}">
+                            <i class="icon-twitter"></i>{% trans "Connect with Twitter" %}
+                        </a>
+                    </li>
+                    <li>
+                        <a title="Facebook" class="btn btn-primary btn-block" href="{% provider_login_url "facebook" method="js_sdk" %}">
+                            <i class="icon-facebook"></i>{% trans "Connect with Facebook" %}
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
         {% include "socialaccount/snippets/login_extra.html" %}
-        {% endif %}
     </div>
-    <div class="span7">
+    <div class="span6 well">
+        <legend>{% trans "Sign In" %}</legend>
+        <p>{% blocktrans with site.name as site_name %}Please sign in with one
+        of your existing third party accounts or sign up
+        for a {{ site_name }} account and sign in{% endblocktrans %}</p>
         <form class="form-inline" method="POST" action="{% url 'account_login' %}">
             {% csrf_token %}
             {{ form|bootstrap }}

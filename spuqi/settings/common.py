@@ -295,7 +295,8 @@ AUTHENTICATION_BACKENDS = (
     'allauth.account.auth_backends.AuthenticationBackend',
 )
 
-# AUTH_USER_MODEL = 'accounts.SiteUser'
+''' Don't use for now! '''
+AUTH_USER_MODEL = 'accounts.SiteUser'
 ########## END AUTHENTICATION CONFIGURATION
 
 

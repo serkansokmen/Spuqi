@@ -6,6 +6,7 @@
 
 {% block content %}
 <legend>{% trans "Social Network Login Failure" %}</legend>
-
-<p>{% trans "An error occurred while attempting to login via your social network account." %}</p>
+<div class="alert alert-error">
+    {% trans "An error occurred while attempting to login via your social network account." %}
+</div>
 {% endblock %}

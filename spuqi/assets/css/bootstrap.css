@@ -3488,8 +3488,8 @@ Unused
   min-height: 20px;
   padding: 19px;
   margin-bottom: 20px;
-  background-color: #f5f5f5;
-  border: 1px solid #e3e3e3;
+  background-color: #ffffff;
+  border: 1px solid #ededed;
   -webkit-border-radius: 3px;
   -webkit-border-radius: 3px;
      -moz-border-radius: 3px;
@@ -10566,37 +10566,35 @@ footer {
   color: #999999;
 }
 
-#hint_id_sources,
-#hint_id_members {
-  display: none;
-}
-
 .container-narrow {
-  height: 100%;
   max-width: 840px;
   margin: 0 auto;
   background-color: #f6f6f6;
   background-color: #f6f6f6;
-  background-image: -o-linear-gradient(top, #fafafa, #f0f0f0);
+  background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#fafafa), to(#f0f0f0));
+  background-image: -webkit-linear-gradient(top, #fafafa, #f0f0f0);
   background-image: -o-linear-gradient(top, #fafafa, #f0f0f0);
   background-image: linear-gradient(to bottom, #fafafa, #f0f0f0);
   background-image: linear-gradient(to bottom, #fafafa, #f0f0f0);
+  background-image: -o-linear-gradient(top, #fafafa, #f0f0f0);
   background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#fafafa), to(#f0f0f0));
   background-image: -moz-linear-gradient(top, #fafafa, #f0f0f0);
   background-image: -moz-linear-gradient(top, #fafafa, #f0f0f0);
   background-image: -webkit-linear-gradient(top, #fafafa, #f0f0f0);
-  background-image: -webkit-linear-gradient(top, #fafafa, #f0f0f0);
-  background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#fafafa), to(#f0f0f0));
   background-repeat: repeat-x;
   background-repeat: repeat-x;
   filter: progid:dximagetransform.microsoft.gradient(startColorstr='#fffafafa', endColorstr='#fff0f0f0', GradientType=0);
   filter: progid:dximagetransform.microsoft.gradient(startColorstr='#fffafafa', endColorstr='#fff0f0f0', GradientType=0);
-  -webkit-box-shadow: 0 0 60px #cccccc;
-  -webkit-box-shadow: 0 0 60px #cccccc;
-     -moz-box-shadow: 0 0 60px #cccccc;
-     -moz-box-shadow: 0 0 60px #cccccc;
-          box-shadow: 0 0 60px #cccccc;
-  box-shadow: 0 0 60px #cccccc;
+  -webkit-box-shadow: 0 0 0 #cccccc;
+  -webkit-box-shadow: 0 0 0 #cccccc;
+     -moz-box-shadow: 0 0 0 #cccccc;
+     -moz-box-shadow: 0 0 0 #cccccc;
+          box-shadow: 0 0 0 #cccccc;
+  box-shadow: 0 0 0 #cccccc;
+}
+
+.navbar {
+  padding-top: 20px;
 }
 
 .navbar > .navbar-inner {
@@ -10605,8 +10603,17 @@ footer {
 }
 
 .container-narrow > .inner {
+  height: 100%;
   padding: 60px 20px;
   margin-top: 0;
+}
+
+.nav-social {
+  width: 50%;
+}
+
+.nav-social > li {
+  margin-bottom: 10px;
 }
 
 blockquote {
@@ -10618,23 +10625,9 @@ blockquote {
 }
 
 .form-actions {
-  background-color: #f1f1f1;
-  background-color: #f1f1f1;
-  background-image: -moz-linear-gradient(top, #f5f5f5, #ebebeb);
-  background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#f5f5f5), to(#ebebeb));
-  background-image: -o-linear-gradient(top, #f5f5f5, #ebebeb);
-  background-image: linear-gradient(to bottom, #f5f5f5, #ebebeb);
-  background-image: linear-gradient(to bottom, #f5f5f5, #ebebeb);
-  background-image: -o-linear-gradient(top, #f5f5f5, #ebebeb);
-  background-image: -moz-linear-gradient(top, #f5f5f5, #ebebeb);
-  background-image: -webkit-linear-gradient(top, #f5f5f5, #ebebeb);
-  background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#f5f5f5), to(#ebebeb));
-  background-image: -webkit-linear-gradient(top, #f5f5f5, #ebebeb);
-  background-repeat: repeat-x;
-  background-repeat: repeat-x;
-  border: 1px solid #dfdfdf;
-  filter: progid:dximagetransform.microsoft.gradient(startColorstr='#fff5f5f5', endColorstr='#ffebebeb', GradientType=0);
-  filter: progid:dximagetransform.microsoft.gradient(startColorstr='#fff5f5f5', endColorstr='#ffebebeb', GradientType=0);
+  padding: 0;
+  background: transparent;
+  border: none;
 }
 
 footer {
@@ -10652,7 +10645,7 @@ footer {
 
 @media (min-width: 1200px) {
   .nav-collapse > .nav {
-    padding-top: 94px;
+    padding-top: 75px;
   }
 }
 
@@ -10660,7 +10653,7 @@ footer {
 
 @media (min-width: 768px) and (max-width: 979px) {
   .nav-collapse > .nav {
-    padding-top: 94px;
+    padding-top: 75px;
   }
 }
 

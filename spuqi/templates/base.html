@@ -20,24 +20,13 @@
             padding-top: 0;
             background: transparent url({{ STATIC_URL }}img/noise.png) left top repeat;
         }
-        .spr { background: url({{ STATIC_URL }}img/csg-514cdd542309f.png) no-repeat top left; text-indent:-99999px; }
-        .spr-icon-bookmark{
-            background-position: 0 0;
-            width: 70px;
-            height: 128px;
-            margin-right: 16px;
-        }
-        .spr-icon-quote{
-            background-position: 0 -178px;
-            width: 58px;
-            height: 78px;
-        }
-        .spr-spuqi{
-            background-position: 0 -306px;
-            width: 258px;
-            height: 122px;
-            margin-top:0;
-        }
+        .spr { background: url({{ STATIC_URL }}img/csg-514dff65715e0.png) no-repeat top left; text-indent:-99999px; }
+
+        .spr-icon-bookmark-plus{ background-position: 0 0; width: 81px; height: 78px; display:block; }
+        .spr-icon-bookmark{ background-position: 0 -128px; width: 82px; height: 109px; }
+        .spr-quote-large{ background-position: 0 -287px; width: 155px; height: 155px; }
+        .spr-spuqi-brand{ background-position: 0 -492px; width: 237px; height: 112px; }
+
     </style>
     <!--[if gte IE 9]>
     <style type="text/css">
@@ -63,7 +52,9 @@
             {% include "navbar.html" %}
             {% endif %}
         {% endifnotequal %}
+
         <div class="inner">
+            {% block content_title %}{% endblock content_title %}
             {% if messages %}
                 {% for message in messages %}
                 <div class="message alert {% if message.tags %} alert-{{ message.tags }}{% endif %}">
@@ -72,8 +63,6 @@
                 </div>
                 {% endfor %}
             {% endif %}
-            {% block header_actions %}{% endblock header_actions %}
-            {% block content_title %}{% endblock content_title %}
             {% block content %}{% endblock content %}
         </div>
         <hr>

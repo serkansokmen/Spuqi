@@ -2,19 +2,20 @@
 {% load i18n %}
 {% load bootstrap %}
 
-{% block content_title %}
-<legend>{% if form.instance.id %}{% trans "Update collection" %}{% else %}{% trans "Add new collection" %}{% endif %}</legend>
-{% endblock content_title %}
-
 {% block content %}
-    <div class="row-fluid">
-        <form class="form-horizontal" method="post">
+<div class="row-fluid">
+    <div class="span8 offset2 well">
+        <form class="form-inline" method="post">
             {% csrf_token %}
-            {{ form|bootstrap }}
+            <fieldset>
+                <legend>{% if form.instance.id %}{% trans "Update collection" %}{% else %}{% trans "Add new collection" %}{% endif %}</legend>
+                {{ form|bootstrap }}
+            </fieldset>
             <div class="form-actions">
                 <button type="submit" class="btn btn-primary">{% trans "Save" %}</button>
                 <a href="{% if collection %}{{ collection.get_absolute_url }}{% else %}{% url 'collection_list' %}{% endif %}" class="btn">{% trans "Cancel" %}</a>
             </div>
         </form>
     </div>
+</div>
 {% endblock content %}

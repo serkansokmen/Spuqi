@@ -1,5 +1,5 @@
 @innerPadding: 20px;
-@navCollapseTopPadding: 94px;
+@navCollapseTopPadding: 75px;
 
 html, body {
     height:100%
@@ -12,17 +12,18 @@ footer                      { padding-bottom: 80px; }
     color: @grayDark;
     font-weight: 300;
 }
-#hint_id_sources,
-#hint_id_members            { display: none; }
 
 .container-narrow {
     margin: 0 auto;
     max-width: 840px;
     #gradient > .vertical(darken(@white, 2%), darken(@white, 6%));
     // border: 1px solid darken(@white, 10%);
-    @shadow: 0 0 60px darken(@white, 20%);
+    @shadow: 0 0 0 darken(@white, 20%);
     .box-shadow(@shadow);
-    height: 100%;
+}
+
+.navbar {
+    padding-top: @innerPadding;
 }
 
 .navbar > .navbar-inner {
@@ -32,6 +33,15 @@ footer                      { padding-bottom: 80px; }
 .container-narrow > .inner {
     margin-top: 0;
     padding: 60px @innerPadding;
+    height: 100%;
+}
+
+.nav-social {
+    width: 50%;
+}
+
+.nav-social > li {
+    margin-bottom: 10px;
 }
 
 blockquote {
@@ -41,8 +51,11 @@ blockquote {
     display: none;
 }
 .form-actions {
-    #gradient > .vertical(darken(@white, 4%), darken(@white, 8%));
-    border: 1px solid @grayLight;
+    // #gradient > .vertical(darken(@white, 4%), darken(@white, 8%));
+    // border: 1px solid @grayLight;
+    background: transparent;
+    border: none;
+    padding: 0;
 }
 footer {
     padding: @innerPadding;

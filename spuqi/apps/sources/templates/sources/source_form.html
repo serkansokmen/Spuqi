@@ -2,32 +2,8 @@
 {% load i18n %}
 {% load bootstrap %}
 
-{% block content_title %}
-<legend>{% if form.instance.id %}{% trans "Update source" %}{% else %}{% trans "Add new source" %}{% endif %}</legend>
-{% endblock content_title %}
-
 {% block content %}
 
-    <form class="form-horizontal" method="post">
-        {% if request.GET.next %}
-        <input type="hidden" name="next" value="{{ request.GET.next }}">
-        {% endif %}
-        {% csrf_token %}
-        {% for error in form.non_field_errors %}
-        <div class="alert alert-error">
-            {# <a class="close" data-dismiss="alert">&times;</a> #}
-            <strong>{% trans "Error!" %}</strong> {{ error }}
-        </div>
-        {% endfor %}
-        {% for hidden in form.hidden_fields %}{{ hidden }}{% endfor %}
-        {% for field in form.visible_fields %}
-        {{ field|bootstrap }}
-        {% endfor %}
-        <div class="form-actions">
-            <button type="submit" class="btn btn-primary">{% trans "Save" %}</button>
-            <a href="{% if source %}{{ source.get_absolute_url }}{% else %}{% url 'source_list' %}{% endif %}" class="btn">{% trans "Cancel" %}</a>
-        </div>
-    </form>
     {% comment %}
     <a href="#new-author-modal" data-toggle="modal" class="btn btn-success">{% trans "New author" %}</a>
     <div class="modal fade" id="new-author-modal">
@@ -47,7 +23,26 @@
         </div>
     </div>
     {% endcomment %}
+<div class="row-fluid">
+    <div class="span6 offset3 well">
+        <form class="form-inline" method="post">
+            {% if request.GET.next %}
+            <input type="hidden" name="next" value="{{ request.GET.next }}">
+            {% endif %}
+            {% csrf_token %}
+            <fieldset>
+                <legend>{% if form.instance.id %}{% trans "Update source" %}{% else %}{% trans "Add new source" %}{% endif %}</legend>
+                {{ form|bootstrap }}
+            </fieldset>
+            <div class="form-actions">
+                <button type="submit" class="btn btn-primary">{% trans "Save" %}</button>
+                <a href="{% if source %}{{ source.get_absolute_url }}{% else %}{% url 'source_list' %}{% endif %}" class="btn">{% trans "Cancel" %}</a>
+            </div>
+        </form>
+    </div>
+</div>
 {% endblock content %}
+
 
 {% comment %}
 {% block js %}

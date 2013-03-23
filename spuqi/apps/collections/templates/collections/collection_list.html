@@ -1,11 +1,8 @@
 {% extends "base.html" %}
 {% load i18n %}
 
-{% block header_actions %}
-<a class="btn btn-success" href="{% url 'collection_add' %}"><i class="icon-plus-sign "></i> {% trans "New Collection" %}</a>
-{% endblock header_actions %}
-
 {% block content %}
+<a class="btn btn-success" href="{% url 'collection_add' %}"><i class="icon-plus-sign "></i> {% trans "New Collection" %}</a>
 {% if owned_collections %}
     <hr>
     <strong>{% trans "Your own collections" %}:</strong>

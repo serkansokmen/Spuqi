@@ -1,0 +1,30 @@
+[
+{
+  "pk": 1,
+  "model": "socialaccount.socialapp",
+  "fields": {
+    "name": "Spuqi Twitter Application",
+    "sites": [
+      1
+    ],
+    "secret": "ZOPnToezvazaC4Wd9HIz1DnUh3B2JecEk4uMkeaGMNM",
+    "client_id": "cFn7CySgzYWgIilwjACgQ",
+    "key": "",
+    "provider": "twitter"
+  }
+},
+{
+  "pk": 2,
+  "model": "socialaccount.socialapp",
+  "fields": {
+    "name": "Spuqi Facebook Application",
+    "sites": [
+      1
+    ],
+    "secret": "0ed1b5ea798895af4eca1e9cff48dfef",
+    "client_id": "350677908359526",
+    "key": "",
+    "provider": "facebook"
+  }
+}
+]

@@ -9,16 +9,19 @@ Dear {{ full_name }}, welcome back.
 {% endblocktrans %}</p>
 {% else %}
 <div class="row-fluid">
-    <div class="span5">
-        <a class="btn btn-primary" href="{% url 'account_login' %}"><i class="icon-signin"></i> {% trans "Login" %}</a>
-        <a class="btn btn-info" href="{% url 'account_signup' %}"><i class="icon-user"></i> {% trans "Signup" %}</a>
-        <a class="btn btn-link" href="{% url 'account_reset_password' %}">{% trans "Forget your password?" %}</a>
-    </div>
-    <div class="span7">
+    <div class="span5 offset1">
         <p>{% trans "We are constanly improving our site." %} <br>
         {% trans "If you'd like to help us, please take your time and answer our mini survey." %}<br>
         {% trans "See you soon, thanks in advance!" %}</p>
         <a class="btn btn-info" href="{% url 'survey' %}">{% trans "Take the survey" %}</a>
+    </div>
+    <div class="span6">
+        <a class="btn btn-primary" href="{% url 'account_login' %}"><i class="icon-signin"></i> {% trans "Login" %}</a>
+        <a class="btn btn-info" href="{% url 'account_signup' %}"><i class="icon-user"></i> {% trans "Signup" %}</a>
+        <a class="btn btn-link" href="{% url 'account_reset_password' %}">{% trans "Forget your password?" %}</a>
+        <hr>
+        {% trans "You can also" %}
+        {% include "socialaccount/snippets/provider_list.html" %}
     </div>
 </div>
 {% endif %}

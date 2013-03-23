@@ -1,25 +1,11 @@
+{% load i18n %}
 {% load socialaccount %}
 
-{% for provider in socialaccount.providers %}
-{% if provider.id == "openid" %}
-{% for brand in provider.get_brands %}
-<li>
-    <a title="{{ brand.name }}"
-         class="btn btn-primary"
-         href="{% provider_login_url provider.id openid=brand.openid_url %}">
-         <i class="icon-{{ provider.id }}"></i>
-         {{ brand.name }}
-    </a>
-</li>
-{% endfor %}
-{% endif %}
-<li>
-    <a title="{{ provider.name }}"
-    class="btn{% ifequal provider.id 'twitter' %} btn-info{% endifequal %}{% ifequal provider.id 'facebook' %} btn-primary{% endifequal %}"
-    href="{% provider_login_url provider.id %}">
-        <i class="icon-{{ provider.id }}"></i>
-        {{ provider.name }}
-    </a>
-</li>
-{% endfor %}
-
+<a title="Twitter" class="btn btn-info"
+href="{% provider_login_url "twitter" %}">
+    <i class="icon-twitter"></i>{% trans "Connect with Twitter" %}
+</a>
+<a title="Facebook" class="btn btn-primary"
+href="{% provider_login_url "facebook" method="js_sdk" %}">
+    <i class="icon-facebook"></i>{% trans "Connect with Facebook" %}
+</a>

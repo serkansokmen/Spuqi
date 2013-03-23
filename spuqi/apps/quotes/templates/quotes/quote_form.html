@@ -2,17 +2,20 @@
 {% load i18n %}
 {% load bootstrap %}
 
-{% block content_title %}
-<legend>{% if form.instance.id %}{% trans "Update quote" %}{% else %}{% trans "Add new quote" %}{% endif %}</legend>
-{% endblock content_title %}
-
 {% block content %}
-<form class="form-horizontal" method="post">
-	{% csrf_token %}
-	{{ form|bootstrap }}
-    <div class="form-actions">
-		<button type="submit" class="btn btn-primary">{% trans "Save" %}</button>
-        <a href="{% if quote %}{{ quote.get_absolute_url }}{% else %}{% url 'quote_list' %}{% endif %}" class="btn">{% trans "Cancel" %}</a>
-	</div>
-</form>
+<div class="row-fluid">
+    <div class="span8 offset2 well">
+        <form class="form-horizontal" method="post">
+            {% csrf_token %}
+            <fieldset>
+                <legend>{% if form.instance.id %}{% trans "Update quote" %}{% else %}{% trans "Add new quote" %}{% endif %}</legend>
+                {{ form|bootstrap }}
+            </fieldset>
+            <div class="form-actions">
+                <button type="submit" class="btn btn-primary">{% trans "Save" %}</button>
+                <a href="{% if quote %}{{ quote.get_absolute_url }}{% else %}{% url 'quote_list' %}{% endif %}" class="btn">{% trans "Cancel" %}</a>
+            </div>
+        </form>
+    </div>
+</div>
 {% endblock content %}

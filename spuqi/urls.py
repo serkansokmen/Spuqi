@@ -1,7 +1,8 @@
 from django.conf.urls import *
 from django.contrib import admin
 from django.conf import settings
-from django.views.generic import TemplateView
+from django.core.urlresolvers import reverse_lazy
+from django.views.generic import TemplateView, RedirectView
 # from apps.accounts.forms import SignupFormReCaptcha, SigninFormReCaptcha
 
 from django.db.models.loading import cache as model_cache
@@ -13,9 +14,9 @@ admin.autodiscover()
 urlpatterns = patterns(
     '',
 
+    url(r'^$', RedirectView.as_view(url=reverse_lazy('quote_list')), name='home'),
     (r'^accounts/', include('allauth.urls')),
 
-    url(r'^$', TemplateView.as_view(template_name='home.html'), name='home'),
     url(r'^survey/$', TemplateView.as_view(template_name='survey.html'), name='survey'),
 
     # (r'^admin/', include('smuggler.urls')),  # put it before admin url patterns
