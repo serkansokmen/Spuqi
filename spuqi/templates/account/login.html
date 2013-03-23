@@ -7,7 +7,7 @@
 
 {% block content %}
 <div class="row-fluid">
-    <div class="span6">
+    <div class="span5">
         <legend>{% trans "Sign In" %}</legend>
         {% if socialaccount.providers  %}
         <p>{% blocktrans with site.name as site_name %}Please sign in with one
@@ -19,7 +19,7 @@
         {% include "socialaccount/snippets/login_extra.html" %}
         {% endif %}
     </div>
-    <div class="span6">
+    <div class="span7">
         <form class="form-inline" method="POST" action="{% url 'account_login' %}">
             {% csrf_token %}
             {{ form|bootstrap }}

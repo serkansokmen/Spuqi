@@ -10,7 +10,7 @@ class CollectionMixin(object):
     def get_context_data(self, **kwargs):
         context = super(CollectionMixin, self).get_context_data(**kwargs)
         context['owned_collections'] = Collection.objects.filter(user=self.request.user)
-        context['followed_collections'] = Collection.objects.filter(members=self.request.user).exclude(user=self.request.user)
+        # context['followed_collections'] = Collection.objects.filter(members=self.request.user).exclude(user=self.request.user)
         context['active_tab'] = 'collections'
         return context
 
