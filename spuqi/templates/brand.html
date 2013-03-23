@@ -1,4 +1,8 @@
 {% load i18n %}
-<h1><a href="{% url 'home' %}">Spuqi</a></h1>
-<p class="lead">{% trans "Collaborative space for social reading" %}</p>
+<div class="row-fluid">
+    <a href="{% url 'quote_list' %}" class="span5 offset1">
+        <h1 class="spr spr-spuqi">Spuqi</h1>
+    </a>
+    <small class="lead span6" style="padding-top:86px;">{% trans "Collaborative space for social reading" %}</small>
+</div>
 <hr>

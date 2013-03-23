@@ -4,16 +4,26 @@
 <div class="navbar">
     <div class="navbar-inner">
         <div class="container" style="width: auto;">
+            <div class="spr spr-icon-bookmark pull-left">Spuqi</div>
             <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </a>
-            <a class="brand" href="/">Spuqi</a>
             <div class="nav-collapse">
                 <ul class="nav pull-left">
-                    <li{% ifequal active_tab 'quotes'  %} class="active"{% endifequal %}><a href="{% url 'quote_list' %}">{% trans "Quotes" %}</a></li>
-                    <li{% ifequal active_tab 'collections'  %} class="active"{% endifequal %}><a href="{% url 'collection_list' %}">{% trans "Collections" %}</a></li>
+                    <li{% ifequal active_tab 'quotes'  %} class="active"{% endifequal %}>
+                        <a href="{% url 'quote_list' %}">
+                            <i class="icon-bookmark"></i>
+                            {% trans "Quotes" %}
+                        </a>
+                    </li>
+                    <li{% ifequal active_tab 'collections'  %} class="active"{% endifequal %}>
+                        <a href="{% url 'collection_list' %}">
+                            <i class="icon-folder-close"></i>
+                            {% trans "Collections" %}
+                        </a>
+                    </li>
                 </ul>
                 <ul class="nav pull-right">
                     <li class="dropdown">
@@ -22,7 +32,7 @@
                             {% if user.avatar %}
                             <img class="img-polaroid" src="{{ user.avatar|thumbnail_url:'avatar_small' }}" alt="{{ user }}">
                             {% else %}
-                            {{ user }}
+                            <i class="icon-user"></i>
                             {% endif %}
                             <b class="icon-caret-down"></b>
                         </a>
@@ -50,8 +60,18 @@
                     </li>
                 </ul>
                 <ul class="nav pull-right">
-                    <li{% ifequal active_tab 'sources'  %} class="active"{% endifequal %}><a href="{% url 'source_list' %}"> {% trans "Sources" %}</a></li>
-                    <li{% ifequal active_tab 'authors'  %} class="active"{% endifequal %}><a href="{% url 'author_list' %}"> {% trans "Authors" %}</a></li>
+                    <li{% ifequal active_tab 'sources'  %} class="active"{% endifequal %}>
+                        <a href="{% url 'source_list' %}">
+                            <i class="icon-book"></i>
+                            {% trans "Sources" %}
+                        </a>
+                    </li>
+                    <li{% ifequal active_tab 'authors'  %} class="active"{% endifequal %}>
+                        <a href="{% url 'author_list' %}">
+                            <i class="icon-group"></i>
+                            {% trans "Authors" %}
+                        </a>
+                    </li>
                 </ul>
             </div><!-- /.nav-collapse -->
         </div>

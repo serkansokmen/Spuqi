@@ -1,4 +1,5 @@
 @innerPadding: 20px;
+@navCollapseTopPadding: 94px;
 
 html, body {
     height:100%
@@ -14,28 +15,25 @@ footer                      { padding-bottom: 80px; }
 #hint_id_sources,
 #hint_id_members            { display: none; }
 
-.container > .navbar {
-    margin-bottom: 0;
-}
-
 .container-narrow {
     margin: 0 auto;
     max-width: 840px;
-    #gradient > .vertical(darken(@white, 4%), darken(@white, 8%));
-    border: 1px solid darken(@white, 10%);
+    #gradient > .vertical(darken(@white, 2%), darken(@white, 6%));
+    // border: 1px solid darken(@white, 10%);
     @shadow: 0 0 60px darken(@white, 20%);
     .box-shadow(@shadow);
     height: 100%;
 }
-.container-narrow > .navbar > .navbar-inner {
+
+.navbar > .navbar-inner {
     background: transparent;
-    padding: @innerPadding;
     border: none;
 }
 .container-narrow > .inner {
     margin-top: 0;
-    padding: 0 @innerPadding;
+    padding: 60px @innerPadding;
 }
+
 blockquote {
     background: @white;
 }
@@ -55,3 +53,32 @@ footer {
     display: none;
 }
 */
+
+
+/* Large desktop */
+@media (min-width: 1200px) {
+    .nav-collapse > .nav {
+        padding-top: @navCollapseTopPadding;
+    }
+}
+
+/* Portrait tablet to landscape and desktop */
+@media (min-width: 768px) and (max-width: 979px) {
+    .nav-collapse > .nav {
+        padding-top: @navCollapseTopPadding;
+    }
+}
+
+/* Landscape phone to portrait tablet */
+@media (max-width: 767px) {
+    .container-narrow > .inner {
+        padding-top: 0;
+    }
+}
+
+/* Landscape phones and down */
+@media (max-width: 480px) {
+    .container-narrow > .inner {
+        padding-top: 0;
+    }
+}

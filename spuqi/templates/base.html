@@ -18,6 +18,24 @@
             padding-top: 0;
             background: transparent url({{ STATIC_URL }}img/noise.png) left top repeat;
         }
+        .spr { background: url({{ STATIC_URL }}img/csg-514cdd542309f.png) no-repeat top left; text-indent:-99999px; }
+        .spr-icon-bookmark{
+            background-position: 0 0;
+            width: 70px;
+            height: 128px;
+            margin-right: 16px;
+        }
+        .spr-icon-quote{
+            background-position: 0 -178px;
+            width: 58px;
+            height: 78px;
+        }
+        .spr-spuqi{
+            background-position: 0 -306px;
+            width: 258px;
+            height: 122px;
+            margin-top:0;
+        }
     </style>
     <!--[if gte IE 9]>
     <style type="text/css">
@@ -38,9 +56,11 @@
 </head>
 <body>
     <div class="container-narrow">
-        {% if user.is_authenticated %}
-        {% include "navbar.html" %}
-        {% endif %}
+        {% ifnotequal request.path '/' %}
+            {% if user.is_authenticated %}
+            {% include "navbar.html" %}
+            {% endif %}
+        {% endifnotequal %}
         <div class="inner">
             {% if messages %}
                 {% for message in messages %}
@@ -54,6 +74,7 @@
             {% block content_title %}{% endblock content_title %}
             {% block content %}{% endblock content %}
         </div>
+        <hr>
         <footer class="row-fluid">
             <small>&copy; Spuqi {% now "Y" %}</small>
         </footer>
