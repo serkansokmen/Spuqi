@@ -10,7 +10,6 @@
     <meta name="author" content="">
 
     <link href="{{ STATIC_URL }}img/favicon.ico" rel="icon" type="image/x-icon">
-    <link href="//netdna.bootstrapcdn.com/font-awesome/3.0.2/css/font-awesome.css" rel="stylesheet">
     {% compress css %}
     {% block css %}
     <link href="{{ STATIC_URL }}css/bootstrap.css" rel="stylesheet" type="text/css"/>
@@ -26,18 +25,18 @@
         .spr-icon-bookmark{ background-position: 0 -128px; width: 82px; height: 109px; }
         .spr-quote-large{ background-position: 0 -287px; width: 155px; height: 155px; }
         .spr-spuqi-brand{ background-position: 0 -492px; width: 237px; height: 112px; }
-
     </style>
     <!--[if gte IE 9]>
     <style type="text/css">
         .gradient { filter: none; }
     </style>
     <![endif]-->
+    {% endblock css %}
+    {% endcompress css %}
     <!--[if eq IE 7]>
     <link href="//netdna.bootstrapcdn.com/font-awesome/3.0.2/css/font-awesome-ie7.css" rel="stylesheet">
     <![endif]-->
-    {% endblock css %}
-    {% endcompress css %}
+    <link href="//netdna.bootstrapcdn.com/font-awesome/3.0.2/css/font-awesome.css" rel="stylesheet">
 
     {% compress js %}
     {% block extrahead %}
