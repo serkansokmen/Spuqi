@@ -1,4 +1,0 @@
-{% load i18n %}
-{% blocktrans with site.name as site_name %}
-Account registration for {{ site_name }}
-{% endblocktrans %}
