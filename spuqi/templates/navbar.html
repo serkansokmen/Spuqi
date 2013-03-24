@@ -40,7 +40,7 @@
                         </a>
                         <ul class="dropdown-menu">
                             {% if user.is_staff %}
-                            <li><a href="{% url 'admin:index' %}" title="{% trans "Admin" %}"><i class="icon-cogs"></i> {% trans "Admin" %}</a></li>
+                            <li><a href="{% url 'admin:index' %}" target="_blank" title="{% trans "Admin" %}"><i class="icon-cogs"></i> {% trans "Admin" %}</a></li>
                             <li class="divider"></li>
                             {% endif %}
                             {# <li><a href="#"><i class="icon-user"></i> {% trans "View profile" %}</a></li> #}
