@@ -39,9 +39,7 @@
     <link href="//netdna.bootstrapcdn.com/font-awesome/3.0.2/css/font-awesome.css" rel="stylesheet">
 
     {% compress js %}
-    {% block extrahead %}
-    <script src="{{ STATIC_URL }}js/vendor/jquery-1.9.1.js"></script>
-    {% endblock extrahead %}
+    {% block extrahead %}{% endblock extrahead %}
     {% endcompress js %}
 </head>
 <body>
@@ -76,6 +74,7 @@
     {# <script src="http://cdnjs.cloudflare.com/ajax/libs/knockout.mapping/2.3.3/knockout.mapping.js"></script> #}
     {% compress js %}
     {% block js %}
+    <script src="{{ STATIC_URL }}js/vendor/jquery-1.9.1.js"></script>
     <script src="{{ STATIC_URL }}js/vendor/bootstrap.js"></script>
     <script type="text/javascript">
         $(function () {

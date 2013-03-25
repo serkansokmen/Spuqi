@@ -1,0 +1,56 @@
+{% extends "base.html" %}
+{% load i18n %}
+
+{% block content %}
+<div id="quotes-app">
+    <form class="form-inline">
+        <fieldset>
+            <legend>{% trans "Quote Form" %}</legend>
+            <div class="control-group">
+                <label class="control-label" for="id_source_list">{% trans "Sources" %}</label>
+                <div class="controls">
+                    <select id="id_source_list" name="source_list"
+                            data-bind="options: sources, optionsText: 'title', selectedOptions: selected_sources">
+                    </select>
+                    <!-- ko foreach: selected_sources -->
+                    <span data-bind="text: title"></span>
+                    <!-- /ko -->
+                </div>
+            </div>
+            <div class="control-group">
+                <label class="control-label" for="textarea">{% trans "Quote" %}</label>
+                <div class="controls">
+                    <textarea class="input-xlarge" name="quote" rows="3"></textarea>
+                </div>
+            </div>
+            <div class="control-group">
+                <label class="control-label" for="id_privacy_state">{% trans "Privacy state" %}</label>
+                <div class="controls">
+                    <select id="id_privacy_state" name="privacy_state"
+                            data-bind="options: privacy_states, optionsText: 'title', selectedOption: selected_privacy_state">
+                    </select>
+                </div>
+            </div>
+            <div class="control-group">
+                <label class="control-label" for="input01">{% trans "Tags" %}</label>
+                <div class="controls">
+                    <input type="text" class="input-xlarge" name="tags">
+                </div>
+            </div>
+            <div class="form-actions">
+                <button type="submit" class="btn btn-primary">{% trans "Save changes" %}</button>
+                <button class="btn">{% trans "Cancel" %}</button>
+            </div>
+        </fieldset>
+    </form>
+</div>
+{% endblock content %}
+
+
+
+
+{% block js %}
+{{ block.super }}
+<script src="{{ STATIC_URL }}js/vendor/knockback-full-stack.js"></script>
+<script src="{{ STATIC_URL }}js/app/main.coffee" type="text/coffeescript"></script>
+{% endblock js %}
