@@ -54,6 +54,18 @@ def cont(cmd, message):
 
 ########## DATABASE MANAGEMENT
 @task
+def setupdb():
+    """Run a syncdb."""
+    local('%(run)s syncdb --all --noinput' % env)
+    local('%(run)s migrate accounts --fake --noinput' % env)
+    local('%(run)s migrate authors --fake --noinput' % env)
+    local('%(run)s migrate sources --fake --noinput' % env)
+    local('%(run)s migrate quotes --fake --noinput' % env)
+    local('%(run)s migrate collections --fake --noinput' % env)
+    local('%(run)s migrate --fake --noinput' % env)
+
+
+@task
 def syncdb():
     """Run a syncdb."""
     local('%(run)s syncdb --noinput' % env)
