@@ -176,6 +176,8 @@ MIDDLEWARE_CLASSES = (
     'django.middleware.locale.LocaleMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'spuqi.middleware.ForceLangMiddleware',
+    'secretballot.middleware.SecretBallotIpUseragentMiddleware',
+    'likes.middleware.SecretBallotUserIpUseragentMiddleware',
 )
 ########## END MIDDLEWARE CONFIGURATION
 
@@ -214,6 +216,7 @@ THIRD_PARTY_APPS = (
     'djcelery',
     # Rosetta
     'rosetta',
+    # django-imperavi
     'imperavi',
     # django-allauth
     'allauth',
@@ -221,6 +224,10 @@ THIRD_PARTY_APPS = (
     'allauth.socialaccount',
     'allauth.socialaccount.providers.facebook',
     'allauth.socialaccount.providers.twitter',
+    # django-secretballot
+    'secretballot',
+    # django-likes
+    'likes',
     # django-avatar
     # 'avatar',
     # django-extra-views
@@ -334,16 +341,14 @@ REST_FRAMEWORK = {
 ########## END REST FRAMEWORK CONFIGURATION
 
 
-########## AJAX SELECTS CONFIGURATION
-# define the lookup channels in use on the site
-AJAX_LOOKUP_CHANNELS = {
-    # pass a dict with the model and the field to search against
-    'authors': {'model': 'authors.Author', 'search_field': 'name'},
+########## IMPERAVI CONFIGURATION
+IMPERAVI_CUSTOM_SETTINGS = {
+    'lang': 'tr',
+    # 'toolbar': 'mini',
+    'resize': True
 }
-# magically include jqueryUI/js/css
-AJAX_SELECT_BOOTSTRAP = True
-AJAX_SELECT_INLINES = 'inline'
-########## END AJAX SELECTS CONFIGURATION
+IMPERAVI_UPLOAD_PATH = 'imperavi_uploads/'
+########## END IMPERAVI CONFIGURATION
 
 
 ########## GRAPPELLI CONFIGURATION
