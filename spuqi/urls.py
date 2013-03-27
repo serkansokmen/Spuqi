@@ -35,7 +35,7 @@ urlpatterns = patterns(
 
     # django-grappelli
     (r'^grappelli/', include('grappelli.urls')),
-
+    (r'^imperavi/', include('imperavi.urls')),
 
     # (r'^robots\.txt$', 'django.views.generic.simple.direct_to_template', {'template': 'robots.txt', 'mimetype': 'text/plain'}),
     # (r'^favicon\.ico$', 'django.views.generic.simple.redirect_to', {'url': '/static/images/favicon.ico'})

@@ -1,16 +1,19 @@
 from django.contrib import admin
 from .models import Quote, Note
+from imperavi.admin import ImperaviAdmin, ImperaviStackedInlineAdmin
 
 
-class QuoteAdmin(admin.ModelAdmin):
+class NoteInline(ImperaviStackedInlineAdmin):
+    model = Note
+    #list_display = ('get_media_type_display', 'quote', 'text_note', 'video_url', 'sound_url', 'created', 'modified',)
+    #list_display_links = ('get_media_type_display',)
+
+
+class QuoteAdmin(ImperaviAdmin):
     list_display = ('quote', 'user', 'source', 'privacy_state', 'created', 'modified',)
     list_display_links = ('quote',)
     prepopulated_fields = {'slug': ('quote',)}
+    inlines = [NoteInline]
 
-
-class NoteAdmin(admin.ModelAdmin):
-    list_display = ('quote', 'get_media_type_display', 'text_note', 'video_url', 'sound_url', 'created', 'modified',)
-    list_display_links = ('get_media_type_display',)
 
 admin.site.register(Quote, QuoteAdmin)
-admin.site.register(Note, NoteAdmin)

@@ -14,6 +14,7 @@ django-rosetta
 git+git://github.com/pennersr/django-allauth.git
 django-avatar
 djangorestframework
+django-imperavi
 markdown
 pyyaml
 django-filter

@@ -214,6 +214,7 @@ THIRD_PARTY_APPS = (
     'djcelery',
     # Rosetta
     'rosetta',
+    'imperavi',
     # django-allauth
     'allauth',
     'allauth.account',
