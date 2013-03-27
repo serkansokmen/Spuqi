@@ -8,6 +8,7 @@ from apps.sources.models import Source
 from apps.helpers.models import TimeStampedModel
 from taggit.managers import TaggableManager
 from libs.utils import slugify
+import secretballot
 
 
 class Note(TimeStampedModel):
@@ -70,6 +71,9 @@ class Quote(TimeStampedModel):
 
     class Meta:
         ordering = ['-created']
+
+
+secretballot.enable_voting_on(Quote)
 
 
 @receiver(pre_save, sender=Quote)
