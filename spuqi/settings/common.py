@@ -177,7 +177,6 @@ MIDDLEWARE_CLASSES = (
     'django.contrib.messages.middleware.MessageMiddleware',
     'spuqi.middleware.ForceLangMiddleware',
     'secretballot.middleware.SecretBallotIpUseragentMiddleware',
-    'likes.middleware.SecretBallotUserIpUseragentMiddleware',
 )
 ########## END MIDDLEWARE CONFIGURATION
 
@@ -226,8 +225,6 @@ THIRD_PARTY_APPS = (
     'allauth.socialaccount.providers.twitter',
     # django-secretballot
     'secretballot',
-    # django-likes
-    'likes',
     # django-avatar
     # 'avatar',
     # django-extra-views
