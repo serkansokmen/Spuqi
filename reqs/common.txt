@@ -9,6 +9,7 @@ Fabric==1.6.0
 South==0.7.6
 Sphinx==1.1.3
 PIL
+pyisbn
 django-grappelli
 django-rosetta
 git+git://github.com/pennersr/django-allauth.git
