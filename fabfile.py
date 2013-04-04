@@ -1,12 +1,20 @@
 """Management utilities."""
 
+import os
 
 from fabric.contrib.console import confirm
 from fabric.api import abort, env, local, settings, task
 
+from spuqi.settings.common import LOCAL_APPS
 
 ########## GLOBALS
 env.run = 'heroku run python manage.py'
+
+env.git_repo = local('git config --get remote.origin.url', capture=True)
+env.project_name = env.git_repo.split('/')[-1].split('.')[0]  # use git file name
+env.project_folder_name = env.project_name.lower()
+env.project_dir = os.path.realpath(os.path.dirname(env.real_fabfile))
+
 
 HEROKU_ADDONS = (
     'cloudamqp:lemur',
@@ -146,3 +154,20 @@ def destroy():
     """
     local('heroku apps:destroy')
 ########## END HEROKU MANAGEMENT
+
+
+########## LOCALE MANAGEMENT
+@task
+def makeappmessages():
+    apps_folder = LOCAL_APPS[0].split('.')[0]
+    for app_label in LOCAL_APPS:
+        app_name = app_label.split('.')[1]
+        local('''
+            cd %s/%s/%s
+            django-admin.py makemessages -l tr
+            ''' % (
+            env.project_folder_name,
+            apps_folder,
+            app_name,
+        ))
+########## END LOCALE MANAGEMENT
