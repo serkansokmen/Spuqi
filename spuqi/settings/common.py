@@ -8,8 +8,9 @@ from sys import path
 from djcelery import setup_loader
 
 
-gettext = lambda s: s
-
+# This is defined here as a do-nothing function because we can't import
+# django.utils.translation -- that module depends on the settings.
+ugettext = lambda s: s
 
 ALLOWED_HOSTS = ['spuqi.herokuapp.com', 'www.spuqi.com', 'www.spuqy.com']
 
@@ -68,9 +69,10 @@ TIME_ZONE = 'Europe/Istanbul'
 LANGUAGE_CODE = 'tr'
 
 LANGUAGES = (
-    ('en', gettext('English')),
-    ('tr', gettext('Turkish')),
+    ('tr', ugettext('Turkish')),
+    ('en', ugettext('English')),
 )
+
 
 # See: https://docs.djangoproject.com/en/dev/ref/settings/#site-id
 SITE_ID = 1
