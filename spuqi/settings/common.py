@@ -1,6 +1,7 @@
 #encoding:utf-8
 '''Common settings and globals.'''
 
+import os
 from os import environ
 from datetime import timedelta
 from os.path import abspath, basename, dirname, join, normpath
@@ -71,6 +72,10 @@ LANGUAGE_CODE = 'tr'
 LANGUAGES = (
     ('tr', ugettext('Turkish')),
     ('en', ugettext('English')),
+)
+
+LOCALE_PATHS = (
+    os.path.abspath(os.path.join(DJANGO_ROOT, 'locale')),
 )
 
 

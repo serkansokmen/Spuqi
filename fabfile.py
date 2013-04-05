@@ -154,20 +154,3 @@ def destroy():
     """
     local('heroku apps:destroy')
 ########## END HEROKU MANAGEMENT
-
-
-########## LOCALE MANAGEMENT
-@task
-def makeappmessages():
-    apps_folder = LOCAL_APPS[0].split('.')[0]
-    for app_label in LOCAL_APPS:
-        app_name = app_label.split('.')[1]
-        local('''
-            cd %s/%s/%s
-            django-admin.py makemessages -l tr
-            ''' % (
-            env.project_folder_name,
-            apps_folder,
-            app_name,
-        ))
-########## END LOCALE MANAGEMENT
