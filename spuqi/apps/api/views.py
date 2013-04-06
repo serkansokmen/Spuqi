@@ -1,6 +1,7 @@
+import pyisbn
+import googlebooks
 from django.contrib.auth import get_user_model
-from django.shortcuts import get_object_or_404
-from django.http import HttpResponseForbidden
+from django.utils.translation import ugettext as _
 from .permissions import (
     IsOwnerOrReadOnly,
     IsPublicQuote,
@@ -12,8 +13,8 @@ from .serializers import (
     CollectionSerializer,
     QuoteSerializer,
 )
-from apps.authors.models import Author
 from apps.sources.models import Source
+from apps.authors.models import Author
 from apps.collections.models import Collection
 from apps.quotes.models import Quote
 from rest_framework import generics
@@ -21,6 +22,9 @@ from rest_framework import permissions
 from rest_framework.decorators import api_view
 from rest_framework.response import Response
 from rest_framework.reverse import reverse
+
+
+googlebooks_api = googlebooks.Api()
 
 
 @api_view(('GET',))
@@ -40,6 +44,9 @@ def api_root(request, format=None):
             request=request, format=format),
         'quotes': reverse(
             'quote-list',
+            request=request, format=format),
+        'search': reverse(
+            'search',
             request=request, format=format),
     })
 
@@ -82,6 +89,41 @@ class AuthorDetail(generics.RetrieveUpdateDestroyAPIView):
 
     def pre_save(self, instance):
         instance.user = self.request.user
+
+
+@api_view(['GET'])
+def search(request):
+    results = {
+        'sources': {},
+        'error': {},
+    }
+
+    title = request.QUERY_PARAMS.get('title', False)
+    if title:
+        sources = Source.objects.filter(title__icontains=title)
+        source_serializer = SourceSerializer(sources, many=True)
+        results['sources']['spuqi'] = source_serializer.data
+
+    isbn_str = request.QUERY_PARAMS.get('isbn', False)
+    if isbn_str:
+        try:
+            isbn = pyisbn.Isbn(isbn_str)
+        except pyisbn.IsbnError:
+            results['error'] = {
+                'message': _('ISBN number must contain only digit-numbers'),
+            }
+        else:
+            if not isbn.validate():
+                results['error'] = {
+                    'message': _('A valid ISBN number is required')
+                }
+            #try:
+            results['sources']['googlebooks'] = googlebooks_api.list(
+                'isbn:%s' % isbn)['items']
+            # except ConnectionError:
+            #     results.errors.append(_('Could not connect to Google Book API'))
+
+    return Response({"results": results})
 
 
 class SourceList(generics.ListCreateAPIView):

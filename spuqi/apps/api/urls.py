@@ -26,6 +26,9 @@ urlpatterns = patterns(
         views.QuoteList.as_view(), name='quote-list'),
     url(r'^quotes/(?P<pk>[0-9]+)/$',
         views.QuoteDetail.as_view(), name='quote-detail'),
+
+    url(r'^search/$',
+        views.search, name='search'),
 )
 
 urlpatterns = format_suffix_patterns(urlpatterns)
