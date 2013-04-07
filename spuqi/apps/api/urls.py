@@ -5,7 +5,7 @@ from rest_framework.urlpatterns import format_suffix_patterns
 
 urlpatterns = patterns(
     '',
-    (r'^$', 'apps.api.views.api_root'),
+    url(r'^$', 'apps.api.views.api_root', name='api_root'),
     url(r'^users/$',
         views.UserList.as_view(), name='siteuser-list'),
     url(r'^users/(?P<pk>[0-9]+)/$',
