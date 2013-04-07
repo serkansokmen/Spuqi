@@ -46,7 +46,7 @@ def api_root(request, format=None):
             'quote-list',
             request=request, format=format),
         'search': reverse(
-            'search',
+            'api_search',
             request=request, format=format),
     })
 
@@ -113,13 +113,17 @@ def search(request):
                 'message': _('ISBN number must contain only digit-numbers'),
             }
         else:
-            if not isbn.validate():
+            isbn_number = pyisbn.convert(isbn_str)
+            if not pyisbn.validate(isbn_number):
                 results['error'] = {
                     'message': _('A valid ISBN number is required')
                 }
             #try:
+            # if googlebooks_api.list('isbn:%s' % isbn)['totalItems'] > 0:
+            #     results['sources']['googlebooks'] = googlebooks_api.list(
+            #         'isbn:%s' % isbn)['items']
             results['sources']['googlebooks'] = googlebooks_api.list(
-                'isbn:%s' % isbn)['items']
+                'isbn:%s' % isbn_number)
             # except ConnectionError:
             #     results.errors.append(_('Could not connect to Google Book API'))
 

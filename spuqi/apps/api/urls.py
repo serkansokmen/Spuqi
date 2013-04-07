@@ -28,7 +28,7 @@ urlpatterns = patterns(
         views.QuoteDetail.as_view(), name='quote-detail'),
 
     url(r'^search/$',
-        views.search, name='search'),
+        views.search, name='api_search'),
 )
 
 urlpatterns = format_suffix_patterns(urlpatterns)
