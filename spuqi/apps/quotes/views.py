@@ -6,6 +6,7 @@ from django.utils.translation import ugettext as _
 from django.forms import ValidationError
 from .models import Quote
 from .forms import QuoteForm
+from apps.sources.forms import SourceForm
 from apps.helpers.views import FormNextMixin
 from endless_pagination.views import AjaxListView
 
@@ -61,6 +62,11 @@ class QuoteCreate(FormNextMixin, CreateView):
     model = Quote
     form_class = QuoteForm
     success_url = 'quote_list'
+
+    def get_context_data(self, **kwargs):
+        context = super(QuoteCreate, self).get_context_data(**kwargs)
+        context['source_form'] = SourceForm()
+        return context
 
     def form_valid(self, form):
         # set instance user
