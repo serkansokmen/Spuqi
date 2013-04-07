@@ -21,6 +21,7 @@ class AuthorSerializer(serializers.HyperlinkedModelSerializer):
         fields = ('url', 'name',)
 
 
+'''
 class SourceSerializer(serializers.HyperlinkedModelSerializer):
     owner = serializers.Field(source='user.username')
     # authors = serializers.HyperlinkedRelatedField(
@@ -29,6 +30,18 @@ class SourceSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = Source
         fields = ('url', 'title', 'authors', 'web_address', 'isbn',)
+'''
+
+
+class SourceSerializer(serializers.ModelSerializer):
+    owner = serializers.Field(source='user.username')
+    text = serializers.Field(source='title')
+    authors = serializers.HyperlinkedRelatedField(
+        many=True, view_name='author-detail')
+
+    class Meta:
+        model = Source
+        fields = ('id', 'text', 'authors', 'web_address', 'isbn',)
 
 
 class CollectionSerializer(serializers.HyperlinkedModelSerializer):

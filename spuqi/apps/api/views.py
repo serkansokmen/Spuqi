@@ -98,6 +98,19 @@ def search(request):
         'error': {},
     }
 
+    '''
+    more: false,
+    results: [
+        { text: "Western", children: [
+            { id: "CA", text: "California" },
+            { id: "AZ", text: "Arizona" }
+        ] },
+        { text: "Eastern", children: [
+            { id: "FL", text: "Florida" }
+        ] }
+    ]
+    '''
+
     title = request.QUERY_PARAMS.get('title', False)
     if title:
         sources = Source.objects.filter(title__icontains=title)
@@ -107,7 +120,7 @@ def search(request):
     isbn_str = request.QUERY_PARAMS.get('isbn', False)
     if isbn_str:
         try:
-            isbn = pyisbn.Isbn(isbn_str)
+            pyisbn.Isbn(isbn_str)
         except pyisbn.IsbnError:
             results['error'] = {
                 'message': _('ISBN number must contain only digit-numbers'),

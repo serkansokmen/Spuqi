@@ -76,12 +76,11 @@
     {% block js %}
     <script src="{{ STATIC_URL }}js/vendor/jquery-1.9.1.js"></script>
     <script src="{{ STATIC_URL }}js/vendor/bootstrap.js"></script>
-    <script src="{{ STATIC_URL }}js/csrf.js"></script>
     <script type="text/javascript">
         var Spuqi = {
-            'STATIC_URL': "{{ STATIC_URL }}",
-            'API_URL': "{% url 'api_root' %}"
-        }
+                'STATIC_URL': "{{ STATIC_URL }}",
+                'API_URL': "{% url 'api_root' %}"
+            };
     </script>
     <script src="{{ STATIC_URL }}js/app/main.js"></script>
     {% endblock js %}
