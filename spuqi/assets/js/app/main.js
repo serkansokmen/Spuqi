@@ -1,4 +1,0 @@
-$(function () {
-    $('[rel=\'tooltip\']').tooltip();
-
-});
