@@ -14,7 +14,8 @@ admin.autodiscover()
 urlpatterns = patterns(
     '',
 
-    url(r'^$', RedirectView.as_view(url=reverse_lazy('quote_list')), name='home'),
+    # url(r'^$', RedirectView.as_view(url=reverse_lazy('quote_list')), name='home'),
+    url(r'^$', TemplateView.as_view(template_name='home.html'), name='home'),
     (r'^accounts/', include('allauth.urls')),
 
     url(r'^survey/$', TemplateView.as_view(template_name='survey.html'), name='survey'),

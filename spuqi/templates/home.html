@@ -25,5 +25,22 @@ Dear {{ full_name }}, welcome back.
     </div>
 </div>
 {% endif %}
-<hr>
+
+{% verbatim %}
+<script type="text/x-handlebars" data-template-name="index">
+<h2>Welcome to Ember.js</h2>
+<ul>
+{{#each item in model}}
+    <li>{{item}}</li>
+{{/each}}
+ </ul>
+</script>
+{% endverbatim %}
+
+
 {% endblock content %}
+
+{% block js %}
+{{ block.super }}
+<script src="{{ STATIC_URL }}js/app/main.js"></script>
+{% endblock js %}

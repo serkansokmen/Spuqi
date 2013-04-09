@@ -123,7 +123,6 @@ ADMIN_MEDIA_PREFIX = 'https://s3.amazonaws.com/%s/admin/' % AWS_STORAGE_BUCKET_N
 ########## END STORAGE CONFIGURATION
 
 
-
 ########## COMPRESSION CONFIGURATION
 # See: http://django_compressor.readthedocs.org/en/latest/settings/#django.conf.settings.COMPRESS_OFFLINE
 COMPRESS_OFFLINE = bool(environ.get('COMPRESS_OFFLINE', False))
