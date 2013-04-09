@@ -22,7 +22,8 @@ markdown
 pyyaml
 django-filter
 django-gravatar2
-git+git://github.com/arthurk/django-disqus.git
+# git+git://github.com/arthurk/django-disqus.git
+django-disqus
 django-tastypie
 django-taggit
 django-extra-views
