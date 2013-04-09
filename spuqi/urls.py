@@ -1,8 +1,8 @@
-from django.conf.urls import *
+from django.conf.urls import patterns, url, include
 from django.contrib import admin
 from django.conf import settings
-from django.core.urlresolvers import reverse_lazy
-from django.views.generic import TemplateView, RedirectView
+from django.views.generic import TemplateView
+from django.contrib.auth.decorators import login_required
 # from apps.accounts.forms import SignupFormReCaptcha, SigninFormReCaptcha
 
 from django.db.models.loading import cache as model_cache
@@ -15,7 +15,7 @@ urlpatterns = patterns(
     '',
 
     # url(r'^$', RedirectView.as_view(url=reverse_lazy('quote_list')), name='home'),
-    url(r'^$', TemplateView.as_view(template_name='home.html'), name='home'),
+    url(r'^$', login_required(TemplateView.as_view(template_name='home.html')), name='home'),
     (r'^accounts/', include('allauth.urls')),
 
     url(r'^survey/$', TemplateView.as_view(template_name='survey.html'), name='survey'),

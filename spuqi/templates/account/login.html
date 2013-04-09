@@ -14,28 +14,7 @@
         {% trans "See you soon, thanks in advance!" %}</p>
         <a class="btn btn-info" href="{% url 'survey' %}">{% trans "Take the survey" %}</a>
         <hr>
-        <div class="row-fluid">
-            <div class="span12">
-                <ul class="unstyled nav-social">
-                    <li>
-                        <a class="btn btn-inverse btn-block" href="{{ signup_url }}">
-                            <i class="icon-user"></i>
-                            {% trans "Signup for a new account" %}
-                        </a>
-                    </li>
-                    <li>
-                        <a title="Twitter" class="btn btn-info btn-block" href="{% provider_login_url "twitter" %}">
-                            <i class="icon-twitter"></i> {% trans "Connect with Twitter" %}
-                        </a>
-                    </li>
-                    <li>
-                        <a title="Facebook" class="btn btn-primary btn-block" href="{% provider_login_url "facebook" method="js_sdk" %}">
-                            <i class="icon-facebook"></i> {% trans "Connect with Facebook" %}
-                        </a>
-                    </li>
-                </ul>
-            </div>
-        </div>
+        {% include "socialaccount/snippets/provider_list.html" %}
         {% include "socialaccount/snippets/login_extra.html" %}
     </div>
     <div class="span6 well">

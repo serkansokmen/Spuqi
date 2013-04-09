@@ -44,11 +44,9 @@
 </head>
 <body>
     <div class="container-narrow">
-        {% ifnotequal request.path '/' %}
-            {% if user.is_authenticated and not 'accounts' in request.path %}
-            {% include "navbar.html" %}
-            {% endif %}
-        {% endifnotequal %}
+        {% if user.is_authenticated and not 'accounts' in request.path %}
+        {% include "navbar.html" %}
+        {% endif %}
 
         <div class="inner">
             {% block content_title %}{% endblock content_title %}
