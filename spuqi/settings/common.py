@@ -75,7 +75,7 @@ LANGUAGES = (
 )
 
 LOCALE_PATHS = (
-    os.path.abspath(os.path.join(DJANGO_ROOT, 'locale')),
+    abspath(join(DJANGO_ROOT, 'locale')),
 )
 
 
