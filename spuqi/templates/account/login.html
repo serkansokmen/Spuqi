@@ -14,7 +14,15 @@
         {% trans "See you soon, thanks in advance!" %}</p>
         <a class="btn btn-info" href="{% url 'survey' %}">{% trans "Take the survey" %}</a>
         <hr>
-        {% include "socialaccount/snippets/provider_list.html" %}
+        <ul class="unstyled nav-social">
+            <li>
+                <a class="btn btn-inverse btn-block" href="{{ signup_url }}">
+                    <i class="icon-user"></i>
+                    {% trans "Signup for a new account" %}
+                </a>
+            </li>
+            {% include "socialaccount/snippets/provider_list.html" %}
+        </ul>
         {% include "socialaccount/snippets/login_extra.html" %}
     </div>
     <div class="span6 well">
