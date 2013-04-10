@@ -9,8 +9,6 @@
 
 <legend>{% trans "Login Cancelled" %}</legend>
 
-{% url 'socialaccount_login' as login_url %}
-
 <p>{% trans "You decided to cancel logging in to our site using one of your existing accounts." %} <br>
 {% url 'account_login' as login_url %}
 {% blocktrans with login_url as login_url %}

@@ -1,6 +1,6 @@
 {% extends "socialaccount/base.html" %}
-
 {% load i18n %}
+{% load bootstrap %}
 
 {% block head_title %}{% trans "Account Connections" %}{% endblock %}
 
@@ -10,32 +10,35 @@
 {% if form.accounts %}
 <p>{% blocktrans %}You can sign in to your account using any of the following third party accounts:{% endblocktrans %}</p>
 
-<form class="uniForm" method="post">
-{% csrf_token %}
+<form class="form-inline" method="post">
+    {% csrf_token %}
+    <fieldset>
 
-<fieldset class="blockLabels">
-{% if form.non_field_errors %}
-<div id="errorMsg">{{form.non_field_errors}}</div>
-{% endif %}
+    {% if form.non_field_errors %}
+    <div class="alert alert-error">
+        {{ form.non_field_errors }}
+    </div>
+    {% endif %}
 
 {% for base_account in form.accounts %}
 {% with base_account.get_provider_account as account %}
-<div class="ctrlHolder">
-<label for="id_account_{{base_account.id}}">
-<input id="id_account_{{base_account.id}}" type="radio" name="account" value="{{base_account.id}}"/>
-<span class="socialaccount_provider {{base_account.provider}} {{account.get_brand.id}}">{{account.get_brand.name}}</span>
-{{ account }}
-</label>
-</div>
+    <div class="control-group">
+        <label class="checkbox">
+            <input id="id_account_{{ base_account.id }}" type="radio" name="account" value="{{ base_account.id }}"/>
+            <i class="icon-{{ base_account.provider }}"></i>
+            {{ account.get_brand.name }}, {{ account }}
+        </label>
+    </div>
 {% endwith %}
 {% endfor %}
 
-<div class="buttonHolder">
-<button type="submit">{% trans 'Remove' %}</button>
+{% if redirect_field_value %}
+<input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
+{% endif %}
+<div class="form-actions">
+    <button class="btn btn-primary" type="submit">{% trans "Save" %}</button>
 </div>
-
 </fieldset>
-
 </form>
 
 {% else %}
