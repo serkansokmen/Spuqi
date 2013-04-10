@@ -3,11 +3,8 @@ from django.contrib import admin
 from django.contrib.auth.models import Group
 from django.contrib.auth.admin import UserAdmin
 from django.contrib.auth.forms import ReadOnlyPasswordHashField
-from .models import SiteUser
-from django.contrib.auth import get_user_model
 
-
-User = get_user_model()
+from apps.accounts.models import SiteUser
 
 
 class UserCreationForm(forms.ModelForm):
@@ -17,16 +14,8 @@ class UserCreationForm(forms.ModelForm):
     password2 = forms.CharField(label='Password confirmation', widget=forms.PasswordInput)
 
     class Meta:
-        model = get_user_model()
-        fields = ('email', 'first_name', 'last_name')
-
-    def clean_username(self):
-        username = self.cleaned_data['username']
-        try:
-            User.objects.get(username=username)
-        except User.DoesNotExist:
-            return username
-        raise forms.ValidationError(self.error_messages['duplicate_username'])
+        model = SiteUser
+        fields = ('username', 'email', 'first_name', 'last_name')
 
     def clean_password2(self):
         # Check that the two password entries match
@@ -70,22 +59,26 @@ class SiteUserAdmin(UserAdmin):
     # The fields to be used in displaying the User model.
     # These override the definitions on the base UserAdmin
     # that reference specific fields on auth.User.
-    list_display = ('username', 'email', 'first_name', 'last_name', 'is_staff')
-    list_filter = ('is_staff',)
+    list_display = ('username', 'email', 'first_name', 'last_name', 'is_admin')
+    list_filter = ('is_admin',)
     fieldsets = (
-        (None, {'fields': ('email', 'password')}),
-        ('Personal info', {'fields': ('avatar', 'first_name', 'last_name',)}),
-        ('Permissions', {'fields': ('is_staff',)}),
+        (None, {'fields': ('username', 'email', 'password')}),
+        ('Personal info', {'fields': ('first_name', 'last_name')}),
+        ('Permissions', {'fields': ('is_admin',)}),
         ('Important dates', {'fields': ('last_login',)}),
     )
     add_fieldsets = (
-        (None, {
-            'classes': ('wide',),
-            'fields': ('avatar', 'email', 'first_name', 'last_name', 'password1', 'password2')
-        }),
+        (
+            None, {
+                'classes': ('wide',),
+                'fields': (
+                    'username', 'email', 'first_name',
+                    'last_name', 'password1', 'password2')
+            }
+        ),
     )
-    search_fields = ('email', 'first_name', 'last_name', 'username')
-    ordering = ('email',)
+    search_fields = ('email', 'first_name', 'last_name')
+    ordering = ('email', 'last_name')
     filter_horizontal = ()
 
 # Now register the new UserAdmin...

@@ -1,10 +1,69 @@
-from django.contrib.auth.models import AbstractUser
+from django.db import models
+from django.contrib.auth.models import (
+    BaseUserManager, AbstractBaseUser
+)
 from django.utils.translation import ugettext as _
 from easy_thumbnails.fields import ThumbnailerImageField
 
 
-class SiteUser(AbstractUser):
+class SiteUserManager(BaseUserManager):
 
+    def create_user(
+        self, username, email, first_name='Admin',
+            last_name='Admin', password=None):
+        """
+        Creates and saves a User with the given username, email,
+        first name, last name and password.
+        """
+        if not username:
+            raise ValueError('Users must have a username')
+        if not email:
+            raise ValueError('Users must have an email address')
+
+        user = self.model(
+            username=username,
+            email=SiteUserManager.normalize_email(email),
+            first_name=first_name,
+            last_name=last_name,
+        )
+
+        user.set_password(password)
+        user.save(using=self._db)
+        return user
+
+    def create_superuser(self, username, email, first_name, last_name, password):
+        """
+        Creates and saves a superuser with the given email, date of
+        birth and password.
+        """
+        user = self.create_user(
+            username,
+            email=email,
+            first_name=first_name,
+            last_name=last_name,
+            password=password,
+        )
+        user.is_admin = True
+        user.save(using=self._db)
+        return user
+
+
+class SiteUser(AbstractBaseUser):
+
+    username = models.CharField(
+        _('Username'),
+        max_length=50,
+        unique=True,
+        db_index=True,
+    )
+    email = models.EmailField(
+        verbose_name=_('email address'),
+        max_length=255,
+    )
+    first_name = models.CharField(_('First Name'), max_length=50)
+    last_name = models.CharField(_('Last Name'), max_length=50)
+    is_active = models.BooleanField(default=True)
+    is_admin = models.BooleanField(default=False)
     avatar = ThumbnailerImageField(
         verbose_name=_('Avatar'),
         upload_to='avatars/%Y/%m/%d/',
@@ -13,5 +72,34 @@ class SiteUser(AbstractUser):
         null=True
     )
 
+    objects = SiteUserManager()
+
+    USERNAME_FIELD = 'username'
+    REQUIRED_FIELDS = ['email', 'first_name', 'last_name']
+
+    def get_full_name(self):
+        # The user is identified by their email address
+        return self.email
+
+    def get_short_name(self):
+        # The user is identified by their email address
+        return self.email
+
     def __unicode__(self):
-        return self.get_full_name() if self.get_full_name() else self.username
+        return self.email
+
+    def has_perm(self, perm, obj=None):
+        "Does the user have a specific permission?"
+        # Simplest possible answer: Yes, always
+        return True
+
+    def has_module_perms(self, app_label):
+        "Does the user have permissions to view the app `app_label`?"
+        # Simplest possible answer: Yes, always
+        return True
+
+    @property
+    def is_staff(self):
+        "Is the user a member of staff?"
+        # Simplest possible answer: All admins are staff
+        return self.is_admin
