@@ -38,6 +38,10 @@ urlpatterns = patterns(
     (r'^grappelli/', include('grappelli.urls')),
     (r'^imperavi/', include('imperavi.urls')),
 
+    # set_language
+    # /locale/setlang/
+    (r'^locale/', include('django.conf.urls.i18n')),
+
     # (r'^robots\.txt$', 'django.views.generic.simple.direct_to_template', {'template': 'robots.txt', 'mimetype': 'text/plain'}),
     # (r'^favicon\.ico$', 'django.views.generic.simple.redirect_to', {'url': '/static/images/favicon.ico'})
 )
