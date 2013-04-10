@@ -2,17 +2,17 @@
 {% load socialaccount %}
 
 {% for provider in socialaccount.providers %}
-{% for user_provider in user.socialaccount_set.all %}
-    {% ifnotequal provider.id user_provider.provider  %}
-        <li>
-            <a title="{{ provider.name }}" class="btn {% ifequal provider.id 'twitter'  %} btn-info{% endifequal %}{% ifequal provider.id 'facebook'  %} btn-primary{% endifequal %} btn-block" href="{% provider_login_url provider.id %}">
-                <i class="icon-{{ provider.id }}"></i>{% blocktrans with provider.name as provider_name %}
-                    Connect with {{ provider_name }}
-                {% endblocktrans %}
-            </a>
-        </li>
-    {% endifnotequal %}
-{% endfor %}
+    {% for user_provider in user.socialaccount_set.all %}
+        {% ifnotequal provider.id user_provider.provider  %}
+            <li>
+                <a title="{{ provider.name }}" class="btn {% ifequal provider.id 'twitter'  %} btn-info{% endifequal %}{% ifequal provider.id 'facebook'  %} btn-primary{% endifequal %} btn-block" href="{% provider_login_url provider.id %}">
+                    <i class="icon-{{ provider.id }}"></i>{% blocktrans with provider.name as provider_name %}
+                        Connect with {{ provider_name }}
+                    {% endblocktrans %}
+                </a>
+            </li>
+        {% endifnotequal %}
+    {% endfor %}
 {% endfor %}
 
 {% comment %}

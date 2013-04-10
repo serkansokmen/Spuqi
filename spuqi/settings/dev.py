@@ -35,6 +35,11 @@ DATABASES = {
 ########## END DATABASE CONFIGURATION
 
 
+########## COMPRESSOR CONFIGURATION
+COMPRESS_ENABLED = True
+########## END COMPRESSOR CONFIGURATION
+
+
 ########## CACHE CONFIGURATION
 # See: https://docs.djangoproject.com/en/dev/ref/settings/#caches
 CACHES = {
