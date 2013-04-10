@@ -20,6 +20,8 @@ build
 # Celerybeat scheduler file:
 celerybeat-schedule
 
+.env
+
 # Excluded folders
 .codeintel/
 spuqi/static/
