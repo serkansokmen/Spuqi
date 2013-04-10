@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2013-04-05 02:59+0300\n"
-"PO-Revision-Date: 2013-04-05 03:00+0157\n"
+"PO-Revision-Date: 2013-04-10 02:35+0157\n"
 "Last-Translator: Serkan Sokmen <e.serkan.sokmen@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
@@ -21,12 +21,12 @@ msgstr ""
 
 #: apps/accounts/models.py:9
 msgid "Avatar"
-msgstr ""
+msgstr "Avatar"
 
 #: apps/authors/models.py:11
 #: apps/authors/templates/authors/author_list.html:11
 msgid "Name"
-msgstr ""
+msgstr "İsim"
 
 #: apps/authors/templates/authors/author_confirm_delete.html:7
 #, python-format
@@ -35,13 +35,15 @@ msgid ""
 "    Delete %(author)s?\n"
 "    "
 msgstr ""
+"\n"
+"%(author)s silinsin mi?"
 
 #: apps/authors/templates/authors/author_confirm_delete.html:11
 #: apps/collections/templates/collections/collection_confirm_delete.html:13
 #: apps/quotes/templates/quotes/quote_confirm_delete.html:10
 #: apps/sources/templates/sources/source_confirm_delete.html:12
 msgid "Yes"
-msgstr ""
+msgstr "Evet"
 
 #: apps/authors/templates/authors/author_confirm_delete.html:12
 #: apps/authors/templates/authors/author_form.html:17
@@ -53,30 +55,30 @@ msgstr ""
 #: apps/sources/templates/sources/source_confirm_delete.html:13
 #: apps/sources/templates/sources/source_form.html:40
 msgid "Cancel"
-msgstr ""
+msgstr "İptal"
 
 #: apps/authors/templates/authors/author_form.html:8
 msgid "Update author"
-msgstr ""
+msgstr "Yazarı güncelle"
 
 #: apps/authors/templates/authors/author_form.html:8
 msgid "Add new author"
-msgstr ""
+msgstr "Yeni yazar ekle"
 
 #: apps/authors/templates/authors/author_form.html:16
 #: apps/collections/templates/collections/collection_form.html:15
 #: apps/quotes/templates/quotes/quote_form.html:15
 #: apps/sources/templates/sources/source_form.html:39
 msgid "Save"
-msgstr ""
+msgstr "Kaydet"
 
 #: apps/authors/templates/authors/author_list.html:6
 msgid "New Author"
-msgstr ""
+msgstr "Yeni Yazar"
 
 #: apps/collections/models.py:13 apps/sources/models.py:12
 msgid "Title"
-msgstr ""
+msgstr "Başlık"
 
 #: apps/collections/models.py:17
 #: apps/collections/templates/collections/collection_detail.html:22
@@ -138,43 +140,43 @@ msgstr ""
 
 #: apps/collections/templates/collections/collection_form.html:11
 msgid "Update collection"
-msgstr ""
+msgstr "Kolleksiyonu güncelle"
 
 #: apps/collections/templates/collections/collection_form.html:11
 msgid "Add new collection"
-msgstr ""
+msgstr "Yeni kolleksiyon ekle"
 
 #: apps/collections/templates/collections/collection_list.html:5
 msgid "New Collection"
-msgstr ""
+msgstr "Yeni Kolleksiyon"
 
 #: apps/collections/templates/collections/collection_list.html:8
 msgid "Your own collections"
-msgstr ""
+msgstr "Sizin kolleksiyonlarınız"
 
 #: apps/collections/templates/collections/collection_list.html:38
 msgid "You are a member of these collections"
-msgstr ""
+msgstr "Şu kolleksiyonların üyesisiniz"
 
 #: apps/quotes/models.py:17 apps/quotes/models.py:24
 msgid "Text"
-msgstr ""
+msgstr "Metin"
 
 #: apps/quotes/models.py:18
 msgid "Voice"
-msgstr ""
+msgstr "Ses"
 
 #: apps/quotes/models.py:19
 msgid "Video"
-msgstr ""
+msgstr "Video"
 
 #: apps/quotes/models.py:23
 msgid "Note type"
-msgstr ""
+msgstr "Not tipi"
 
 #: apps/quotes/models.py:25
 msgid "Video URL"
-msgstr ""
+msgstr "Video Adresi"
 
 #: apps/quotes/models.py:26
 msgid "Sound URL"
@@ -219,38 +221,38 @@ msgstr ""
 
 #: apps/quotes/templates/quotes/quote_confirm_delete.html:7
 msgid "Delete this quote?"
-msgstr ""
+msgstr "Alıntı silinsin mi?"
 
 #: apps/quotes/templates/quotes/quote_form.html:11
 msgid "Update quote"
-msgstr ""
+msgstr "Alıntıyı güncelle"
 
 #: apps/quotes/templates/quotes/quote_form.html:11
 msgid "Add new quote"
-msgstr ""
+msgstr "Yeni alıntı"
 
 #: apps/quotes/templates/quotes/quote_list.html:8
 #: apps/quotes/templates/quotes/quote_list_two_cols.html:10
 #: apps/sources/templates/sources/source_detail.html:12
 msgid "No quotes"
-msgstr ""
+msgstr "Alıntıo yok"
 
 #: apps/quotes/templates/quotes/quote_list_page.html:8
 #: apps/quotes/templates/quotes/quote_list_page.html:9
 msgid "New Quote"
-msgstr ""
+msgstr "Yeni Alıntı"
 
 #: apps/sources/forms.py:21
 msgid "ISBN number must contain only digit-numbers"
-msgstr ""
+msgstr "ISBN numarası sadece rakamlardan oluşmalı"
 
 #: apps/sources/forms.py:25
 msgid "A valid ISBN number is required"
-msgstr ""
+msgstr "Geçerli bir ISBN numarası gerekli"
 
 #: apps/sources/models.py:15
 msgid "Web Address"
-msgstr ""
+msgstr "İnternet Adresi"
 
 #: apps/sources/templates/sources/source_confirm_delete.html:7
 #, python-format
@@ -259,11 +261,13 @@ msgid ""
 "        Delete %(source)s?\n"
 "        "
 msgstr ""
+"\n"
+"%(source)s silinsin mi?"
 
 #: apps/sources/templates/sources/source_detail.html:5
 #: apps/sources/templates/sources/source_list.html:6
 msgid "New Source"
-msgstr ""
+msgstr "Yeni Kaynak"
 
 #: apps/sources/templates/sources/source_detail.html:8
 #, python-format
@@ -312,11 +316,11 @@ msgstr ""
 #: templates/home.html:14 templates/account/login.html:13
 msgid ""
 "If you'd like to help us, please take your time and answer our mini survey."
-msgstr ""
+msgstr "Anketimizi cevaplayarak bize yardımcı olabilirsiniz."
 
 #: templates/home.html:15 templates/account/login.html:14
 msgid "See you soon, thanks in advance!"
-msgstr ""
+msgstr "Yakında görüşmek üzere, teşekkürler!"
 
 #: templates/home.html:16 templates/account/login.html:15
 msgid "Take the survey"
@@ -324,37 +328,37 @@ msgstr "Anketimizi cevaplayın"
 
 #: templates/home.html:19 templates/navbar.html:58
 msgid "Login"
-msgstr ""
+msgstr "Giriş"
 
 #: templates/home.html:20 templates/navbar.html:59
 #: templates/account/signup.html:5 templates/socialaccount/signup.html:5
 #: templates/socialaccount/signup.html:10
 msgid "Signup"
-msgstr ""
+msgstr "Kaydol"
 
 #: templates/home.html:21
 msgid "Forget your password?"
-msgstr ""
+msgstr "Şifrenizi mi unuttunuz?"
 
 #: templates/home.html:23
 msgid "You can also"
-msgstr ""
+msgstr "Ayrıca"
 
 #: templates/navbar.html:20
 msgid "Quotes"
-msgstr ""
+msgstr "Alıntılar"
 
 #: templates/navbar.html:26
 msgid "Collections"
-msgstr ""
+msgstr "Kolleksiyonlar"
 
 #: templates/navbar.html:43
 msgid "Admin"
-msgstr ""
+msgstr "Yönetici"
 
 #: templates/navbar.html:48
 msgid "Change password"
-msgstr ""
+msgstr "Şifre değiştir"
 
 #: templates/navbar.html:51
 msgid "Signout"
@@ -398,15 +402,15 @@ msgstr ""
 
 #: templates/account/email.html:36
 msgid "Re-send Verification"
-msgstr ""
+msgstr "Tekrar Gönder"
 
 #: templates/account/email.html:37 templates/socialaccount/connections.html:34
 msgid "Remove"
-msgstr ""
+msgstr "Kaldır"
 
 #: templates/account/email.html:44
 msgid "Warning:"
-msgstr ""
+msgstr "Uyarı:"
 
 #: templates/account/email.html:44
 msgid ""
