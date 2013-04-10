@@ -1,5 +1,6 @@
 {% load i18n %}
 {% load compress %}
+{% load staticfiles %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -68,23 +69,25 @@
 
     <!-- Javascript
     ================================================== -->
-    {# <script src="http://cdnjs.cloudflare.com/ajax/libs/knockout/2.2.0/knockout-min.js"></script> #}
-    {# <script src="http://cdnjs.cloudflare.com/ajax/libs/knockout.mapping/2.3.3/knockout.mapping.js"></script> #}
-    {% verbatim %}
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/knockout/2.2.0/knockout-min.js"></script>
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/knockout.mapping/2.3.3/knockout.mapping.js"></script>
+
+    {% compress js %}
+    <script src="{{ STATIC_URL }}js/vendor/jquery-1.9.1.js"></script>
+    {% endcompress %}
     <script src="{{ STATIC_URL }}js/vendor/handlebars-1.0.0-rc.3.js"></script>
     <script src="{{ STATIC_URL }}js/vendor/ember-1.0.0-rc.2.js"></script>
-    {% endverbatim %}
 
     {% compress js %}
     {% block js %}
-    <script src="{{ STATIC_URL }}js/vendor/jquery-1.9.1.js"></script>
     <script src="{{ STATIC_URL }}js/vendor/bootstrap.js"></script>
     <script type="text/javascript">
-        var Spuqi = {
+        window.Spuqi = window.Spuqi || {
                 'STATIC_URL': "{{ STATIC_URL }}",
                 'API_URL': "{% url 'api_root' %}"
             };
     </script>
+    {# <script src="{% static 'js/app/main.js' %}"></script> #}
     {% endblock js %}
     {% endcompress %}
 </body>

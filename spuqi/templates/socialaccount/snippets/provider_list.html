@@ -2,29 +2,11 @@
 {% load socialaccount %}
 
 {% for provider in socialaccount.providers %}
-    {% for user_provider in user.socialaccount_set.all %}
-        {% ifnotequal provider.id user_provider.provider  %}
-            <li>
-                <a title="{{ provider.name }}" class="btn {% ifequal provider.id 'twitter'  %} btn-info{% endifequal %}{% ifequal provider.id 'facebook'  %} btn-primary{% endifequal %} btn-block" href="{% provider_login_url provider.id %}">
-                    <i class="icon-{{ provider.id }}"></i>{% blocktrans with provider.name as provider_name %}
-                        Connect with {{ provider_name }}
-                    {% endblocktrans %}
-                </a>
-            </li>
-        {% endifnotequal %}
-    {% endfor %}
-{% endfor %}
-
-{% comment %}
-    <li>
-    <a title="Twitter" class="btn btn-info btn-block" href="{% provider_login_url "twitter" %}">
-        <i class="icon-twitter"></i> {% trans "Connect with Twitter" %}
-    </a>
-</li>
 <li>
-    <a title="Facebook" class="btn btn-primary btn-block" href="{% provider_login_url "facebook" method="js_sdk" %}">
-        <i class="icon-facebook"></i> {% trans "Connect with Facebook" %}
+    <a title="{{ provider.name }}" class="btn {% ifequal provider.id 'twitter'  %} btn-info{% endifequal %}{% ifequal provider.id 'facebook'  %} btn-primary{% endifequal %} btn-block" href="{% provider_login_url provider.id %}">
+        <i class="icon-{{ provider.id }}"></i>{% blocktrans with provider.name as provider_name %}
+            Connect with {{ provider_name }}
+        {% endblocktrans %}
     </a>
 </li>
-
-{% endcomment %}
+{% endfor %}
